@@ -1,3 +1,18 @@
 [submodule "bundle/L9"]
 	path = bundle/L9
 	url = https://github.com/vim-scripts/L9.git
+[submodule "bundle/nerdcommenter"]
+	path = bundle/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "bundle/nerdtree"]
+	path = bundle/nerdtree
+	url = https://github.com/scrooloose/nerdtree.git
+[submodule "bundle/snipmate.vim"]
+	path = bundle/snipmate.vim
+	url = git://github.com/msanders/snipmate.vim.git
+[submodule "bundle/tcomment_vim"]
+	path = bundle/tcomment_vim
+	url = git://github.com/tomtom/tcomment_vim.git
+[submodule "bundle/vim-bundler"]
+	path = bundle/vim-bundler
+	url = git://github.com/tpope/vim-bundler.git
