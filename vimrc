@@ -104,7 +104,7 @@ set backup
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 
-" call pathogen#infect()
+call pathogen#infect()
 " call pathogen#helptags()
 
 let mapleader = ","
