@@ -101,8 +101,8 @@ set expandtab
 set nu
 
 set backup
-set backupdir=~/.vim/backups
-set directory=~/.vim/swaps
+set backupdir=~/.vim/backup//
+set directory=~/.vim/swap//
 
 " call pathogen#infect()
 " call pathogen#helptags()
