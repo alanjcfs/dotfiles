@@ -123,3 +123,5 @@ augroup local_leader
   autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
   autocmd FileType ruby nnoremap <buffer> <localleader>c I#<esc>
 augroup END
+
+colorscheme darkblue
