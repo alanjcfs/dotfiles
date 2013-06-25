@@ -125,3 +125,4 @@ augroup local_leader
 augroup END
 
 colorscheme darkblue
+set list
