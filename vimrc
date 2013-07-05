@@ -95,27 +95,29 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-set tabstop=2
-set shiftwidth=2
-set expandtab
-set nu
+set tabstop=2 "Use two spaces instead of 8
+set shiftwidth=2 "Use two spaces when using >> or <<
+set expandtab "Expand tabs into spaces
+set shiftround "When using >> or << will round to shiftwidth
+set number "Number each line in the file
+set list "List end of line
 
 set backup
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 
 call pathogen#infect()
-" call pathogen#helptags()
+call pathogen#helptags()
 
-let mapleader = ","
+" Mapleader is backslash by default, but setting it here to clarify
+let mapleader = "\\"
 let maplocalleader = "\\"
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-imap <c-d> <esc>ddi
-imap <c-u> <esc>viwUA
-iabbrev adn and
-iabbrev @@    alan@atomsign.net
-abbrev ccopy  Copyright 2013 Alan Fung-Schwarz, all rights reserved.
+nnoremap <leader>l :ls<CR>:b<space>
+inoremap <c-d> <esc>ddi
+inoremap <c-u> <esc>viwUA
+
 inoremap jk <esc>
 augroup local_leader
   autocmd!
@@ -124,5 +126,9 @@ augroup local_leader
   autocmd FileType ruby nnoremap <buffer> <localleader>c I#<esc>
 augroup END
 
+" Corrections and expansions
+iabbrev adn and
+iabbrev @@    alan@atomsign.net
+abbrev ccopy  Copyright 2013 Alan Fung-Schwarz, all rights reserved.
+
 colorscheme darkblue
-set list
