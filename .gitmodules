@@ -40,3 +40,6 @@
 [submodule "bundle/vim-slim"]
 	path = bundle/vim-slim
 	url = git@github.com:slim-template/vim-slim.git
+[submodule "bundle/command-t"]
+	path = bundle/command-t
+	url = git://git.wincent.com/command-t.git
