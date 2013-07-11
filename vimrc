@@ -110,7 +110,7 @@ call pathogen#infect()
 call pathogen#helptags()
 
 " Mapleader is backslash by default, but setting it here to clarify
-let mapleader = "\\"
+let mapleader = ","
 let maplocalleader = "\\"
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
