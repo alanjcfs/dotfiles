@@ -117,6 +117,8 @@ set scrolloff=3	"keep a minimum number of lines above and below cursor
 set backup
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
+set relativenumber
+set undofile
 
 call pathogen#infect()
 "call pathogen#helptags()
