@@ -114,7 +114,8 @@ let mapleader = ","
 let maplocalleader = "\\"
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
-nnoremap <leader>l :ls<CR>:b<space>
+nnoremap <leader>l :ls<cr>:b<space>
+nnoremap <leader>n :NERDTree<cr>
 inoremap <c-d> <esc>ddi
 inoremap <c-u> <esc>viwUA
 
