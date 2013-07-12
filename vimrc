@@ -107,7 +107,7 @@ set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 
 call pathogen#infect()
-call pathogen#helptags()
+"call pathogen#helptags()
 
 " Mapleader is backslash by default, but setting it here to clarify
 let mapleader = ","
