@@ -126,6 +126,7 @@ set tabstop=2	"Use two spaces instead of 8
 set backup
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
+set undodir=~/.vim/undo//
 set undofile
 
 " Mapleader is backslash by default, but setting it here to clarify
