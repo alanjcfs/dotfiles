@@ -95,33 +95,38 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
+set colorcolumn=85
+"set cursorline
 set encoding=utf-8
-"set showmode
-"set showcmd
+set expandtab	"Expand tabs into spaces
+set gcr=n:blinkon0
+"set gdefault
 "set hidden
+"set hlsearch
+set ignorecase
+"set incsearch
+"set laststatus=2
+set list	"List end of line
+set number	"Number each line in the file
+set relativenumber
+"set ruler
+set scrolloff=3	"keep a minimum number of lines above and below cursor
+set shiftround	"When using >> or << will round to shiftwidth
+set shiftwidth=2	"Use two spaces when using >> or <<
+"set showcmd
+"set showmatch
+"set showmode
+set smartcase
+set tabstop=2	"Use two spaces instead of 8
+"set ttyfast
+"set visualbell
 "set wildmenu
 "set wildmode=list:longest
-"set visualbell
-"set cursorline
-"set ttyfast
-"set ruler
-"set laststatus=2
-set tabstop=2	"Use two spaces instead of 8
-set shiftwidth=2	"Use two spaces when using >> or <<
-set expandtab	"Expand tabs into spaces
-set shiftround	"When using >> or << will round to shiftwidth
-set number	"Number each line in the file
-set list	"List end of line
-set scrolloff=3	"keep a minimum number of lines above and below cursor
 
 set backup
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
-set relativenumber
 set undofile
-
-call pathogen#infect()
-"call pathogen#helptags()
 
 " Mapleader is backslash by default, but setting it here to clarify
 let mapleader=","
@@ -135,14 +140,6 @@ inoremap <c-d> <esc>ddi
 inoremap <c-u> <esc>viwUA
 nnoremap / /\v
 vnoremap / /\v
-set ignorecase
-set smartcase
-"set gdefault
-"set incsearch
-"set showmatch
-"set hlsearch
-nnoremap <leader><space> :noh<cr>
-set colorcolumn=85
 
 inoremap jk <esc>
 augroup local_leader
@@ -154,8 +151,11 @@ augroup local_leader
 augroup END
 
 " Corrections and expansions
-iabbrev adn and
 iabbrev @@    alan@atomsign.net
+iabbrev adn and
 abbrev ccopy  Copyright 2013 Alan Fung-Schwarz, all rights reserved.
+
+call pathogen#infect()
+"call pathogen#helptags()
 
 colorscheme darkblue
