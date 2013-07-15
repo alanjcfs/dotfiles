@@ -117,6 +117,7 @@ set shiftwidth=2	"Use two spaces when using >> or <<
 "set showmatch
 "set showmode
 set smartcase
+set smarttab
 set tabstop=2	"Use two spaces instead of 8
 "set ttyfast
 "set visualbell
@@ -138,6 +139,10 @@ nnoremap <leader>l :ls<cr>:b<space>
 nnoremap <leader><space> :noh<cr>
 nnoremap <leader>n :NERDTree<cr>
 nnoremap <leader>t :CtrlP<cr>
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
 inoremap <c-d> <esc>ddi
 inoremap <c-u> <esc>viwUA
 
