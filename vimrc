@@ -160,7 +160,35 @@ iabbrev @@    alan@atomsign.net
 iabbrev adn and
 abbrev ccopy  Copyright 2013 Alan Fung-Schwarz, all rights reserved.
 
-call pathogen#infect()
+filetype off
+
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+Bundle 'gmarik/vundle'
+
+Bundle 'kien/ctrlp.vim'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'wting/rust.vim'
+Bundle 'msanders/snipmate.vim'
+Bundle 'tomtom/tcomment_vim'
+Bundle 'tpope/vim-bundler'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-rake'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'sunaku/vim-ruby-minitest'
+Bundle 'derekwyatt/vim-scala'
+Bundle 'slim-template/vim-slim'
+Bundle 'tpope/vim-surround'
+Bundle 'mattn/zencoding-vim'
+
+Bundle 'nerdtree'
+
+Bundle 'L9'
+
+filetype on
+
+"execute pathogen#infect()
 "call pathogen#helptags()
 
 colorscheme darkblue
