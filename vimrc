@@ -182,7 +182,7 @@ Bundle 'slim-template/vim-slim'
 Bundle 'tpope/vim-surround'
 Bundle 'mattn/zencoding-vim'
 
-Bundle 'nerdtree'
+Bundle 'scrooloose/nerdtree'
 
 Bundle 'L9'
 
