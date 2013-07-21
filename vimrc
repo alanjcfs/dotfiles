@@ -31,12 +31,6 @@ set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
-
-" Don't use Ex mode, use Q for formatting
-map Q gq
-
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
@@ -107,8 +101,8 @@ set ignorecase
 "set incsearch
 "set laststatus=2
 set list	"List end of line
-set number	"Number each line in the file
-set relativenumber
+"set number	"Number each line in the file
+"set relativenumber
 "set ruler
 set scrolloff=3	"keep a minimum number of lines above and below cursor
 set shiftround	"When using >> or << will round to shiftwidth
