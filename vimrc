@@ -179,6 +179,8 @@ Bundle 'tpope/vim-surround'
 Bundle 'mattn/zencoding-vim'
 
 Bundle 'scrooloose/nerdtree'
+Bundle 'flazz/vim-colorschemes'
+Bundle 'Floobits/floobits-vim'
 
 Bundle 'L9'
 
