@@ -117,6 +117,8 @@ set tabstop=2	"Use two spaces instead of 8
 "set visualbell
 "set wildmenu
 "set wildmode=list:longest
+set wrap
+set textwidth=80
 
 set backup
 set backupdir=~/.vim/backup//
