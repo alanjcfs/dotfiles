@@ -89,7 +89,7 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-set colorcolumn=86
+"set colorcolumn=86
 "set cursorline
 set encoding=utf-8
 set expandtab	"Expand tabs into spaces
