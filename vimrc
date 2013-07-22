@@ -189,4 +189,4 @@ filetype on
 "execute pathogen#infect()
 "call pathogen#helptags()
 
-colorscheme darkblue
+colorscheme Tomorrow-Night
