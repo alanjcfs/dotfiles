@@ -1,3 +1,10 @@
 = Dotfiles
 
 This is a starting collection of the dot files I may or may not be accumulating.
+
+.Camp
+[quote, Susan Sontag]
+____
+Many examples of Camp are things which, from a "serious" point of view, are
+either bad art or kitsch.
+____
