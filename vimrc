@@ -145,7 +145,7 @@ inoremap <c-u> <esc>viwUA
 inoremap jk <esc>
 augroup local_leader
   autocmd!
-  autocmd FileType vim set noexpandtab|set tabstop=8
+  autocmd FileType vim,gitconfig set noexpandtab|set tabstop=8
   autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
   autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
   autocmd FileType ruby nnoremap <buffer> <localleader>c I#<esc>
@@ -189,4 +189,4 @@ filetype on
 "execute pathogen#infect()
 "call pathogen#helptags()
 
-colorscheme Tomorrow-Night
+colorscheme darkblue
