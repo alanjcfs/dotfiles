@@ -1,5 +1,7 @@
 = Dotfiles
 
+== Introduction
+
 This is a starting collection of the dot files I may or may not be accumulating.
 
 .Camp
