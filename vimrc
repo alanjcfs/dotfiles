@@ -125,6 +125,7 @@ set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 set undofile
+"set shell=$SHELL\ -l
 
 " Mapleader is backslash by default, but setting it here to clarify
 let mapleader=","
@@ -168,9 +169,9 @@ Bundle 'scrooloose/nerdcommenter'
 Bundle 'wting/rust.vim'
 Bundle 'msanders/snipmate.vim'
 Bundle 'tomtom/tcomment_vim'
-Bundle 'tpope/vim-bundler'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
+Bundle 'tpope/vim-fugitive'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'sunaku/vim-ruby-minitest'
 Bundle 'derekwyatt/vim-scala'
@@ -182,11 +183,14 @@ Bundle 'scrooloose/nerdtree'
 Bundle 'flazz/vim-colorschemes'
 Bundle 'Floobits/floobits-vim'
 
+" Bundle 'tpope/vim-bundler'
 Bundle 'L9'
 
 filetype on
 
 "execute pathogen#infect()
 "call pathogen#helptags()
+
+nnoremap <leader>gg :Ggrep
 
 colorscheme darkblue
