@@ -191,6 +191,9 @@ filetype on
 "execute pathogen#infect()
 "call pathogen#helptags()
 
-nnoremap <leader>gg :Ggrep
+nnoremap <leader>g :Git<space>
+nnoremap <leader>gg :Ggrep<space>
+nnoremap <leader>gb :Gblame<cr>
 
+" set statusline+=%{fugitive#statusline()}
 colorscheme darkblue
