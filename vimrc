@@ -142,27 +142,30 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
+" Alphabetized Vundles
+Bundle 'derekwyatt/vim-scala'
+Bundle 'flazz/vim-colorschemes'
+Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
-Bundle 'scrooloose/nerdcommenter'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'wting/rust.vim'
+Bundle 'mattn/zencoding-vim'
 Bundle 'msanders/snipmate.vim'
+Bundle 'rking/ag.vim'
+Bundle 'scrooloose/nerdcommenter'
+Bundle 'scrooloose/nerdtree'
+Bundle 'slim-template/vim-slim'
+Bundle 'sunaku/vim-ruby-minitest'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
 Bundle 'vim-ruby/vim-ruby'
-Bundle 'sunaku/vim-ruby-minitest'
-Bundle 'derekwyatt/vim-scala'
-Bundle 'slim-template/vim-slim'
 Bundle 'tpope/vim-surround'
-Bundle 'mattn/zencoding-vim'
-
-Bundle 'scrooloose/nerdtree'
+Bundle 'wting/rust.vim'
 Bundle 'flazz/vim-colorschemes'
-" Bundle 'Floobits/floobits-vim'
-
-" Bundle 'tpope/vim-bundler'
+"Bundle 'Floobits/floobits-vim' "Buggy, use Tmux instead?
+" Bundle 'tpope/vim-bundler' "Conflicts with Vundle
 Bundle 'L9'
 
 filetype on
@@ -171,8 +174,10 @@ filetype on
 "call pathogen#helptags()
 
 nnoremap <leader>g :Git<space>
-nnoremap <leader>gg :Ggrep<space>
+nnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>gb :Gblame<cr>
+nnoremap <leader>gc :Gcommit<cr>
+nnoremap <leader>a :Ag<space>
 
 " set statusline+=%{fugitive#statusline()}
 colorscheme darkblue
