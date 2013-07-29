@@ -10,10 +10,6 @@ set ruler		" show the cursor position all the time
 set showcmd		" display incomplete commands
 set incsearch		" do incremental searching
 
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
-
 " In many terminal emulators the mouse works just fine, thus enable it.
 if has('mouse')
   set mouse=a
@@ -106,9 +102,9 @@ set undodir=~/.vim/undo//
 set undofile
 "set shell=$SHELL\ -l
 
-" Mapleader is backslash by default, but setting it here to clarify
+" Mapleader is backslash by default, but changing it to comma
 let mapleader=","
-let maplocalleader="\\"
+let maplocalleader="\\" "Leave local leader at backslash
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>l :ls<cr>:b<space>
@@ -119,7 +115,10 @@ nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-h> <C-W>h
 nnoremap <C-l> <C-W>l
+
+" C-D delete line and insert
 inoremap <c-d> <esc>ddi
+" C-U UPCASE
 inoremap <c-u> <esc>viwUA
 
 inoremap jk <esc>
@@ -145,12 +144,13 @@ Bundle 'gmarik/vundle'
 
 Bundle 'kien/ctrlp.vim'
 Bundle 'scrooloose/nerdcommenter'
+Bundle 'myusuf3/numbers.vim'
 Bundle 'wting/rust.vim'
 Bundle 'msanders/snipmate.vim'
 Bundle 'tomtom/tcomment_vim'
+Bundle 'tpope/vim-fugitive'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
-Bundle 'tpope/vim-fugitive'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'sunaku/vim-ruby-minitest'
 Bundle 'derekwyatt/vim-scala'
@@ -160,7 +160,7 @@ Bundle 'mattn/zencoding-vim'
 
 Bundle 'scrooloose/nerdtree'
 Bundle 'flazz/vim-colorschemes'
-Bundle 'Floobits/floobits-vim'
+" Bundle 'Floobits/floobits-vim'
 
 " Bundle 'tpope/vim-bundler'
 Bundle 'L9'
