@@ -180,5 +180,5 @@ nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>a :Ag<space>
 
 " set statusline+=%{fugitive#statusline()}
-set splitright
+set splitright splitbelow
 colorscheme darkblue
