@@ -164,7 +164,7 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-surround'
 Bundle 'wting/rust.vim'
 Bundle 'flazz/vim-colorschemes'
-"Bundle 'Floobits/floobits-vim' "Buggy, use Tmux instead?
+"Bundle 'Floobits/floobits-vim'
 " Bundle 'tpope/vim-bundler' "Conflicts with Vundle
 Bundle 'L9'
 
@@ -180,4 +180,5 @@ nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>a :Ag<space>
 
 " set statusline+=%{fugitive#statusline()}
+set splitright
 colorscheme darkblue
