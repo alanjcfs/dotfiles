@@ -121,7 +121,6 @@ inoremap <c-d> <esc>ddi
 " C-U UPCASE
 inoremap <c-u> <esc>viwUA
 
-inoremap jk <esc>
 augroup local_leader
   autocmd!
   autocmd FileType vim,gitconfig set noexpandtab|set tabstop=8
@@ -163,10 +162,11 @@ Bundle 'tpope/vim-rake'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-surround'
 Bundle 'wting/rust.vim'
-Bundle 'flazz/vim-colorschemes'
 "Bundle 'Floobits/floobits-vim'
 " Bundle 'tpope/vim-bundler' "Conflicts with Vundle
 Bundle 'L9'
+
+Bundle 'AutoComplPop'
 
 filetype on
 
@@ -181,4 +181,4 @@ nnoremap <leader>a :Ag<space>
 
 " set statusline+=%{fugitive#statusline()}
 set splitright splitbelow
-colorscheme darkblue
+colorscheme 3dglasses
