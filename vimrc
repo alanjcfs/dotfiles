@@ -143,7 +143,7 @@ Bundle 'gmarik/vundle'
 
 " Alphabetized Vundles
 Bundle 'derekwyatt/vim-scala'
-Bundle 'flazz/vim-colorschemes'
+" Bundle 'flazz/vim-colorschemes'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
 Bundle 'myusuf3/numbers.vim'
@@ -181,4 +181,6 @@ nnoremap <leader>a :Ag<space>
 
 " set statusline+=%{fugitive#statusline()}
 set splitright splitbelow
-colorscheme 3dglasses
+
+syntax enable
+colors bluegreen
