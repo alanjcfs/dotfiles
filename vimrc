@@ -100,26 +100,7 @@ set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 set undofile
-"set shell=$SHELL\ -l
-
-" Mapleader is backslash by default, but changing it to comma
-let mapleader=","
-let maplocalleader="\\" "Leave local leader at backslash
-nnoremap <leader>ev :vsplit $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
-nnoremap <leader>l :ls<cr>:b<space>
-nnoremap <leader><space> :noh<cr>
-nnoremap <leader>n :NERDTree<cr>
-nnoremap <leader>t :CtrlP<cr>
-nnoremap <C-j> <C-W>j
-nnoremap <C-k> <C-W>k
-nnoremap <C-h> <C-W>h
-nnoremap <C-l> <C-W>l
-
-" C-D delete line and insert
-inoremap <c-d> <esc>ddi
-" C-U UPCASE
-inoremap <c-u> <esc>viwUA
+set shell=$SHELL\ -l
 
 augroup local_leader
   autocmd!
@@ -170,17 +151,36 @@ Bundle 'AutoComplPop'
 
 filetype on
 
-"execute pathogen#infect()
-"call pathogen#helptags()
+" Mapleader is backslash by default, but changing it to comma
+let mapleader=","
+let maplocalleader="\\" "Leave local leader at backslash
 
+nnoremap <leader>ev :vsplit $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>l :ls<cr>:b<space>
+nnoremap <leader><space> :noh<cr>
+nnoremap <leader>n :NERDTree<cr>
+nnoremap <leader>t :CtrlP<cr>
+nnoremap <C-j> <C-W>j
+nnoremap <C-k> <C-W>k
+nnoremap <C-h> <C-W>h
+nnoremap <C-l> <C-W>l
 nnoremap <leader>g :Git<space>
 nnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gc :Gcommit<cr>
-nnoremap <leader>a :Ag<space>
+nnoremap <leader>s :Ag<space>
+nnoremap <leader>cd :cd %:p:h<cr>
+
+" C-D delete line and insert
+inoremap <c-d> <esc>ddi
+" C-U UPCASE
+inoremap <c-u> <esc>viwUA
+
 
 " set statusline+=%{fugitive#statusline()}
 set splitright splitbelow
+set clipboard=unnamed
 
 syntax enable
 colors bluegreen
