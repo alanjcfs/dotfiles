@@ -180,7 +180,7 @@ inoremap <c-u> <esc>viwUA
 
 " set statusline+=%{fugitive#statusline()}
 set splitright splitbelow
-set clipboard=unnamed
+set clipboard^=unnamed,unnamedplus
 
 syntax enable
 colors bluegreen
