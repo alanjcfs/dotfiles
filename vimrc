@@ -93,31 +93,33 @@ if !exists(":DiffOrig")
 		  \ | wincmd p | diffthis
 endif
 
-"set colorcolumn=86
-"set cursorline
+" set colorcolumn=86	" Set character-width column for length indicator
+set cursorline		" Set underline to indicate location of cursor
 set encoding=utf-8
-set expandtab	"Expand tabs into spaces
-set gcr=n:blinkon0
-"set gdefault
-"set hidden
-"set hlsearch
-set ignorecase
-"set laststatus=2
-set list	"List end of line
-"set number	"Number each line in the file
-"set relativenumber
-set scrolloff=3	"keep a minimum number of lines above and below cursor
-set shiftround	"When using >> or << will round to shiftwidth
-set shiftwidth=2	"Use two spaces when using >> or <<
-"set showmatch
-"set showmode
+set gcr=n:blinkon0	" Disable blinking
+" set hidden		" Permit switching buffer without saving a file
+set ignorecase		" When searching, ignore case
+" set laststatus=2	" 0: Never show status; 1: only with two windows, 2: always
+" set list		" List end of line and special characters
+" set number		" Number each line in the file
+" set relativenumber	"
+set scrolloff=3		" Keep a minimum number of lines above and below cursor
+" set showmatch
+" set showmode
 set smartcase
+
+" Indentation-related settings
+set shiftround		" When using >> or << will round to shiftwidth
+set shiftwidth=2	" Use two spaces when using >> or <<
+" set softtabstop=8	" Transform 8 spaces into tabs (when noexpandtab)
+set expandtab		" Expand tabs into spaces
 set smarttab
-set tabstop=2	"Use two spaces instead of 8
-"set ttyfast
-"set visualbell
-"set wildmenu
-"set wildmode=list:longest
+set tabstop=2		" Use two spaces instead of 8
+
+" set ttyfast
+" set visualbell
+set wildmenu		" Show possible expansions above the command line
+set wildmode=list:longest,full
 set wrap
 set textwidth=80
 
@@ -129,7 +131,7 @@ set shell=$SHELL\ -l
 
 augroup local_leader
 	autocmd!
-	autocmd FileType vim,gitconfig set noexpandtab|set tabstop=8
+	autocmd FileType vim,gitconfig set noexpandtab|set tabstop=8|set shiftwidth=8
 	autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
 	autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
 	autocmd FileType ruby nnoremap <buffer> <localleader>c I#<esc>
@@ -149,16 +151,15 @@ Bundle 'gmarik/vundle'
 
 " Alphabetized Vundles
 Bundle 'derekwyatt/vim-scala'
-" Bundle 'flazz/vim-colorschemes'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'kien/ctrlp.vim'
 Bundle 'myusuf3/numbers.vim'
 Bundle 'wting/rust.vim'
-Bundle 'mattn/emmet-vim'
 Bundle 'msanders/snipmate.vim'
 Bundle 'rking/ag.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
+Bundle 'scrooloose/syntastic'
 Bundle 'slim-template/vim-slim'
 Bundle 'sunaku/vim-ruby-minitest'
 Bundle 'tomtom/tcomment_vim'
@@ -168,17 +169,22 @@ Bundle 'tpope/vim-rake'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-surround'
 Bundle 'wting/rust.vim'
-"Bundle 'Floobits/floobits-vim'
-" Bundle 'tpope/vim-bundler' "Conflicts with Vundle
-Bundle 'L9'
 
+" Not on Github
+Bundle 'L9'
 Bundle 'AutoComplPop'
+
+" Disabled
+" Bundle 'flazz/vim-colorschemes'
+" Bundle 'Floobits/floobits-vim'
+" Bundle 'mattn/emmet-vim'
+" Bundle 'tpope/vim-bundler'	"Conflicts with Vundle
 
 filetype on
 
-" Mapleader is backslash by default, but changing it to comma
+" Set leader to comma, local leader to backslash
 let mapleader=","
-let maplocalleader="\\" "Leave local leader at backslash
+let maplocalleader="\\"
 
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
