@@ -147,31 +147,37 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
-" Alphabetized Vundles
+" Syntaces
 Bundle 'derekwyatt/vim-scala'
-" Bundle 'flazz/vim-colorschemes'
+Bundle 'dagwieers/asciidoc-vim'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'wting/rust.vim'
+Bundle 'slim-template/vim-slim'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-rake'
+Bundle 'vim-ruby/vim-ruby'
+
+" Plugins
 Bundle 'kien/ctrlp.vim'
 Bundle 'myusuf3/numbers.vim'
-Bundle 'wting/rust.vim'
 Bundle 'mattn/emmet-vim'
 Bundle 'msanders/snipmate.vim'
 Bundle 'rking/ag.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
-Bundle 'slim-template/vim-slim'
 Bundle 'sunaku/vim-ruby-minitest'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-rake'
-Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-surround'
-Bundle 'wting/rust.vim'
-"Bundle 'Floobits/floobits-vim'
-" Bundle 'tpope/vim-bundler' "Conflicts with Vundle
-Bundle 'L9'
 
+" Themes
+" Bundle 'flazz/vim-colorschemes'
+
+" Bundle 'Floobits/floobits-vim'
+" Bundle 'tpope/vim-bundler' "Conflicts with Vundle
+
+" Non-Github Plugins
+Bundle 'L9'
 Bundle 'AutoComplPop'
 
 filetype on
