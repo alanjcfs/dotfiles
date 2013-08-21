@@ -149,26 +149,29 @@ call vundle#rc()
 
 Bundle 'gmarik/vundle'
 
-" Alphabetized Vundles
+" Syntaces
 Bundle 'derekwyatt/vim-scala'
+Bundle 'dagwieers/asciidoc-vim'
 Bundle 'kchmck/vim-coffee-script'
+Bundle 'wting/rust.vim'
+Bundle 'slim-template/vim-slim'
+Bundle 'tpope/vim-rails'
+Bundle 'tpope/vim-rake'
+Bundle 'vim-ruby/vim-ruby'
+Bundle 'sunaku/vim-ruby-minitest'
+
+" Plugins
 Bundle 'kien/ctrlp.vim'
 Bundle 'myusuf3/numbers.vim'
-Bundle 'wting/rust.vim'
+Bundle 'mattn/emmet-vim'
 Bundle 'msanders/snipmate.vim'
 Bundle 'rking/ag.vim'
 Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
-Bundle 'slim-template/vim-slim'
-Bundle 'sunaku/vim-ruby-minitest'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-fugitive'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-rake'
-Bundle 'vim-ruby/vim-ruby'
 Bundle 'tpope/vim-surround'
-Bundle 'wting/rust.vim'
 
 " Not on Github
 Bundle 'L9'
