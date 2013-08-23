@@ -150,7 +150,6 @@ call vundle#rc()
 Bundle 'gmarik/vundle'
 
 " Syntaces
-Bundle 'derekwyatt/vim-scala'
 Bundle 'dagwieers/asciidoc-vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'wting/rust.vim'
@@ -159,6 +158,8 @@ Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'sunaku/vim-ruby-minitest'
+Bundle 'derekwyatt/vim-scala'
+Bundle 'timcharper/textile.vim'
 
 " Plugins
 Bundle 'kien/ctrlp.vim'
