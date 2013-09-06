@@ -198,6 +198,7 @@ nnoremap <leader>l :ls<cr>:b<space>
 nnoremap <leader><space> :noh<cr>
 nnoremap <leader>n :NERDTree<cr>
 nnoremap <leader>t :CtrlP<cr>
+nnoremap <leader>p :CtrlP<cr>
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-h> <C-W>h
@@ -206,7 +207,7 @@ nnoremap <leader>g :Git<space>
 nnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gc :Gcommit<cr>
-nnoremap <leader>s :Ag<space>
+nnoremap <leader>a :Ag<space>
 nnoremap <leader>cd :cd %:p:h<cr>
 
 " C-D delete line and insert
