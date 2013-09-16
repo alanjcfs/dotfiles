@@ -164,10 +164,9 @@ Bundle 'timcharper/textile.vim'
 " Plugins
 Bundle 'kien/ctrlp.vim'
 Bundle 'myusuf3/numbers.vim'
-Bundle 'mattn/emmet-vim'
+" Bundle 'mattn/emmet-vim'	" This is for HTML editing.
 Bundle 'msanders/snipmate.vim'
 Bundle 'rking/ag.vim'
-Bundle 'scrooloose/nerdcommenter'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
 Bundle 'tomtom/tcomment_vim'
@@ -178,13 +177,13 @@ Bundle 'tpope/vim-surround'
 
 " Not on Github
 Bundle 'L9'
-Bundle 'AutoComplPop'
 
 " Disabled
+" Bundle 'scrooloose/nerdcommenter'	" Already have tcomment_vim
 " Bundle 'flazz/vim-colorschemes'
 " Bundle 'Floobits/floobits-vim'
-" Bundle 'mattn/emmet-vim'
 " Bundle 'tpope/vim-bundler'	"Conflicts with Vundle
+" Bundle 'AutoComplPop'
 
 filetype on
 
