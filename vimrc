@@ -206,6 +206,7 @@ nnoremap <leader>g :Git<space>
 nnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gc :Gcommit<cr>
+nnoremap <leader>gg :Ggrep<cr>
 nnoremap <leader>a :Ag<space>
 nnoremap <leader>cd :cd %:p:h<cr>
 
