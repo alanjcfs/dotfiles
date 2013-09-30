@@ -147,28 +147,30 @@ filetype off
 set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 
+" Vundle, where the magic happens.
 Bundle 'gmarik/vundle'
 
-" Syntaces
+" Syntaces -- Ordered by name of syntaces highlighted, not username.
 Bundle 'dagwieers/asciidoc-vim'
-Bundle 'kchmck/vim-coffee-script'
 Bundle 'wting/rust.vim'
+Bundle 'timcharper/textile.vim'
+Bundle 'kchmck/vim-coffee-script'
 Bundle 'slim-template/vim-slim'
 Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'sunaku/vim-ruby-minitest'
 Bundle 'derekwyatt/vim-scala'
-Bundle 'timcharper/textile.vim'
 
-" Plugins
+" Plugins -- Ordered by name of plugins, not username.
 Bundle 'kien/ctrlp.vim'
 Bundle 'myusuf3/numbers.vim'
-" Bundle 'mattn/emmet-vim'	" This is for HTML editing.
+" Bundle 'mattn/emmet-vim'		" This is for HTML editing
 Bundle 'msanders/snipmate.vim'
 Bundle 'rking/ag.vim'
 Bundle 'scrooloose/nerdtree'
 Bundle 'scrooloose/syntastic'
+Bundle 'majutsushi/tagbar'
 Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'xolox/vim-misc'
@@ -180,9 +182,9 @@ Bundle 'L9'
 
 " Disabled
 " Bundle 'scrooloose/nerdcommenter'	" Already have tcomment_vim
-" Bundle 'flazz/vim-colorschemes'
-" Bundle 'Floobits/floobits-vim'
-" Bundle 'tpope/vim-bundler'	"Conflicts with Vundle
+" Bundle 'flazz/vim-colorschemes'	" Interfered with Erik's colorschemes
+" Bundle 'Floobits/floobits-vim'	" Not fully baked
+" Bundle 'tpope/vim-bundler'		" Conflicts with Vundle
 " Bundle 'AutoComplPop'
 
 filetype on
@@ -198,6 +200,8 @@ nnoremap <leader><space> :noh<cr>
 nnoremap <leader>n :NERDTree<cr>
 nnoremap <leader>t :CtrlP<cr>
 nnoremap <leader>p :CtrlP<cr>
+nnoremap <leader>. :CtrlPTag<cr>
+nnoremap <leader>b :TagbarToggle<cr>
 nnoremap <C-j> <C-W>j
 nnoremap <C-k> <C-W>k
 nnoremap <C-h> <C-W>h
