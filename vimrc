@@ -175,6 +175,7 @@ Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-fugitive'
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-notes'
+Bundle 'tpope/vim-repeat'
 Bundle 'tpope/vim-surround'
 
 " Not on Github
