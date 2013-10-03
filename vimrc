@@ -165,6 +165,8 @@ Bundle 'derekwyatt/vim-scala'
 " Plugins -- Ordered by name of plugins, not username.
 " CtrlP  Allow opening files
 Bundle 'kien/ctrlp.vim'
+" Show status in gutter
+Bundle 'airblade/vim-gitgutter'
 " Switch between relative and line number
 Bundle 'myusuf3/numbers.vim'
 " Supposed to be a copy of Textmate Snippets
