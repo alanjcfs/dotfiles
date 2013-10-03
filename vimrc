@@ -230,7 +230,7 @@ inoremap <c-d> <esc>ddi
 " C-U UPCASE
 "inoremap <c-u> <esc>viwUA
 
-set statusline+=%{fugitive#statusline()}
+set statusline+=%f\ %{fugitive#statusline()}
 set splitright splitbelow
 set clipboard^=unnamed,unnamedplus
 
