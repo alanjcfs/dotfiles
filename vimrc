@@ -163,30 +163,40 @@ Bundle 'sunaku/vim-ruby-minitest'
 Bundle 'derekwyatt/vim-scala'
 
 " Plugins -- Ordered by name of plugins, not username.
+" CtrlP  Allow opening files
 Bundle 'kien/ctrlp.vim'
+" Switch between relative and line number
 Bundle 'myusuf3/numbers.vim'
-" Bundle 'mattn/emmet-vim'		" This is for HTML editing
+" Supposed to be a copy of Textmate Snippets
 Bundle 'msanders/snipmate.vim'
+" Use Silver Searcher in Vim
 Bundle 'rking/ag.vim'
+" Show directories in Vim
 Bundle 'scrooloose/nerdtree'
+" Syntax Checker
 Bundle 'scrooloose/syntastic'
+" Show using tags where methods defined
 Bundle 'majutsushi/tagbar'
+" Quick commenting with gc
 Bundle 'tomtom/tcomment_vim'
+" Gdiff, Gwrite, Ggrep, etc.
 Bundle 'tpope/vim-fugitive'
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-notes'
+" Allow repeating of plugin commands
 Bundle 'tpope/vim-repeat'
+" Surround with S or change with cs
 Bundle 'tpope/vim-surround'
 
 " Not on Github
 Bundle 'L9'
 
 " Disabled
-" Bundle 'scrooloose/nerdcommenter'	" Already have tcomment_vim
 " Bundle 'flazz/vim-colorschemes'	" Interfered with Erik's colorschemes
 " Bundle 'Floobits/floobits-vim'	" Not fully baked
 " Bundle 'tpope/vim-bundler'		" Conflicts with Vundle
 " Bundle 'AutoComplPop'
+" Bundle 'mattn/emmet-vim'		" This is for HTML editing
 
 filetype on
 
@@ -220,7 +230,7 @@ inoremap <c-d> <esc>ddi
 " C-U UPCASE
 "inoremap <c-u> <esc>viwUA
 
-" set statusline+=%{fugitive#statusline()}
+set statusline+=%{fugitive#statusline()}
 set splitright splitbelow
 set clipboard^=unnamed,unnamedplus
 
