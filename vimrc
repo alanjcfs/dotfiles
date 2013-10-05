@@ -182,6 +182,7 @@ Bundle 'majutsushi/tagbar'
 " Quick commenting with gc
 Bundle 'tomtom/tcomment_vim'
 " Gdiff, Gwrite, Ggrep, etc.
+Bundle 'flazz/vim-colorschemes'
 Bundle 'tpope/vim-fugitive'
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-notes'
@@ -194,7 +195,6 @@ Bundle 'tpope/vim-surround'
 Bundle 'L9'
 
 " Disabled
-" Bundle 'flazz/vim-colorschemes'	" Interfered with Erik's colorschemes
 " Bundle 'Floobits/floobits-vim'	" Not fully baked
 " Bundle 'tpope/vim-bundler'		" Conflicts with Vundle
 " Bundle 'AutoComplPop'
@@ -226,6 +226,8 @@ nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>gg :Ggrep<space>
 nnoremap <leader>a :Ag<space>
 nnoremap <leader>cd :cd %:p:h<cr>
+nnoremap <F3> :NumbersToggle<cr>
+nnoremap <F4> :NumbersOnOff<cr>
 
 " C-D delete line and insert
 inoremap <c-d> <esc>ddi
@@ -237,4 +239,5 @@ set splitright splitbelow
 set clipboard^=unnamed,unnamedplus
 
 syntax enable
-colors bluegreen
+" colorscheme bluegreen
+colorscheme dark-ruby
