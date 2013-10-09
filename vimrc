@@ -182,8 +182,8 @@ Bundle 'majutsushi/tagbar'
 " Quick commenting with gc
 Bundle 'tomtom/tcomment_vim'
 " Gdiff, Gwrite, Ggrep, etc.
-Bundle 'flazz/vim-colorschemes'
 Bundle 'tpope/vim-fugitive'
+" Notetaking
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-notes'
 " Allow repeating of plugin commands
@@ -241,4 +241,4 @@ set clipboard^=unnamed,unnamedplus
 
 syntax enable
 " colorscheme bluegreen
-colorscheme dark-ruby
+colorscheme Tomorrow-Night-Bright
