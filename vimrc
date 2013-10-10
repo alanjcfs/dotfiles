@@ -191,6 +191,8 @@ Bundle 'xolox/vim-notes'
 Bundle 'tpope/vim-repeat'
 " Surround with S or change with cs
 Bundle 'tpope/vim-surround'
+" Vim-Tmux Integration so we don't have to remember how to go left and right.
+Bundle 'christoomey/vim-tmux-navigator'
 
 " Not on Github
 Bundle 'L9'
@@ -216,10 +218,11 @@ nnoremap <leader>t :CtrlP<cr>
 nnoremap <leader>p :CtrlP<cr>
 nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader>b :TagbarToggle<cr>
-nnoremap <C-j> <C-W>j
-nnoremap <C-k> <C-W>k
-nnoremap <C-h> <C-W>h
-nnoremap <C-l> <C-W>l
+" This mapping isn't necessary with vim-tmux-navigator
+" nnoremap <C-j> <C-W>j
+" nnoremap <C-k> <C-W>k
+" nnoremap <C-h> <C-W>h
+" nnoremap <C-l> <C-W>l
 nnoremap <leader>g :Git<space>
 nnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>gb :Gblame<cr>
