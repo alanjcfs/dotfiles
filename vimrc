@@ -135,6 +135,7 @@ augroup local_leader
 	autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
 	autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
 	autocmd FileType ruby nnoremap <buffer> <localleader>c I#<esc>
+	autocmd BufRead,BufNewFile *.adoc,*.asciidoc set filetype=asciidoc
 augroup END
 
 " Corrections and expansions
