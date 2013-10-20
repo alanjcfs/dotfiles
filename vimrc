@@ -239,7 +239,7 @@ inoremap <c-d> <esc>ddi
 "inoremap <c-u> <esc>viwUA
 "
 " set statusline=%f%M\ %{fugitive#statusline()}
-set statusline=%<%f%M\ %{fugitive#statusline()}\ %h%r%=%-14.(%l,%c%V%)\ %P
+set statusline=%<%f%m\ %h%r%=%-14.(%l,%c%V%)\ %P
 set splitright splitbelow
 set clipboard^=unnamed,unnamedplus
 
