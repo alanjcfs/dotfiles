@@ -170,8 +170,6 @@ Bundle 'kien/ctrlp.vim'
 Bundle 'airblade/vim-gitgutter'
 " Switch between relative and line number
 Bundle 'myusuf3/numbers.vim'
-" Supposed to be a copy of Textmate Snippets
-Bundle 'msanders/snipmate.vim'
 " Use Silver Searcher in Vim
 Bundle 'rking/ag.vim'
 " Show directories in Vim
@@ -182,6 +180,8 @@ Bundle 'scrooloose/syntastic'
 Bundle 'majutsushi/tagbar'
 " Quick commenting with gc
 Bundle 'tomtom/tcomment_vim'
+" Endwise, auto ending if in Ruby
+Bundle 'tpope/vim-endwise'
 " Gdiff, Gwrite, Ggrep, etc.
 Bundle 'tpope/vim-fugitive'
 " Notetaking
@@ -189,6 +189,11 @@ Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-notes'
 " Allow repeating of plugin commands
 Bundle 'tpope/vim-repeat'
+" SnipMate
+Bundle 'tomtom/tlib_vim'
+Bundle 'MarcWeber/vim-addon-mw-utils'
+Bundle 'garbas/vim-snipmate'
+Bundle 'honza/vim-snippets'
 " Surround with S or change with cs
 Bundle 'tpope/vim-surround'
 " Vim-Tmux Integration so we don't have to remember how to go left and right.
@@ -196,12 +201,16 @@ Bundle 'christoomey/vim-tmux-navigator'
 
 " Not on Github
 Bundle 'L9'
+Bundle 'Rename'
+" Bundle 'AutoComplPop'
 
-" Disabled
+"   Disabled
 " Bundle 'Floobits/floobits-vim'	" Not fully baked
 " Bundle 'tpope/vim-bundler'		" Conflicts with Vundle
-" Bundle 'AutoComplPop'
 " Bundle 'mattn/emmet-vim'		" This is for HTML editing
+"   Supposed to be a copy of Textmate Snippets
+" Bundle 'honza/vim-snippets'
+" Bundle 'SirVer/ultisnips'
 
 filetype on
 
