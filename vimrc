@@ -120,6 +120,7 @@ set tabstop=2		" Use two spaces instead of 8
 " set visualbell
 set wildmenu		" Show possible expansions above the command line
 set wildmode=list:longest,full
+set wildignore+=*/tmp/*
 set wrap
 set textwidth=80
 
@@ -157,30 +158,30 @@ Bundle 'wting/rust.vim'
 Bundle 'timcharper/textile.vim'
 Bundle 'kchmck/vim-coffee-script'
 Bundle 'slim-template/vim-slim'
-Bundle 'tpope/vim-rails'
+" Bundle 'tpope/vim-rails'
 Bundle 'tpope/vim-rake'
 Bundle 'vim-ruby/vim-ruby'
 Bundle 'sunaku/vim-ruby-minitest'
 Bundle 'derekwyatt/vim-scala'
 
 " Plugins -- Ordered by name of plugins, not username.
-" CtrlP  Allow opening files
+" CtrlP		Allow opening files
 Bundle 'kien/ctrlp.vim'
-" Show status in gutter
+" Git		Status in gutter
 Bundle 'airblade/vim-gitgutter'
-" Switch between relative and line number
+" Numbers	Relative Numbers
 Bundle 'myusuf3/numbers.vim'
-" Use Silver Searcher in Vim
+" Ag		Silver Searcher
 Bundle 'rking/ag.vim'
-" Show directories in Vim
+" NERDtree	Directory Navigation (Alternative to Netrw)
 Bundle 'scrooloose/nerdtree'
-" Syntax Checker
+" Syntastic	Syntax Checker
 Bundle 'scrooloose/syntastic'
-" Show using tags where methods defined
+" Tagbar	Show location of defined methods
 Bundle 'majutsushi/tagbar'
-" Quick commenting with gc
+" Tcomment	Use gcc to comment a line
 Bundle 'tomtom/tcomment_vim'
-" Endwise, auto ending if in Ruby
+" Endwise	Ruby auto-end
 Bundle 'tpope/vim-endwise'
 " Gdiff, Gwrite, Ggrep, etc.
 Bundle 'tpope/vim-fugitive'
@@ -194,9 +195,9 @@ Bundle 'tomtom/tlib_vim'
 Bundle 'MarcWeber/vim-addon-mw-utils'
 Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
-" Surround with S or change with cs
+" Surround	Surround S or change with cs
 Bundle 'tpope/vim-surround'
-" Vim-Tmux Integration so we don't have to remember how to go left and right.
+" Vim-Tmux	Integration so we don't have to remember how to go left and right.
 Bundle 'christoomey/vim-tmux-navigator'
 
 " Not on Github
@@ -215,8 +216,8 @@ Bundle 'Rename'
 filetype on
 
 " Set leader to comma, local leader to backslash
-let mapleader=","
-let maplocalleader="\\"
+" let mapleader=","
+" let maplocalleader="\\"
 
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
