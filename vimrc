@@ -249,6 +249,6 @@ set clipboard^=unnamed,unnamedplus
 syntax enable
 " colorscheme bluegreen
 " colorscheme Tomorrow-Night-Bright
-set background=dark
-let g:solarized_termcolors=256
+" set background=dark
+" let g:solarized_termcolors=256
 colorscheme candy
