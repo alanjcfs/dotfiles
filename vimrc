@@ -214,7 +214,8 @@ Bundle 'L9'
 filetype on
 
 let g:ctrlp_custom_ignore = {
-	\ 'dir': '\v[\/]\.(git|hg|svn)$\'
+	\ 'dir': '\v[\/]\.(tags)$',
+	\ 'file': '\.\(exe\|png\|psd\)$',
 	\ }
 
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
