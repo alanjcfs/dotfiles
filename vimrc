@@ -203,22 +203,19 @@ Bundle 'christoomey/vim-tmux-navigator'
 
 " Not on Github
 Bundle 'L9'
-Bundle 'Rename'
+" Bundle 'Rename'
 " Bundle 'AutoComplPop'
 
 "   Disabled
 " Bundle 'Floobits/floobits-vim'	" Not fully baked
 " Bundle 'tpope/vim-bundler'		" Conflicts with Vundle
 " Bundle 'mattn/emmet-vim'		" This is for HTML editing
-"   Supposed to be a copy of Textmate Snippets
-" Bundle 'honza/vim-snippets'
-" Bundle 'SirVer/ultisnips'
 
 filetype on
 
-" Set leader to comma, local leader to backslash
-" let mapleader=","
-" let maplocalleader="\\"
+let g:ctrlp_custom_ignore = {
+	\ 'dir': '\v[\/]\.(git|hg|svn)$\'
+	\ }
 
 nnoremap <leader>ev :vsplit $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
@@ -226,14 +223,8 @@ nnoremap <leader>l :ls<cr>:b<space>
 nnoremap <leader><space> :noh<cr>
 nnoremap <leader>n :NERDTree<cr>
 nnoremap <leader>t :CtrlP<cr>
-nnoremap <leader>p :CtrlP<cr>
 nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader>b :TagbarToggle<cr>
-" This mapping isn't necessary with vim-tmux-navigator
-" nnoremap <C-j> <C-W>j
-" nnoremap <C-k> <C-W>k
-" nnoremap <C-h> <C-W>h
-" nnoremap <C-l> <C-W>l
 nnoremap <leader>g :Git<space>
 nnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>gb :Gblame<cr>
@@ -248,7 +239,7 @@ nnoremap <F4> :NumbersOnOff<cr>
 inoremap <c-d> <esc>ddi
 " C-U UPCASE
 "inoremap <c-u> <esc>viwUA
-"
+
 " set statusline=%f%M\ %{fugitive#statusline()}
 set statusline=%<%f%m\ %h%r%=%-14.(%l,%c%V%)\ %P
 set splitright splitbelow
