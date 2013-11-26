@@ -211,7 +211,7 @@ Bundle 'L9'
 " Bundle 'mattn/emmet-vim'		" This is for HTML editing
 
 " Themes
-Bundle 'altercation/vim-colors-solarized'
+" Bundle 'altercation/vim-colors-solarized'
 
 let g:ctrlp_custom_ignore = {
 	\ 'dir': '\v[\/]\.(tags)$',
