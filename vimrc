@@ -7,6 +7,13 @@
 "  for MS-DOS and Win32:  $VIM\_vimrc
 "	    for OpenVMS:  sys$login:.vimrc
 
+" Set up Vundle
+set rtp+=~/.vim/bundle/vundle/
+call vundle#rc()
+
+" Vundle, where the magic happens.
+Bundle 'gmarik/vundle'
+
 " When started as "evim", evim.vim will already have done these settings.
 if v:progname =~? "evim"
   finish
@@ -133,9 +140,6 @@ set shell=$SHELL\ -l
 augroup local_leader
 	autocmd!
 	autocmd FileType vim,gitconfig set noexpandtab|set tabstop=8|set shiftwidth=8
-	autocmd FileType javascript nnoremap <buffer> <localleader>c I//<esc>
-	autocmd FileType python nnoremap <buffer> <localleader>c I#<esc>
-	autocmd FileType ruby nnoremap <buffer> <localleader>c I#<esc>
 	autocmd BufRead,BufNewFile *.adoc,*.asciidoc set filetype=asciidoc
 augroup END
 
@@ -143,14 +147,6 @@ augroup END
 iabbrev @@    alan@atomsign.net
 iabbrev adn and
 abbrev ccopy  Copyright 2013 Alan Fung-Schwarz, all rights reserved.
-
-filetype off
-
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-
-" Vundle, where the magic happens.
-Bundle 'gmarik/vundle'
 
 " Syntaces -- Ordered by name of syntaces highlighted, not username.
 Bundle 'dagwieers/asciidoc-vim'
@@ -179,6 +175,8 @@ Bundle 'rking/ag.vim'
 Bundle 'scrooloose/nerdtree'
 " Syntastic	Syntax Checker
 Bundle 'scrooloose/syntastic'
+" Tabular
+Bundle 'godlygeek/tabular'
 " Tagbar	Show location of defined methods
 Bundle 'majutsushi/tagbar'
 " Tcomment	Use gcc to comment a line
@@ -214,8 +212,6 @@ Bundle 'L9'
 
 " Themes
 Bundle 'altercation/vim-colors-solarized'
-
-filetype on
 
 let g:ctrlp_custom_ignore = {
 	\ 'dir': '\v[\/]\.(tags)$',
