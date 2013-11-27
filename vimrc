@@ -86,9 +86,10 @@ if has("autocmd")
   augroup END
 
   augroup local_leader
-    autocmd FileType text,gitconfig set noexpandtab|set tabstop=8|set shiftwidth=8
-    autocmd BufRead,BufNewFile *.md set filetype=markdown
-    autocmd BufRead,BufNewFile *.adoc,*.asciidoc set filetype=asciidoc
+    autocmd FileType text,gitconfig setlocal noexpandtab|setlocal tabstop=8|setlocal shiftwidth=8
+    autocmd FileType gitcommit setlocal textwidth=72
+    autocmd BufRead,BufNewFile *.md setlocal filetype=markdown
+    autocmd BufRead,BufNewFile *.adoc,*.asciidoc setlocal filetype=asciidoc
   augroup END
 
 else
@@ -134,7 +135,7 @@ set wildmenu		" Show possible expansions above the command line
 set wildmode=list:longest,full
 set wildignore+=*/tmp/*
 set wrap
-set textwidth=80
+setlocal textwidth=80
 
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
