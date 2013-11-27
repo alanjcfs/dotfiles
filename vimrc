@@ -73,7 +73,6 @@ if has("autocmd")
 
   " For all text files set 'textwidth' to 78 characters.
   autocmd FileType text setlocal textwidth=78
-
   " When editing a file, always jump to the last known cursor position.
   " Don't do it when the position is invalid or when inside an event handler
   " (happens when dropping a file on gvim).
@@ -84,6 +83,12 @@ if has("autocmd")
     \   exe "normal! g`\"" |
     \ endif
 
+  augroup END
+
+  augroup local_leader
+    autocmd FileType text,gitconfig set noexpandtab|set tabstop=8|set shiftwidth=8
+    autocmd BufRead,BufNewFile *.md set filetype=markdown
+    autocmd BufRead,BufNewFile *.adoc,*.asciidoc set filetype=asciidoc
   augroup END
 
 else
@@ -136,12 +141,6 @@ set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
 set undofile
 set shell=$SHELL\ -l
-
-augroup local_leader
-	autocmd!
-	autocmd FileType vim,gitconfig set noexpandtab|set tabstop=8|set shiftwidth=8
-	autocmd BufRead,BufNewFile *.adoc,*.asciidoc set filetype=asciidoc
-augroup END
 
 " Corrections and expansions
 iabbrev @@    alan@atomsign.net
