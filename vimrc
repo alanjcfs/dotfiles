@@ -246,6 +246,8 @@ set statusline=%<%f%m\ %h%r%=%-14.(%l,%c%V%)\ %P
 set splitright splitbelow
 set clipboard^=unnamed,unnamedplus
 
+let g:enable_numbers = 0
+
 syntax enable
 " colorscheme bluegreen
 " colorscheme Tomorrow-Night-Bright
