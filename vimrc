@@ -135,7 +135,7 @@ set wildmenu		" Show possible expansions above the command line
 set wildmode=list:longest,full
 set wildignore+=*/tmp/*
 set wrap
-setlocal textwidth=80
+setlocal textwidth=78
 
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
