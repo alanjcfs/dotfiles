@@ -247,7 +247,7 @@ inoremap <c-d> <esc>ddi
 set statusline=%<%f%m\ %h%r%=%-14.(%l,%c%V%)\ %P
 set splitright splitbelow
 set clipboard^=unnamed,unnamedplus
-set listchars+=tab:»·,trail:·
+set listchars=tab:»·,trail:·,nbsp:_
 set list
 
 " let g:enable_numbers = 0
