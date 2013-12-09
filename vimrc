@@ -42,7 +42,7 @@ Bundle 'kien/ctrlp.vim'
 " Git		Status in gutter
 Bundle 'airblade/vim-gitgutter'
 " Numbers	Relative Numbers
-Bundle 'myusuf3/numbers.vim'
+" Bundle 'myusuf3/numbers.vim'
 " Ag		Silver Searcher
 Bundle 'rking/ag.vim'
 " NERDtree	Directory Navigation (Alternative to Netrw)
@@ -180,8 +180,8 @@ set gcr=n:blinkon0	" Disable blinking
 set ignorecase		" When searching, ignore case
 " set laststatus=2	" 0: Never show status; 1: only with two windows, 2: always
 " set list		" List end of line and special characters
-" set number		" Number each line in the file
-" set relativenumber	"
+set relativenumber	"
+set number		" Number each line in the file
 set scrolloff=3		" Keep a minimum number of lines above and below cursor
 " set showmatch
 " set showmode
@@ -234,8 +234,8 @@ nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>gg :Ggrep<space>
 nnoremap <leader>a :Ag<space>
 nnoremap <leader>cd :cd %:p:h<cr>
-nnoremap <F3> :NumbersToggle<cr>
-nnoremap <F4> :NumbersOnOff<cr>
+" nnoremap <F3> :NumbersToggle<cr>
+" nnoremap <F4> :NumbersOnOff<cr>
 nnoremap <Leader>r gq}
 
 " C-D delete line and insert
@@ -250,7 +250,7 @@ set clipboard^=unnamed,unnamedplus
 set listchars+=tab:»·,trail:·
 set list
 
-let g:enable_numbers = 0
+" let g:enable_numbers = 0
 
 " colorscheme bluegreen
 " colorscheme Tomorrow-Night-Bright
