@@ -154,7 +154,7 @@ if has("autocmd")
   augroup local_leader
     autocmd FileType text,gitconfig setlocal noexpandtab tabstop=8 shiftwidth=8
     autocmd FileType gitcommit setlocal textwidth=72
-    autocmd BufRead,BufNewFile *.md setlocal filetype=markdown
+    autocmd BufRead,BufNewFile *.md setlocal filetype=markdown textwidth=78
     autocmd BufRead,BufNewFile *.adoc,*.asciidoc setlocal filetype=asciidoc
   augroup END
 
