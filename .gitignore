@@ -1,3 +1,9 @@
 *~
 banished-plugins
 .netrwhist
+swap/*
+undo/*
+bundle/*
+!swap/.gitkeep
+!undo/.gitkeep
+!bundle/vundle
