@@ -180,8 +180,8 @@ set gcr=n:blinkon0	" Disable blinking
 set ignorecase		" When searching, ignore case
 " set laststatus=2	" 0: Never show status; 1: only with two windows, 2: always
 " set list		" List end of line and special characters
-set relativenumber	"
 set number		" Number each line in the file
+set relativenumber	"
 set scrolloff=3		" Keep a minimum number of lines above and below cursor
 " set showmatch
 " set showmode
