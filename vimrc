@@ -249,6 +249,7 @@ set splitright splitbelow
 set clipboard^=unnamed,unnamedplus
 set listchars=tab:»·,trail:·,nbsp:_
 set list
+set hidden
 
 " let g:enable_numbers = 0
 
