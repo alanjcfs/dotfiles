@@ -4,5 +4,5 @@
 " else
 "   set background=dark
 " endif
-colorscheme solarized
+" colorscheme solarized
 set guifont=Source\ Code\ Pro:h12

@@ -22,7 +22,10 @@ set rtp+=~/.vim/bundle/vundle/
 call vundle#rc()
 Bundle 'gmarik/vundle'
 
-" Syntaces -- Ordered by name of syntaces highlighted, not username.
+"
+" Mostly Syntaces
+" Ordered by name of plugins stated, not username.
+"
 Bundle 'dagwieers/asciidoc-vim'
 Bundle 'wting/rust.vim'
 Bundle 'timcharper/textile.vim'
@@ -37,14 +40,12 @@ Bundle 'sunaku/vim-ruby-minitest'
 Bundle 'derekwyatt/vim-scala'
 
 " Plugins -- Ordered by name of plugins, not username.
-" CtrlP		Allow opening files
-Bundle 'kien/ctrlp.vim'
-" Git		Status in gutter
-Bundle 'airblade/vim-gitgutter'
-" Numbers	Relative Numbers
-" Bundle 'myusuf3/numbers.vim'
 " Ag		Silver Searcher
 Bundle 'rking/ag.vim'
+" CtrlP		Allow opening files
+Bundle 'kien/ctrlp.vim'
+" Numbers	Relative Numbers
+" Bundle 'myusuf3/numbers.vim'
 " NERDtree	Directory Navigation (Alternative to Netrw)
 Bundle 'scrooloose/nerdtree'
 " Syntastic	Syntax Checker
@@ -59,11 +60,13 @@ Bundle 'tomtom/tcomment_vim'
 Bundle 'tpope/vim-endwise'
 " Gdiff, Gwrite, Ggrep, etc.
 Bundle 'tpope/vim-fugitive'
-" Notetaking
+" Git		Status in gutter
+Bundle 'airblade/vim-gitgutter'
+" Notetaking -- these plugins go together
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-notes'
 " Allow repeating of plugin commands
-Bundle 'tpope/vim-repeat'
+" Bundle 'tpope/vim-repeat'
 " SnipMate
 Bundle 'tomtom/tlib_vim'
 Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -173,7 +176,7 @@ if !exists(":DiffOrig")
 endif
 
 " set colorcolumn=86	" Set character-width column for length indicator
-set cursorline		" Set underline to indicate location of cursor
+" set cursorline		" Set underline to indicate location of cursor
 set encoding=utf-8
 set gcr=n:blinkon0	" Disable blinking
 " set hidden		" Permit switching buffer without saving a file
@@ -254,7 +257,7 @@ set hidden
 " let g:enable_numbers = 0
 
 " colorscheme bluegreen
-" colorscheme Tomorrow-Night-Bright
+colorscheme vividchalk
 " set background=dark
 " let g:solarized_termcolors=256
-colorscheme candy
+" colorscheme candy
