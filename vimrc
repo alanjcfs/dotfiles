@@ -74,6 +74,8 @@ Bundle 'garbas/vim-snipmate'
 Bundle 'honza/vim-snippets'
 " Surround	Surround S or change with cs
 Bundle 'tpope/vim-surround'
+" tbone.vim
+Bundle 'tpope/vim-tbone'
 " Vim-Tmux	Integration so we don't have to remember how to go left and right.
 Bundle 'christoomey/vim-tmux-navigator'
 
