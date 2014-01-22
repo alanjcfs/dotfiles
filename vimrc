@@ -39,13 +39,15 @@ Bundle 'vim-ruby/vim-ruby'
 Bundle 'sunaku/vim-ruby-minitest'
 Bundle 'derekwyatt/vim-scala'
 
+"
 " Plugins -- Ordered by name of plugins, not username.
+"
 " Ag		Silver Searcher
 Bundle 'rking/ag.vim'
 " CtrlP		Allow opening files
 Bundle 'kien/ctrlp.vim'
-" Numbers	Relative Numbers
-" Bundle 'myusuf3/numbers.vim'
+" Gundo	Visual Undo Tree
+Bundle 'sjl/gundo.vim'
 " NERDtree	Directory Navigation (Alternative to Netrw)
 Bundle 'scrooloose/nerdtree'
 " Syntastic	Syntax Checker
@@ -65,8 +67,6 @@ Bundle 'airblade/vim-gitgutter'
 " Notetaking -- these plugins go together
 Bundle 'xolox/vim-misc'
 Bundle 'xolox/vim-notes'
-" Allow repeating of plugin commands
-" Bundle 'tpope/vim-repeat'
 " SnipMate
 Bundle 'tomtom/tlib_vim'
 Bundle 'MarcWeber/vim-addon-mw-utils'
@@ -81,23 +81,28 @@ Bundle 'christoomey/vim-tmux-navigator'
 
 " Not on Github
 Bundle 'L9'
-" Bundle 'Rename'
-" Bundle 'AutoComplPop'
 
-"   Disabled
+"
+" Themes/Colorscheme
+"
+Bundle 'sjl/badwolf'
+" Bundle 'altercation/vim-colors-solarized'
+
+"
+" Disabled
+"
 " Bundle 'Floobits/floobits-vim'	" Not fully baked
 " Bundle 'tpope/vim-bundler'		" Conflicts with Vundle
 " Bundle 'mattn/emmet-vim'		" This is for HTML editing
 
-" Themes
-" Bundle 'altercation/vim-colors-solarized'
-
+"
+" After Vundle
+"
 syntax enable
 filetype plugin indent on
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
-
 
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
@@ -185,12 +190,12 @@ set gcr=n:blinkon0	" Disable blinking
 set ignorecase		" When searching, ignore case
 " set laststatus=2	" 0: Never show status; 1: only with two windows, 2: always
 " set list		" List end of line and special characters
-set number		" Number each line in the file
-set relativenumber	"
+set number		" Number line in the file, show current line number
+set relativenumber	" Show number of lines relative to current line
 set scrolloff=3		" Keep a minimum number of lines above and below cursor
-" set showmatch
-" set showmode
+set showmatch		" When typing the closing bracket, will highlight it
 set smartcase
+set lazyredraw
 
 " Indentation-related settings
 set shiftround		" When using >> or << will round to shiftwidth
@@ -239,9 +244,7 @@ nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>gg :Ggrep<space>
 nnoremap <leader>a :Ag<space>
 nnoremap <leader>cd :cd %:p:h<cr>
-" nnoremap <F3> :NumbersToggle<cr>
-" nnoremap <F4> :NumbersOnOff<cr>
-nnoremap <Leader>r gq}
+nnoremap <leader>u :GundoToggle<cr>
 
 " C-D delete line and insert
 inoremap <c-d> <esc>ddi
@@ -259,7 +262,8 @@ set hidden
 " let g:enable_numbers = 0
 
 " colorscheme bluegreen
-colorscheme vividchalk
+" colorscheme vividchalk
+colorscheme badwolf
 " set background=dark
 " let g:solarized_termcolors=256
 " colorscheme candy
