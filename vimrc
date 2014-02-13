@@ -145,27 +145,26 @@ if has("autocmd")
   " Also load indent files, to automatically do language-dependent indenting.
   " Put these in an autocmd group, so that we can delete them easily.
   augroup vimrcEx
-  au!
+    au!
 
-  " For all text files set 'textwidth' to 78 characters.
-  autocmd FileType text setlocal textwidth=78
-  " When editing a file, always jump to the last known cursor position.
-  " Don't do it when the position is invalid or when inside an event handler
-  " (happens when dropping a file on gvim).
-  " Also don't do it when the mark is in the first line, that is the default
-  " position when opening a file.
-  autocmd BufReadPost *
-    \ if line("'\"") > 1 && line("'\"") <= line("$") |
-    \   exe "normal! g`\"" |
-    \ endif
+    " For all text files set 'textwidth' to 78 characters.
+    autocmd FileType text setlocal textwidth=78
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it when the position is invalid or when inside an event handler
+    " (happens when dropping a file on gvim).
+    " Also don't do it when the mark is in the first line, that is the default
+    " position when opening a file.
+    autocmd BufReadPost *
+      \ if line("'\"") > 1 && line("'\"") <= line("$") |
+      \   exe "normal! g`\"" |
+      \ endif
 
-  augroup END
-
-  augroup local_leader
-    autocmd FileType text,gitconfig setlocal noexpandtab tabstop=8 shiftwidth=8
-    autocmd FileType gitcommit setlocal textwidth=72
-    autocmd BufRead,BufNewFile *.md setlocal filetype=markdown textwidth=78
-    autocmd BufRead,BufNewFile *.adoc,*.asciidoc setlocal filetype=asciidoc
+    autocmd FileType text,gitconfig setlocal noexpandtab tabstop=8 shiftwidth=8 textwidth=78
+    autocmd FileType gitcommit setl textwidth=72
+    au BufRead,BufNewFile *.md setl filetype=markdown textwidth=78
+    au BufRead,BufNewFile *.adoc,*.asciidoc setl filetype=asciidoc
+    au BufEnter Makefile setlocal noexpandtab tabstop=8
+    au BufRead,BufNewFile *.slim setl filetype=slim
   augroup END
 
 else
