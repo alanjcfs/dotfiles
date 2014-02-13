@@ -185,10 +185,8 @@ endif
 " set cursorline		" Set underline to indicate location of cursor
 set encoding=utf-8
 set gcr=n:blinkon0	" Disable blinking
-" set hidden		" Permit switching buffer without saving a file
 set ignorecase		" When searching, ignore case
 " set laststatus=2	" 0: Never show status; 1: only with two windows, 2: always
-" set list		" List end of line and special characters
 set number		" Number line in the file, show current line number
 set relativenumber	" Show number of lines relative to current line
 set scrolloff=3		" Keep a minimum number of lines above and below cursor
@@ -199,9 +197,7 @@ set lazyredraw
 " Indentation-related settings
 set shiftround		" When using >> or << will round to shiftwidth
 set shiftwidth=2	" Use two spaces when using >> or <<
-" set softtabstop=8	" Transform 8 spaces into tabs (when noexpandtab)
 set expandtab		" Expand tabs into spaces
-set smarttab
 set tabstop=2		" Use two spaces instead of 8
 
 " set ttyfast
