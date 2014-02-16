@@ -226,6 +226,7 @@ let g:ctrlp_custom_ignore = {
 
 nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
+inoremap jk <esc>
 nnoremap <leader>l :ls<cr>:b<space>
 nnoremap <leader><space> :noh<cr>
 nnoremap <leader>n :NERDTree<cr>
