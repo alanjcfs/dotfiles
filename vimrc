@@ -82,12 +82,16 @@ Bundle 'christoomey/vim-tmux-navigator'
 " Not on Github
 Bundle 'L9'
 Bundle 'ScrollColors'
+Bundle 'CSApprox'
 
 "
 " Themes/Colorscheme
 "
 Bundle 'sjl/badwolf'
 " Bundle 'altercation/vim-colors-solarized'
+" Additional colors from Color Sampler Pack found in
+" http://www.vim.org/scripts/script.php?script_id=625
+
 
 "
 " Disabled
