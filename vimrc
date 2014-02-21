@@ -81,6 +81,7 @@ Bundle 'christoomey/vim-tmux-navigator'
 
 " Not on Github
 Bundle 'L9'
+Bundle 'ScrollColors'
 
 "
 " Themes/Colorscheme
