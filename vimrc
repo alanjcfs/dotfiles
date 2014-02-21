@@ -82,7 +82,8 @@ Bundle 'christoomey/vim-tmux-navigator'
 " Not on Github
 Bundle 'L9'
 Bundle 'ScrollColors'
-Bundle 'CSApprox'
+" Bundle 'CSApprox' " For making color schemes available on terminal, buggy
+" when no colorscheme is indicated below.
 
 "
 " Themes/Colorscheme
