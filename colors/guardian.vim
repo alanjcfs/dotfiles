@@ -1,6 +1,4 @@
 " Vim color file
-" For HTML/CSS Development, but should work for RoR too. -- Alan
-" http://www.vimninjas.com/2012/08/26/10-vim-color-schemes-you-need-to-own/
 " Maintainer: Anders Korte <anderskorte@eml.cc>
 " Last Change: 6 Apr 2005
 
@@ -102,3 +100,4 @@ hi link htmlH6 htmlH5
 
 let g:colors_name = "Guardian"
 let colors_name   = "Guardian"
+
