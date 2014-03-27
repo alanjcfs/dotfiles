@@ -192,12 +192,12 @@ endif
 set encoding=utf-8
 set gcr=n:blinkon0	" Disable blinking
 set ignorecase		" When searching, ignore case
+set smartcase		"When searching, pay attention to case when capital letter is used.
 " set laststatus=2	" 0: Never show status; 1: only with two windows, 2: always
 set number		" Number line in the file, show current line number
 set relativenumber	" Show number of lines relative to current line
 set scrolloff=3		" Keep a minimum number of lines above and below cursor
 set showmatch		" When typing the closing bracket, will highlight it
-set smartcase
 set lazyredraw
 
 " Indentation-related settings
