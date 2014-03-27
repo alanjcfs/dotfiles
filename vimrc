@@ -250,6 +250,7 @@ nnoremap <leader>u :GundoToggle<cr>
 
 " C-D delete line and insert
 inoremap <c-d> <esc>ddi
+nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 " C-U UPCASE
 "inoremap <c-u> <esc>viwUA
 
