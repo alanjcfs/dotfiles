@@ -166,7 +166,8 @@ if has("autocmd")
       \ endif
 
     autocmd FileType text,gitconfig setlocal noexpandtab tabstop=8 shiftwidth=8 textwidth=78
-    autocmd FileType gitcommit setl textwidth=72
+    autocmd FileType css,scss setlocal noexpandtab tabstop=8 shiftwidth=8 textwidth=78
+    autocmd FileType gitcommit setl textwidth=64
     au BufRead,BufNewFile *.md setl filetype=markdown textwidth=78
     au BufRead,BufNewFile *.adoc,*.asciidoc setl filetype=asciidoc
     au BufEnter Makefile setlocal noexpandtab tabstop=8
