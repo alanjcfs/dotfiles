@@ -153,8 +153,6 @@ if has("autocmd")
   augroup vimrcEx
     au!
 
-    " For all text files set 'textwidth' to 78 characters.
-    autocmd FileType text setlocal textwidth=78
     " When editing a file, always jump to the last known cursor position.
     " Don't do it when the position is invalid or when inside an event handler
     " (happens when dropping a file on gvim).
@@ -166,8 +164,7 @@ if has("autocmd")
       \ endif
 
     autocmd FileType text,gitconfig setlocal noexpandtab tabstop=8 shiftwidth=8 textwidth=78
-    autocmd FileType css,scss setlocal noexpandtab tabstop=8 shiftwidth=8 textwidth=78
-    autocmd FileType gitcommit setl textwidth=64
+    autocmd FileType gitcommit setl textwidth=72
     au BufRead,BufNewFile *.md setl filetype=markdown textwidth=78
     au BufRead,BufNewFile *.adoc,*.asciidoc setl filetype=asciidoc
     au BufEnter Makefile setlocal noexpandtab tabstop=8
@@ -189,9 +186,9 @@ if !exists(":DiffOrig")
 endif
 
 " set colorcolumn=86	" Set character-width column for length indicator
-" set cursorline		" Set underline to indicate location of cursor
+set cursorline		" Set underline to indicate location of cursor
 set encoding=utf-8
-set gcr=n:blinkon0	" Disable blinking
+set gcr=n:blinkon0	" Disable blinking in gui
 set ignorecase		" When searching, ignore case
 set smartcase		"When searching, pay attention to case when capital letter is used.
 " set laststatus=2	" 0: Never show status; 1: only with two windows, 2: always
