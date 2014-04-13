@@ -1,0 +1,4 @@
+# Different panes arrangement
+
+select-layout even-horizontal, even-vertical, tiled, main-horizontal,
+main-vertical
