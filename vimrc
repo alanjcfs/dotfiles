@@ -18,78 +18,82 @@ set nocompatible
 filetype off
 
 " Set up Vundle
-set rtp+=~/.vim/bundle/vundle/
-call vundle#rc()
-Bundle 'gmarik/vundle'
+set rtp+=~/.vim/bundle/Vundle.vim
+call vundle#begin()
+Plugin 'gmarik/Vundle.vim'
 
 "
 " Mostly Syntaces
 " Ordered by name of plugins stated, not username.
 "
-Bundle 'dagwieers/asciidoc-vim'
-Bundle 'wting/rust.vim'
-Bundle 'timcharper/textile.vim'
-Bundle 'kchmck/vim-coffee-script'
-Bundle 'tpope/vim-markdown'
-Bundle 'tpope/vim-git'
-Bundle 'slim-template/vim-slim'
-Bundle 'tpope/vim-rails'
-Bundle 'tpope/vim-rake'
-Bundle 'vim-ruby/vim-ruby'
-Bundle 'sunaku/vim-ruby-minitest'
-Bundle 'derekwyatt/vim-scala'
+Plugin 'dagwieers/asciidoc-vim'
+Plugin 'tpope/vim-bundler.git'
+Plugin 'wting/rust.vim'
+Plugin 'timcharper/textile.vim'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'tpope/vim-markdown'
+Plugin 'tpope/vim-git'
+Plugin 'slim-template/vim-slim'
+Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-rails'
+Plugin 'tpope/vim-rake'
+Plugin 'vim-ruby/vim-ruby'
+Plugin 'sunaku/vim-ruby-minitest'
+Plugin 'derekwyatt/vim-scala'
+" End Syntaces
 
 "
 " Plugins -- Ordered by name of plugins, not username.
 "
-" Ag		Silver Searcher
-Bundle 'rking/ag.vim'
-" CtrlP		Allow opening files
-Bundle 'kien/ctrlp.vim'
-" Gundo	Visual Undo Tree
-Bundle 'sjl/gundo.vim'
-" NERDtree	Directory Navigation (Alternative to Netrw)
-Bundle 'scrooloose/nerdtree'
-" Syntastic	Syntax Checker
-Bundle 'scrooloose/syntastic'
+Plugin 'rking/ag.vim' " Ag		Silver Searcher
+Plugin 'kien/ctrlp.vim' " CtrlP		Allow opening files
+Plugin 'sjl/gundo.vim' " Gundo	Visual Undo Tree
+Plugin 'scrooloose/nerdtree' " NERDtree	Directory Navigation (Alternative to Netrw)
+Plugin 'scrooloose/syntastic' " Syntastic	Syntax Checker
 " Tabular
-Bundle 'godlygeek/tabular'
+Plugin 'godlygeek/tabular'
 " Tagbar	Show location of defined methods
-Bundle 'majutsushi/tagbar'
+Plugin 'majutsushi/tagbar'
 " Tcomment	Use gcc to comment a line
-Bundle 'tomtom/tcomment_vim'
+Plugin 'tomtom/tcomment_vim'
 " Endwise	Ruby auto-end
-Bundle 'tpope/vim-endwise'
+Plugin 'tpope/vim-endwise'
 " Gdiff, Gwrite, Ggrep, etc.
-Bundle 'tpope/vim-fugitive'
+Plugin 'tpope/vim-fugitive'
 " Git		Status in gutter
-Bundle 'airblade/vim-gitgutter'
+Plugin 'airblade/vim-gitgutter'
 " Notetaking -- these plugins go together
-Bundle 'xolox/vim-misc'
-Bundle 'xolox/vim-notes'
+Plugin 'xolox/vim-misc'
+Plugin 'xolox/vim-notes'
 " SnipMate
-Bundle 'tomtom/tlib_vim'
-Bundle 'MarcWeber/vim-addon-mw-utils'
-Bundle 'garbas/vim-snipmate'
-Bundle 'honza/vim-snippets'
+" Plugin 'garbas/vim-snipmate'
+Plugin 'SirVer/ultisnips'
+Plugin 'honza/vim-snippets'
 " Surround	Surround S or change with cs
-Bundle 'tpope/vim-surround'
+Plugin 'tpope/vim-surround'
 " tbone.vim
-Bundle 'tpope/vim-tbone'
+Plugin 'tpope/vim-tbone'
 " Vim-Tmux	Integration so we don't have to remember how to go left and right.
-Bundle 'christoomey/vim-tmux-navigator'
+Plugin 'christoomey/vim-tmux-navigator'
+" YouCompleteMe
+" Plugin 'Valloric/YouCompleteMe'
+
+" Vimux and plugins
+Plugin 'benmills/vimux'
+Plugin 'pgr0ss/vimux-ruby-test'
 
 " Not on Github
-Bundle 'L9'
-Bundle 'ScrollColors'
-" Bundle 'CSApprox' " For making color schemes available on terminal, buggy
+Plugin 'L9'
+Plugin 'ScrollColors'
+" Plugin 'CSApprox' " For making color schemes available on terminal, buggy
 " when no colorscheme is indicated below.
+" End Plugins
 
 "
 " Themes/Colorscheme
 "
-Bundle 'sjl/badwolf'
-" Bundle 'altercation/vim-colors-solarized'
+Plugin 'sjl/badwolf'
+" Plugin 'altercation/vim-colors-solarized'
 " Additional colors from Color Sampler Pack found in
 " http://www.vim.org/scripts/script.php?script_id=625
 
@@ -97,13 +101,13 @@ Bundle 'sjl/badwolf'
 "
 " Disabled
 "
-" Bundle 'Floobits/floobits-vim'	" Not fully baked
-" Bundle 'tpope/vim-bundler'		" Conflicts with Vundle
-" Bundle 'mattn/emmet-vim'		" This is for HTML editing
+" Plugin 'Floobits/floobits-vim'	" Not fully baked
+" Plugin 'tpope/vim-bundler'		" Conflicts with Vundle
+" Plugin 'mattn/emmet-vim'		" This is for HTML editing
 
-"
-" After Vundle
-"
+
+call vundle#end()
+" End Vundle
 syntax enable
 filetype plugin indent on
 
