@@ -200,7 +200,7 @@ set number		" Number line in the file, show current line number
 set relativenumber	" Show number of lines relative to current line
 set scrolloff=3		" Keep a minimum number of lines above and below cursor
 set showmatch		" When typing the closing bracket, will highlight it
-set lazyredraw
+set lazyredraw	" When running a script.
 
 " Indentation-related settings
 set shiftround		" When using >> or << will round to shiftwidth
