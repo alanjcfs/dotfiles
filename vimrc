@@ -272,3 +272,7 @@ colorscheme badwolf
 " set background=dark
 " let g:solarized_termcolors=256
 " colorscheme candy
+
+if filereadable(glob('$HA_ROOT/vimrc.local'))
+  source $HA_ROOT/vimrc.local
+endif
