@@ -2,3 +2,8 @@
 
 select-layout even-horizontal, even-vertical, tiled, main-horizontal,
 main-vertical
+
+resize-pane -t 1 -x 80 -y 24
+display-message -t 0 -F "#{pane_width}x#{pane_height}"
+
+$pane # current pane
