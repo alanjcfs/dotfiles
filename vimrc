@@ -21,9 +21,8 @@ filetype off
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
-
-"
-" Mostly Syntaces
+" "
+" Mostly Filetypes
 " Ordered by name of plugins stated, not username.
 "
 Plugin 'dagwieers/asciidoc-vim'
@@ -40,17 +39,20 @@ Plugin 'tpope/vim-rake'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'sunaku/vim-ruby-minitest'
 Plugin 'derekwyatt/vim-scala'
-" End Syntaces
-
-"
+" "
 " Plugins -- Ordered by name of plugins, not username.
 "
-Plugin 'rking/ag.vim' " Ag		Silver Searcher
-Plugin 'kien/ctrlp.vim' " CtrlP		Allow opening files
-Plugin 'sjl/gundo.vim' " Gundo	Visual Undo Tree
-Plugin 'scrooloose/nerdtree' " NERDtree	Directory Navigation (Alternative to Netrw)
-Plugin 'scrooloose/syntastic' " Syntastic	Syntax Checker
-" Tabular
+" Ag		Silver Searcher
+Plugin 'rking/ag.vim'
+" CtrlP		Allow opening files
+Plugin 'kien/ctrlp.vim'
+" Gundo	Visual Undo Tree
+Plugin 'sjl/gundo.vim'
+" NERDtree	Directory Navigation (Alternative to Netrw)
+Plugin 'scrooloose/nerdtree'
+" Syntastic	Syntax Checker
+Plugin 'scrooloose/syntastic'
+" Tabular	Automated aligning of text
 Plugin 'godlygeek/tabular'
 " Tagbar	Show location of defined methods
 Plugin 'majutsushi/tagbar'
@@ -75,41 +77,34 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-tbone'
 " Vim-Tmux	Integration so we don't have to remember how to go left and right.
 Plugin 'christoomey/vim-tmux-navigator'
-" YouCompleteMe
-" Plugin 'Valloric/YouCompleteMe'
-
-" Vimux and plugins
-Plugin 'benmills/vimux'
-Plugin 'pgr0ss/vimux-ruby-test'
-
-" Not on Github
-Plugin 'L9'
-Plugin 'ScrollColors'
-" Plugin 'CSApprox' " For making color schemes available on terminal, buggy
-" when no colorscheme is indicated below.
-" End Plugins
-
-"
+" "
 " Themes/Colorscheme
 "
 Plugin 'sjl/badwolf'
 " Plugin 'altercation/vim-colors-solarized'
 " Additional colors from Color Sampler Pack found in
 " http://www.vim.org/scripts/script.php?script_id=625
-
-
-"
+" "
 " Disabled
-"
+" Vimux and plugins
+" Plugin 'benmills/vimux'
+" Plugin 'pgr0ss/vimux-ruby-test'
+" Not on Github
+" Plugin 'L9'
+" Plugin 'ScrollColors'
+" Plugin 'CSApprox' " For making color schemes available on terminal, buggy
+" when no colorscheme is indicated below.
 " Plugin 'Floobits/floobits-vim'	" Not fully baked
 " Plugin 'tpope/vim-bundler'		" Conflicts with Vundle
 " Plugin 'mattn/emmet-vim'		" This is for HTML editing
-
-
 call vundle#end()
 " End Vundle
+
 syntax enable
 filetype plugin indent on
+
+" Vim Built-in Plugins
+runtime macros/matchit.vim
 
 " allow backspacing over everything in insert mode
 set backspace=indent,eol,start
@@ -192,17 +187,15 @@ endif
 " set colorcolumn=86	" Set character-width column for length indicator
 set cursorline		" Set underline to indicate location of cursor
 set encoding=utf-8
-set gcr=n:blinkon0	" Disable blinking in gui
 set ignorecase		" When searching, ignore case
 set smartcase		"When searching, pay attention to case when capital letter is used.
-" set laststatus=2	" 0: Never show status; 1: only with two windows, 2: always
 set number		" Number line in the file, show current line number
 set relativenumber	" Show number of lines relative to current line
 set scrolloff=3		" Keep a minimum number of lines above and below cursor
 set showmatch		" When typing the closing bracket, will highlight it
 set lazyredraw	" When running a script.
 
-" Indentation-related settings
+" Indentation settings
 set shiftround		" When using >> or << will round to shiftwidth
 set shiftwidth=2	" Use two spaces when using >> or <<
 set expandtab		" Expand tabs into spaces
@@ -225,6 +218,7 @@ set shell=$SHELL\ -l
 " Corrections and expansions
 iabbrev @@    alan@atomsign.net
 iabbrev adn and
+iabbrev teh the
 abbrev ccopy  Copyright 2013 Alan Fung-Schwarz, all rights reserved.
 
 let g:ctrlp_custom_ignore = {
@@ -276,4 +270,3 @@ colorscheme badwolf
 if filereadable(glob('$HA_ROOT/vimrc.local'))
   source $HA_ROOT/vimrc.local
 endif
-runtime macros/matchit.vim
