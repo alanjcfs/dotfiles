@@ -276,3 +276,4 @@ colorscheme badwolf
 if filereadable(glob('$HA_ROOT/vimrc.local'))
   source $HA_ROOT/vimrc.local
 endif
+runtime macros/matchit.vim
