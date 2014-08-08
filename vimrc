@@ -144,49 +144,6 @@ if &t_Co > 2 || has("gui_running")
   set hlsearch
 endif
 
-" Only do this part when compiled with support for autocommands.
-if has("autocmd")
-
-  " Enable file type detection.
-  " Use the default filetype settings, so that mail gets 'tw' set to 72,
-  " 'cindent' is on in C files, etc.
-  " Also load indent files, to automatically do language-dependent indenting.
-  " Put these in an autocmd group, so that we can delete them easily.
-  augroup vimrcEx
-    au!
-
-    " When editing a file, always jump to the last known cursor position.
-    " Don't do it when the position is invalid or when inside an event handler
-    " (happens when dropping a file on gvim).
-    " Also don't do it when the mark is in the first line, that is the default
-    " position when opening a file.
-    autocmd BufReadPost *
-      \ if line("'\"") > 1 && line("'\"") <= line("$") |
-      \   exe "normal! g`\"" |
-      \ endif
-
-    autocmd FileType text,gitconfig setlocal noexpandtab tabstop=8 shiftwidth=8 textwidth=78
-    autocmd FileType gitcommit setl textwidth=72
-    au BufRead,BufNewFile *.md setl filetype=markdown textwidth=78
-    au BufRead,BufNewFile *.adoc,*.asciidoc setl filetype=asciidoc
-    au BufEnter Makefile setlocal noexpandtab tabstop=8
-    au BufRead,BufNewFile *.slim setl filetype=slim
-  augroup END
-
-else
-
-  set autoindent		" always set autoindenting on
-
-endif " has("autocmd")
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
-endif
-
 " set colorcolumn=86	" Set character-width column for length indicator
 set cursorline		" Set underline to indicate location of cursor
 set encoding=utf-8
@@ -218,16 +175,79 @@ set undodir=~/.vim/undo//
 set undofile
 set shell=$SHELL\ -l
 
+" set statusline=%f%M\ %{fugitive#statusline()}
+set statusline=%<%f%m\ %h%r%=%-14.(%l,%c%V%)\ %P
+set splitright splitbelow
+set clipboard^=unnamed,unnamedplus
+set listchars=tab:»·,trail:·,nbsp:_
+set list
+set hidden
+
+" let g:enable_numbers = 0
+" let g:solarized_termcolors=256
+" colorscheme bluegreen
+" colorscheme vividchalk
+colorscheme badwolf
+" set background=dark
+" colorscheme candy
+let g:ctrlp_custom_ignore = {
+	\ 'dir': '\v[\/]\.(tags)$',
+	\ 'file': '\.\(exe\|png\|psd\)$',
+	\ }
+" Disable vim-go passing fmt through Go file
+let g:go_fmt_autosave = 0
+
+
+
+" Only do this part when compiled with support for autocommands.
+if has("autocmd")
+
+  " Enable file type detection.
+  " Use the default filetype settings, so that mail gets 'tw' set to 72,
+  " 'cindent' is on in C files, etc.
+  " Also load indent files, to automatically do language-dependent indenting.
+  " Put these in an autocmd group, so that we can delete them easily.
+  augroup vimrcEx
+    au!
+
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it when the position is invalid or when inside an event handler
+    " (happens when dropping a file on gvim).
+    " Also don't do it when the mark is in the first line, that is the default
+    " position when opening a file.
+    autocmd BufReadPost *
+      \ if line("'\"") > 1 && line("'\"") <= line("$") |
+      \   exe "normal! g`\"" |
+      \ endif
+
+    autocmd FileType text,gitconfig setlocal noexpandtab tabstop=8 shiftwidth=8 textwidth=78
+    autocmd FileType gitcommit setl textwidth=72
+    autocmd Filetype go setl tabstop=4 shiftwidth=4
+    au BufRead,BufNewFile *.md setl filetype=markdown textwidth=78
+    au BufRead,BufNewFile *.adoc,*.asciidoc setl filetype=asciidoc
+    au BufEnter Makefile setlocal noexpandtab tabstop=8
+    au BufRead,BufNewFile *.slim setl filetype=slim
+  augroup END
+
+else
+
+  set autoindent		" always set autoindenting on
+
+endif " has("autocmd")
+
+" Convenient command to see the difference between the current buffer and the
+" file it was loaded from, thus the changes you made.
+" Only define it when not defined already.
+if !exists(":DiffOrig")
+  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
+		  \ | wincmd p | diffthis
+endif
+
 " Corrections and expansions
 iabbrev @@    alan@atomsign.net
 iabbrev adn and
 iabbrev teh the
 abbrev ccopy  Copyright 2013 Alan Fung-Schwarz, all rights reserved.
-
-let g:ctrlp_custom_ignore = {
-	\ 'dir': '\v[\/]\.(tags)$',
-	\ 'file': '\.\(exe\|png\|psd\)$',
-	\ }
 
 nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
@@ -252,23 +272,6 @@ inoremap <c-d> <esc>ddi
 nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 " C-U UPCASE
 "inoremap <c-u> <esc>viwUA
-
-" set statusline=%f%M\ %{fugitive#statusline()}
-set statusline=%<%f%m\ %h%r%=%-14.(%l,%c%V%)\ %P
-set splitright splitbelow
-set clipboard^=unnamed,unnamedplus
-set listchars=tab:»·,trail:·,nbsp:_
-set list
-set hidden
-
-" let g:enable_numbers = 0
-
-" colorscheme bluegreen
-" colorscheme vividchalk
-colorscheme badwolf
-" set background=dark
-" let g:solarized_termcolors=256
-" colorscheme candy
 
 if filereadable(glob('$HA_ROOT/vimrc.local'))
   source $HA_ROOT/vimrc.local
