@@ -48,6 +48,8 @@ Plugin 'derekwyatt/vim-scala'
 Plugin 'rking/ag.vim'
 " CtrlP		Allow opening files
 Plugin 'kien/ctrlp.vim'
+" Emmet Vim
+Plugin 'mattn/emmet-vim'
 " Gundo	Visual Undo Tree
 Plugin 'sjl/gundo.vim'
 " NERDtree	Directory Navigation (Alternative to Netrw)
@@ -98,7 +100,6 @@ Plugin 'sjl/badwolf'
 " when no colorscheme is indicated below.
 " Plugin 'Floobits/floobits-vim'	" Not fully baked
 " Plugin 'tpope/vim-bundler'		" Conflicts with Vundle
-" Plugin 'mattn/emmet-vim'		" This is for HTML editing
 call vundle#end()
 " End Vundle
 
