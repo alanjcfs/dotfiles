@@ -1,13 +1,8 @@
-" Maintainer:	Bram Moolenaar <Bram@vim.org>
-" Last change:	2011 Apr 15
-"
-" To use it, copy it to
-"     for Unix and OS/2:  ~/.vimrc
-"	      for Amiga:  s:.vimrc
-"  for MS-DOS and Win32:  $VIM\_vimrc
-"	    for OpenVMS:  sys$login:.vimrc
+" Inspirations
+" Bram Moolenaar's example vimrc and
+" URL: http://vim.wikia.com/wiki/Example_vimrc
 
-" When started as "evim", evim.vim will already have done these settings.
+" If starting in simple editing mode, use <C-o>:q to quit.
 if v:progname =~? "evim"
   finish
 endif
@@ -15,13 +10,13 @@ endif
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
-filetype off
 
-" Set up Vundle
+" Set up Vundle/Plugin
 set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 Plugin 'gmarik/Vundle.vim'
-" "
+
+" ------------------------------------------------
 " Mostly Filetypes
 " Ordered by name of plugins stated, not username.
 "
@@ -41,7 +36,8 @@ Plugin 'tpope/vim-rake'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'sunaku/vim-ruby-minitest'
 Plugin 'derekwyatt/vim-scala'
-" "
+
+" ------------------------------------------------
 " Plugins -- Ordered by name of plugins, not username.
 "
 " Ag		Silver Searcher
@@ -81,14 +77,15 @@ Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-tbone'
 " Vim-Tmux	Integration so we don't have to remember how to go left and right.
 Plugin 'christoomey/vim-tmux-navigator'
-" "
+
+" ------------------------------------------------
 " Themes/Colorscheme
 "
 Plugin 'sjl/badwolf'
+
 " Plugin 'altercation/vim-colors-solarized'
 " Additional colors from Color Sampler Pack found in
 " http://www.vim.org/scripts/script.php?script_id=625
-" "
 " Disabled
 " Vimux and plugins
 " Plugin 'benmills/vimux'
@@ -100,72 +97,122 @@ Plugin 'sjl/badwolf'
 " when no colorscheme is indicated below.
 " Plugin 'Floobits/floobits-vim'	" Not fully baked
 " Plugin 'tpope/vim-bundler'		" Conflicts with Vundle
-call vundle#end()
-" End Vundle
 
-syntax enable
+" End Vundle
+call vundle#end()
+
 filetype plugin indent on
+syntax on
 
 " Vim Built-in Plugins
 runtime macros/matchit.vim
 
-" allow backspacing over everything in insert mode
+" Easier file switching in the same editor window
+set hidden
+
+" Better command-line completion
+" Show possible expansions above the command line
+set wildmenu
+set wildmode=list:longest,full
+set wildignore+=*/tmp/*
+
+" Show partial commands in the last line of the screen
+set showcmd
+
+" Highlight searches
+set hlsearch
+
+" Disable modeline because it has been a source of security vulnerabilities.
+" Alternative is to use securemodelines script. Default on
+" set nomodeline
+
+" ------------------------------------------------
+" Usability Options
+
+" Use case insensitive search, except when using capital letters
+set ignorecase		" When searching, ignore case
+set smartcase		"When searching, pay attention to case when capital letter is used.
+
+" Allow backspacing over autoindent, line breaks and start of insert action
 set backspace=indent,eol,start
+
+" When opening a new line and no filetype-specific indenting is enabled, keep
+" the same indent as the line you're currently on. Useful for READMEs, etc.
+set autoindent
+
+" When using <C-F> and similar motions, gg, "d", "<<" and ">>", Vim by default
+" go to the start of line. Set it off so it will stay in the same column when
+" possible, which will be similar to other editors.
+set nostartofline
+
+" show the cursor position on last line of screen or in status line of window.
+set ruler
+
+" Always display the status line even if you have only one window.
+set laststatus=2
+
+" Instead of failing a command because of unsaved changes, raise a dialogue
+" requesting to save the changed files.
+set confirm
+
+" Use visual bell instead of beeping when doing something wrong.
+set visualbell
+
+" Reset the terminal code for the visual bell, otherwise when doing something
+" wrong, the cursor flashes.
+" set t_vb=
+
+" In many terminal emulators the mouse works just fine, thus enable it.
+" Enable for all modes.
+set mouse=a
+
+" Set the command window height to 2 lines to avoid many cases of having to
+" press <Enter> to continue
+" set cmdheight=2
+
+" Display line numbers on the left
+set number		" Number line in the file, show current line number
+" Display relative line number
+set relativenumber	" Show number of lines relative to current line
+
+" Quickly time out on keycodes, but never time out on mappings
+set notimeout ttimeout ttimeoutlen=200
+
+" Use <F11> to toggle between 'paste' and 'nopaste'
+set pastetoggle=<F11>
+
+" Indentation options
+" set shiftround		" When using >> or << will round to shiftwidth
+set shiftwidth=2
+set expandtab
+
+" Indentation settings for using hard tabs, display tabs as 2 characters wide.
+" set shiftwidth=2
+" set tabstop=2
 
 if has("vms")
   set nobackup		" do not keep a backup file, use versions instead
 else
   set backup		" keep a backup file
 endif
-set history=50		" keep 50 lines of command line history
-set ruler		" show the cursor position all the time
-set showcmd		" display incomplete commands
-set incsearch		" do incremental searching
+
+" keep 50 lines of command line history, default is 20
+set history=50
+
+" Do incremental searching rather than waiting for whole word
+set incsearch
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
 
-" Don't use Ex mode, use Q for formatting
-map Q gq
-
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
-
-" In many terminal emulators the mouse works just fine, thus enable it.
-if has('mouse')
-  set mouse=a
-endif
-
-" Switch syntax highlighting on, when the terminal has colors
-" Also switch on highlighting the last used search pattern.
-if &t_Co > 2 || has("gui_running")
-  syntax on
-  set hlsearch
-endif
-
 " set colorcolumn=86	" Set character-width column for length indicator
 set cursorline		" Set underline to indicate location of cursor
 set encoding=utf-8
-set ignorecase		" When searching, ignore case
-set smartcase		"When searching, pay attention to case when capital letter is used.
-set number		" Number line in the file, show current line number
-set relativenumber	" Show number of lines relative to current line
 set scrolloff=3		" Keep a minimum number of lines above and below cursor
 set showmatch		" When typing the closing bracket, will highlight it
 set lazyredraw	" When running a script.
 
-" Indentation settings
-set shiftround		" When using >> or << will round to shiftwidth
-set shiftwidth=2	" Use two spaces when using >> or <<
-set expandtab		" Expand tabs into spaces
-set tabstop=2		" Use two spaces instead of 8
-
 " set ttyfast
-" set visualbell
-set wildmenu		" Show possible expansions above the command line
-set wildmode=list:longest,full
-set wildignore+=*/tmp/*
 set wrap
 set textwidth=78
 
@@ -181,13 +228,17 @@ set splitright splitbelow
 set clipboard^=unnamed,unnamedplus
 set listchars=tab:»·,trail:·,nbsp:_
 set list
-set hidden
 
 " let g:enable_numbers = 0
 " let g:solarized_termcolors=256
 " colorscheme bluegreen
 " colorscheme vividchalk
-colorscheme badwolf
+try
+  colorscheme badwolf
+catch
+  echo("no colorscheme")
+endtry
+
 " set background=dark
 " colorscheme candy
 let g:ctrlp_custom_ignore = {
@@ -196,8 +247,6 @@ let g:ctrlp_custom_ignore = {
 	\ }
 " Disable vim-go passing fmt through Go file
 let g:go_fmt_autosave = 0
-
-
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -220,19 +269,14 @@ if has("autocmd")
       \   exe "normal! g`\"" |
       \ endif
 
-    autocmd FileType text,gitconfig setlocal noexpandtab tabstop=8 shiftwidth=8 textwidth=78
-    autocmd FileType gitcommit setl textwidth=72
-    autocmd Filetype go setl tabstop=4 shiftwidth=4
+    au FileType text,gitconfig setlocal noexpandtab tabstop=8 shiftwidth=8 textwidth=78
+    au FileType gitcommit setl textwidth=72
+    au Filetype go setl tabstop=4 shiftwidth=4
     au BufRead,BufNewFile *.md setl filetype=markdown textwidth=78
     au BufRead,BufNewFile *.adoc,*.asciidoc setl filetype=asciidoc
     au BufEnter Makefile setlocal noexpandtab tabstop=8
     au BufRead,BufNewFile *.slim setl filetype=slim
   augroup END
-
-else
-
-  set autoindent		" always set autoindenting on
-
 endif " has("autocmd")
 
 " Convenient command to see the difference between the current buffer and the
@@ -248,6 +292,19 @@ iabbrev @@    alan@atomsign.net
 iabbrev adn and
 iabbrev teh the
 abbrev ccopy  Copyright 2013 Alan Fung-Schwarz, all rights reserved.
+
+" ------------------------------------------------
+" Mappings
+
+" Map Y to act like D and C, to yank from cursor to EOL rather than yy.
+map Y y$
+
+" Don't use Ex mode, use Q for formatting
+map Q gq
+
+" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
+" so that you can undo CTRL-U after inserting a line break.
+inoremap <C-U> <C-G>u<C-U>
 
 nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
@@ -267,11 +324,7 @@ nnoremap <leader>a :Ag<space>
 nnoremap <leader>cd :cd %:p:h<cr>
 nnoremap <leader>u :GundoToggle<cr>
 
-" C-D delete line and insert
-inoremap <c-d> <esc>ddi
 nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
-" C-U UPCASE
-"inoremap <c-u> <esc>viwUA
 
 if filereadable(glob('$HA_ROOT/vimrc.local'))
   source $HA_ROOT/vimrc.local
