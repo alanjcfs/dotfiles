@@ -18,65 +18,49 @@ Plugin 'gmarik/Vundle.vim'
 
 " ------------------------------------------------
 " Mostly Filetypes
-" Ordered by name of plugins stated, not username.
 "
 Plugin 'dagwieers/asciidoc-vim'
-Plugin 'tpope/vim-bundler.git'
-Plugin 'wting/rust.vim'
-Plugin 'timcharper/textile.vim'
-Plugin 'kchmck/vim-coffee-script'
+Plugin 'derekwyatt/vim-scala'
 Plugin 'elixir-lang/vim-elixir'
-Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-git'
-Plugin 'fatih/vim-go'
+Plugin 'kchmck/vim-coffee-script'
+Plugin 'pangloss/vim-javascript'
 Plugin 'slim-template/vim-slim'
+Plugin 'sunaku/vim-ruby-minitest'
+Plugin 'timcharper/textile.vim'
+Plugin 'tpope/vim-bundler.git'
+Plugin 'tpope/vim-git'
 Plugin 'tpope/vim-haml'
+Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-rake'
 Plugin 'vim-ruby/vim-ruby'
-Plugin 'sunaku/vim-ruby-minitest'
-Plugin 'derekwyatt/vim-scala'
+Plugin 'wting/rust.vim'
+
+" Disabled
+" Plugin 'fatih/vim-go'
 
 " ------------------------------------------------
 " Plugins -- Ordered by name of plugins, not username.
 "
-" Ag		Silver Searcher
-Plugin 'rking/ag.vim'
-" CtrlP		Allow opening files
-Plugin 'kien/ctrlp.vim'
-" Emmet Vim
-Plugin 'mattn/emmet-vim'
-" Gundo	Visual Undo Tree
-Plugin 'sjl/gundo.vim'
-" NERDtree	Directory Navigation (Alternative to Netrw)
-Plugin 'scrooloose/nerdtree'
-" Syntastic	Syntax Checker
-Plugin 'scrooloose/syntastic'
-" Tabular	Automated aligning of text
-Plugin 'godlygeek/tabular'
-" Tagbar	Show location of defined methods
-Plugin 'majutsushi/tagbar'
-" Tcomment	Use gcc to comment a line
-Plugin 'tomtom/tcomment_vim'
-" Endwise	Ruby auto-end
-Plugin 'tpope/vim-endwise'
-" Gdiff, Gwrite, Ggrep, etc.
-Plugin 'tpope/vim-fugitive'
-" Git		Status in gutter
-Plugin 'airblade/vim-gitgutter'
-" Notetaking -- these plugins go together
-Plugin 'xolox/vim-misc'
-Plugin 'xolox/vim-notes'
-" SnipMate
-" Plugin 'garbas/vim-snipmate'
 Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-" Surround	Surround S or change with cs
-Plugin 'tpope/vim-surround'
-" tbone.vim
-Plugin 'tpope/vim-tbone'
-" Vim-Tmux	Integration so we don't have to remember how to go left and right.
+Plugin 'airblade/vim-gitgutter' " Git		Status in gutter
 Plugin 'christoomey/vim-tmux-navigator'
+Plugin 'godlygeek/tabular' " Tabular	Automated aligning of text
+Plugin 'honza/vim-snippets'
+Plugin 'kien/ctrlp.vim' " CtrlP		Allow opening files
+Plugin 'majutsushi/tagbar' " Tagbar	Show location of defined methods
+Plugin 'mattn/emmet-vim' " Emmet Vim
+Plugin 'rking/ag.vim' " Ag		Silver Searcher
+Plugin 'scrooloose/nerdtree' " NERDtree	Directory Navigation (Alternative to Netrw)
+Plugin 'scrooloose/syntastic' " Syntastic	Syntax Checker
+Plugin 'sjl/gundo.vim' " Gundo	Visual Undo Tree
+Plugin 'tomtom/tcomment_vim' " Tcomment	Use gcc to comment a line
+Plugin 'tpope/vim-endwise' " Endwise	Ruby auto-end
+Plugin 'tpope/vim-fugitive' " Gdiff, Gwrite, Ggrep, etc.
+Plugin 'tpope/vim-surround'
+Plugin 'tpope/vim-tbone'
+Plugin 'xolox/vim-misc' " Notetaking -- these plugins go together
+Plugin 'xolox/vim-notes'
 
 " ------------------------------------------------
 " Themes/Colorscheme
@@ -246,7 +230,7 @@ let g:ctrlp_custom_ignore = {
 	\ 'file': '\.\(exe\|png\|psd\)$',
 	\ }
 " Disable vim-go passing fmt through Go file
-let g:go_fmt_autosave = 0
+" let g:go_fmt_autosave = 0
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
