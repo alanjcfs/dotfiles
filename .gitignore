@@ -3,6 +3,8 @@
 swap/*
 undo/*
 bundle/*
+backup/*
 !swap/.gitkeep
 !undo/.gitkeep
 !bundle/.gitkeep
+!backup/.gitkeep
