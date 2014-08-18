@@ -5,4 +5,4 @@ undo/*
 bundle/*
 !swap/.gitkeep
 !undo/.gitkeep
-!bundle/vundle
+!bundle/.gitkeep
