@@ -1,5 +1,3 @@
-= Asciidoctor
-
 Dotvim
 ======
 
