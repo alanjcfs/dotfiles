@@ -65,7 +65,8 @@ Plugin 'xolox/vim-notes'
 " ------------------------------------------------
 " Themes/Colorscheme
 "
-Plugin 'sjl/badwolf'
+" Plugin 'sjl/badwolf'
+Plugin 'altercation/vim-colors-solarized'
 
 " Plugin 'altercation/vim-colors-solarized'
 " Additional colors from Color Sampler Pack found in
@@ -218,9 +219,10 @@ set list
 " colorscheme bluegreen
 " colorscheme vividchalk
 try
-  colorscheme badwolf
+  set background=dark
+  colorscheme solarized
 catch
-  echo("no colorscheme")
+  echo("colorscheme not found")
 endtry
 
 " set background=dark
