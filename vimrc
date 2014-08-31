@@ -199,8 +199,6 @@ set lazyredraw	" When running a script.
 
 " set ttyfast
 set wrap
-set textwidth=78
-
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
 set undodir=~/.vim/undo//
