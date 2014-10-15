@@ -10,6 +10,7 @@ endif
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
+filetype off
 
 " Set up Vundle/Plugin
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -259,7 +260,6 @@ if has("autocmd")
     au BufRead,BufNewFile *.md setl filetype=markdown textwidth=78
     au BufRead,BufNewFile *.adoc,*.asciidoc setl filetype=asciidoc
     au BufEnter Makefile setlocal noexpandtab tabstop=8
-    au BufRead,BufNewFile *.slim setl filetype=slim
   augroup END
 endif " has("autocmd")
 
