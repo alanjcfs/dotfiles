@@ -1,6 +1,3 @@
-if has('gui_running')
-  set background=light
-else
-  set background=dark
-endif
+" has('gui_running')
+set background=light
 set guifont=Source\ Code\ Pro:h14

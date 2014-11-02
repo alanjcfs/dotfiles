@@ -11,6 +11,7 @@ endif
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 filetype off
+set t_Co=16
 
 " Set up Vundle/Plugin
 set rtp+=~/.vim/bundle/Vundle.vim
@@ -43,10 +44,12 @@ Plugin 'wting/rust.vim'
 " ------------------------------------------------
 " Plugins -- Ordered by name of plugins, not username.
 "
-Plugin 'SirVer/ultisnips'
 Plugin 'airblade/vim-gitgutter' " Git		Status in gutter
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'godlygeek/tabular' " Tabular	Automated aligning of text
+Plugin 'tomtom/tlib_vim'
+Plugin 'MarcWeber/vim-addon-mw-utils'
+Plugin 'garbas/vim-snipmate'
 Plugin 'honza/vim-snippets'
 Plugin 'kien/ctrlp.vim' " CtrlP		Allow opening files
 Plugin 'majutsushi/tagbar' " Tagbar	Show location of defined methods
@@ -60,8 +63,6 @@ Plugin 'tpope/vim-endwise' " Endwise	Ruby auto-end
 Plugin 'tpope/vim-fugitive' " Gdiff, Gwrite, Ggrep, etc.
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-tbone'
-Plugin 'xolox/vim-misc' " Notetaking -- these plugins go together
-Plugin 'xolox/vim-notes'
 
 " ------------------------------------------------
 " Themes/Colorscheme
@@ -69,7 +70,6 @@ Plugin 'xolox/vim-notes'
 " Plugin 'sjl/badwolf'
 Plugin 'altercation/vim-colors-solarized'
 
-" Plugin 'altercation/vim-colors-solarized'
 " Additional colors from Color Sampler Pack found in
 " http://www.vim.org/scripts/script.php?script_id=625
 " Disabled
@@ -83,6 +83,8 @@ Plugin 'altercation/vim-colors-solarized'
 " when no colorscheme is indicated below.
 " Plugin 'Floobits/floobits-vim'	" Not fully baked
 " Plugin 'tpope/vim-bundler'		" Conflicts with Vundle
+" Plugin 'xolox/vim-misc' " Notetaking -- these plugins go together
+" Plugin 'xolox/vim-notes'
 
 " End Vundle
 call vundle#end()
@@ -218,7 +220,7 @@ set list
 " colorscheme bluegreen
 " colorscheme vividchalk
 try
-  set background=dark
+  set background=dark " dark | light "
   colorscheme solarized
 catch
   echo("colorscheme not found")
@@ -258,7 +260,7 @@ if has("autocmd")
     au FileType gitcommit setl textwidth=72
     au Filetype go setl tabstop=4 shiftwidth=4
     au BufRead,BufNewFile *.md setl filetype=markdown textwidth=78
-    au BufRead,BufNewFile *.adoc,*.asciidoc setl filetype=asciidoc
+    au BufRead,BufNewFile *.adoc,*.asciidoc setl filetype=asciidoc textwidth=80
     au BufEnter Makefile setlocal noexpandtab tabstop=8
   augroup END
 endif " has("autocmd")
