@@ -47,10 +47,9 @@ Plugin 'wting/rust.vim'
 Plugin 'airblade/vim-gitgutter' " Git		Status in gutter
 Plugin 'christoomey/vim-tmux-navigator'
 Plugin 'godlygeek/tabular' " Tabular	Automated aligning of text
-Plugin 'tomtom/tlib_vim'
-Plugin 'MarcWeber/vim-addon-mw-utils'
-Plugin 'garbas/vim-snipmate'
+Plugin 'SirVer/ultisnips'
 Plugin 'honza/vim-snippets'
+Plugin 'Shougo/neocomplete.vim'
 Plugin 'kien/ctrlp.vim' " CtrlP		Allow opening files
 Plugin 'majutsushi/tagbar' " Tagbar	Show location of defined methods
 Plugin 'mattn/emmet-vim' " Emmet Vim
@@ -63,6 +62,10 @@ Plugin 'tpope/vim-endwise' " Endwise	Ruby auto-end
 Plugin 'tpope/vim-fugitive' " Gdiff, Gwrite, Ggrep, etc.
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-tbone'
+
+" ------------------------------------------------
+" Not on Github
+" Plugin 'AutoClose--Alves'
 
 " ------------------------------------------------
 " Themes/Colorscheme
@@ -85,6 +88,10 @@ Plugin 'altercation/vim-colors-solarized'
 " Plugin 'tpope/vim-bundler'		" Conflicts with Vundle
 " Plugin 'xolox/vim-misc' " Notetaking -- these plugins go together
 " Plugin 'xolox/vim-notes'
+" Vim Snipmate
+" Plugin 'tomtom/tlib_vim'
+" Plugin 'MarcWeber/vim-addon-mw-utils'
+" Plugin 'garbas/vim-snipmate'
 
 " End Vundle
 call vundle#end()
@@ -200,7 +207,7 @@ set scrolloff=3		" Keep a minimum number of lines above and below cursor
 set showmatch		" When typing the closing bracket, will highlight it
 set lazyredraw	" When running a script.
 
-" set ttyfast
+set ttyfast
 set wrap
 set backupdir=~/.vim/backup//
 set directory=~/.vim/swap//
@@ -298,7 +305,6 @@ inoremap jk <esc>
 nnoremap <leader>l :ls<cr>:b<space>
 nnoremap <leader><space> :noh<cr>
 nnoremap <leader>n :NERDTree<cr>
-nnoremap <leader>t :CtrlP<cr>
 nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader>b :TagbarToggle<cr>
 nnoremap <leader>g :Git<space>
@@ -309,6 +315,7 @@ nnoremap <leader>gg :Ggrep<space>
 nnoremap <leader>a :Ag<space>
 nnoremap <leader>cd :cd %:p:h<cr>
 nnoremap <leader>u :GundoToggle<cr>
+nnoremap <leader>t :!ruby<space>%<cr>
 
 nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 
