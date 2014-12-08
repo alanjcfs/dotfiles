@@ -236,8 +236,8 @@ endtry
 " set background=dark
 " colorscheme candy
 let g:ctrlp_custom_ignore = {
-	\ 'dir': '\v[\/]\.(tags)$',
-	\ 'file': '\.\(exe\|png\|psd\)$',
+	\ 'dir': '\v[\/]\(\.(tags)\)$',
+	\ 'file': '\.\(exe\|png\|psd\|map\)$',
 	\ }
 " Disable vim-go passing fmt through Go file
 " let g:go_fmt_autosave = 0
