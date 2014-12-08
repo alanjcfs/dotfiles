@@ -241,6 +241,8 @@ let g:ctrlp_custom_ignore = {
 	\ }
 " Disable vim-go passing fmt through Go file
 " let g:go_fmt_autosave = 0
+" Disable using gitgutter on switching buffer
+let g:gitgutter_eager = 0
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
