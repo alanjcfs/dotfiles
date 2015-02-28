@@ -22,9 +22,9 @@ Plugin 'gmarik/Vundle.vim'
 " Mostly Filetypes
 "
 Plugin 'dagwieers/asciidoc-vim'
-Plugin 'derekwyatt/vim-scala'
 Plugin 'elixir-lang/vim-elixir'
 Plugin 'kchmck/vim-coffee-script'
+Plugin 'mustache/vim-mustache-handlebars'
 Plugin 'pangloss/vim-javascript'
 Plugin 'slim-template/vim-slim'
 Plugin 'sunaku/vim-ruby-minitest'
@@ -35,8 +35,10 @@ Plugin 'tpope/vim-haml'
 Plugin 'tpope/vim-markdown'
 Plugin 'tpope/vim-rails'
 Plugin 'tpope/vim-rake'
+Plugin 'tpope/vim-repeat'
 Plugin 'vim-ruby/vim-ruby'
 Plugin 'wting/rust.vim'
+" Plugin 'xolox/vim-lua-ftplugin'
 
 " Disabled
 " Plugin 'fatih/vim-go'
@@ -62,6 +64,7 @@ Plugin 'tpope/vim-endwise' " Endwise	Ruby auto-end
 Plugin 'tpope/vim-fugitive' " Gdiff, Gwrite, Ggrep, etc.
 Plugin 'tpope/vim-surround'
 Plugin 'tpope/vim-tbone'
+Plugin 'xolox/vim-misc'
 
 " ------------------------------------------------
 " Not on Github
@@ -86,7 +89,6 @@ Plugin 'altercation/vim-colors-solarized'
 " when no colorscheme is indicated below.
 " Plugin 'Floobits/floobits-vim'	" Not fully baked
 " Plugin 'tpope/vim-bundler'		" Conflicts with Vundle
-" Plugin 'xolox/vim-misc' " Notetaking -- these plugins go together
 " Plugin 'xolox/vim-notes'
 " Vim Snipmate
 " Plugin 'tomtom/tlib_vim'
@@ -236,8 +238,9 @@ endtry
 " set background=dark
 " colorscheme candy
 let g:ctrlp_custom_ignore = {
-	\ 'dir': '\v[\/]\(\.(tags)\)$',
-	\ 'file': '\.\(exe\|png\|psd\|map\)$',
+	\ 'dir': '\v[\/](node_modules|target|dist)',
+	\ 'file': '\v\.(exe|png|jpg|gif|psd|pdf|map)$',
+	\ 'link': '',
 	\ }
 " Disable vim-go passing fmt through Go file
 " let g:go_fmt_autosave = 0
@@ -268,7 +271,7 @@ if has("autocmd")
     au FileType text,gitconfig setlocal noexpandtab tabstop=8 shiftwidth=8 textwidth=78
     au FileType gitcommit setl textwidth=72
     au Filetype go setl tabstop=4 shiftwidth=4
-    au BufRead,BufNewFile *.md setl filetype=markdown textwidth=78
+    au BufRead,BufNewFile *.md,*.markdown setl filetype=markdown textwidth=78
     au BufRead,BufNewFile *.adoc,*.asciidoc setl filetype=asciidoc textwidth=80
     au BufEnter Makefile setlocal noexpandtab tabstop=8
   augroup END
