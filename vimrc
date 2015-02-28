@@ -14,30 +14,31 @@ filetype off
 set t_Co=16
 
 " Set up Vundle/Plugin
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
-Plugin 'gmarik/Vundle.vim'
+" set rtp+=~/.vim/bundle/Vundle.vim
+" call vundle#begin()
+" Plugin 'gmarik/Vundle.vim'
 
+call plug#begin('~/.vim/bundle')
 " ------------------------------------------------
 " Mostly Filetypes
 "
-Plugin 'dagwieers/asciidoc-vim'
-Plugin 'elixir-lang/vim-elixir'
-Plugin 'kchmck/vim-coffee-script'
-Plugin 'mustache/vim-mustache-handlebars'
-Plugin 'pangloss/vim-javascript'
-Plugin 'slim-template/vim-slim'
-Plugin 'sunaku/vim-ruby-minitest'
-Plugin 'timcharper/textile.vim'
-Plugin 'tpope/vim-bundler.git'
-Plugin 'tpope/vim-git'
-Plugin 'tpope/vim-haml'
-Plugin 'tpope/vim-markdown'
-Plugin 'tpope/vim-rails'
-Plugin 'tpope/vim-rake'
-Plugin 'tpope/vim-repeat'
-Plugin 'vim-ruby/vim-ruby'
-Plugin 'wting/rust.vim'
+Plug 'dagwieers/asciidoc-vim'
+Plug 'elixir-lang/vim-elixir'
+Plug 'kchmck/vim-coffee-script'
+Plug 'mustache/vim-mustache-handlebars'
+Plug 'pangloss/vim-javascript'
+Plug 'slim-template/vim-slim'
+Plug 'sunaku/vim-ruby-minitest'
+Plug 'timcharper/textile.vim'
+Plug 'tpope/vim-bundler'
+Plug 'tpope/vim-git'
+Plug 'tpope/vim-haml'
+Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-rails'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-repeat'
+Plug 'vim-ruby/vim-ruby'
+Plug 'wting/rust.vim'
 " Plugin 'xolox/vim-lua-ftplugin'
 
 " Disabled
@@ -46,25 +47,25 @@ Plugin 'wting/rust.vim'
 " ------------------------------------------------
 " Plugins -- Ordered by name of plugins, not username.
 "
-Plugin 'airblade/vim-gitgutter' " Git		Status in gutter
-Plugin 'christoomey/vim-tmux-navigator'
-Plugin 'godlygeek/tabular' " Tabular	Automated aligning of text
-Plugin 'SirVer/ultisnips'
-Plugin 'honza/vim-snippets'
-Plugin 'Shougo/neocomplete.vim'
-Plugin 'kien/ctrlp.vim' " CtrlP		Allow opening files
-Plugin 'majutsushi/tagbar' " Tagbar	Show location of defined methods
-Plugin 'mattn/emmet-vim' " Emmet Vim
-Plugin 'rking/ag.vim' " Ag		Silver Searcher
-Plugin 'scrooloose/nerdtree' " NERDtree	Directory Navigation (Alternative to Netrw)
-Plugin 'scrooloose/syntastic' " Syntastic	Syntax Checker
-Plugin 'sjl/gundo.vim' " Gundo	Visual Undo Tree
-Plugin 'tomtom/tcomment_vim' " Tcomment	Use gcc to comment a line
-Plugin 'tpope/vim-endwise' " Endwise	Ruby auto-end
-Plugin 'tpope/vim-fugitive' " Gdiff, Gwrite, Ggrep, etc.
-Plugin 'tpope/vim-surround'
-Plugin 'tpope/vim-tbone'
-Plugin 'xolox/vim-misc'
+Plug 'airblade/vim-gitgutter' " Git		Status in gutter
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'godlygeek/tabular' " Tabular	Automated aligning of text
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
+Plug 'Shougo/neocomplete.vim'
+Plug 'kien/ctrlp.vim' " CtrlP		Allow opening files
+Plug 'majutsushi/tagbar' " Tagbar	Show location of defined methods
+Plug 'mattn/emmet-vim' " Emmet Vim
+Plug 'rking/ag.vim' " Ag		Silver Searcher
+Plug 'scrooloose/nerdtree' " NERDtree	Directory Navigation (Alternative to Netrw)
+Plug 'scrooloose/syntastic' " Syntastic	Syntax Checker
+Plug 'sjl/gundo.vim' " Gundo	Visual Undo Tree
+Plug 'tomtom/tcomment_vim' " Tcomment	Use gcc to comment a line
+Plug 'tpope/vim-endwise' " Endwise	Ruby auto-end
+Plug 'tpope/vim-fugitive' " Gdiff, Gwrite, Ggrep, etc.
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-tbone'
+Plug 'xolox/vim-misc'
 
 " ------------------------------------------------
 " Not on Github
@@ -74,7 +75,7 @@ Plugin 'xolox/vim-misc'
 " Themes/Colorscheme
 "
 " Plugin 'sjl/badwolf'
-Plugin 'altercation/vim-colors-solarized'
+Plug 'altercation/vim-colors-solarized'
 
 " Additional colors from Color Sampler Pack found in
 " http://www.vim.org/scripts/script.php?script_id=625
@@ -95,8 +96,9 @@ Plugin 'altercation/vim-colors-solarized'
 " Plugin 'MarcWeber/vim-addon-mw-utils'
 " Plugin 'garbas/vim-snipmate'
 
+call plug#end()
 " End Vundle
-call vundle#end()
+" call vundle#end()
 
 filetype plugin indent on
 syntax on
