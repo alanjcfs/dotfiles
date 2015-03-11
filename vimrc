@@ -22,23 +22,23 @@ call plug#begin('~/.vim/bundle')
 " ------------------------------------------------
 " Mostly Filetypes
 "
-Plug 'dagwieers/asciidoc-vim'
-Plug 'elixir-lang/vim-elixir'
-Plug 'kchmck/vim-coffee-script'
-Plug 'mustache/vim-mustache-handlebars'
-Plug 'pangloss/vim-javascript'
-Plug 'slim-template/vim-slim'
-Plug 'sunaku/vim-ruby-minitest'
-Plug 'timcharper/textile.vim'
+Plug 'dagwieers/asciidoc-vim', { 'for': 'asciidoc' }
+Plug 'elixir-lang/vim-elixir', { 'for': [ 'elixir', 'eelixir' ] }
+Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+Plug 'mustache/vim-mustache-handlebars', { 'for': 'html.handlebars' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+Plug 'slim-template/vim-slim', { 'for': 'slim' }
+Plug 'sunaku/vim-ruby-minitest', { 'for': 'ruby' }
+Plug 'timcharper/textile.vim', { 'for': 'textile' }
 Plug 'tpope/vim-bundler'
 Plug 'tpope/vim-git'
-Plug 'tpope/vim-haml'
-Plug 'tpope/vim-markdown'
+Plug 'tpope/vim-haml', { 'for': 'haml' }
+Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat'
-Plug 'vim-ruby/vim-ruby'
-Plug 'wting/rust.vim'
+Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+Plug 'wting/rust.vim', { 'for': 'rust' }
 " Plugin 'xolox/vim-lua-ftplugin'
 
 " Disabled
@@ -52,19 +52,19 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'godlygeek/tabular' " Tabular	Automated aligning of text
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/neocomplete.vim', { 'on': 'NeoCompleteToggle' }
 Plug 'kien/ctrlp.vim' " CtrlP		Allow opening files
-Plug 'majutsushi/tagbar' " Tagbar	Show location of defined methods
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' } " Tagbar	Show location of defined methods
 Plug 'mattn/emmet-vim' " Emmet Vim
-Plug 'rking/ag.vim' " Ag		Silver Searcher
-Plug 'scrooloose/nerdtree' " NERDtree	Directory Navigation (Alternative to Netrw)
+Plug 'rking/ag.vim', { 'on': 'Ag' } " Ag		Silver Searcher
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " NERDtree	Directory Navigation (Alternative to Netrw)
 Plug 'scrooloose/syntastic' " Syntastic	Syntax Checker
-Plug 'sjl/gundo.vim' " Gundo	Visual Undo Tree
+Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' } " Gundo	Visual Undo Tree
 Plug 'tomtom/tcomment_vim' " Tcomment	Use gcc to comment a line
 Plug 'tpope/vim-endwise' " Endwise	Ruby auto-end
 Plug 'tpope/vim-fugitive' " Gdiff, Gwrite, Ggrep, etc.
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-tbone'
+Plug 'tpope/vim-tbone' " Tmux integration
 Plug 'xolox/vim-misc'
 
 " ------------------------------------------------
@@ -226,6 +226,16 @@ set clipboard^=unnamed,unnamedplus
 set listchars=tab:»·,trail:·,nbsp:_
 set list
 
+" Syntastic settings
+set statusline+=%#warningmsg#
+set statusline+=%{SyntasticStatuslineFlag()}
+set statusline+=%*
+" let g:syntastic_always_populate_loc_list = 1
+let g:syntastic_javascript_checks = ['jshint']
+" let g:syntastic_auto_loc_list = 1
+" let g:syntastic_check_on_open = 1
+" let g:syntastic_check_on_wq = 0
+
 " let g:enable_numbers = 0
 " let g:solarized_termcolors=256
 " colorscheme bluegreen
@@ -275,7 +285,8 @@ if has("autocmd")
     au Filetype go setl tabstop=4 shiftwidth=4
     au BufRead,BufNewFile *.md,*.markdown setl filetype=markdown textwidth=78
     au BufRead,BufNewFile *.adoc,*.asciidoc setl filetype=asciidoc textwidth=80
-    au BufEnter Makefile setlocal noexpandtab tabstop=8
+    au BufEnter Makefile setlocal noexpandtab tabstop=8 shiftwidth=8
+    au FileType javascript setl list! tabstop=8 shiftwidth=8 noexpandtab
   augroup END
 endif " has("autocmd")
 
@@ -306,23 +317,23 @@ map Q gq
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
-nnoremap <leader>ev :split $MYVIMRC<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
 inoremap jk <esc>
-nnoremap <leader>l :ls<cr>:b<space>
-nnoremap <leader><space> :noh<cr>
-nnoremap <leader>n :NERDTree<cr>
 nnoremap <leader>. :CtrlPTag<cr>
+nnoremap <leader><space> :noh<cr>
+nnoremap <leader>a :Ag<space>
 nnoremap <leader>b :TagbarToggle<cr>
+nnoremap <leader>cd :cd %:p:h<cr>
+nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>g :Git<space>
-nnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>gg :Ggrep<space>
-nnoremap <leader>a :Ag<space>
-nnoremap <leader>cd :cd %:p:h<cr>
-nnoremap <leader>u :GundoToggle<cr>
+nnoremap <leader>gw :Gwrite<cr>
+nnoremap <leader>l :ls<cr>:b<space>
+nnoremap <leader>n :NERDTree<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>t :!ruby<space>%<cr>
+nnoremap <leader>u :GundoToggle<cr>
 
 nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 
