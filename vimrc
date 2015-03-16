@@ -60,6 +60,7 @@ Plug 'rking/ag.vim', { 'on': 'Ag' } " Ag		Silver Searcher
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " NERDtree	Directory Navigation (Alternative to Netrw)
 Plug 'scrooloose/syntastic' " Syntastic	Syntax Checker
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' } " Gundo	Visual Undo Tree
+Plug 'tacahiroy/ctrlp-funky'
 Plug 'tomtom/tcomment_vim' " Tcomment	Use gcc to comment a line
 Plug 'tpope/vim-endwise' " Endwise	Ruby auto-end
 Plug 'tpope/vim-fugitive' " Gdiff, Gwrite, Ggrep, etc.
@@ -286,7 +287,7 @@ if has("autocmd")
     au BufRead,BufNewFile *.md,*.markdown setl filetype=markdown textwidth=78
     au BufRead,BufNewFile *.adoc,*.asciidoc setl filetype=asciidoc textwidth=80
     au BufEnter Makefile setlocal noexpandtab tabstop=8 shiftwidth=8
-    au FileType javascript setl list! tabstop=8 shiftwidth=8 noexpandtab
+    au FileType javascript setl tabstop=4 shiftwidth=4 " softtabstop=1
   augroup END
 endif " has("autocmd")
 
