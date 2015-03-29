@@ -52,7 +52,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'godlygeek/tabular' " Tabular	Automated aligning of text
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'Shougo/neocomplete.vim', { 'on': 'NeoCompleteToggle' }
+" Plug 'Shougo/neocomplete.vim', { 'on': 'NeoCompleteToggle' }
 Plug 'kien/ctrlp.vim' " CtrlP		Allow opening files
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' } " Tagbar	Show location of defined methods
 Plug 'mattn/emmet-vim' " Emmet Vim
@@ -66,6 +66,7 @@ Plug 'tpope/vim-endwise' " Endwise	Ruby auto-end
 Plug 'tpope/vim-fugitive' " Gdiff, Gwrite, Ggrep, etc.
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone' " Tmux integration
+Plug 'Valloric/YouCompleteMe'
 Plug 'xolox/vim-misc'
 
 " ------------------------------------------------
