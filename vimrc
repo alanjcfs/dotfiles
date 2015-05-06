@@ -210,7 +210,7 @@ set incsearch
 set cursorline		" Set underline to indicate location of cursor
 set encoding=utf-8
 set scrolloff=3		" Keep a minimum number of lines above and below cursor
-set showmatch		" When typing the closing bracket, will highlight it
+" set showmatch		" When typing the closing bracket, will highlight it
 set lazyredraw	" When running a script.
 
 set ttyfast
