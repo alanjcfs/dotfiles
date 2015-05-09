@@ -67,6 +67,7 @@ Plug 'tpope/vim-fugitive' " Gdiff, Gwrite, Ggrep, etc.
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone' " Tmux integration
 Plug 'Valloric/YouCompleteMe'
+" Plug 'vim-scripts/AutoComplPop'
 Plug 'xolox/vim-misc'
 
 " ------------------------------------------------
@@ -234,12 +235,38 @@ set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
 " let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_javascript_checks = ['jshint']
+let g:syntastic_filetype_map = { 'handlebars.html': 'handlebars' }
 " let g:syntastic_auto_loc_list = 1
 " let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
 
 " let g:enable_numbers = 0
 " let g:solarized_termcolors=256
+let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
+let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
+" let g:ycm_global_ycm_extra_conf = '~/git/*'
+let g:ycm_extra_conf_globlist = ['~/.vim/*']
+let g:ycm_filetype_blacklist = {
+      \ 'markdown': 1 ,
+      \ 'text': 1     ,
+      \ }
+let g:ycm_filetype_specific_completion_to_disable = {
+      \ 'gitcommit': 1
+      \ }
+let g:ctrlp_custom_ignore = {
+      \ 'dir': '\v[\/](node_modules|target|dist)',
+      \ 'file': '\v\.(exe|png|jpg|gif|psd|pdf|map)$',
+      \ 'link': '',
+      \ }
+" Disable vim-go passing fmt through Go file
+" let g:go_fmt_autosave = 0
+" Disable using gitgutter on switching buffer
+let g:gitgutter_eager = 0
+
+let g:UltiSnipsExpandTrigger = "<Tab>"
+let g:UltiSnipsJumpForwardTrigger = "<Tab>"
+let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
+
 " colorscheme bluegreen
 " colorscheme vividchalk
 try
@@ -251,15 +278,6 @@ endtry
 
 " set background=dark
 " colorscheme candy
-let g:ctrlp_custom_ignore = {
-	\ 'dir': '\v[\/](node_modules|target|dist)',
-	\ 'file': '\v\.(exe|png|jpg|gif|psd|pdf|map)$',
-	\ 'link': '',
-	\ }
-" Disable vim-go passing fmt through Go file
-" let g:go_fmt_autosave = 0
-" Disable using gitgutter on switching buffer
-let g:gitgutter_eager = 0
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -287,8 +305,9 @@ if has("autocmd")
     au Filetype go setl tabstop=4 shiftwidth=4
     au BufRead,BufNewFile *.md,*.markdown setl filetype=markdown textwidth=78
     au BufRead,BufNewFile *.adoc,*.asciidoc setl filetype=asciidoc textwidth=80
+    au BufRead,BufNewFile *.es6 setl filetype=javascript
     au BufEnter Makefile setlocal noexpandtab tabstop=8 shiftwidth=8
-    au FileType javascript setl tabstop=4 shiftwidth=4 " softtabstop=1
+    au FileType javascript setl tabstop=2 shiftwidth=2 " softtabstop=1
   augroup END
 endif " has("autocmd")
 
