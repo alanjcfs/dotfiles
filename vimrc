@@ -25,6 +25,7 @@ call plug#begin('~/.vim/bundle')
 Plug 'dagwieers/asciidoc-vim', { 'for': 'asciidoc' }
 Plug 'elixir-lang/vim-elixir', { 'for': [ 'elixir', 'eelixir' ] }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+Plug 'keith/swift.vim', { 'for': 'swift' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': 'html.handlebars' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
@@ -303,7 +304,8 @@ if has("autocmd")
     au FileType text,gitconfig setlocal noexpandtab tabstop=8 shiftwidth=8 textwidth=78
     au FileType gitcommit setl textwidth=72
     au Filetype go setl tabstop=4 shiftwidth=4
-    au BufRead,BufNewFile *.md,*.markdown setl filetype=markdown textwidth=78
+    au FileType markdown setl textwidth=80
+    au BufRead,BufNewFile *.md,*.markdown setl filetype=markdown textwidth=80
     au BufRead,BufNewFile *.adoc,*.asciidoc setl filetype=asciidoc textwidth=80
     au BufRead,BufNewFile *.es6 setl filetype=javascript
     au BufEnter Makefile setlocal noexpandtab tabstop=8 shiftwidth=8
