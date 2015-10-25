@@ -26,6 +26,7 @@ Plug 'dagwieers/asciidoc-vim', { 'for': 'asciidoc' }
 Plug 'elixir-lang/vim-elixir', { 'for': [ 'elixir', 'eelixir' ] }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'keith/swift.vim', { 'for': 'swift' }
+Plug 'lambdatoast/elm.vim.git', { 'for': 'elm' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': 'html.handlebars' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
