@@ -310,7 +310,8 @@ if has("autocmd")
     au BufRead,BufNewFile *.adoc,*.asciidoc setl filetype=asciidoc textwidth=80
     au BufRead,BufNewFile *.es6 setl filetype=javascript
     au BufEnter Makefile setlocal noexpandtab tabstop=8 shiftwidth=8
-    au FileType javascript setl tabstop=2 shiftwidth=2 " softtabstop=1
+    au FileType javascript setl tabstop=4 shiftwidth=4 " softtabstop=1
+    au FileType html setl noexpandtab tabstop=4 shiftwidth=4
   augroup END
 endif " has("autocmd")
 
