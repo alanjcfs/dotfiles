@@ -26,7 +26,7 @@ Plug 'dagwieers/asciidoc-vim', { 'for': 'asciidoc' }
 Plug 'elixir-lang/vim-elixir', { 'for': [ 'elixir', 'eelixir' ] }
 Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
 Plug 'keith/swift.vim', { 'for': 'swift' }
-Plug 'lambdatoast/elm.vim.git', { 'for': 'elm' }
+Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
 Plug 'mustache/vim-mustache-handlebars', { 'for': 'html.handlebars' }
 Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
 Plug 'slim-template/vim-slim', { 'for': 'slim' }
@@ -54,7 +54,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'godlygeek/tabular' " Tabular	Automated aligning of text
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-" Plug 'Shougo/neocomplete.vim', { 'on': 'NeoCompleteToggle' }
+Plug 'Shougo/neocomplete.vim', { 'on': 'NeoCompleteToggle' }
 Plug 'kien/ctrlp.vim' " CtrlP		Allow opening files
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' } " Tagbar	Show location of defined methods
 Plug 'mattn/emmet-vim' " Emmet Vim
@@ -68,7 +68,7 @@ Plug 'tpope/vim-endwise' " Endwise	Ruby auto-end
 Plug 'tpope/vim-fugitive' " Gdiff, Gwrite, Ggrep, etc.
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone' " Tmux integration
-Plug 'Valloric/YouCompleteMe'
+" Plug 'Valloric/YouCompleteMe'
 " Plug 'vim-scripts/AutoComplPop'
 Plug 'xolox/vim-misc'
 
