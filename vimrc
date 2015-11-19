@@ -356,9 +356,10 @@ nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gc :Gcommit<cr>
 nnoremap <leader>gg :Ggrep<space>
 nnoremap <leader>gw :Gwrite<cr>
-nnoremap <leader>gd :Gdiff<cr>
+nnoremap <leader>gd :Gdiff<space>
 nnoremap <leader>l :ls<cr>:b<space>
 nnoremap <leader>n :NERDTree<cr>
+nnoremap <leader>rc :!rubocop %<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>t :!ruby<space>%<cr>
 nnoremap <leader>u :GundoToggle<cr>
