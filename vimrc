@@ -54,7 +54,7 @@ Plug 'christoomey/vim-tmux-navigator'
 Plug 'godlygeek/tabular' " Tabular	Automated aligning of text
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
-Plug 'Shougo/neocomplete.vim', { 'on': 'NeoCompleteToggle' }
+Plug 'Shougo/neocomplete.vim'
 Plug 'kien/ctrlp.vim' " CtrlP		Allow opening files
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' } " Tagbar	Show location of defined methods
 Plug 'mattn/emmet-vim' " Emmet Vim
@@ -235,6 +235,8 @@ set list
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
 " let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_javascript_checks = ['jshint']
 let g:syntastic_filetype_map = { 'handlebars.html': 'handlebars' }
@@ -244,17 +246,17 @@ let g:syntastic_filetype_map = { 'handlebars.html': 'handlebars' }
 
 " let g:enable_numbers = 0
 " let g:solarized_termcolors=256
-let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
-let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
+" let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
+" let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
 " let g:ycm_global_ycm_extra_conf = '~/git/*'
-let g:ycm_extra_conf_globlist = ['~/.vim/*']
-let g:ycm_filetype_blacklist = {
-      \ 'markdown': 1 ,
-      \ 'text': 1     ,
-      \ }
-let g:ycm_filetype_specific_completion_to_disable = {
-      \ 'gitcommit': 1
-      \ }
+" let g:ycm_extra_conf_globlist = ['~/.vim/*']
+" let g:ycm_filetype_blacklist = {
+"       \ 'markdown': 1 ,
+"       \ 'text': 1     ,
+"       \ }
+" let g:ycm_filetype_specific_completion_to_disable = {
+"       \ 'gitcommit': 1
+"       \ }
 let g:ctrlp_custom_ignore = {
       \ 'dir': '\v[\/](node_modules|target|dist)',
       \ 'file': '\v\.(exe|png|jpg|gif|psd|pdf|map)$',
