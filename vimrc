@@ -353,7 +353,7 @@ nnoremap <leader>cd :cd %:p:h<cr>
 nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>g :Git<space>
 nnoremap <leader>gb :Gblame<cr>
-nnoremap <leader>gc :Gcommit<cr>
+nnoremap <leader>gc :Gcommit -v<cr>
 nnoremap <leader>gg :Ggrep<space>
 nnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>gd :Gdiff<space>
