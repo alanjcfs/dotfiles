@@ -231,21 +231,37 @@ set clipboard^=unnamed,unnamedplus
 set listchars=tab:»·,trail:·,nbsp:_
 set list
 
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Neocomplete config
+let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+  " For no inserting <CR> key.
+  " return pumvisible() ? "\<C-y>" : "\<CR>"
+endfunction
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic settings
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
 " let g:syntastic_always_populate_loc_list = 1
 let g:syntastic_javascript_checks = ['jshint']
 let g:syntastic_filetype_map = { 'handlebars.html': 'handlebars' }
 " let g:syntastic_auto_loc_list = 1
 " let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
+""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " let g:enable_numbers = 0
 " let g:solarized_termcolors=256
+
+" YouCompleteMe (Disabled)
 " let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
 " let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
 " let g:ycm_global_ycm_extra_conf = '~/git/*'
@@ -257,31 +273,39 @@ let g:syntastic_filetype_map = { 'handlebars.html': 'handlebars' }
 " let g:ycm_filetype_specific_completion_to_disable = {
 "       \ 'gitcommit': 1
 "       \ }
+
+" CtrlP Config
 let g:ctrlp_custom_ignore = {
       \ 'dir': '\v[\/](node_modules|target|dist)',
       \ 'file': '\v\.(exe|png|jpg|gif|psd|pdf|map)$',
       \ 'link': '',
       \ }
+
+" Vim-Go config (Disabled)
 " Disable vim-go passing fmt through Go file
 " let g:go_fmt_autosave = 0
+
+" GitGutter config
 " Disable using gitgutter on switching buffer
 let g:gitgutter_eager = 0
 
+" UltiSnips config
 let g:UltiSnipsExpandTrigger = "<Tab>"
 let g:UltiSnipsJumpForwardTrigger = "<Tab>"
 let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
 
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Colorscheme config
 " colorscheme bluegreen
 " colorscheme vividchalk
+" colorscheme candy
 try
   set background=dark " dark | light "
   colorscheme solarized
 catch
   echo("colorscheme not found")
 endtry
-
-" set background=dark
-" colorscheme candy
+""""""""""""""""""""""""""""""""""""""""""""""""""
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -344,7 +368,11 @@ map Q gq
 " so that you can undo CTRL-U after inserting a line break.
 inoremap <C-U> <C-G>u<C-U>
 
+" Escape using jk
 inoremap jk <esc>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
+" Leader key mappings
 nnoremap <leader>. :CtrlPTag<cr>
 nnoremap <leader><space> :noh<cr>
 nnoremap <leader>a :Ag<space>
@@ -363,9 +391,12 @@ nnoremap <leader>rc :!rubocop %<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>t :!ruby<space>%<cr>
 nnoremap <leader>u :GundoToggle<cr>
+" End Leader key mappings """"""""""""""""""""""""
 
+" ???
 nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 
-if filereadable(glob('$HA_ROOT/vimrc.local'))
-  source $HA_ROOT/vimrc.local
-endif
+" Source other local vimrc files, if any
+" if filereadable(glob('$HA_ROOT/vimrc.local'))
+"   source $HA_ROOT/vimrc.local
+" endif
