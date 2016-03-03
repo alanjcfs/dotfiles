@@ -41,10 +41,6 @@ Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat'
 Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
 Plug 'wting/rust.vim', { 'for': 'rust' }
-" Plugin 'xolox/vim-lua-ftplugin'
-
-" Disabled
-" Plugin 'fatih/vim-go'
 
 " ------------------------------------------------
 " Plugins -- Ordered by name of plugins, not username.
@@ -55,6 +51,8 @@ Plug 'godlygeek/tabular' " Tabular	Automated aligning of text
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'Shougo/neocomplete.vim'
+Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+Plug 'Shougo/vimshell.vim'
 Plug 'kien/ctrlp.vim' " CtrlP		Allow opening files
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' } " Tagbar	Show location of defined methods
 Plug 'mattn/emmet-vim' " Emmet Vim
@@ -68,9 +66,13 @@ Plug 'tpope/vim-endwise' " Endwise	Ruby auto-end
 Plug 'tpope/vim-fugitive' " Gdiff, Gwrite, Ggrep, etc.
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone' " Tmux integration
-" Plug 'Valloric/YouCompleteMe'
-" Plug 'vim-scripts/AutoComplPop'
+Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
+
+" Vim Snipmate
+" Plug 'tomtom/tlib_vim'
+" Plug 'MarcWeber/vim-addon-mw-utils'
+" Plug 'garbas/vim-snipmate'
 
 " ------------------------------------------------
 " Not on Github
@@ -84,7 +86,8 @@ Plug 'altercation/vim-colors-solarized'
 
 " Additional colors from Color Sampler Pack found in
 " http://www.vim.org/scripts/script.php?script_id=625
-" Disabled
+"
+""" Disabled
 " Vimux and plugins
 " Plugin 'benmills/vimux'
 " Plugin 'pgr0ss/vimux-ruby-test'
@@ -96,10 +99,11 @@ Plug 'altercation/vim-colors-solarized'
 " Plugin 'Floobits/floobits-vim'	" Not fully baked
 " Plugin 'tpope/vim-bundler'		" Conflicts with Vundle
 " Plugin 'xolox/vim-notes'
-" Vim Snipmate
-" Plugin 'tomtom/tlib_vim'
-" Plugin 'MarcWeber/vim-addon-mw-utils'
-" Plugin 'garbas/vim-snipmate'
+""" Completion
+" Plug 'Valloric/YouCompleteMe'
+" Plug 'fatih/vim-go'
+" Plug 'vim-scripts/AutoComplPop'
+" Plug 'xolox/vim-lua-ftplugin'
 
 call plug#end()
 " End Vundle
@@ -180,7 +184,8 @@ set number		" Number line in the file, show current line number
 set relativenumber	" Show number of lines relative to current line
 
 " Quickly time out on keycodes, but never time out on mappings
-set notimeout ttimeout ttimeoutlen=200
+" Causes NeoVim to insert special characters when using the ESC key.
+" set notimeout ttimeout ttimeoutlen=200
 
 " Use <F11> to toggle between 'paste' and 'nopaste'
 set pastetoggle=<F11>
@@ -201,7 +206,7 @@ else
 endif
 
 " keep 50 lines of command line history, default is 20
-set history=50
+" set history=50
 
 " Do incremental searching rather than waiting for whole word
 set incsearch
@@ -228,7 +233,7 @@ set shell=$SHELL\ -l
 set statusline=%<%f%m\ %h%r%=%-14.(%l,%c%V%)\ %P
 set splitright splitbelow
 set clipboard^=unnamed,unnamedplus
-set listchars=tab:»·,trail:·,nbsp:_
+set listchars=tab:»·,trail:·,nbsp:+
 set list
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -290,9 +295,9 @@ let g:ctrlp_custom_ignore = {
 let g:gitgutter_eager = 0
 
 " UltiSnips config
-let g:UltiSnipsExpandTrigger = "<Tab>"
-let g:UltiSnipsJumpForwardTrigger = "<Tab>"
-let g:UltiSnipsJumpBackwardTrigger = "<S-Tab>"
+let g:UltiSnipsExpandTrigger = "<C-j>"
+let g:UltiSnipsJumpForwardTrigger = "<C-f>"
+let g:UltiSnipsJumpBackwardTrigger = "<C-b>"
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Colorscheme config
@@ -336,8 +341,8 @@ if has("autocmd")
     au BufRead,BufNewFile *.adoc,*.asciidoc setl filetype=asciidoc textwidth=80
     au BufRead,BufNewFile *.es6 setl filetype=javascript
     au BufEnter Makefile setlocal noexpandtab tabstop=8 shiftwidth=8
-    au FileType javascript setl tabstop=4 shiftwidth=4 " softtabstop=1
     au FileType html setl noexpandtab tabstop=4 shiftwidth=4
+    au BufRead,BufEnter ~/Tuna/* setl tabstop=2 shiftwidth=2
   augroup END
 endif " has("autocmd")
 
@@ -379,6 +384,8 @@ nnoremap <leader>a :Ag<space>
 nnoremap <leader>b :TagbarToggle<cr>
 nnoremap <leader>cd :cd %:p:h<cr>
 nnoremap <leader>ev :split $MYVIMRC<cr>
+nnoremap <leader>fu :CtrlPFunky<cr>
+nnoremap <leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<cr>
 nnoremap <leader>g :Git<space>
 nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gc :Gcommit -v<cr>
