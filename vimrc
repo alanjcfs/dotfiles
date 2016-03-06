@@ -21,26 +21,30 @@ set t_Co=16
 call plug#begin('~/.vim/bundle')
 " ------------------------------------------------
 " Mostly Filetypes
-"
+
 Plug 'dagwieers/asciidoc-vim', { 'for': 'asciidoc' }
-Plug 'elixir-lang/vim-elixir', { 'for': [ 'elixir', 'eelixir' ] }
-Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
-Plug 'keith/swift.vim', { 'for': 'swift' }
-Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
-Plug 'mustache/vim-mustache-handlebars', { 'for': 'html.handlebars' }
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-Plug 'slim-template/vim-slim', { 'for': 'slim' }
+" Plug 'elixir-lang/vim-elixir', { 'for': [ 'elixir', 'eelixir' ] }
+" Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
+" Plug 'keith/swift.vim', { 'for': 'swift' }
+" Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
+" Plug 'mustache/vim-mustache-handlebars', { 'for': 'html.handlebars' }
+" Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
+" Plug 'slim-template/vim-slim', { 'for': 'slim' }
 Plug 'sunaku/vim-ruby-minitest', { 'for': 'ruby' }
-Plug 'timcharper/textile.vim', { 'for': 'textile' }
+" Plug 'timcharper/textile.vim', { 'for': 'textile' }
 Plug 'tpope/vim-bundler'
-Plug 'tpope/vim-git'
-Plug 'tpope/vim-haml', { 'for': 'haml' }
-Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+" Plug 'tpope/vim-git'
+" Plug 'tpope/vim-haml', { 'for': 'haml' }
+" Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat'
-Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
-Plug 'wting/rust.vim', { 'for': 'rust' }
+" Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
+" Plug 'wting/rust.vim', { 'for': 'rust' }
+" Plugin 'xolox/vim-lua-ftplugin'
+
+" Disabled
+" Plugin 'fatih/vim-go'
 
 " ------------------------------------------------
 " Plugins -- Ordered by name of plugins, not username.
@@ -59,6 +63,7 @@ Plug 'mattn/emmet-vim' " Emmet Vim
 Plug 'rking/ag.vim', { 'on': 'Ag' } " Ag		Silver Searcher
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " NERDtree	Directory Navigation (Alternative to Netrw)
 Plug 'scrooloose/syntastic' " Syntastic	Syntax Checker
+Plug 'sheerun/vim-polyglot' " One vim to rule them all
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' } " Gundo	Visual Undo Tree
 Plug 'tacahiroy/ctrlp-funky'
 Plug 'tomtom/tcomment_vim' " Tcomment	Use gcc to comment a line
@@ -299,11 +304,8 @@ let g:UltiSnipsExpandTrigger = "<C-j>"
 let g:UltiSnipsJumpForwardTrigger = "<C-f>"
 let g:UltiSnipsJumpBackwardTrigger = "<C-b>"
 
-""""""""""""""""""""""""""""""""""""""""""""""""""
-" Colorscheme config
-" colorscheme bluegreen
-" colorscheme vividchalk
-" colorscheme candy
+let g:polyglot_disabled = []
+
 try
   set background=dark " dark | light "
   colorscheme solarized
