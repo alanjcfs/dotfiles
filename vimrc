@@ -13,38 +13,17 @@ set nocompatible
 filetype off
 set t_Co=16
 
-" Set up Vundle/Plugin
-" set rtp+=~/.vim/bundle/Vundle.vim
-" call vundle#begin()
-" Plugin 'gmarik/Vundle.vim'
-
 call plug#begin('~/.vim/bundle')
 " ------------------------------------------------
 " Mostly Filetypes
 
 Plug 'dagwieers/asciidoc-vim', { 'for': 'asciidoc' }
-" Plug 'elixir-lang/vim-elixir', { 'for': [ 'elixir', 'eelixir' ] }
-" Plug 'kchmck/vim-coffee-script', { 'for': 'coffee' }
-" Plug 'keith/swift.vim', { 'for': 'swift' }
-" Plug 'lambdatoast/elm.vim', { 'for': 'elm' }
-" Plug 'mustache/vim-mustache-handlebars', { 'for': 'html.handlebars' }
-" Plug 'pangloss/vim-javascript', { 'for': 'javascript' }
-" Plug 'slim-template/vim-slim', { 'for': 'slim' }
 Plug 'sunaku/vim-ruby-minitest', { 'for': 'ruby' }
-" Plug 'timcharper/textile.vim', { 'for': 'textile' }
 Plug 'tpope/vim-bundler'
 " Plug 'tpope/vim-git'
-" Plug 'tpope/vim-haml', { 'for': 'haml' }
-" Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat'
-" Plug 'vim-ruby/vim-ruby', { 'for': 'ruby' }
-" Plug 'wting/rust.vim', { 'for': 'rust' }
-" Plugin 'xolox/vim-lua-ftplugin'
-
-" Disabled
-" Plugin 'fatih/vim-go'
 
 " ------------------------------------------------
 " Plugins -- Ordered by name of plugins, not username.
@@ -74,45 +53,13 @@ Plug 'tpope/vim-tbone' " Tmux integration
 Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
 
-" Vim Snipmate
-" Plug 'tomtom/tlib_vim'
-" Plug 'MarcWeber/vim-addon-mw-utils'
-" Plug 'garbas/vim-snipmate'
-
-" ------------------------------------------------
-" Not on Github
-" Plugin 'AutoClose--Alves'
-
 " ------------------------------------------------
 " Themes/Colorscheme
-"
-" Plugin 'sjl/badwolf'
+
+Plug 'sjl/badwolf'
 Plug 'altercation/vim-colors-solarized'
 
-" Additional colors from Color Sampler Pack found in
-" http://www.vim.org/scripts/script.php?script_id=625
-"
-""" Disabled
-" Vimux and plugins
-" Plugin 'benmills/vimux'
-" Plugin 'pgr0ss/vimux-ruby-test'
-" Not on Github
-" Plugin 'L9'
-" Plugin 'ScrollColors'
-" Plugin 'CSApprox' " For making color schemes available on terminal, buggy
-" when no colorscheme is indicated below.
-" Plugin 'Floobits/floobits-vim'	" Not fully baked
-" Plugin 'tpope/vim-bundler'		" Conflicts with Vundle
-" Plugin 'xolox/vim-notes'
-""" Completion
-" Plug 'Valloric/YouCompleteMe'
-" Plug 'fatih/vim-go'
-" Plug 'vim-scripts/AutoComplPop'
-" Plug 'xolox/vim-lua-ftplugin'
-
 call plug#end()
-" End Vundle
-" call vundle#end()
 
 filetype plugin indent on
 syntax on
@@ -270,19 +217,6 @@ let g:syntastic_filetype_map = { 'handlebars.html': 'handlebars' }
 
 " let g:enable_numbers = 0
 " let g:solarized_termcolors=256
-
-" YouCompleteMe (Disabled)
-" let g:ycm_key_list_select_completion=['<C-n>', '<Down>']
-" let g:ycm_key_list_previous_completion=['<C-p>', '<Up>']
-" let g:ycm_global_ycm_extra_conf = '~/git/*'
-" let g:ycm_extra_conf_globlist = ['~/.vim/*']
-" let g:ycm_filetype_blacklist = {
-"       \ 'markdown': 1 ,
-"       \ 'text': 1     ,
-"       \ }
-" let g:ycm_filetype_specific_completion_to_disable = {
-"       \ 'gitcommit': 1
-"       \ }
 
 " CtrlP Config
 let g:ctrlp_custom_ignore = {
