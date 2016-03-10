@@ -290,6 +290,10 @@ let g:ctrlp_custom_ignore = {
       \ 'file': '\v\.(exe|png|jpg|gif|psd|pdf|map)$',
       \ 'link': '',
       \ }
+" let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp' " Set up caching.
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
 
 " Vim-Go config (Disabled)
 " Disable vim-go passing fmt through Go file
@@ -308,9 +312,7 @@ let g:polyglot_disabled = []
 
 try
   set background=dark " dark | light "
-  colorscheme solarized
-catch
-  echo("colorscheme not found")
+  silent! colorscheme solarized
 endtry
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -380,26 +382,34 @@ inoremap jk <esc>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Leader key mappings
+" CtrlP
 nnoremap <leader>. :CtrlPTag<cr>
-nnoremap <leader><space> :noh<cr>
-nnoremap <leader>a :Ag<space>
-nnoremap <leader>b :TagbarToggle<cr>
-nnoremap <leader>cd :cd %:p:h<cr>
-nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>fu :CtrlPFunky<cr>
 nnoremap <leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<cr>
+
+" Plugins
+nnoremap <leader>a :Ag<space>
+nnoremap <leader>b :TagbarToggle<cr>
+nnoremap <leader>n :NERDTree<cr>
+nnoremap <leader>u :GundoToggle<cr>
+
+" Vim customizations
+nnoremap <leader><space> :noh<cr>
+nnoremap <leader>cd :cd %:p:h<cr>
+nnoremap <leader>ev :split $MYVIMRC<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>l :ls<cr>:b<space>
+
+" Git
 nnoremap <leader>g :Git<space>
 nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gc :Gcommit -v<cr>
 nnoremap <leader>gg :Ggrep<space>
 nnoremap <leader>gw :Gwrite<cr>
 nnoremap <leader>gd :Gdiff<space>
-nnoremap <leader>l :ls<cr>:b<space>
-nnoremap <leader>n :NERDTree<cr>
+
 nnoremap <leader>rc :!rubocop %<cr>
-nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>t :!ruby<space>%<cr>
-nnoremap <leader>u :GundoToggle<cr>
 " End Leader key mappings """"""""""""""""""""""""
 
 " ???
