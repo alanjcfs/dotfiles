@@ -1,0 +1,14 @@
+= Dotvim =
+
+This repo was created so I can have the same Vim configuration
+on multiple machines.
+
+== Installation ==
+
+It comes installed with https://github.com/junegunn/vim-plug[junegunn's Vim Plug], a
+minimalist vim plugin manager. In summary, you don't need to clone a repo to
+to start installing the plugins.
+
+Just clone and run `:PlugInstall`
+
+You're done.
