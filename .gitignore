@@ -1,10 +1,10 @@
 *~
 .netrwhist
-swap/*
-undo/*
+tmp/swap/*
+tmp/undo/*
 bundle/*
-backup/*
-!swap/.gitkeep
-!undo/.gitkeep
+tmp/backup/*
+!tmp/swap/.gitkeep
+!tmp/undo/.gitkeep
 !bundle/.gitkeep
-!backup/.gitkeep
+!tmp/backup/.gitkeep

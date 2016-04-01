@@ -19,10 +19,6 @@ call plug#begin('~/.vim/bundle')
 
 Plug 'dagwieers/asciidoc-vim', { 'for': 'asciidoc' }
 Plug 'sunaku/vim-ruby-minitest', { 'for': 'ruby' }
-Plug 'tpope/vim-bundler'
-" Plug 'tpope/vim-git'
-Plug 'tpope/vim-rails'
-Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat'
 
 " ------------------------------------------------
@@ -34,9 +30,9 @@ Plug 'godlygeek/tabular' " Tabular	Automated aligning of text
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'Shougo/neocomplete.vim'
-Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-Plug 'Shougo/vimshell.vim'
-Plug 'kien/ctrlp.vim' " CtrlP		Allow opening files
+" Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+" Plug 'Shougo/vimshell.vim'
+Plug 'ctrlpvim/ctrlp.vim' " CtrlP		Allow opening files
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' } " Tagbar	Show location of defined methods
 Plug 'mattn/emmet-vim' " Emmet Vim
 Plug 'rking/ag.vim', { 'on': 'Ag' } " Ag		Silver Searcher
@@ -50,8 +46,9 @@ Plug 'tpope/vim-endwise' " Endwise	Ruby auto-end
 Plug 'tpope/vim-fugitive' " Gdiff, Gwrite, Ggrep, etc.
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone' " Tmux integration
-Plug 'xolox/vim-easytags'
+Plug 'tpope/vim-unimpaired'
 Plug 'xolox/vim-misc'
+Plug 'xolox/vim-easytags'
 
 " ------------------------------------------------
 " Themes/Colorscheme
@@ -133,7 +130,7 @@ set mouse=a
 " Display line numbers on the left
 set number		" Number line in the file, show current line number
 " Display relative line number
-set relativenumber	" Show number of lines relative to current line
+" set relativenumber	" Show number of lines relative to current line
 
 " Quickly time out on keycodes, but never time out on mappings
 " Causes NeoVim to insert special characters when using the ESC key.
@@ -175,9 +172,9 @@ set lazyredraw	" When running a script.
 
 set ttyfast
 set wrap
-set backupdir=~/.vim/backup//
-set directory=~/.vim/swap//
-set undodir=~/.vim/undo//
+set backupdir=~/.vim/tmp/backup//
+set directory=~/.vim/tmp/swap//
+set undodir=~/.vim/tmp/undo//
 set undofile
 set shell=$SHELL\ -l
 
@@ -188,19 +185,31 @@ set clipboard^=unnamed,unnamedplus
 set listchars=tab:»·,trail:·,nbsp:+
 set list
 
-""""""""""""""""""""""""""""""""""""""""""""""""""
-" Neocomplete config
+"" Neocomplete config """""""""""""""""""""""""""
 let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-  " For no inserting <CR> key.
-  " return pumvisible() ? "\<C-y>" : "\<CR>"
-endfunction
-""""""""""""""""""""""""""""""""""""""""""""""""""
+" let g:neocomplete#enable_smart_case = 1
+" let g:neocomplete#sources#syntax#min_keyword_length = 3
+" let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+"
+" let g:neocomplete#sources#dictionary#dictionaries = {
+"       \ 'default':'',
+"       \ 'vimshell':$HOME.'/.vimshell_hist',
+"       \ 'scheme':$HOME.'/.gosh_completions'
+"       \ }
+" if !exists('g:neocomplete#keyword_patterns')
+"   let g:neocomplete#keyword_patterns = {}
+" endif
+" let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+" inoremap <expr><C-g> neocomplete#undo_completion()
+" inoremap <expr><C-l> neocomplete#complete_common_string()
+" inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+" function! s:my_cr_function()
+"   return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+" endfunction
+" inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+" inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+" inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+"" End Neocomplete config """"""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Syntastic settings
@@ -244,6 +253,9 @@ let g:UltiSnipsJumpBackwardTrigger = "<C-b>"
 
 let g:polyglot_disabled = []
 
+" Easytags
+let g:easytags_async = 1
+
 try
   set background=dark " dark | light "
   silent! colorscheme solarized
@@ -271,15 +283,19 @@ if has("autocmd")
       \   exe "normal! g`\"" |
       \ endif
 
-    au FileType text,gitconfig setlocal noexpandtab tabstop=8 shiftwidth=8 textwidth=78
+    au FileType text,gitconfig setlocal noexpandtab tabstop=8 shiftwidth=8 textwidth=80
     au FileType gitcommit setl textwidth=72
     au Filetype go setl tabstop=4 shiftwidth=4
-    au FileType markdown setl textwidth=80
+    au FileType markdown setl textwidth=80 omnifunc=htmlcomplete#CompleteTags
     au BufRead,BufNewFile *.md,*.markdown setl filetype=markdown textwidth=80
-    au BufRead,BufNewFile *.adoc,*.asciidoc setl filetype=asciidoc textwidth=80
+    au BufRead,BufNewFile *.adoc,*.asciidoc setl syntax=asciidoc textwidth=80
     au BufRead,BufNewFile *.es6 setl filetype=javascript
     au BufEnter Makefile setlocal noexpandtab tabstop=8 shiftwidth=8
-    au FileType html setl noexpandtab tabstop=4 shiftwidth=4
+    au FileType html setl noexpandtab tabstop=4 shiftwidth=4 omnifunc=htmlcomplete#CompleteTags
+    au FileType javascript setl omnifunc=javascriptcomplete#CompleteJS
+    au FileType python setl omnifunc=pythoncomplete#Complete
+    au FileType ruby setl omnifunc=rubycomplete#Complete
+    au FileType xml setl omnifunc=xmlcomplete#CompleteTags
     au BufRead,BufEnter ~/Tuna/* setl tabstop=2 shiftwidth=2
   augroup END
 endif " has("autocmd")
@@ -326,6 +342,7 @@ nnoremap <leader>a :Ag<space>
 nnoremap <leader>b :TagbarToggle<cr>
 nnoremap <leader>n :NERDTree<cr>
 nnoremap <leader>u :GundoToggle<cr>
+nnoremap <leader>co :NeoCompleteToggle<cr>
 
 " Vim customizations
 nnoremap <leader><space> :noh<cr>
