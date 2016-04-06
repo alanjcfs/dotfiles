@@ -228,7 +228,7 @@ if has("autocmd")
     au FileType gitcommit setl textwidth=72
     au Filetype go setl tabstop=4 shiftwidth=4
     au FileType markdown setl textwidth=80 omnifunc=htmlcomplete#CompleteTags
-    au BufRead,BufNewFile *.md,*.markdown setl filetype=markdown textwidth=80
+    au BufRead,BufNewFile *.md,*.markdown setl filetype=markdown
     au BufRead,BufNewFile *.adoc,*.asciidoc setl syntax=asciidoc textwidth=80
     au BufRead,BufNewFile *.es6 setl filetype=javascript
     au BufEnter Makefile setlocal noexpandtab tabstop=8 shiftwidth=8
@@ -237,7 +237,7 @@ if has("autocmd")
     au FileType python setl omnifunc=pythoncomplete#Complete
     au FileType ruby setl omnifunc=rubycomplete#Complete
     au FileType xml setl omnifunc=xmlcomplete#CompleteTags
-    au BufRead,BufEnter ~/Tuna/* setl tabstop=2 shiftwidth=2
+    " au BufRead,BufEnter ~/Tuna/* setl tabstop=2 shiftwidth=2
   augroup END
 endif " has("autocmd")
 
