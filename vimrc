@@ -11,19 +11,16 @@ endif
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 filetype off
-set t_Co=16
 
 call plug#begin('~/.vim/bundle')
 " ------------------------------------------------
 " Mostly Filetypes
-
 Plug 'dagwieers/asciidoc-vim', { 'for': 'asciidoc' }
 Plug 'sunaku/vim-ruby-minitest', { 'for': 'ruby' }
 Plug 'tpope/vim-repeat'
 
 " ------------------------------------------------
 " Plugins -- Ordered by name of plugins, not username.
-"
 Plug 'airblade/vim-gitgutter' " Git		Status in gutter
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'godlygeek/tabular' " Tabular	Automated aligning of text
@@ -52,124 +49,47 @@ Plug 'xolox/vim-easytags'
 
 " ------------------------------------------------
 " Themes/Colorscheme
-
 Plug 'sjl/badwolf'
 Plug 'altercation/vim-colors-solarized'
-
 call plug#end()
 
 filetype plugin indent on
 syntax on
 
-" Vim Built-in Plugins
-runtime macros/matchit.vim
+runtime macros/matchit.vim " Vim Built-in Plugins
 
-" Easier file switching in the same editor window
-set hidden
-
-" Better command-line completion
-" Show possible expansions above the command line
-set wildmenu
-set wildmode=list:longest,full
+set hidden                     " Easier file switching in the same editor window
+set wildmenu                   " Better command-line completion
+set wildmode=list:longest,full " Show possible expansions above the command line
 set wildignore+=*/tmp/*
-
-" Show partial commands in the last line of the screen
-set showcmd
-
-" Highlight searches
-set hlsearch
-
-" Disable modeline because it has been a source of security vulnerabilities.
-" Alternative is to use securemodelines script. Default on
-" set nomodeline
-
-" ------------------------------------------------
-" Usability Options
-
-" Use case insensitive search, except when using capital letters
-set ignorecase		" When searching, ignore case
-set smartcase		"When searching, pay attention to case when capital letter is used.
-
-" Allow backspacing over autoindent, line breaks and start of insert action
-set backspace=indent,eol,start
-
-" When opening a new line and no filetype-specific indenting is enabled, keep
-" the same indent as the line you're currently on. Useful for READMEs, etc.
+set showcmd                    " Show partial commands in the last line of the screen
+set hlsearch                   " Highlight searches
+set modelines=0                " Ignore modelines due to security vulnerabilities
+set ignorecase                 " When searching, ignore case
+set smartcase                  " When searching, pay attention to case when capital letter is used.
+set backspace=indent,eol,start " Allow backspacing over autoindent, line breaks and start of insert action
 set autoindent
-
-" When using <C-F> and similar motions, gg, "d", "<<" and ">>", Vim by default
-" go to the start of line. Set it off so it will stay in the same column when
-" possible, which will be similar to other editors.
-set nostartofline
-
-" show the cursor position on last line of screen or in status line of window.
-set ruler
-
-" Always display the status line even if you have only one window.
-set laststatus=2
-
-" Instead of failing a command because of unsaved changes, raise a dialogue
-" requesting to save the changed files.
-set confirm
-
-" Use visual bell instead of beeping when doing something wrong.
-set visualbell
-
-" Reset the terminal code for the visual bell, otherwise when doing something
-" wrong, the cursor flashes.
-" set t_vb=
-
-" In many terminal emulators the mouse works just fine, thus enable it.
-" Enable for all modes.
+set nostartofline " When motions, Vim by default go to start of line. This disables it
+set ruler         " show the cursor position on last line of screen or in status line of window.
+set laststatus=2  " Always display the status line even if you have only one window.
+set confirm       " Request to save unsaved files when quitting
+set visualbell    " Don't beep
 set mouse=a
-
-" Set the command window height to 2 lines to avoid many cases of having to
-" press <Enter> to continue
-" set cmdheight=2
-
-" Display line numbers on the left
-set number		" Number line in the file, show current line number
-" Display relative line number
-" set relativenumber	" Show number of lines relative to current line
-
-" Quickly time out on keycodes, but never time out on mappings
-" Causes NeoVim to insert special characters when using the ESC key.
-" set notimeout ttimeout ttimeoutlen=200
-
-" Use <F11> to toggle between 'paste' and 'nopaste'
-set pastetoggle=<F11>
-
-" Indentation options
-" set shiftround		" When using >> or << will round to shiftwidth
+set number            " Number line in the file, show current line number
+set norelativenumber  " Show number of lines relative to current line
+set pastetoggle=<F11> " Use <F11> to toggle between 'paste' and 'nopaste'
+set noshiftround      " When using >> or << will round to shiftwidth
 set shiftwidth=2
-set expandtab
-
-" Indentation settings for using hard tabs, display tabs as 2 characters wide.
-" set shiftwidth=2
-" set tabstop=2
-
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file
-endif
-
-" keep 50 lines of command line history, default is 20
-" set history=50
-
-" Do incremental searching rather than waiting for whole word
-set incsearch
-
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
-
-" set colorcolumn=86	" Set character-width column for length indicator
-set cursorline		" Set underline to indicate location of cursor
+set expandtab " Expand tabs to spaces
+set tabstop=8 " Display real tab as 8 characters wide
+set history=50 " keep 50 lines of command line history
+set incsearch  " Do incremental search
+set colorcolumn=80	" Set character-width column for length indicator
+set nocursorline		" Set underline to indicate location of cursor
 set encoding=utf-8
 set scrolloff=3		" Keep a minimum number of lines above and below cursor
-" set showmatch		" When typing the closing bracket, will highlight it
+set noshowmatch		" Show matching bracket
 set lazyredraw	" When running a script.
-
 set ttyfast
 set wrap
 set backupdir=~/.vim/tmp/backup//
@@ -177,13 +97,34 @@ set directory=~/.vim/tmp/swap//
 set undodir=~/.vim/tmp/undo//
 set undofile
 set shell=$SHELL\ -l
-
-" set statusline=%f%M\ %{fugitive#statusline()}
 set statusline=%<%f%m\ %h%r%=%-14.(%l,%c%V%)\ %P
 set splitright splitbelow
 set clipboard^=unnamed,unnamedplus
 set listchars=tab:»·,trail:·,nbsp:+
 set list
+
+if !isdirectory(expand(&undodir))
+  call mkdir(expand(&undodir), "p")
+endif
+if !isdirectory(expand(&backupdir))
+  call mkdir(expand(&backupdir), "p")
+endif
+if !isdirectory(expand(&directory))
+  call mkdir(expand(&directory), "p")
+endif
+
+" Quickly time out on keycodes, but never time out on mappings
+" NOTE: Causes NeoVim to insert special characters when using the ESC key.
+" set notimeout ttimeout ttimeoutlen=200
+
+if has("vms")
+  set nobackup		" do not keep a backup file, use versions instead
+else
+  set backup		" keep a backup file
+endif
+
+" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
+" let &guioptions = substitute(&guioptions, "t", "", "g")
 
 "" Neocomplete config """""""""""""""""""""""""""
 let g:neocomplete#enable_at_startup = 1
