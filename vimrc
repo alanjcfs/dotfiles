@@ -62,53 +62,55 @@ syntax enable
 runtime macros/matchit.vim " Vim Built-in Plugins
 
 set autoindent
-set backspace=indent,eol,start " Allow backspacing over autoindent, line breaks and start of insert action
-set backupdir=~/.vim/tmp/backup//
+set backspace=indent,eol,start      " Allow backspacing over autoindent, line breaks and start of insert action
 set clipboard^=unnamed,unnamedplus
-set confirm       " Request to save unsaved files when quitting
-set directory=~/.vim/tmp/swap//
+set confirm                         " Request to save unsaved files when quitting
 set encoding=utf-8
-set expandtab " Expand tabs to spaces
-set hidden                     " Easier file switching in the same editor window
-set history=50 " keep 50 lines of command line history
-set hlsearch                   " Highlight searches
-set ignorecase                 " When searching, ignore case
-set incsearch  " Do incremental search
-set laststatus=2  " Always display the status line even if you have only one window.
-set lazyredraw	" When running a script.
+set expandtab                       " Expand tabs to spaces
+set hidden                          " Easier file switching in the same editor window
+set history=50                      " keep 50 lines of command line history
+set hlsearch                        " Highlight searches
+set ignorecase                      " When searching, ignore case
+set incsearch                       " Do incremental search
+set laststatus=2                    " Always display the status line even if you have only one window.
+set lazyredraw                      " When running a script.
 set list
 set listchars=tab:»·,trail:·,nbsp:+
-set modelines=0                " Ignore modelines due to security vulnerabilities
+set modelines=0                     " Ignore modelines due to security vulnerabilities
 set mouse=a
-set nocursorline		" Set underline to indicate location of cursor
+set nocursorline                    " Set underline to indicate location of cursor
 set nogdefault
-set norelativenumber  " Show number of lines relative to current line
-set noshiftround      " When using >> or << will round to shiftwidth
-set nostartofline " When motions, Vim by default go to start of line. This disables it
-set number            " Number line in the file, show current line number
-set pastetoggle=<F11> " Use <F11> to toggle between 'paste' and 'nopaste'
-set ruler         " show the cursor position on last line of screen or in status line of window.
-set scrolloff=3		" Keep a minimum number of lines above and below cursor
+set norelativenumber                " Show number of lines relative to current line
+set noshiftround                    " When using >> or << will round to shiftwidth
+set nostartofline                   " When motions, Vim by default go to start of line. This disables it
+set number                          " Number line in the file, show current line number
+set pastetoggle=<F11>               " Use <F11> to toggle between 'paste' and 'nopaste'
+set ruler                           " show the cursor position on last line of screen or in status line of window.
+set scrolloff=3                     " Keep a minimum number of lines above and below cursor
 set shell=$SHELL\ -l
 set shiftwidth=2
-set showcmd                    " Show partial commands in the last line of the screen
-set showmatch		" Show matching bracket
+set showcmd                         " Show partial commands in the last line of the screen
+set showmatch                       " Show matching bracket
 set showmode
-set smartcase                  " When searching, pay attention to case when capital letter is used.
+set smartcase                       " When searching, pay attention to case when capital letter is used.
 set softtabstop=4
 set splitright splitbelow
-set statusline=%<%f%m\ %h%r%=%-14.(%l,%c%V%)\ %P
 set synmaxcol=200
-set tabstop=8 " Display real tab as 8 characters wide
+set tabstop=8                       " Display real tab as 8 characters wide
 set ttyfast
-set undodir=~/.vim/tmp/undo//
 set undofile
-set visualbell    " Don't beep
+set visualbell                      " Don't beep
 set wildignore+=*/tmp/*
-set wildmenu                   " Better command-line completion
-set wildmode=list:longest,full " Show possible expansions above the command line
+set wildmenu                        " Better command-line completion
+set wildmode=list:longest,full      " Show possible expansions above the command line
 set wrap
-" set colorcolumn=80	" Set character-width column for length indicator
+
+" set colorcolumn=80                " Set character-width column for length indicator
+
+" Vim directories
+set backupdir=~/.vim/tmp/backup//
+set directory=~/.vim/tmp/swap//
+set undodir=~/.vim/tmp/undo//
 
 if !isdirectory(expand(&undodir))
   call mkdir(expand(&undodir), "p")
@@ -160,7 +162,8 @@ let g:neocomplete#enable_at_startup = 0
 "" End Neocomplete config """"""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
-" Syntastic settings
+" Status line with syntastic settings
+set statusline=%<%f%m\ %h%r%=%-14.(%l,%c%V%)\ %P
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
 set statusline+=%*
@@ -232,19 +235,22 @@ if has("autocmd")
       \   exe "normal! g`\"" |
       \ endif
 
-    au FileType text,gitconfig setlocal noexpandtab tabstop=8 shiftwidth=8 textwidth=80
-    au FileType gitcommit setl textwidth=72
-    au Filetype go setl tabstop=4 shiftwidth=4
-    au FileType markdown setl textwidth=80 omnifunc=htmlcomplete#CompleteTags
-    au BufRead,BufNewFile *.md,*.markdown setl filetype=markdown
+    au BufEnter Makefile setlocal noexpandtab tabstop=8 shiftwidth=8
     au BufRead,BufNewFile *.adoc,*.asciidoc setl syntax=asciidoc textwidth=80
     au BufRead,BufNewFile *.es6 setl filetype=javascript
-    au BufEnter Makefile setlocal noexpandtab tabstop=8 shiftwidth=8
+    au BufRead,BufNewFile *.md,*.markdown setl filetype=markdown
+    au FileType gitcommit setl textwidth=72
+    au FileType gitconfig setl noexpandtab tabstop=8 shiftwidth=8 textwidth=80
+    au FileType go setl tabstop=4 shiftwidth=4
     au FileType html setl noexpandtab tabstop=4 shiftwidth=4 omnifunc=htmlcomplete#CompleteTags listchars-=tab:»·
     au FileType javascript setl omnifunc=javascriptcomplete#CompleteJS
+    au FileType markdown setl textwidth=80 omnifunc=htmlcomplete#CompleteTags
     au FileType python setl omnifunc=pythoncomplete#Complete
     au FileType ruby setl omnifunc=rubycomplete#Complete
+    au FileType text setl noexpandtab tabstop=8 shiftwidth=8 textwidth=80
+    au FileType vim setl noexpandtab
     au FileType xml setl omnifunc=xmlcomplete#CompleteTags
+
     " au BufRead,BufEnter ~/Tuna/* setl tabstop=2 shiftwidth=2
   augroup END
 endif " has("autocmd")
@@ -310,8 +316,8 @@ nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gc :Gcommit -v<cr>
 nnoremap <leader>gd :Gdiff<space>
 nnoremap <leader>gg :Ggrep<space>
+nnoremap <leader>gl :Glog -p<cr>
 nnoremap <leader>gw :Gwrite<cr>
-nnoremap <leader>gp :!git log -p %<cr>
 
 nnoremap <leader>rc :!rubocop %<cr>
 nnoremap <leader>t :!ruby<space>%<cr>
