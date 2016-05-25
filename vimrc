@@ -18,12 +18,15 @@ call plug#begin('~/.vim/bundle')
 Plug 'dagwieers/asciidoc-vim', { 'for': 'asciidoc' }
 Plug 'sunaku/vim-ruby-minitest', { 'for': 'ruby' }
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-rake'
 
 " ------------------------------------------------
 " Plugins -- Ordered by name of plugins, not username.
 Plug 'airblade/vim-gitgutter' " Git		Status in gutter
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'godlygeek/tabular' " Tabular	Automated aligning of text
+Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'JazzCore/ctrlp-cmatcher'
 Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'Shougo/neocomplete.vim'
@@ -54,7 +57,7 @@ Plug 'altercation/vim-colors-solarized'
 call plug#end()
 
 filetype plugin indent on
-syntax on
+syntax enable
 
 runtime macros/matchit.vim " Vim Built-in Plugins
 
@@ -82,13 +85,15 @@ set noshiftround      " When using >> or << will round to shiftwidth
 set shiftwidth=2
 set expandtab " Expand tabs to spaces
 set tabstop=8 " Display real tab as 8 characters wide
+set softtabstop=4
 set history=50 " keep 50 lines of command line history
+set nogdefault
 set incsearch  " Do incremental search
-set colorcolumn=80	" Set character-width column for length indicator
+" set colorcolumn=80	" Set character-width column for length indicator
 set nocursorline		" Set underline to indicate location of cursor
 set encoding=utf-8
 set scrolloff=3		" Keep a minimum number of lines above and below cursor
-set noshowmatch		" Show matching bracket
+set showmatch		" Show matching bracket
 set lazyredraw	" When running a script.
 set ttyfast
 set wrap
@@ -100,8 +105,10 @@ set shell=$SHELL\ -l
 set statusline=%<%f%m\ %h%r%=%-14.(%l,%c%V%)\ %P
 set splitright splitbelow
 set clipboard^=unnamed,unnamedplus
-set listchars=tab:»·,trail:·,nbsp:+
 set list
+set listchars=tab:»·,trail:·,nbsp:+
+set synmaxcol=200
+set showmode
 
 if !isdirectory(expand(&undodir))
   call mkdir(expand(&undodir), "p")
@@ -127,7 +134,7 @@ endif
 " let &guioptions = substitute(&guioptions, "t", "", "g")
 
 "" Neocomplete config """""""""""""""""""""""""""
-let g:neocomplete#enable_at_startup = 1
+let g:neocomplete#enable_at_startup = 0
 " let g:neocomplete#enable_smart_case = 1
 " let g:neocomplete#sources#syntax#min_keyword_length = 3
 " let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
@@ -178,6 +185,7 @@ let g:ctrlp_custom_ignore = {
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
+let g:ctrlp_match_func = { 'match': 'matcher#cmatch' }
 
 " Vim-Go config (Disabled)
 " Disable vim-go passing fmt through Go file
@@ -232,7 +240,7 @@ if has("autocmd")
     au BufRead,BufNewFile *.adoc,*.asciidoc setl syntax=asciidoc textwidth=80
     au BufRead,BufNewFile *.es6 setl filetype=javascript
     au BufEnter Makefile setlocal noexpandtab tabstop=8 shiftwidth=8
-    au FileType html setl noexpandtab tabstop=4 shiftwidth=4 omnifunc=htmlcomplete#CompleteTags
+    au FileType html setl noexpandtab tabstop=4 shiftwidth=4 omnifunc=htmlcomplete#CompleteTags listchars-=tab:»·
     au FileType javascript setl omnifunc=javascriptcomplete#CompleteJS
     au FileType python setl omnifunc=pythoncomplete#Complete
     au FileType ruby setl omnifunc=rubycomplete#Complete
@@ -296,9 +304,10 @@ nnoremap <leader>l :ls<cr>:b<space>
 nnoremap <leader>g :Git<space>
 nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gc :Gcommit -v<cr>
+nnoremap <leader>gd :Gdiff<space>
 nnoremap <leader>gg :Ggrep<space>
 nnoremap <leader>gw :Gwrite<cr>
-nnoremap <leader>gd :Gdiff<space>
+nnoremap <leader>gp :!git log -p %<cr>
 
 nnoremap <leader>rc :!rubocop %<cr>
 nnoremap <leader>t :!ruby<space>%<cr>
@@ -306,6 +315,10 @@ nnoremap <leader>t :!ruby<space>%<cr>
 
 " ???
 nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
+
+" Search using Perl/Python-compatible regex
+nnoremap / /\v
+vnoremap / /\v
 
 " Source other local vimrc files, if any
 " if filereadable(glob('$HA_ROOT/vimrc.local'))
