@@ -17,22 +17,20 @@ call plug#begin('~/.vim/bundle')
 " Mostly Filetypes
 Plug 'dagwieers/asciidoc-vim', { 'for': 'asciidoc' }
 Plug 'sunaku/vim-ruby-minitest', { 'for': 'ruby' }
-Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-rake'
+Plug 'tpope/vim-repeat'
 
 " ------------------------------------------------
 " Plugins -- Ordered by name of plugins, not username.
-Plug 'airblade/vim-gitgutter' " Git		Status in gutter
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'godlygeek/tabular' " Tabular	Automated aligning of text
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'JazzCore/ctrlp-cmatcher'
-Plug 'SirVer/ultisnips'
-Plug 'honza/vim-snippets'
 Plug 'Shougo/neocomplete.vim'
-" Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-" Plug 'Shougo/vimshell.vim'
+Plug 'SirVer/ultisnips'
+Plug 'airblade/vim-gitgutter' " Git		Status in gutter
+Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim' " CtrlP		Allow opening files
+Plug 'godlygeek/tabular' " Tabular	Automated aligning of text
+Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' } " Tagbar	Show location of defined methods
 Plug 'mattn/emmet-vim' " Emmet Vim
 Plug 'rking/ag.vim', { 'on': 'Ag' } " Ag		Silver Searcher
@@ -47,13 +45,15 @@ Plug 'tpope/vim-fugitive' " Gdiff, Gwrite, Ggrep, etc.
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone' " Tmux integration
 Plug 'tpope/vim-unimpaired'
-Plug 'xolox/vim-misc'
 Plug 'xolox/vim-easytags'
+Plug 'xolox/vim-misc'
 
 " ------------------------------------------------
 " Themes/Colorscheme
-Plug 'sjl/badwolf'
 Plug 'altercation/vim-colors-solarized'
+Plug 'sjl/badwolf'
+" Plug 'Shougo/vimproc.vim', { 'do': 'make' }
+" Plug 'Shougo/vimshell.vim'
 call plug#end()
 
 filetype plugin indent on
@@ -61,54 +61,54 @@ syntax enable
 
 runtime macros/matchit.vim " Vim Built-in Plugins
 
-set hidden                     " Easier file switching in the same editor window
-set wildmenu                   " Better command-line completion
-set wildmode=list:longest,full " Show possible expansions above the command line
-set wildignore+=*/tmp/*
-set showcmd                    " Show partial commands in the last line of the screen
-set hlsearch                   " Highlight searches
-set modelines=0                " Ignore modelines due to security vulnerabilities
-set ignorecase                 " When searching, ignore case
-set smartcase                  " When searching, pay attention to case when capital letter is used.
-set backspace=indent,eol,start " Allow backspacing over autoindent, line breaks and start of insert action
 set autoindent
-set nostartofline " When motions, Vim by default go to start of line. This disables it
-set ruler         " show the cursor position on last line of screen or in status line of window.
-set laststatus=2  " Always display the status line even if you have only one window.
-set confirm       " Request to save unsaved files when quitting
-set visualbell    " Don't beep
-set mouse=a
-set number            " Number line in the file, show current line number
-set norelativenumber  " Show number of lines relative to current line
-set pastetoggle=<F11> " Use <F11> to toggle between 'paste' and 'nopaste'
-set noshiftround      " When using >> or << will round to shiftwidth
-set shiftwidth=2
-set expandtab " Expand tabs to spaces
-set tabstop=8 " Display real tab as 8 characters wide
-set softtabstop=4
-set history=50 " keep 50 lines of command line history
-set nogdefault
-set incsearch  " Do incremental search
-" set colorcolumn=80	" Set character-width column for length indicator
-set nocursorline		" Set underline to indicate location of cursor
-set encoding=utf-8
-set scrolloff=3		" Keep a minimum number of lines above and below cursor
-set showmatch		" Show matching bracket
-set lazyredraw	" When running a script.
-set ttyfast
-set wrap
+set backspace=indent,eol,start " Allow backspacing over autoindent, line breaks and start of insert action
 set backupdir=~/.vim/tmp/backup//
-set directory=~/.vim/tmp/swap//
-set undodir=~/.vim/tmp/undo//
-set undofile
-set shell=$SHELL\ -l
-set statusline=%<%f%m\ %h%r%=%-14.(%l,%c%V%)\ %P
-set splitright splitbelow
 set clipboard^=unnamed,unnamedplus
+set confirm       " Request to save unsaved files when quitting
+set directory=~/.vim/tmp/swap//
+set encoding=utf-8
+set expandtab " Expand tabs to spaces
+set hidden                     " Easier file switching in the same editor window
+set history=50 " keep 50 lines of command line history
+set hlsearch                   " Highlight searches
+set ignorecase                 " When searching, ignore case
+set incsearch  " Do incremental search
+set laststatus=2  " Always display the status line even if you have only one window.
+set lazyredraw	" When running a script.
 set list
 set listchars=tab:»·,trail:·,nbsp:+
-set synmaxcol=200
+set modelines=0                " Ignore modelines due to security vulnerabilities
+set mouse=a
+set nocursorline		" Set underline to indicate location of cursor
+set nogdefault
+set norelativenumber  " Show number of lines relative to current line
+set noshiftround      " When using >> or << will round to shiftwidth
+set nostartofline " When motions, Vim by default go to start of line. This disables it
+set number            " Number line in the file, show current line number
+set pastetoggle=<F11> " Use <F11> to toggle between 'paste' and 'nopaste'
+set ruler         " show the cursor position on last line of screen or in status line of window.
+set scrolloff=3		" Keep a minimum number of lines above and below cursor
+set shell=$SHELL\ -l
+set shiftwidth=2
+set showcmd                    " Show partial commands in the last line of the screen
+set showmatch		" Show matching bracket
 set showmode
+set smartcase                  " When searching, pay attention to case when capital letter is used.
+set softtabstop=4
+set splitright splitbelow
+set statusline=%<%f%m\ %h%r%=%-14.(%l,%c%V%)\ %P
+set synmaxcol=200
+set tabstop=8 " Display real tab as 8 characters wide
+set ttyfast
+set undodir=~/.vim/tmp/undo//
+set undofile
+set visualbell    " Don't beep
+set wildignore+=*/tmp/*
+set wildmenu                   " Better command-line completion
+set wildmode=list:longest,full " Show possible expansions above the command line
+set wrap
+" set colorcolumn=80	" Set character-width column for length indicator
 
 if !isdirectory(expand(&undodir))
   call mkdir(expand(&undodir), "p")
@@ -279,6 +279,10 @@ inoremap <C-U> <C-G>u<C-U>
 " Escape using jk
 inoremap jk <esc>
 
+" Search using Perl/Python-compatible regex
+nnoremap / /\v
+vnoremap / /\v
+
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Leader key mappings
 " CtrlP
@@ -315,10 +319,6 @@ nnoremap <leader>t :!ruby<space>%<cr>
 
 " ???
 nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
-
-" Search using Perl/Python-compatible regex
-nnoremap / /\v
-vnoremap / /\v
 
 " Source other local vimrc files, if any
 " if filereadable(glob('$HA_ROOT/vimrc.local'))
