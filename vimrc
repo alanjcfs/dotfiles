@@ -22,13 +22,13 @@ Plug 'tpope/vim-repeat'
 
 " ------------------------------------------------
 " Plugins -- Ordered by name of plugins, not username.
-Plug 'FelikZ/ctrlp-py-matcher'
-Plug 'JazzCore/ctrlp-cmatcher'
+" Plug 'FelikZ/ctrlp-py-matcher'
+" Plug 'JazzCore/ctrlp-cmatcher'
 Plug 'Shougo/neocomplete.vim'
 Plug 'SirVer/ultisnips'
 Plug 'airblade/vim-gitgutter' " Git		Status in gutter
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'ctrlpvim/ctrlp.vim' " CtrlP		Allow opening files
+" Plug 'ctrlpvim/ctrlp.vim' " CtrlP		Allow opening files
 Plug 'godlygeek/tabular' " Tabular	Automated aligning of text
 Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' } " Tagbar	Show location of defined methods
@@ -38,13 +38,14 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " NERDtree	Directory Navi
 Plug 'scrooloose/syntastic' " Syntastic	Syntax Checker
 Plug 'sheerun/vim-polyglot' " One vim to rule them all
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' } " Gundo	Visual Undo Tree
-Plug 'tacahiroy/ctrlp-funky'
+" Plug 'tacahiroy/ctrlp-funky'
 Plug 'tomtom/tcomment_vim' " Tcomment	Use gcc to comment a line
 Plug 'tpope/vim-endwise' " Endwise	Ruby auto-end
 Plug 'tpope/vim-fugitive' " Gdiff, Gwrite, Ggrep, etc.
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone' " Tmux integration
 Plug 'tpope/vim-unimpaired'
+Plug 'wincent/command-t', { 'do': 'cd ruby/command-t && ruby extconf.rb && make' }
 Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
 
@@ -64,6 +65,7 @@ runtime macros/matchit.vim " Vim Built-in Plugins
 set autoindent
 set backspace=indent,eol,start      " Allow backspacing over autoindent, line breaks and start of insert action
 set clipboard^=unnamed,unnamedplus
+set colorcolumn=80                  " Set character-width column for length indicator
 set confirm                         " Request to save unsaved files when quitting
 set encoding=utf-8
 set expandtab                       " Expand tabs to spaces
@@ -95,7 +97,7 @@ set showmode
 set smartcase                       " When searching, pay attention to case when capital letter is used.
 set softtabstop=4
 set splitright splitbelow
-set synmaxcol=200
+set synmaxcol=3000
 set tabstop=8                       " Display real tab as 8 characters wide
 set ttyfast
 set undofile
@@ -104,8 +106,6 @@ set wildignore+=*/tmp/*
 set wildmenu                        " Better command-line completion
 set wildmode=list:longest,full      " Show possible expansions above the command line
 set wrap
-
-" set colorcolumn=80                " Set character-width column for length indicator
 
 " Vim directories
 set backupdir=~/.vim/tmp/backup//
@@ -178,17 +178,17 @@ let g:syntastic_filetype_map = { 'handlebars.html': 'handlebars' }
 " let g:enable_numbers = 0
 " let g:solarized_termcolors=256
 
-" CtrlP Config
-let g:ctrlp_custom_ignore = {
-      \ 'dir': '\v[\/](node_modules|target|dist)',
-      \ 'file': '\v\.(exe|png|jpg|gif|psd|pdf|map)$',
-      \ 'link': '',
-      \ }
-" let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp' " Set up caching.
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-endif
-let g:ctrlp_match_func = { 'match': 'matcher#cmatch' }
+" " CtrlP Config
+" let g:ctrlp_custom_ignore = {
+"       \ 'dir': '\v[\/](node_modules|target|dist)',
+"       \ 'file': '\v\.(exe|png|jpg|gif|psd|pdf|map)$',
+"       \ 'link': '',
+"       \ }
+" " let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp' " Set up caching.
+" if executable('ag')
+"   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+" endif
+" let g:ctrlp_match_func = { 'match': 'matcher#cmatch' }
 
 " Vim-Go config (Disabled)
 " Disable vim-go passing fmt through Go file
@@ -289,12 +289,16 @@ inoremap jk <esc>
 nnoremap / /\v
 vnoremap / /\v
 
+" Use Command-T like CtrlP
+nnoremap <C-P> :CommandT<CR>
+let g:CommandTAcceptSelectionSplitMap = '<C-x>'
+
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Leader key mappings
 " CtrlP
-nnoremap <leader>. :CtrlPTag<cr>
-nnoremap <leader>fu :CtrlPFunky<cr>
-nnoremap <leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<cr>
+" nnoremap <leader>. :CtrlPTag<cr>
+" nnoremap <leader>fu :CtrlPFunky<cr>
+" nnoremap <leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<cr>
 
 " Plugins
 nnoremap <leader>a :Ag<space>
@@ -320,7 +324,6 @@ nnoremap <leader>gl :Glog -p<cr>
 nnoremap <leader>gw :Gwrite<cr>
 
 nnoremap <leader>rc :!rubocop %<cr>
-nnoremap <leader>t :!ruby<space>%<cr>
 " End Leader key mappings """"""""""""""""""""""""
 
 " ???
