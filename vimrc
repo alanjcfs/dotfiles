@@ -22,13 +22,13 @@ Plug 'tpope/vim-repeat'
 
 " ------------------------------------------------
 " Plugins -- Ordered by name of plugins, not username.
-" Plug 'FelikZ/ctrlp-py-matcher'
-" Plug 'JazzCore/ctrlp-cmatcher'
+Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'JazzCore/ctrlp-cmatcher'
 Plug 'Shougo/neocomplete.vim'
 Plug 'SirVer/ultisnips'
 Plug 'airblade/vim-gitgutter' " Git		Status in gutter
 Plug 'christoomey/vim-tmux-navigator'
-" Plug 'ctrlpvim/ctrlp.vim' " CtrlP		Allow opening files
+Plug 'ctrlpvim/ctrlp.vim' " CtrlP		Allow opening files
 Plug 'godlygeek/tabular' " Tabular	Automated aligning of text
 Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' } " Tagbar	Show location of defined methods
@@ -45,7 +45,7 @@ Plug 'tpope/vim-fugitive' " Gdiff, Gwrite, Ggrep, etc.
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone' " Tmux integration
 Plug 'tpope/vim-unimpaired'
-Plug 'wincent/command-t', { 'do': 'cd ruby/command-t && ruby extconf.rb && make' }
+" Plug 'wincent/command-t', { 'do': 'cd ruby/command-t && ruby extconf.rb && make' }
 Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
 
@@ -179,16 +179,16 @@ let g:syntastic_filetype_map = { 'handlebars.html': 'handlebars' }
 " let g:solarized_termcolors=256
 
 " " CtrlP Config
-" let g:ctrlp_custom_ignore = {
-"       \ 'dir': '\v[\/](node_modules|target|dist)',
-"       \ 'file': '\v\.(exe|png|jpg|gif|psd|pdf|map)$',
-"       \ 'link': '',
-"       \ }
-" " let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp' " Set up caching.
-" if executable('ag')
-"   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
-" endif
-" let g:ctrlp_match_func = { 'match': 'matcher#cmatch' }
+let g:ctrlp_custom_ignore = {
+      \ 'dir': '\v[\/](node_modules|target|dist)',
+      \ 'file': '\v\.(exe|png|jpg|gif|psd|pdf|map)$',
+      \ 'link': '',
+      \ }
+" let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp' " Set up caching.
+if executable('ag')
+  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+endif
+let g:ctrlp_match_func = { 'match': 'matcher#cmatch' }
 
 " Vim-Go config (Disabled)
 " Disable vim-go passing fmt through Go file
@@ -290,8 +290,8 @@ nnoremap / /\v
 vnoremap / /\v
 
 " Use Command-T like CtrlP
-nnoremap <C-P> :CommandT<CR>
-let g:CommandTAcceptSelectionSplitMap = '<C-x>'
+" nnoremap <C-P> :CommandT<CR>
+" let g:CommandTAcceptSelectionSplitMap = '<C-x>'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Leader key mappings
