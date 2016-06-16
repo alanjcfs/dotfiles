@@ -60,7 +60,7 @@ call plug#end()
 filetype plugin indent on
 syntax enable
 
-runtime macros/matchit.vim " Vim Built-in Plugins
+" runtime macros/matchit.vim " Vim Built-in Plugins
 
 set autoindent
 set backspace=indent,eol,start      " Allow backspacing over autoindent, line breaks and start of insert action
@@ -84,6 +84,7 @@ set nocursorline                    " Set underline to indicate location of curs
 set nogdefault
 set norelativenumber                " Show number of lines relative to current line
 set noshiftround                    " When using >> or << will round to shiftwidth
+set noshowmatch                     " Show matching bracket
 set nostartofline                   " When motions, Vim by default go to start of line. This disables it
 set number                          " Number line in the file, show current line number
 set pastetoggle=<F11>               " Use <F11> to toggle between 'paste' and 'nopaste'
@@ -92,7 +93,6 @@ set scrolloff=3                     " Keep a minimum number of lines above and b
 set shell=$SHELL\ -l
 set shiftwidth=2
 set showcmd                         " Show partial commands in the last line of the screen
-set showmatch                       " Show matching bracket
 set showmode
 set smartcase                       " When searching, pay attention to case when capital letter is used.
 set softtabstop=4
@@ -188,7 +188,8 @@ let g:ctrlp_custom_ignore = {
 if executable('ag')
   let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
 endif
-let g:ctrlp_match_func = { 'match': 'matcher#cmatch' }
+" let g:ctrlp_match_func = { 'match': 'matcher#cmatch' }
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
 " Vim-Go config (Disabled)
 " Disable vim-go passing fmt through Go file
