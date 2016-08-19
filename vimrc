@@ -11,6 +11,7 @@ endif
 " This must be first, because it changes other options as a side effect.
 set nocompatible
 filetype off
+syntax off
 
 call plug#begin('~/.vim/bundle')
 " ------------------------------------------------
@@ -60,7 +61,7 @@ call plug#end()
 filetype plugin indent on
 syntax enable
 
-" runtime macros/matchit.vim " Vim Built-in Plugins
+runtime macros/matchit.vim " Vim Built-in Plugins
 
 set autoindent
 set backspace=indent,eol,start      " Allow backspacing over autoindent, line breaks and start of insert action
@@ -163,16 +164,16 @@ let g:neocomplete#enable_at_startup = 0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Status line with syntastic settings
-set statusline=%<%f%m\ %h%r%=%-14.(%l,%c%V%)\ %P
-set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
-set statusline+=%*
+set statusline=%<%f%m\ %h%r%=%-14.(%l,%c%V%)\ %P " What the fuck does this line do??? ಠ_ಠ
+" set statusline+=%#warningmsg#
+" set statusline+=%{SyntasticStatuslineFlag()}
+" set statusline+=%*
 " let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_javascript_checks = ['jshint']
-let g:syntastic_filetype_map = { 'handlebars.html': 'handlebars' }
 " let g:syntastic_auto_loc_list = 1
 " let g:syntastic_check_on_open = 1
 " let g:syntastic_check_on_wq = 0
+let g:syntastic_javascript_checks = ['jshint']
+let g:syntastic_filetype_map = { 'handlebars.html': 'handlebars' }
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
 " let g:enable_numbers = 0
@@ -207,6 +208,7 @@ let g:UltiSnipsJumpBackwardTrigger = "<C-b>"
 let g:polyglot_disabled = []
 
 " Easytags
+let g:easytags_auto_highlight = 0
 let g:easytags_async = 1
 
 try
