@@ -34,7 +34,7 @@ Plug 'godlygeek/tabular' " Tabular	Automated aligning of text
 Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' } " Tagbar	Show location of defined methods
 Plug 'mattn/emmet-vim' " Emmet Vim
-Plug 'rking/ag.vim', { 'on': 'Ag' } " Ag		Silver Searcher
+Plug 'mileszs/ack.vim', { 'on': 'Ag' } " Ag		Silver Searcher
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " NERDtree	Directory Navigation (Alternative to Netrw)
 Plug 'scrooloose/syntastic' " Syntastic	Syntax Checker
 Plug 'sheerun/vim-polyglot' " One vim to rule them all
@@ -179,6 +179,8 @@ let g:syntastic_filetype_map = { 'handlebars.html': 'handlebars' }
 " let g:enable_numbers = 0
 " let g:solarized_termcolors=256
 
+let g:ackprg = 'ag --vimgrep --smart-case'
+
 " " CtrlP Config
 let g:ctrlp_custom_ignore = {
       \ 'dir': '\v[\/](node_modules|target|dist)',
@@ -304,7 +306,7 @@ inoremap jk <esc>
 " nnoremap <leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<cr>
 
 " Plugins
-nnoremap <leader>a :Ag<space>
+nnoremap <leader>a :Ack<space>
 nnoremap <leader>b :TagbarToggle<cr>
 nnoremap <leader>n :NERDTree<cr>
 nnoremap <leader>u :GundoToggle<cr>
