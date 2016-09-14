@@ -34,7 +34,7 @@ Plug 'godlygeek/tabular' " Tabular	Automated aligning of text
 Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' } " Tagbar	Show location of defined methods
 Plug 'mattn/emmet-vim' " Emmet Vim
-Plug 'mileszs/ack.vim', { 'on': 'Ag' } " Ag		Silver Searcher
+Plug 'mileszs/ack.vim', { 'on': 'Ack' } " Ag		Silver Searcher
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " NERDtree	Directory Navigation (Alternative to Netrw)
 Plug 'scrooloose/syntastic' " Syntastic	Syntax Checker
 Plug 'sheerun/vim-polyglot' " One vim to rule them all
