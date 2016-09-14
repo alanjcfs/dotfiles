@@ -289,8 +289,8 @@ inoremap <C-U> <C-G>u<C-U>
 inoremap jk <esc>
 
 " Search using Perl/Python-compatible regex
-nnoremap / /\v
-vnoremap / /\v
+" nnoremap / /\v
+" vnoremap / /\v
 
 " Use Command-T like CtrlP
 " nnoremap <C-P> :CommandT<CR>
