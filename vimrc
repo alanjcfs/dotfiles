@@ -35,6 +35,7 @@ Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' } " Tagbar	Show location of defined methods
 Plug 'mattn/emmet-vim' " Emmet Vim
 Plug 'mileszs/ack.vim', { 'on': 'Ack' } " Ag		Silver Searcher
+Plug 'racer-rust/vim-racer'
 Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " NERDtree	Directory Navigation (Alternative to Netrw)
 Plug 'scrooloose/syntastic' " Syntastic	Syntax Checker
 Plug 'sheerun/vim-polyglot' " One vim to rule them all
@@ -137,7 +138,7 @@ endif
 " let &guioptions = substitute(&guioptions, "t", "", "g")
 
 "" Neocomplete config """""""""""""""""""""""""""
-let g:neocomplete#enable_at_startup = 0
+let g:neocomplete#enable_at_startup = 1
 " let g:neocomplete#enable_smart_case = 1
 " let g:neocomplete#sources#syntax#min_keyword_length = 3
 " let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
@@ -178,6 +179,8 @@ let g:syntastic_filetype_map = { 'handlebars.html': 'handlebars' }
 
 " let g:enable_numbers = 0
 " let g:solarized_termcolors=256
+
+let g:racer_cmd = "/Users/alan/.cargo/bin/racer"
 
 let g:ackprg = 'ag --vimgrep --smart-case'
 
