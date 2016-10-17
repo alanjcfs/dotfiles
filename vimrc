@@ -139,28 +139,28 @@ endif
 
 "" Neocomplete config """""""""""""""""""""""""""
 let g:neocomplete#enable_at_startup = 1
-" let g:neocomplete#enable_smart_case = 1
-" let g:neocomplete#sources#syntax#min_keyword_length = 3
-" let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
+let g:neocomplete#enable_smart_case = 1
+let g:neocomplete#sources#syntax#min_keyword_length = 3
+let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
 "
-" let g:neocomplete#sources#dictionary#dictionaries = {
-"       \ 'default':'',
-"       \ 'vimshell':$HOME.'/.vimshell_hist',
-"       \ 'scheme':$HOME.'/.gosh_completions'
-"       \ }
-" if !exists('g:neocomplete#keyword_patterns')
-"   let g:neocomplete#keyword_patterns = {}
-" endif
-" let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-" inoremap <expr><C-g> neocomplete#undo_completion()
-" inoremap <expr><C-l> neocomplete#complete_common_string()
-" inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-" function! s:my_cr_function()
-"   return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-" endfunction
-" inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-" inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-" inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+let g:neocomplete#sources#dictionary#dictionaries = {
+      \ 'default':'',
+      \ 'vimshell':$HOME.'/.vimshell_hist',
+      \ 'scheme':$HOME.'/.gosh_completions'
+      \ }
+if !exists('g:neocomplete#keyword_patterns')
+  let g:neocomplete#keyword_patterns = {}
+endif
+let g:neocomplete#keyword_patterns['default'] = '\h\w*'
+inoremap <expr><C-g> neocomplete#undo_completion()
+inoremap <expr><C-l> neocomplete#complete_common_string()
+inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
+function! s:my_cr_function()
+  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
+endfunction
+inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
+inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
+inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
 "" End Neocomplete config """"""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -180,9 +180,10 @@ let g:syntastic_filetype_map = { 'handlebars.html': 'handlebars' }
 " let g:enable_numbers = 0
 " let g:solarized_termcolors=256
 
-let g:racer_cmd = "/Users/alan/.cargo/bin/racer"
+let g:racer_cmd = "$HOME/.cargo/bin/racer"
+let g:racer_experimental_completer = 1
 
-let g:ackprg = 'ag --vimgrep --smart-case'
+let g:ackprg = 'rg --vimgrep --smart-case'
 
 " " CtrlP Config
 let g:ctrlp_custom_ignore = {
