@@ -1,0 +1,3 @@
+[submodule "pack/alan/opt/asciidoc-vim"]
+	path = pack/alan/opt/asciidoc-vim
+	url = https://github.com/dagwieers/asciidoc-vim.git
