@@ -15,21 +15,14 @@ syntax off
 
 call plug#begin('~/.vim/bundle')
 " ------------------------------------------------
-" Mostly Filetypes
-Plug 'dagwieers/asciidoc-vim', { 'for': 'asciidoc' }
-Plug 'sunaku/vim-ruby-minitest', { 'for': 'ruby' }
-Plug 'tpope/vim-rake'
-Plug 'tpope/vim-repeat'
-
-" ------------------------------------------------
 " Plugins -- Ordered by name of plugins, not username.
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'JazzCore/ctrlp-cmatcher'
+Plug 'ctrlpvim/ctrlp.vim' " CtrlP		Allow opening files
 Plug 'Shougo/neocomplete.vim'
 Plug 'SirVer/ultisnips'
 Plug 'airblade/vim-gitgutter' " Git		Status in gutter
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'ctrlpvim/ctrlp.vim' " CtrlP		Allow opening files
 Plug 'godlygeek/tabular' " Tabular	Automated aligning of text
 Plug 'honza/vim-snippets'
 Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' } " Tagbar	Show location of defined methods
@@ -40,7 +33,6 @@ Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " NERDtree	Directory Navi
 Plug 'scrooloose/syntastic' " Syntastic	Syntax Checker
 Plug 'sheerun/vim-polyglot' " One vim to rule them all
 Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' } " Gundo	Visual Undo Tree
-" Plug 'tacahiroy/ctrlp-funky'
 Plug 'tomtom/tcomment_vim' " Tcomment	Use gcc to comment a line
 Plug 'tpope/vim-endwise' " Endwise	Ruby auto-end
 Plug 'tpope/vim-fugitive' " Gdiff, Gwrite, Ggrep, etc.
@@ -244,7 +236,7 @@ if has("autocmd")
       \ endif
 
     au BufEnter Makefile setlocal noexpandtab tabstop=8 shiftwidth=8
-    au BufRead,BufNewFile *.adoc,*.asciidoc setl syntax=asciidoc textwidth=80
+    au BufRead,BufNewFile *.adoc,*.asciidoc packadd asciidoc-vim | setl syntax=asciidoc textwidth=80
     au BufRead,BufNewFile *.es6 setl filetype=javascript
     au BufRead,BufNewFile *.md,*.markdown setl filetype=markdown
     au FileType gitcommit setl textwidth=72
@@ -254,7 +246,7 @@ if has("autocmd")
     au FileType javascript setl omnifunc=javascriptcomplete#CompleteJS
     au FileType markdown setl textwidth=80 omnifunc=htmlcomplete#CompleteTags
     au FileType python setl omnifunc=pythoncomplete#Complete
-    au FileType ruby setl omnifunc=rubycomplete#Complete
+    au FileType ruby packadd vim-ruby-minitest | setl omnifunc=rubycomplete#Complete
     au FileType text setl noexpandtab tabstop=8 shiftwidth=8 textwidth=80
     au FileType vim setl noexpandtab
     au FileType xml setl omnifunc=xmlcomplete#CompleteTags

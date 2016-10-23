@@ -1,3 +1,12 @@
 [submodule "pack/alan/opt/asciidoc-vim"]
 	path = pack/alan/opt/asciidoc-vim
 	url = https://github.com/dagwieers/asciidoc-vim.git
+[submodule "pack/alan/opt/vim-ruby-minitest"]
+	path = pack/alan/opt/vim-ruby-minitest
+	url = https://github.com/sunaku/vim-ruby-minitest.git
+[submodule "pack/alan/opt/vim-rake"]
+	path = pack/alan/opt/vim-rake
+	url = https://github.com/tpope/vim-rake
+[submodule "pack/alan/start/vim-repeat"]
+	path = pack/alan/start/vim-repeat
+	url = https://github.com/tpope/vim-repeat
