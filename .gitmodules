@@ -7,3 +7,6 @@
 [submodule "pack/alan/start/vim-repeat"]
 	path = pack/alan/start/vim-repeat
 	url = https://github.com/tpope/vim-repeat
+[submodule "pack/alan/start/vim-rake"]
+	path = pack/alan/start/vim-rake
+	url = https://github.com/tpope/vim-rake
