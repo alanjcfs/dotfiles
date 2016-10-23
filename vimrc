@@ -14,38 +14,31 @@ filetype off
 syntax off
 
 call plug#begin('~/.vim/bundle')
-" ------------------------------------------------
-" Plugins -- Ordered by name of plugins, not username.
 Plug 'Shougo/neocomplete.vim'
 Plug 'SirVer/ultisnips'
-Plug 'airblade/vim-gitgutter' " Git		Status in gutter
+Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
-Plug 'godlygeek/tabular' " Tabular	Automated aligning of text
+Plug 'godlygeek/tabular'
 Plug 'honza/vim-snippets'
-Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' } " Tagbar	Show location of defined methods
-Plug 'mattn/emmet-vim' " Emmet Vim
-Plug 'mileszs/ack.vim', { 'on': 'Ack' } " Ag		Silver Searcher
+Plug 'mattn/emmet-vim'
 Plug 'racer-rust/vim-racer'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " NERDtree	Directory Navigation (Alternative to Netrw)
-Plug 'scrooloose/syntastic' " Syntastic	Syntax Checker
-Plug 'sheerun/vim-polyglot' " One vim to rule them all
-Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' } " Gundo	Visual Undo Tree
-Plug 'tomtom/tcomment_vim' " Tcomment	Use gcc to comment a line
-Plug 'tpope/vim-endwise' " Endwise	Ruby auto-end
-Plug 'tpope/vim-fugitive' " Gdiff, Gwrite, Ggrep, etc.
+Plug 'scrooloose/syntastic'
+Plug 'sheerun/vim-polyglot'
+Plug 'tomtom/tcomment_vim'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-tbone' " Tmux integration
+Plug 'tpope/vim-tbone'
 Plug 'tpope/vim-unimpaired'
-" Plug 'wincent/command-t', { 'do': 'cd ruby/command-t && ruby extconf.rb && make' }
 Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
-
-" ------------------------------------------------
-" Themes/Colorscheme
 Plug 'altercation/vim-colors-solarized'
 Plug 'sjl/badwolf'
-" Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-" Plug 'Shougo/vimshell.vim'
+
+Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+Plug 'mileszs/ack.vim', { 'on': 'Ack' }
+Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
 call plug#end()
 
 filetype plugin indent on
