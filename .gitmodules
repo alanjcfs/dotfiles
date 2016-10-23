@@ -10,3 +10,12 @@
 [submodule "pack/alan/start/vim-rake"]
 	path = pack/alan/start/vim-rake
 	url = https://github.com/tpope/vim-rake
+[submodule "pack/alan/start/ctrlp-py-matcher"]
+	path = pack/alan/start/ctrlp-py-matcher
+	url = https://github.com/FelikZ/ctrlp-py-matcher.git
+[submodule "pack/alan/start/ctrlp-cmatcher"]
+	path = pack/alan/start/ctrlp-cmatcher
+	url = https://github.com/JazzCore/ctrlp-cmatcher
+[submodule "pack/alan/start/ctrlp.vim"]
+	path = pack/alan/start/ctrlp.vim
+	url = https://github.com/ctrlpvim/ctrlp.vim.git

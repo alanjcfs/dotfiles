@@ -16,9 +16,6 @@ syntax off
 call plug#begin('~/.vim/bundle')
 " ------------------------------------------------
 " Plugins -- Ordered by name of plugins, not username.
-Plug 'FelikZ/ctrlp-py-matcher'
-Plug 'JazzCore/ctrlp-cmatcher'
-Plug 'ctrlpvim/ctrlp.vim' " CtrlP		Allow opening files
 Plug 'Shougo/neocomplete.vim'
 Plug 'SirVer/ultisnips'
 Plug 'airblade/vim-gitgutter' " Git		Status in gutter
