@@ -33,7 +33,7 @@
 # git clone git@github.com:'mileszs/ack.vim', { 'on': 'Ack' }
 # git clone git@github.com:'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 # git clone git@github.com:'sjl/gundo.vim', { 'on': 'GundoToggle' }
-starters=(
+STARTERS=(
 "JazzCore/ctrlp-cmatcher"
 "FelikZ/ctrlp-py-matcher"
 "ctrlpvim/ctrlp.vim"
@@ -61,19 +61,7 @@ starters=(
 "sjl/badwolf"
 )
 
-for repo_name in "${starters[@]}";
-do
-    directory=$(echo $repo_name | sed 's/\//\/start\//')
-    if [ -d "pack/$directory" ]
-    then
-        echo "$directory" is there
-    else
-        add_submodule="git submodule add --force https://github.com/$repo_name pack/$directory"
-        $($add_submodule)
-    fi
-done
-
-optional=(
+OPTIONAL=(
 "sunaku/vim-ruby-minitest"
 "dagwieers/asciidoc-vim"
 "majutsushi/tagbar"
@@ -82,14 +70,21 @@ optional=(
 "sjl/gundo.vim"
 )
 
-for repo_name in "${optional[@]}";
-do
-    directory=$(echo $repo_name | sed 's/\//\/opt\//')
-    if [ -d "pack/$directory" ]
-    then
-        echo "$directory" is there
-    else
-        add_submodule="git submodule add --force https://github.com/$repo_name pack/$directory"
-        $($add_submodule)
-    fi
-done
+clone_submodules() {
+    declare -a args_ary=("${!1}")
+    for repo_name in "${args_ary[@]}";
+    do
+        directory=$(echo $repo_name | sed 's/\//\/$2\//')
+        if [ -d "pack/$directory" ]
+        then
+            echo "$directory" is there
+        else
+            add_submodule="git submodule add --force https://github.com/$repo_name pack/$directory"
+            # $($add_submodule)
+            echo $add_submodule
+        fi
+    done
+}
+
+clone_submodules STARTERS[@] "start"
+clone_submodules OPTIONAL[@] "opt"
