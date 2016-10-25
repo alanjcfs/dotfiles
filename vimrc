@@ -14,31 +14,38 @@ filetype off
 syntax off
 
 call plug#begin('~/.vim/bundle')
-Plug 'Shougo/neocomplete.vim'
-Plug 'SirVer/ultisnips'
-Plug 'airblade/vim-gitgutter'
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'godlygeek/tabular'
-Plug 'honza/vim-snippets'
-Plug 'mattn/emmet-vim'
-Plug 'racer-rust/vim-racer'
-Plug 'scrooloose/syntastic'
-Plug 'sheerun/vim-polyglot'
-Plug 'tomtom/tcomment_vim'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-tbone'
-Plug 'tpope/vim-unimpaired'
-Plug 'xolox/vim-easytags'
-Plug 'xolox/vim-misc'
-Plug 'altercation/vim-colors-solarized'
-Plug 'sjl/badwolf'
-
-Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-Plug 'mileszs/ack.vim', { 'on': 'Ack' }
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
+" Plug 'JazzCore/ctrlp-cmatcher'
+" Plug 'FelikZ/ctrl-py-matcher'
+" Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'tpope/vim-rake'
+" Plug 'tpope/vim-repeat'
+" Plug 'Shougo/neocomplete.vim'
+" Plug 'SirVer/ultisnips'
+" Plug 'airblade/vim-gitgutter'
+" Plug 'christoomey/vim-tmux-navigator'
+" Plug 'godlygeek/tabular'
+" Plug 'honza/vim-snippets'
+" Plug 'mattn/emmet-vim'
+" Plug 'racer-rust/vim-racer'
+" Plug 'scrooloose/syntastic'
+" Plug 'sheerun/vim-polyglot'
+" Plug 'tomtom/tcomment_vim'
+" Plug 'tpope/vim-endwise'
+" Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-surround'
+" Plug 'tpope/vim-tbone'
+" Plug 'tpope/vim-unimpaired'
+" Plug 'xolox/vim-easytags'
+" Plug 'xolox/vim-misc'
+" Plug 'altercation/vim-colors-solarized'
+" Plug 'sjl/badwolf'
+"
+" Plug 'sunaku/vim-ruby-minitest', { 'for' : 'ruby' }
+" Plug 'dagwieers/asciidoc-vim', { 'for' : 'asciidoc' }
+" Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+" Plug 'mileszs/ack.vim', { 'on': 'Ack' }
+" Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+" Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
 call plug#end()
 
 filetype plugin indent on
@@ -229,6 +236,7 @@ if has("autocmd")
     au BufRead,BufNewFile *.adoc,*.asciidoc packadd asciidoc-vim | setl syntax=asciidoc textwidth=80
     au BufRead,BufNewFile *.es6 setl filetype=javascript
     au BufRead,BufNewFile *.md,*.markdown setl filetype=markdown
+
     au FileType gitcommit setl textwidth=72
     au FileType gitconfig setl noexpandtab tabstop=8 shiftwidth=8 textwidth=80
     au FileType go setl tabstop=4 shiftwidth=4
@@ -237,6 +245,8 @@ if has("autocmd")
     au FileType markdown setl textwidth=80 omnifunc=htmlcomplete#CompleteTags
     au FileType python setl omnifunc=pythoncomplete#Complete
     au FileType ruby packadd vim-ruby-minitest | setl omnifunc=rubycomplete#Complete
+    au FileType rust setl tabstop=4 shiftwidth=4
+    au FileType sh setl tabstop=4 shiftwidth=4
     au FileType text setl noexpandtab tabstop=8 shiftwidth=8 textwidth=80
     au FileType vim setl noexpandtab
     au FileType xml setl omnifunc=xmlcomplete#CompleteTags
