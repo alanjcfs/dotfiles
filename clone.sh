@@ -80,8 +80,8 @@ clone_submodules() {
             echo "$directory" is there
         else
             add_submodule="git submodule add --force https://github.com/$repo_name pack/$directory"
-            # $($add_submodule)
-            echo $add_submodule
+            $($add_submodule)
+            # echo $add_submodule
         fi
     done
 }
