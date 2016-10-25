@@ -35,7 +35,7 @@
 # git clone git@github.com:'sjl/gundo.vim', { 'on': 'GundoToggle' }
 starters=(
 "JazzCore/ctrlp-cmatcher"
-"FelikZ/ctrl-py-matcher"
+"FelikZ/ctrlp-py-matcher"
 "ctrlpvim/ctrlp.vim"
 "tpope/vim-rake"
 "tpope/vim-repeat"
@@ -61,14 +61,15 @@ starters=(
 "sjl/badwolf"
 )
 
-j = ''
-for i in "${starters[@]}";
+for repo_name in "${starters[@]}";
 do
-    j=$(echo $i | sed 's/\//\/start\//')
-    if [ ! -d "$j" ]
+    directory=$(echo $repo_name | sed 's/\//\/start\//')
+    if [ -d "pack/$directory" ]
     then
-        echo git submodule add git@github.com:$i pack/$j
-        git submodule add git@github.com:$i pack/$j
+        echo "$directory" is there
+    else
+        add_submodule="git submodule add --force https://github.com/$repo_name pack/$directory"
+        $($add_submodule)
     fi
 done
 
@@ -81,12 +82,14 @@ optional=(
 "sjl/gundo.vim"
 )
 
-for i in "${optional[@]}";
+for repo_name in "${optional[@]}";
 do
-    j=$(echo $i | sed 's/\//\/opt\//')
-    if [ ! -d "$j" ]
+    directory=$(echo $repo_name | sed 's/\//\/opt\//')
+    if [ -d "pack/$directory" ]
     then
-        echo git submodule add git@github.com:$i pack/$j
-        git submodule add git@github.com:$i pack/$j
+        echo "$directory" is there
+    else
+        add_submodule="git submodule add --force https://github.com/$repo_name pack/$directory"
+        $($add_submodule)
     fi
 done
