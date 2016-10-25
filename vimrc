@@ -10,54 +10,43 @@ endif
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
-filetype off
-syntax off
 
-call plug#begin('~/.vim/bundle')
-" ------------------------------------------------
-" Mostly Filetypes
-Plug 'dagwieers/asciidoc-vim', { 'for': 'asciidoc' }
-Plug 'sunaku/vim-ruby-minitest', { 'for': 'ruby' }
-Plug 'tpope/vim-rake'
-Plug 'tpope/vim-repeat'
-
-" ------------------------------------------------
-" Plugins -- Ordered by name of plugins, not username.
-Plug 'FelikZ/ctrlp-py-matcher'
-Plug 'JazzCore/ctrlp-cmatcher'
-Plug 'Shougo/neocomplete.vim'
-Plug 'SirVer/ultisnips'
-Plug 'airblade/vim-gitgutter' " Git		Status in gutter
-Plug 'christoomey/vim-tmux-navigator'
-Plug 'ctrlpvim/ctrlp.vim' " CtrlP		Allow opening files
-Plug 'godlygeek/tabular' " Tabular	Automated aligning of text
-Plug 'honza/vim-snippets'
-Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' } " Tagbar	Show location of defined methods
-Plug 'mattn/emmet-vim' " Emmet Vim
-Plug 'mileszs/ack.vim', { 'on': 'Ack' } " Ag		Silver Searcher
-Plug 'racer-rust/vim-racer'
-Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' } " NERDtree	Directory Navigation (Alternative to Netrw)
-Plug 'scrooloose/syntastic' " Syntastic	Syntax Checker
-Plug 'sheerun/vim-polyglot' " One vim to rule them all
-Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' } " Gundo	Visual Undo Tree
-" Plug 'tacahiroy/ctrlp-funky'
-Plug 'tomtom/tcomment_vim' " Tcomment	Use gcc to comment a line
-Plug 'tpope/vim-endwise' " Endwise	Ruby auto-end
-Plug 'tpope/vim-fugitive' " Gdiff, Gwrite, Ggrep, etc.
-Plug 'tpope/vim-surround'
-Plug 'tpope/vim-tbone' " Tmux integration
-Plug 'tpope/vim-unimpaired'
-" Plug 'wincent/command-t', { 'do': 'cd ruby/command-t && ruby extconf.rb && make' }
-Plug 'xolox/vim-easytags'
-Plug 'xolox/vim-misc'
-
-" ------------------------------------------------
-" Themes/Colorscheme
-Plug 'altercation/vim-colors-solarized'
-Plug 'sjl/badwolf'
-" Plug 'Shougo/vimproc.vim', { 'do': 'make' }
-" Plug 'Shougo/vimshell.vim'
-call plug#end()
+" filetype off
+" syntax off
+" call plug#begin('~/.vim/bundle')
+" Plug 'JazzCore/ctrlp-cmatcher'
+" Plug 'FelikZ/ctrl-py-matcher'
+" Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'tpope/vim-rake'
+" Plug 'tpope/vim-repeat'
+" Plug 'Shougo/neocomplete.vim'
+" Plug 'SirVer/ultisnips'
+" Plug 'airblade/vim-gitgutter'
+" Plug 'christoomey/vim-tmux-navigator'
+" Plug 'godlygeek/tabular'
+" Plug 'honza/vim-snippets'
+" Plug 'mattn/emmet-vim'
+" Plug 'racer-rust/vim-racer'
+" Plug 'scrooloose/syntastic'
+" Plug 'sheerun/vim-polyglot'
+" Plug 'tomtom/tcomment_vim'
+" Plug 'tpope/vim-endwise'
+" Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-surround'
+" Plug 'tpope/vim-tbone'
+" Plug 'tpope/vim-unimpaired'
+" Plug 'xolox/vim-easytags'
+" Plug 'xolox/vim-misc'
+" Plug 'altercation/vim-colors-solarized'
+" Plug 'sjl/badwolf'
+"
+" Plug 'sunaku/vim-ruby-minitest', { 'for' : 'ruby' }
+" Plug 'dagwieers/asciidoc-vim', { 'for' : 'asciidoc' }
+" Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
+" Plug 'mileszs/ack.vim', { 'on': 'Ack' }
+" Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
+" Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
+" call plug#end()
 
 filetype plugin indent on
 syntax enable
@@ -245,9 +234,10 @@ if has("autocmd")
       \ endif
 
     au BufEnter Makefile setlocal noexpandtab tabstop=8 shiftwidth=8
-    au BufRead,BufNewFile *.adoc,*.asciidoc setl syntax=asciidoc textwidth=80
+    au BufRead,BufNewFile *.adoc,*.asciidoc packadd asciidoc-vim | setl syntax=asciidoc textwidth=80
     au BufRead,BufNewFile *.es6 setl filetype=javascript
     au BufRead,BufNewFile *.md,*.markdown setl filetype=markdown
+
     au FileType gitcommit setl textwidth=72
     au FileType gitconfig setl noexpandtab tabstop=8 shiftwidth=8 textwidth=80
     au FileType go setl tabstop=4 shiftwidth=4
@@ -255,7 +245,9 @@ if has("autocmd")
     au FileType javascript setl omnifunc=javascriptcomplete#CompleteJS
     au FileType markdown setl textwidth=80 omnifunc=htmlcomplete#CompleteTags
     au FileType python setl omnifunc=pythoncomplete#Complete
-    au FileType ruby setl omnifunc=rubycomplete#Complete
+    au FileType ruby packadd vim-ruby-minitest | setl omnifunc=rubycomplete#Complete
+    au FileType rust setl tabstop=4 shiftwidth=4
+    au FileType sh setl tabstop=4 shiftwidth=4
     au FileType text setl noexpandtab tabstop=8 shiftwidth=8 textwidth=80
     au FileType vim setl noexpandtab
     au FileType xml setl omnifunc=xmlcomplete#CompleteTags
