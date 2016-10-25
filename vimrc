@@ -10,10 +10,10 @@ endif
 " Use Vim settings, rather than Vi settings (much better!).
 " This must be first, because it changes other options as a side effect.
 set nocompatible
-filetype off
-syntax off
 
-call plug#begin('~/.vim/bundle')
+" filetype off
+" syntax off
+" call plug#begin('~/.vim/bundle')
 " Plug 'JazzCore/ctrlp-cmatcher'
 " Plug 'FelikZ/ctrl-py-matcher'
 " Plug 'ctrlpvim/ctrlp.vim'
@@ -46,7 +46,7 @@ call plug#begin('~/.vim/bundle')
 " Plug 'mileszs/ack.vim', { 'on': 'Ack' }
 " Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
 " Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
-call plug#end()
+" call plug#end()
 
 filetype plugin indent on
 syntax enable
