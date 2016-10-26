@@ -334,3 +334,5 @@ nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 " if filereadable(glob('$HA_ROOT/vimrc.local'))
 "   source $HA_ROOT/vimrc.local
 " endif
+
+packadd ack.vim
