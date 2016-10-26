@@ -86,7 +86,7 @@ set shiftwidth=2
 set showcmd                         " Show partial commands in the last line of the screen
 set showmode
 set smartcase                       " When searching, pay attention to case when capital letter is used.
-set softtabstop=4
+set softtabstop=2
 set splitright splitbelow
 set synmaxcol=3000
 set tabstop=8                       " Display real tab as 8 characters wide
@@ -240,14 +240,14 @@ if has("autocmd")
 
     au FileType gitcommit setl textwidth=72
     au FileType gitconfig setl noexpandtab tabstop=8 shiftwidth=8 textwidth=80
-    au FileType go setl tabstop=4 shiftwidth=4
-    au FileType html setl noexpandtab tabstop=4 shiftwidth=4 omnifunc=htmlcomplete#CompleteTags listchars-=tab:»·
+    au FileType go setl softtabstop=4 tabstop=4 shiftwidth=4
+    au FileType html setl noexpandtab softtabstop=4 tabstop=4 shiftwidth=4 omnifunc=htmlcomplete#CompleteTags listchars-=tab:»·
     au FileType javascript setl omnifunc=javascriptcomplete#CompleteJS
     au FileType markdown setl textwidth=80 omnifunc=htmlcomplete#CompleteTags
     au FileType python setl omnifunc=pythoncomplete#Complete
     au FileType ruby packadd vim-ruby-minitest | setl omnifunc=rubycomplete#Complete
-    au FileType rust setl tabstop=4 shiftwidth=4
-    au FileType sh setl tabstop=4 shiftwidth=4
+    au FileType rust setl softtabstop=2 tabstop=4 shiftwidth=4
+    au FileType sh setl softtabstop=2 tabstop=4 shiftwidth=4
     au FileType text setl noexpandtab tabstop=8 shiftwidth=8 textwidth=80
     au FileType vim setl noexpandtab
     au FileType xml setl omnifunc=xmlcomplete#CompleteTags
