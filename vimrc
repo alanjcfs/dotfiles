@@ -68,10 +68,11 @@ set incsearch                       " Do incremental search
 set laststatus=2                    " Always display the status line even if you have only one window.
 set lazyredraw                      " When running a script.
 set list
-set listchars=tab:»·,trail:·,nbsp:+
+set listchars+=tab:»·,trail:·,nbsp:+
+set listchars-=eol:$                " Remove display of eol $
 set modelines=0                     " Ignore modelines due to security vulnerabilities
 set mouse=a
-set nocursorline                    " Set underline to indicate location of cursor
+set cursorline                    " Set underline to indicate location of cursor
 set nogdefault
 set norelativenumber                " Show number of lines relative to current line
 set noshiftround                    " When using >> or << will round to shiftwidth
@@ -126,6 +127,13 @@ endif
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
 
+" Neovim vs Vim configuration
+if has("nvim")
+  packadd deoplete.nvim
+else
+  packadd neocomplete.vim
+endif
+
 "" Neocomplete config """""""""""""""""""""""""""
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
@@ -150,6 +158,12 @@ endfunction
 inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
 inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
 inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
+if !exists('g:neocomplete#sources#omni#input_patterns')
+  let g:neocomplete#sources#omni#input_patterns = {}
+endif
+"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
+"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
+"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
 "" End Neocomplete config """"""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -238,6 +252,7 @@ if has("autocmd")
     au BufRead,BufNewFile *.es6 setl filetype=javascript
     au BufRead,BufNewFile *.md,*.markdown setl filetype=markdown
 
+    au FileType css setlocal omnifunc=csscomplete#CompleteCSS
     au FileType gitcommit setl textwidth=72
     au FileType gitconfig setl noexpandtab tabstop=8 shiftwidth=8 textwidth=80
     au FileType go setl softtabstop=4 tabstop=4 shiftwidth=4
