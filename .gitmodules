@@ -97,3 +97,6 @@
 [submodule "pack/Shougo/start/neosnippet-snippets"]
 	path = pack/Shougo/start/neosnippet-snippets
 	url = https://github.com/Shougo/neosnippet-snippets
+[submodule "pack/Shougo/opt/neocomplete.vim"]
+	path = pack/Shougo/opt/neocomplete.vim
+	url = https://github.com/Shougo/neocomplete.vim
