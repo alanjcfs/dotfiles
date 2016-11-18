@@ -100,3 +100,6 @@
 [submodule "pack/Shougo/opt/neocomplete.vim"]
 	path = pack/Shougo/opt/neocomplete.vim
 	url = https://github.com/Shougo/neocomplete.vim
+[submodule "pack/Shougo/opt/deoplete.nvim"]
+	path = pack/Shougo/opt/deoplete.nvim
+	url = https://github.com/Shougo/deoplete.nvim
