@@ -127,19 +127,11 @@ endif
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
 
-" Neovim vs Vim configuration
-if has("nvim")
-  packadd deoplete.nvim
-else
-  packadd neocomplete.vim
-endif
-
 "" Neocomplete config """""""""""""""""""""""""""
 let g:neocomplete#enable_at_startup = 1
 let g:neocomplete#enable_smart_case = 1
 let g:neocomplete#sources#syntax#min_keyword_length = 3
 let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-"
 let g:neocomplete#sources#dictionary#dictionaries = {
       \ 'default':'',
       \ 'vimshell':$HOME.'/.vimshell_hist',
@@ -351,3 +343,6 @@ nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 " endif
 
 packadd ack.vim
+packadd gundo.vim
+packadd neocomplete.vim
+" packadd tagbar
