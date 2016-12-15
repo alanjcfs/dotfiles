@@ -284,7 +284,6 @@ nnoremap <leader>g :Git<space>
 nnoremap <leader>gb :Gblame<cr>
 nnoremap <leader>gc :Gcommit -v<cr>
 nnoremap <leader>gd :Gdiff<space>
-nnoremap <leader>gg :Ggrep<space>
 nnoremap <leader>gl :Glog -p<cr>
 nnoremap <leader>gw :Gwrite<cr>
 
@@ -302,4 +301,5 @@ nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 packadd ack.vim
 packadd gundo.vim
 packadd neocomplete.vim
+packadd nerdtree
 " packadd tagbar
