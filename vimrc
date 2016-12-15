@@ -14,38 +14,6 @@ set nocompatible
 " filetype off
 " syntax off
 " call plug#begin('~/.vim/bundle')
-" Plug 'JazzCore/ctrlp-cmatcher'
-" Plug 'FelikZ/ctrl-py-matcher'
-" Plug 'ctrlpvim/ctrlp.vim'
-" Plug 'tpope/vim-rake'
-" Plug 'tpope/vim-repeat'
-" Plug 'Shougo/neocomplete.vim'
-" Plug 'SirVer/ultisnips'
-" Plug 'airblade/vim-gitgutter'
-" Plug 'christoomey/vim-tmux-navigator'
-" Plug 'godlygeek/tabular'
-" Plug 'honza/vim-snippets'
-" Plug 'mattn/emmet-vim'
-" Plug 'racer-rust/vim-racer'
-" Plug 'scrooloose/syntastic'
-" Plug 'sheerun/vim-polyglot'
-" Plug 'tomtom/tcomment_vim'
-" Plug 'tpope/vim-endwise'
-" Plug 'tpope/vim-fugitive'
-" Plug 'tpope/vim-surround'
-" Plug 'tpope/vim-tbone'
-" Plug 'tpope/vim-unimpaired'
-" Plug 'xolox/vim-easytags'
-" Plug 'xolox/vim-misc'
-" Plug 'altercation/vim-colors-solarized'
-" Plug 'sjl/badwolf'
-"
-" Plug 'sunaku/vim-ruby-minitest', { 'for' : 'ruby' }
-" Plug 'dagwieers/asciidoc-vim', { 'for' : 'asciidoc' }
-" Plug 'majutsushi/tagbar', { 'on': 'TagbarToggle' }
-" Plug 'mileszs/ack.vim', { 'on': 'Ack' }
-" Plug 'scrooloose/nerdtree', { 'on': 'NERDTreeToggle' }
-" Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
 " call plug#end()
 
 filetype plugin indent on
@@ -200,17 +168,6 @@ let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 " GitGutter config
 " Disable using gitgutter on switching buffer
 let g:gitgutter_eager = 0
-
-" UltiSnips config
-let g:UltiSnipsExpandTrigger = "<C-j>"
-let g:UltiSnipsJumpForwardTrigger = "<C-f>"
-let g:UltiSnipsJumpBackwardTrigger = "<C-b>"
-
-let g:polyglot_disabled = []
-
-" Easytags
-let g:easytags_auto_highlight = 0
-let g:easytags_async = 1
 
 try
   set background=dark " dark | light "
