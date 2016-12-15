@@ -10,9 +10,6 @@
 [submodule "pack/sheerun/start/vim-polyglot"]
 	path = pack/sheerun/start/vim-polyglot
 	url = https://github.com/sheerun/vim-polyglot
-[submodule "pack/tomtom/start/tcomment_vim"]
-	path = pack/tomtom/start/tcomment_vim
-	url = https://github.com/tomtom/tcomment_vim
 [submodule "pack/tpope/start/vim-endwise"]
 	path = pack/tpope/start/vim-endwise
 	url = https://github.com/tpope/vim-endwise
