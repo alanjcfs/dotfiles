@@ -103,3 +103,6 @@
 [submodule "pack/Shougo/opt/deoplete.nvim"]
 	path = pack/Shougo/opt/deoplete.nvim
 	url = https://github.com/Shougo/deoplete.nvim
+[submodule "pack/a/opt/nerdcommenter"]
+	path = pack/a/opt/nerdcommenter
+	url = https://github.com/scrooloose/nerdcommenter.git
