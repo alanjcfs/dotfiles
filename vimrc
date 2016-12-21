@@ -127,6 +127,16 @@ endif
 "" End Neocomplete config """"""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
+" NERDCommenter
+let g:NERDSpaceDelims = 1
+let g:NERDCompactSexyComs = 1
+let g:NERDDefaultAlign = 'left'
+let g:NERDAltDelims_java = 1
+let g:NERDCustomDelimiters = { 'c': { 'left':'/**', 'right':'*/' }}
+let g:NERDCommentEmptyLines = 1
+let g:NERDTrimTrailingWhitespace = 1
+
+""""""""""""""""""""""""""""""""""""""""""""""""""
 " Status line with syntastic settings
 set statusline=%<%f%m\ %h%r%=%-14.(%l,%c%V%)\ %P " What the fuck does this line do??? ಠ_ಠ
 " set statusline+=%#warningmsg#
@@ -165,9 +175,13 @@ let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 " Disable vim-go passing fmt through Go file
 " let g:go_fmt_autosave = 0
 
-" GitGutter config
+" GitGuttej config
 " Disable using gitgutter on switching buffer
 let g:gitgutter_eager = 0
+
+" EasyTags
+let g:easytags_auto_highlight = 0
+let g:easytags_async = 1
 
 try
   set background=dark " dark | light "
@@ -214,7 +228,7 @@ if has("autocmd")
     au FileType sh setl softtabstop=2 tabstop=4 shiftwidth=4
     au FileType text setl noexpandtab tabstop=8 shiftwidth=8 textwidth=80
     au FileType vim setl noexpandtab
-    au FileType xml setl omnifunc=xmlcomplete#CompleteTags
+    au FileType xml setl omnifunc=xmlcomplete#CompleteTags noexpandtab tabstop=8 shiftwidth=8
 
     " au BufRead,BufEnter ~/Tuna/* setl tabstop=2 shiftwidth=2
   augroup END
@@ -268,7 +282,7 @@ inoremap jk <esc>
 " Plugins
 nnoremap <leader>a :Ack<space>
 nnoremap <leader>b :TagbarToggle<cr>
-nnoremap <leader>n :NERDTree<cr>
+nnoremap <leader>n :NERDTreeToggle<cr>
 nnoremap <leader>u :GundoToggle<cr>
 nnoremap <leader>co :NeoCompleteToggle<cr>
 
@@ -301,5 +315,7 @@ nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 packadd ack.vim
 packadd gundo.vim
 packadd neocomplete.vim
+packadd nerdcommenter
 packadd nerdtree
+packadd elm-vim
 " packadd tagbar

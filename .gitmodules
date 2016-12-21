@@ -103,3 +103,6 @@
 [submodule "pack/a/opt/nerdcommenter"]
 	path = pack/a/opt/nerdcommenter
 	url = https://github.com/scrooloose/nerdcommenter.git
+[submodule "pack/a/opt/elm-vim"]
+	path = pack/a/opt/elm-vim
+	url = https://github.com/ElmCast/elm-vim
