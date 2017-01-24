@@ -13,8 +13,9 @@ set nocompatible
 
 " filetype off
 " syntax off
-" call plug#begin('~/.vim/bundle')
-" call plug#end()
+call plug#begin('~/.vim/bundle')
+Plug 'godlygeek/tabular'
+call plug#end()
 
 filetype plugin indent on
 syntax enable
@@ -165,8 +166,8 @@ let g:ctrlp_custom_ignore = {
       \ 'link': '',
       \ }
 " let g:ctrlp_cache_dir = $HOME . '/.cache/ctrlp' " Set up caching.
-if executable('ag')
-  let g:ctrlp_user_command = 'ag %s -l --nocolor -g ""'
+if executable('rg')
+  let g:ctrlp_user_command = 'rg %s -l --files ""'
 endif
 " let g:ctrlp_match_func = { 'match': 'matcher#cmatch' }
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
@@ -180,6 +181,7 @@ let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 let g:gitgutter_eager = 0
 
 " EasyTags
+set tags^=.git/tags
 let g:easytags_auto_highlight = 0
 let g:easytags_async = 1
 
@@ -216,6 +218,7 @@ if has("autocmd")
     au BufRead,BufNewFile *.md,*.markdown setl filetype=markdown
 
     au FileType css setlocal omnifunc=csscomplete#CompleteCSS
+    au FileType elm setlocal tabstop=4 shiftwidth=4 softtabstop=4
     au FileType gitcommit setl textwidth=72
     au FileType gitconfig setl noexpandtab tabstop=8 shiftwidth=8 textwidth=80
     au FileType go setl softtabstop=4 tabstop=4 shiftwidth=4
