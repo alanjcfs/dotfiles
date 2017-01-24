@@ -185,6 +185,9 @@ set tags^=.git/tags
 let g:easytags_auto_highlight = 0
 let g:easytags_async = 1
 
+" Elm Format
+let g:elm_format_autosave = 1
+
 try
   set background=dark " dark | light "
   silent! colorscheme solarized
