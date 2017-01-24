@@ -15,6 +15,7 @@ set nocompatible
 " syntax off
 call plug#begin('~/.vim/bundle')
 Plug 'godlygeek/tabular'
+Plug 'avh4/elm-format'
 call plug#end()
 
 filetype plugin indent on
