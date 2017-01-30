@@ -16,6 +16,7 @@ set nocompatible
 call plug#begin('~/.vim/bundle')
 Plug 'godlygeek/tabular'
 Plug 'avh4/elm-format'
+Plug 'ctrlpvim/ctrlp.vim'
 call plug#end()
 
 filetype plugin indent on
