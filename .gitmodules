@@ -58,9 +58,6 @@
 [submodule "pack/JazzCore/start/ctrlp-cmatcher"]
 	path = pack/JazzCore/start/ctrlp-cmatcher
 	url = https://github.com/JazzCore/ctrlp-cmatcher
-[submodule "pack/ctrlpvim/start/ctrlp.vim"]
-	path = pack/ctrlpvim/start/ctrlp.vim
-	url = https://github.com/ctrlpvim/ctrlp.vim
 [submodule "pack/tpope/start/vim-rake"]
 	path = pack/tpope/start/vim-rake
 	url = https://github.com/tpope/vim-rake

@@ -15,6 +15,7 @@ set nocompatible
 " syntax off
 call plug#begin('~/.vim/bundle')
 Plug 'avh4/elm-format'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'Valloric/YouCompleteMe' " { 'do': './install.py --clang-completer --tern-completer --racer-completer' }
 Plug 'dagwieers/asciidoc-vim', { 'for': ['asciidoc', 'txt'] }
@@ -201,6 +202,7 @@ if has("autocmd")
     au BufRead,BufNewFile *.adoc,*.asciidoc packadd asciidoc-vim | setl syntax=asciidoc textwidth=80
     au BufRead,BufNewFile *.es6 setl filetype=javascript
     au BufRead,BufNewFile *.md,*.markdown setl filetype=markdown
+    au BufRead,BufNewFile *.ldgr setl noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
 
     au FileType css setlocal omnifunc=csscomplete#CompleteCSS
     au FileType elm setlocal tabstop=4 shiftwidth=4 softtabstop=4
