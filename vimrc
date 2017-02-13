@@ -16,7 +16,7 @@ set nocompatible
 call plug#begin('~/.vim/bundle')
 Plug 'avh4/elm-format'
 Plug 'junegunn/vim-easy-align'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer --racer-completer' }
+Plug 'Valloric/YouCompleteMe' " { 'do': './install.py --clang-completer --tern-completer --racer-completer' }
 Plug 'dagwieers/asciidoc-vim', { 'for': ['asciidoc', 'txt'] }
 call plug#end()
 
@@ -301,6 +301,7 @@ packadd gundo.vim
 packadd nerdcommenter
 packadd nerdtree
 packadd elm-vim
-" packadd tagbar
+packadd tagbar
+packadd vim-ruby-minitest
 
 " vim:set ft=vim et sw=2
