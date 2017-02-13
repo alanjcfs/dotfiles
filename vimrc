@@ -14,32 +14,40 @@ set nocompatible
 " filetype off
 " syntax off
 call plug#begin('~/.vim/bundle')
-Plug 'godlygeek/tabular'
 Plug 'avh4/elm-format'
+Plug 'junegunn/vim-easy-align'
+Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer --racer-completer' }
+Plug 'dagwieers/asciidoc-vim', { 'for': ['asciidoc', 'txt'] }
 call plug#end()
 
 filetype plugin indent on
 syntax enable
 
-runtime macros/matchit.vim " Vim Built-in Plugins
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+  runtime! macros/matchit.vim " Vim Built-in Plugins
+endif
 
 set autoindent
 set backspace=indent,eol,start      " Allow backspacing over autoindent, line breaks and start of insert action
 set clipboard^=unnamed,unnamedplus
 set colorcolumn=80                  " Set character-width column for length indicator
 set confirm                         " Request to save unsaved files when quitting
+set display+=lastline
 set encoding=utf-8
 set expandtab                       " Expand tabs to spaces
+set formatoptions+=j
 set hidden                          " Easier file switching in the same editor window
-set history=50                      " keep 50 lines of command line history
+if &history < 1000
+  set history=1000                      " keep 50 lines of command line history
+endif
 set hlsearch                        " Highlight searches
 set ignorecase                      " When searching, ignore case
 set incsearch                       " Do incremental search
 set laststatus=2                    " Always display the status line even if you have only one window.
 set lazyredraw                      " When running a script.
 set list
-set listchars+=tab:»·,trail:·,nbsp:+
-set listchars-=eol:$                " Remove display of eol $
+set listchars+=tab:»·,trail:·,nbsp:+,extends:>,precedes:<
+set listchars-=eol:$ " Remove display of eol $
 set modelines=0                     " Ignore modelines due to security vulnerabilities
 set mouse=a
 set cursorline                    " Set underline to indicate location of cursor
@@ -57,9 +65,13 @@ set shiftwidth=2
 set showcmd                         " Show partial commands in the last line of the screen
 set showmode
 set smartcase                       " When searching, pay attention to case when capital letter is used.
+set smarttab
 set softtabstop=2
 set splitright splitbelow
 set synmaxcol=3000
+if &tabpagemax < 50
+  set tabpagemax=50
+endif
 set tabstop=8                       " Display real tab as 8 characters wide
 set ttyfast
 set undofile
@@ -96,37 +108,6 @@ endif
 
 " For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
 " let &guioptions = substitute(&guioptions, "t", "", "g")
-
-"" Neocomplete config """""""""""""""""""""""""""
-let g:neocomplete#enable_at_startup = 1
-let g:neocomplete#enable_smart_case = 1
-let g:neocomplete#sources#syntax#min_keyword_length = 3
-let g:neocomplete#lock_buffer_name_pattern = '\*ku\*'
-let g:neocomplete#sources#dictionary#dictionaries = {
-      \ 'default':'',
-      \ 'vimshell':$HOME.'/.vimshell_hist',
-      \ 'scheme':$HOME.'/.gosh_completions'
-      \ }
-if !exists('g:neocomplete#keyword_patterns')
-  let g:neocomplete#keyword_patterns = {}
-endif
-let g:neocomplete#keyword_patterns['default'] = '\h\w*'
-inoremap <expr><C-g> neocomplete#undo_completion()
-inoremap <expr><C-l> neocomplete#complete_common_string()
-inoremap <silent> <CR> <C-r>=<SID>my_cr_function()<CR>
-function! s:my_cr_function()
-  return (pumvisible() ? "\<C-y>" : "" ) . "\<CR>"
-endfunction
-inoremap <expr><TAB> pumvisible() ? "\<C-n>" : "\<TAB>"
-inoremap <expr><C-h> neocomplete#smart_close_popup()."\<C-h>"
-inoremap <expr><BS> neocomplete#smart_close_popup()."\<C-h>"
-if !exists('g:neocomplete#sources#omni#input_patterns')
-  let g:neocomplete#sources#omni#input_patterns = {}
-endif
-"let g:neocomplete#sources#omni#input_patterns.php = '[^. \t]->\h\w*\|\h\w*::'
-"let g:neocomplete#sources#omni#input_patterns.c = '[^.[:digit:] *\t]\%(\.\|->\)'
-"let g:neocomplete#sources#omni#input_patterns.cpp = '[^.[:digit:] *\t]\%(\.\|->\)\|\h\w*::'
-"" End Neocomplete config """"""""""""""""""""""""
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " NERDCommenter
@@ -275,10 +256,6 @@ inoremap jk <esc>
 " nnoremap / /\v
 " vnoremap / /\v
 
-" Use Command-T like CtrlP
-" nnoremap <C-P> :CommandT<CR>
-" let g:CommandTAcceptSelectionSplitMap = '<C-x>'
-
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Leader key mappings
 " CtrlP
@@ -321,8 +298,9 @@ nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 
 packadd ack.vim
 packadd gundo.vim
-packadd neocomplete.vim
 packadd nerdcommenter
 packadd nerdtree
 packadd elm-vim
 " packadd tagbar
+
+" vim:set ft=vim et sw=2
