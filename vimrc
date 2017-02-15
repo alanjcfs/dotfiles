@@ -293,6 +293,9 @@ nnoremap <leader>rc :!rubocop %<cr>
 " ???
 nnoremap <expr> gb '`[' . strpart(getregtype(), 0, 1) . '`]'
 
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
 " Source other local vimrc files, if any
 " if filereadable(glob('$HA_ROOT/vimrc.local'))
 "   source $HA_ROOT/vimrc.local
