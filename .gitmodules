@@ -97,9 +97,6 @@
 [submodule "pack/Shougo/opt/deoplete.nvim"]
 	path = pack/Shougo/opt/deoplete.nvim
 	url = https://github.com/Shougo/deoplete.nvim
-[submodule "pack/scrooloose/opt/nerdcommenter"]
-	path = pack/scrooloose/opt/nerdcommenter
-	url = https://github.com/scrooloose/nerdcommenter.git
 [submodule "pack/ElmCast/opt/elm-vim"]
 	path = pack/ElmCast/opt/elm-vim
 	url = https://github.com/ElmCast/elm-vim
