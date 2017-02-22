@@ -9,7 +9,45 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'junegunn/vim-easy-align'
 Plug 'Valloric/YouCompleteMe' " { 'do': './install.py --clang-completer --tern-completer --racer-completer' }
 Plug 'dagwieers/asciidoc-vim', { 'for': ['asciidoc', 'txt'] }
+Plug 'scrooloose/nerdcommenter'
+
+" Is part of pack/*/start directory
+
+" Plug 'FelikZ/ctrlp-py-matcher'
+" Plug 'JazzCore/ctrlp-cmatcher'
+" Plug 'airblade/vim-gitgutter'
+" Plug 'altercation/vim-colors-solarized'
+" Plug 'christoomey/vim-tmux-navigator'
+" Plug 'honza/vim-snippets'
+" Plug 'mattn/emmet-vim'
+" Plug 'racer-rust/vim-racer'
+" Plug 'scrooloose/syntastic'
+" Plug 'sheerun/vim-polyglot'
+" Plug 'sjl/badwolf'
+" Plug 'tpope/vim-endwise'
+" Plug 'tpope/vim-fugitive'
+" Plug 'tpope/vim-rake'
+" Plug 'tpope/vim-repeat'
+" Plug 'tpope/vim-surround'
+" Plug 'tpope/vim-tbone'
+" Plug 'tpope/vim-unimpaired'
+" Plug 'xolox/vim-easytags'
+" Plug 'xolox/vim-misc'
+
+" Is part of pack/*/opt directory
+" Plug 'majutsushi/tagbar'
+" Plug 'mileszs/ack.vim'
+" Plug 'scrooloose/nerdtree'
+" Plug 'sjl/gundo.vim'
+" Plug 'sunaku/vim-ruby-minitest'
 call plug#end()
+
+packadd ack.vim
+packadd gundo.vim
+packadd nerdtree
+packadd elm-vim
+packadd tagbar
+packadd vim-ruby-minitest
 
 filetype plugin indent on
 syntax enable
@@ -163,14 +201,6 @@ try
   silent! colorscheme solarized
 endtry
 """"""""""""""""""""""""""""""""""""""""""""""""""
-
-packadd ack.vim
-packadd gundo.vim
-packadd nerdcommenter
-packadd nerdtree
-packadd elm-vim
-packadd tagbar
-packadd vim-ruby-minitest
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
