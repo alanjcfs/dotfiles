@@ -1,18 +1,8 @@
-" Inspirations
-" Bram Moolenaar's example vimrc and
-" URL: http://vim.wikia.com/wiki/Example_vimrc
-
-" If starting in simple editing mode, use <C-o>:q to quit.
-if v:progname =~? "evim"
-  finish
-endif
-
-" Use Vim settings, rather than Vi settings (much better!).
-" This must be first, because it changes other options as a side effect.
 set nocompatible
 
-" filetype off
-" syntax off
+filetype off
+syntax off
+
 call plug#begin('~/.vim/bundle')
 Plug 'avh4/elm-format'
 Plug 'ctrlpvim/ctrlp.vim'
@@ -107,9 +97,6 @@ else
   set backup		" keep a backup file
 endif
 
-" For Win32 GUI: remove 't' flag from 'guioptions': no tearoff menu entries
-" let &guioptions = substitute(&guioptions, "t", "", "g")
-
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " NERDCommenter
 let g:NERDSpaceDelims = 1
@@ -176,6 +163,14 @@ try
   silent! colorscheme solarized
 endtry
 """"""""""""""""""""""""""""""""""""""""""""""""""
+
+packadd ack.vim
+packadd gundo.vim
+packadd nerdcommenter
+packadd nerdtree
+packadd elm-vim
+packadd tagbar
+packadd vim-ruby-minitest
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
@@ -258,13 +253,6 @@ inoremap jk <esc>
 " nnoremap / /\v
 " vnoremap / /\v
 
-""""""""""""""""""""""""""""""""""""""""""""""""""
-" Leader key mappings
-" CtrlP
-" nnoremap <leader>. :CtrlPTag<cr>
-" nnoremap <leader>fu :CtrlPFunky<cr>
-" nnoremap <leader>fU :execute 'CtrlPFunky ' . expand('<cword>')<cr>
-
 " Plugins
 nnoremap <leader>a :Ack<space>
 nnoremap <leader>b :TagbarToggle<cr>
@@ -297,16 +285,8 @@ xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
 " Source other local vimrc files, if any
-" if filereadable(glob('$HA_ROOT/vimrc.local'))
-"   source $HA_ROOT/vimrc.local
+" if filereadable(glob('$ROOT/vimrc.local'))
+"   source $ROOT/vimrc.local
 " endif
-
-packadd ack.vim
-packadd gundo.vim
-packadd nerdcommenter
-packadd nerdtree
-packadd elm-vim
-packadd tagbar
-packadd vim-ruby-minitest
 
 " vim:set ft=vim et sw=2
