@@ -4,50 +4,38 @@ filetype off
 syntax off
 
 call plug#begin('~/.vim/bundle')
-Plug 'avh4/elm-format'
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'junegunn/vim-easy-align'
+Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'JazzCore/ctrlp-cmatcher'
 Plug 'Valloric/YouCompleteMe' " { 'do': './install.py --clang-completer --tern-completer --racer-completer' }
+Plug 'airblade/vim-gitgutter'
+Plug 'altercation/vim-colors-solarized'
+Plug 'avh4/elm-format'
+Plug 'christoomey/vim-tmux-navigator'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dagwieers/asciidoc-vim', { 'for': ['asciidoc', 'txt'] }
+Plug 'honza/vim-snippets'
+Plug 'junegunn/vim-easy-align'
+Plug 'majutsushi/tagbar'
+Plug 'mattn/emmet-vim'
+Plug 'mileszs/ack.vim'
+Plug 'racer-rust/vim-racer'
 Plug 'scrooloose/nerdcommenter'
-
-" Is part of pack/*/start directory
-
-" Plug 'FelikZ/ctrlp-py-matcher'
-" Plug 'JazzCore/ctrlp-cmatcher'
-" Plug 'airblade/vim-gitgutter'
-" Plug 'altercation/vim-colors-solarized'
-" Plug 'christoomey/vim-tmux-navigator'
-" Plug 'honza/vim-snippets'
-" Plug 'mattn/emmet-vim'
-" Plug 'racer-rust/vim-racer'
-" Plug 'scrooloose/syntastic'
-" Plug 'sheerun/vim-polyglot'
-" Plug 'sjl/badwolf'
-" Plug 'tpope/vim-endwise'
-" Plug 'tpope/vim-fugitive'
-" Plug 'tpope/vim-rake'
-" Plug 'tpope/vim-repeat'
-" Plug 'tpope/vim-surround'
-" Plug 'tpope/vim-tbone'
-" Plug 'tpope/vim-unimpaired'
-" Plug 'xolox/vim-easytags'
-" Plug 'xolox/vim-misc'
-
-" Is part of pack/*/opt directory
-" Plug 'majutsushi/tagbar'
-" Plug 'mileszs/ack.vim'
-" Plug 'scrooloose/nerdtree'
-" Plug 'sjl/gundo.vim'
-" Plug 'sunaku/vim-ruby-minitest'
+Plug 'scrooloose/nerdtree'
+Plug 'scrooloose/syntastic'
+Plug 'sheerun/vim-polyglot'
+Plug 'sjl/badwolf'
+Plug 'sjl/gundo.vim'
+Plug 'sunaku/vim-ruby-minitest'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-rake'
+Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-surround'
+Plug 'tpope/vim-tbone'
+Plug 'tpope/vim-unimpaired'
+Plug 'xolox/vim-easytags'
+Plug 'xolox/vim-misc'
 call plug#end()
-
-packadd ack.vim
-packadd gundo.vim
-packadd nerdtree
-packadd elm-vim
-packadd tagbar
-packadd vim-ruby-minitest
 
 filetype plugin indent on
 syntax enable
