@@ -212,7 +212,7 @@ if has("autocmd")
       \ endif
 
     au BufEnter Makefile setlocal noexpandtab tabstop=8 shiftwidth=8
-    au BufRead,BufNewFile *.adoc,*.asciidoc packadd asciidoc-vim | setl syntax=asciidoc textwidth=80
+    au BufRead,BufNewFile *.adoc,*.asciidoc setl syntax=asciidoc textwidth=80
     au BufRead,BufNewFile *.es6 setl filetype=javascript
     au BufRead,BufNewFile *.md,*.markdown setl filetype=markdown
     au BufRead,BufNewFile *.ldgr setl noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
@@ -226,7 +226,7 @@ if has("autocmd")
     au FileType javascript setl omnifunc=javascriptcomplete#CompleteJS
     au FileType markdown setl textwidth=80 omnifunc=htmlcomplete#CompleteTags
     au FileType python setl omnifunc=pythoncomplete#Complete
-    au FileType ruby packadd vim-ruby-minitest | setl omnifunc=rubycomplete#Complete
+    au FileType ruby setl omnifunc=rubycomplete#Complete
     au FileType rust setl softtabstop=2 tabstop=4 shiftwidth=4
     au FileType sh setl softtabstop=2 tabstop=4 shiftwidth=4
     au FileType text setl noexpandtab tabstop=8 shiftwidth=8 textwidth=80
