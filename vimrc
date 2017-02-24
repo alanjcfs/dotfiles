@@ -276,7 +276,6 @@ nnoremap <leader>a :Ack<space>
 nnoremap <leader>b :TagbarToggle<cr>
 nnoremap <leader>n :NERDTreeToggle<cr>
 nnoremap <leader>u :GundoToggle<cr>
-nnoremap <leader>co :NeoCompleteToggle<cr>
 
 " Vim customizations
 nnoremap <leader><space> :noh<cr>
