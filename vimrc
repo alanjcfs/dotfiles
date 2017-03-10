@@ -4,16 +4,19 @@ filetype off
 syntax off
 
 call plug#begin('~/.vim/bundle')
-Plug 'FelikZ/ctrlp-py-matcher'
-Plug 'JazzCore/ctrlp-cmatcher'
-Plug 'Valloric/YouCompleteMe' " { 'do': './install.py --clang-completer --tern-completer --racer-completer' }
+" Colorschemes
+Plug 'sjl/badwolf'
+Plug 'quanganhdo/grb256'
+
 Plug 'airblade/vim-gitgutter'
 Plug 'altercation/vim-colors-solarized'
 Plug 'avh4/elm-format'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dagwieers/asciidoc-vim', { 'for': ['asciidoc', 'txt'] }
+Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'honza/vim-snippets'
+Plug 'JazzCore/ctrlp-cmatcher'
 Plug 'junegunn/vim-easy-align'
 Plug 'majutsushi/tagbar'
 Plug 'mattn/emmet-vim'
@@ -23,7 +26,7 @@ Plug 'scrooloose/nerdcommenter'
 Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'sheerun/vim-polyglot'
-Plug 'sjl/badwolf'
+Plug 'SirVer/ultisnips'
 Plug 'sjl/gundo.vim'
 Plug 'sunaku/vim-ruby-minitest'
 Plug 'tpope/vim-endwise'
@@ -33,6 +36,7 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone'
 Plug 'tpope/vim-unimpaired'
+Plug 'Valloric/YouCompleteMe' " { 'do': './install.py --clang-completer --tern-completer --racer-completer' }
 Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
 call plug#end()
@@ -186,7 +190,7 @@ let g:elm_format_autosave = 1
 
 try
   set background=dark " dark | light "
-  silent! colorscheme solarized
+  silent! colorscheme badwolf
 endtry
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
