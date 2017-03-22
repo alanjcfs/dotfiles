@@ -152,7 +152,6 @@ let g:syntastic_filetype_map = { 'handlebars.html': 'handlebars' }
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
 " let g:enable_numbers = 0
-" let g:solarized_termcolors=256
 
 let g:racer_cmd = "$HOME/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
@@ -190,7 +189,7 @@ let g:elm_format_autosave = 1
 
 try
   set background=dark " dark | light "
-  silent! colorscheme badwolf
+  silent! colorscheme solarized
 endtry
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
