@@ -4,29 +4,36 @@ filetype off
 syntax off
 
 call plug#begin('~/.vim/bundle')
-" Colorschemes
+" Themes & Colorschemes
+Plug 'altercation/vim-colors-solarized'
 Plug 'sjl/badwolf'
 Plug 'quanganhdo/grb256'
 
-Plug 'airblade/vim-gitgutter'
-Plug 'altercation/vim-colors-solarized'
-Plug 'avh4/elm-format'
-Plug 'christoomey/vim-tmux-navigator'
+" Fuzzysearch & Autocomplete
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'dagwieers/asciidoc-vim', { 'for': ['asciidoc', 'txt'] }
 Plug 'FelikZ/ctrlp-py-matcher'
-Plug 'honza/vim-snippets'
 Plug 'JazzCore/ctrlp-cmatcher'
-Plug 'junegunn/vim-easy-align'
-Plug 'majutsushi/tagbar'
-Plug 'mattn/emmet-vim'
 Plug 'mileszs/ack.vim'
+Plug 'Valloric/YouCompleteMe' " { 'do': './install.py --clang-completer --tern-completer --racer-completer' }
+
+" Syntax
+Plug 'avh4/elm-format'
+Plug 'dagwieers/asciidoc-vim', { 'for': ['asciidoc', 'txt'] }
+Plug 'mattn/emmet-vim'
 Plug 'racer-rust/vim-racer'
-Plug 'scrooloose/nerdcommenter'
-Plug 'scrooloose/nerdtree'
 Plug 'scrooloose/syntastic'
 Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
+
+" Writing
+Plug 'reedes/vim-pencil'
+
+" Code Editing
+Plug 'honza/vim-snippets'
+Plug 'junegunn/vim-easy-align'
+Plug 'majutsushi/tagbar'
+Plug 'scrooloose/nerdcommenter'
+Plug 'scrooloose/nerdtree'
 Plug 'sjl/gundo.vim'
 Plug 'sunaku/vim-ruby-minitest'
 Plug 'tpope/vim-endwise'
@@ -36,9 +43,13 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone'
 Plug 'tpope/vim-unimpaired'
-Plug 'Valloric/YouCompleteMe' " { 'do': './install.py --clang-completer --tern-completer --racer-completer' }
 Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
+
+" Miscellaneous
+Plug 'airblade/vim-gitgutter'
+Plug 'christoomey/vim-tmux-navigator'
+
 call plug#end()
 
 filetype plugin indent on
