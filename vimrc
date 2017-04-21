@@ -27,6 +27,8 @@ Plug 'SirVer/ultisnips'
 
 " Writing
 Plug 'reedes/vim-pencil'
+Plug 'tpope/vim-markdown'
+Plug 'nelstrom/vim-markdown-folding'
 
 " Code Editing
 Plug 'honza/vim-snippets'
