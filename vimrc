@@ -229,7 +229,7 @@ if has("autocmd")
       \ endif
 
     au BufEnter Makefile setlocal noexpandtab tabstop=8 shiftwidth=8
-    au BufRead,BufNewFile *.adoc,*.asciidoc setl syntax=asciidoc textwidth=80
+    au BufRead,BufNewFile *.adoc,*.asciidoc setl syntax=asciidoc textwidth=80 | Pencil
     au BufRead,BufNewFile *.es6 setl filetype=javascript
     au BufRead,BufNewFile *.md,*.markdown setl filetype=markdown
     au BufRead,BufNewFile *.ldgr setl noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
