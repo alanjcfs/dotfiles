@@ -8,6 +8,7 @@ call plug#begin('~/.vim/bundle')
 Plug 'altercation/vim-colors-solarized'
 Plug 'sjl/badwolf'
 Plug 'quanganhdo/grb256'
+Plug 'ajh17/Spacegray.vim'
 
 " Fuzzysearch & Autocomplete
 Plug 'ctrlpvim/ctrlp.vim'
@@ -29,6 +30,7 @@ Plug 'SirVer/ultisnips'
 Plug 'reedes/vim-pencil'
 Plug 'tpope/vim-markdown'
 Plug 'nelstrom/vim-markdown-folding'
+Plug 'vim-airline/vim-airline'
 
 " Code Editing
 Plug 'honza/vim-snippets'
@@ -36,18 +38,23 @@ Plug 'junegunn/vim-easy-align'
 Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
 Plug 'sjl/gundo.vim'
-Plug 'sunaku/vim-ruby-minitest'
 Plug 'tomtom/tcomment_vim'
-" Plug 'tpope/vim-commentary'
-Plug 'tpope/vim-endwise'
+Plug 'Townk/vim-autoclose'
 Plug 'tpope/vim-fugitive'
-Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone'
 Plug 'tpope/vim-unimpaired'
 Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
+
+" Ruby
+Plug 'sunaku/vim-ruby-minitest'
+Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-rake'
+
+" Elm
+Plug 'lambdatoast/elm.vim'
 
 " Miscellaneous
 Plug 'airblade/vim-gitgutter'
@@ -153,7 +160,7 @@ let g:NERDTrimTrailingWhitespace = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Status line with syntastic settings
-set statusline=%<%f%m\ %h%r%=%-14.(%l,%c%V%)\ %P " What the fuck does this line do??? ಠ_ಠ
+" set statusline=%<%f%m\ %h%r%=%-14.(%l,%c%V%)\ %P " What the fuck does this line do??? ಠ_ಠ
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
@@ -259,7 +266,7 @@ endif " has("autocmd")
 " Only define it when not defined already.
 if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-		  \ | wincmd p | diffthis
+      \ | wincmd p | diffthis
 endif
 
 " Corrections and expansions
