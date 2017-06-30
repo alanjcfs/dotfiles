@@ -43,13 +43,16 @@ Plug 'Raimondi/delimitMate'
 Plug 'scrooloose/nerdtree'
 Plug 'sjl/gundo.vim'
 Plug 'tomtom/tcomment_vim'
-Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone'
 Plug 'tpope/vim-unimpaired'
 Plug 'xolox/vim-easytags'
 Plug 'xolox/vim-misc'
+
+" Git
+Plug 'tpope/vim-fugitive'
+Plug 'jreybert/vimagit'
 
 " Ruby
 Plug 'sunaku/vim-ruby-minitest'
@@ -98,7 +101,7 @@ set listchars+=tab:»·,trail:·,nbsp:+,extends:>,precedes:<
 set listchars-=eol:$
 set modelines=0
 set mouse=a
-set cursorline
+set nocursorline
 set nogdefault
 set norelativenumber
 set noshiftround
@@ -168,9 +171,14 @@ endif
 
 
 
+" Fugitive Statusline
+" (Currently using vim-airline)
+" set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Status line with syntastic settings
-" set statusline=%<%f%m\ %h%r%=%-14.(%l,%c%V%)\ %P " What the fuck does this line do??? ಠ_ಠ
 " set statusline+=%#warningmsg#
 " set statusline+=%{SyntasticStatuslineFlag()}
 " set statusline+=%*
@@ -236,6 +244,12 @@ let g:elm_format_autosave = 1
 " Ultisnips
 
 let g:UltiSnipsExpandTrigger = "<C-T>"
+
+
+
+" YCM
+
+let g:ycm_collect_identifiers_from_tags_files = 1
 
 
 
@@ -347,8 +361,8 @@ nnoremap <leader>l :ls<cr>:b<space>
 
 " Git
 nnoremap <leader>g :Git<space>
-nnoremap <leader>gb :Gblame<cr>
-nnoremap <leader>gc :Gcommit -v<cr>
+nnoremap <leader>gb :Gblame<space>
+nnoremap <leader>gc :Gcommit -v<space>
 nnoremap <leader>gd :Gdiff<space>
 nnoremap <leader>gl :Glog -p<cr>
 nnoremap <leader>gw :Gwrite<cr>
