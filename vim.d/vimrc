@@ -8,38 +8,40 @@ syntax off
 call plug#begin('~/.vim/bundle')
 " Themes & Colorschemes
 Plug 'altercation/vim-colors-solarized'
-Plug 'sjl/badwolf'
-Plug 'quanganhdo/grb256'
-Plug 'ajh17/Spacegray.vim'
+" Plug 'sjl/badwolf'
+" Plug 'quanganhdo/grb256'
+" Plug 'ajh17/Spacegray.vim'
 
 " Fuzzysearch & Autocomplete
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
-Plug 'JazzCore/ctrlp-cmatcher'
+Plug 'JazzCore/ctrlp-cmatcher', { 'do': 'CFLAGS=-Qunused-arguments CPPFLAGS=-Qunused-arguments ./install.sh' }
 Plug 'mileszs/ack.vim'
 Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-completer --racer-completer' } " <tab> doesn't work
 
 " Syntax
-Plug 'avh4/elm-format'
-Plug 'elmcast/elm-vim'
+Plug 'avh4/elm-format', { 'for': 'elm'}
+Plug 'elmcast/elm-vim', { 'for': 'elm'}
 Plug 'dagwieers/asciidoc-vim', { 'for': ['asciidoc', 'txt'] }
-Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim', { 'for': ['html', 'xml'] }
 Plug 'racer-rust/vim-racer'
 Plug 'scrooloose/syntastic'
 Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
 
 " Writing
-Plug 'reedes/vim-pencil'
-Plug 'tpope/vim-markdown'
-Plug 'nelstrom/vim-markdown-folding'
+Plug 'reedes/vim-pencil', { 'for': 'markdown' }
+Plug 'tpope/vim-markdown', { 'for': 'markdown' }
+Plug 'nelstrom/vim-markdown-folding', { 'for': 'markdown' }
+
 Plug 'vim-airline/vim-airline'
 
 " Code Editing
 Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
 Plug 'majutsushi/tagbar'
-Plug 'Raimondi/delimitMate'
+" Plug 'Raimondi/delimitMate'
+Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree'
 Plug 'sjl/gundo.vim'
 Plug 'tomtom/tcomment_vim'
@@ -214,10 +216,11 @@ let g:ctrlp_custom_ignore =
 " Ack/RipGrep
 
 if executable('rg')
-  let g:ctrlp_user_command = 'rg %s -l --files ""'
+  let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
+                          "  'rg %s -l --files ""'
 endif
-" let g:ctrlp_match_func = { 'match': 'matcher#cmatch' }
-let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+let g:ctrlp_match_func = { 'match': 'matcher#cmatch' }
+" let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
 
 
@@ -366,6 +369,12 @@ nnoremap <leader>gc :Gcommit -v<space>
 nnoremap <leader>gd :Gdiff<space>
 nnoremap <leader>gl :Glog -p<cr>
 nnoremap <leader>gw :Gwrite<cr>
+
+" Move lines
+nnoremap <leader>j :m+<cr>==
+nnoremap <leader>k :m-2<cr>==
+xnoremap <leader>j :m'>+<cr>gv=gv
+xnoremap <leader>k :m-2<cr>gv=gv
 
 nnoremap <leader>rc :!rubocop %<cr>
 " End Leader key mappings """"""""""""""""""""""""
