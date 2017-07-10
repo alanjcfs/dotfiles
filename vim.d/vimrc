@@ -34,7 +34,7 @@ Plug 'reedes/vim-pencil', { 'for': 'markdown' }
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'nelstrom/vim-markdown-folding', { 'for': 'markdown' }
 
-Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline'
 
 " Code Editing
 Plug 'honza/vim-snippets'
@@ -176,7 +176,7 @@ endif
 " Fugitive Statusline
 " (Currently using vim-airline)
 " set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-
+" let g:airline#extensions#tabline#enabled = 1
 
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -219,8 +219,8 @@ if executable('rg')
   let g:ctrlp_user_command = 'rg %s --files --color=never --glob ""'
                           "  'rg %s -l --files ""'
 endif
-let g:ctrlp_match_func = { 'match': 'matcher#cmatch' }
-" let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+" let g:ctrlp_match_func = { 'match': 'matcher#cmatch' }
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
 
 
