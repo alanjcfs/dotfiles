@@ -1,5 +1,5 @@
 " gvimrc is read only if has('gui_running'), like MacVim and gVim
 " has('gui_running')
 " set background=light
-set guifont=Source\ Code\ Pro:h14
+set guifont=Source\ Code\ Pro:h12
 set cursorline

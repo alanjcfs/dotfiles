@@ -232,8 +232,8 @@ if executable('rg')
   let g:ctrlp_user_command = 'rg %s -l --files --color=never --glob ""'
                           "  'rg %s -l --files ""'
 endif
-" let g:ctrlp_match_func = { 'match': 'matcher#cmatch' }
-let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+let g:ctrlp_match_func = { 'match': 'matcher#cmatch' }
+" let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
 
 
@@ -246,7 +246,7 @@ let g:gitgutter_eager = 0 " GitGutterCustomisation
 " EasyTags
 
 set tags+=.git/tags
-let g:easytags_auto_highlight = 0
+" let g:easytags_auto_highlight = 0
 let g:easytags_async = 1
 
 
@@ -264,7 +264,7 @@ let g:polyglot_disabled = ['elm']
 
 " Ultisnips
 
-let g:UltiSnipsExpandTrigger = "<C-T>"
+let g:UltiSnipsExpandTrigger = "<C-E>"
 
 
 
@@ -366,7 +366,7 @@ abbrev ccopy  Copyright 2013 Alan Fung-Schwarz, all rights reserved.
 map Y y$
 
 " Don't use Ex mode, use Q for formatting
-map Q gq
+" map Q gq
 
 " CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
 " so that you can undo CTRL-U after inserting a line break.
