@@ -393,7 +393,7 @@ nnoremap <leader>g :Git<space>
 nnoremap <leader>gb :Gblame<space>
 nnoremap <leader>gc :Gcommit -v<space>
 nnoremap <leader>gd :Gdiff<space>
-nnoremap <leader>gl :Glog -p<cr>
+nnoremap <leader>gl :Glog -p<space>
 nnoremap <leader>gw :Gwrite<cr>
 
 " Move lines

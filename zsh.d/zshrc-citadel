@@ -55,6 +55,7 @@ plugins=(git)
 
 # User configuration
 
+export PATH=$PATH:/Applications/Racket\ v6.6/bin:$HOME/bin
 # export MANPATH="/usr/local/man:$MANPATH"
 
 source $ZSH/oh-my-zsh.sh
