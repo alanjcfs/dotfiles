@@ -23,7 +23,7 @@ Plug 'Valloric/YouCompleteMe', { 'do': './install.py --clang-completer --tern-co
 Plug 'avh4/elm-format', { 'for': 'elm'}
 Plug 'elmcast/elm-vim', { 'for': 'elm'}
 Plug 'dagwieers/asciidoc-vim', { 'for': ['asciidoc', 'txt'] }
-Plug 'mattn/emmet-vim', { 'for': ['html', 'xml'] }
+Plug 'mattn/emmet-vim'
 Plug 'racer-rust/vim-racer'
 Plug 'scrooloose/syntastic'
 Plug 'sheerun/vim-polyglot'
