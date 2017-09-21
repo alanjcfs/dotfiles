@@ -16,6 +16,13 @@ endif
 
 
 
+let s:autocmdfile = '~/.files/vim.d/autocmds.vim'
+if filereadable(expand(s:autocmdfile))
+  exec "source " . s:autocmdfile
+endif
+
+
+
 set clipboard^=unnamed
 set colorcolumn=80 cursorline
 set confirm

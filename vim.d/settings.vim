@@ -44,8 +44,8 @@ if executable('rg')
   let g:ctrlp_user_command = 'rg %s -l --files --color=never --glob ""'
                           "  'rg %s -l --files ""'
 endif
-let g:ctrlp_match_func = { 'match': 'matcher#cmatch' }
-" let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+" let g:ctrlp_match_func = { 'match': 'matcher#cmatch' }
+let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
 
 
