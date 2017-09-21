@@ -1,7 +1,7 @@
 " For Neovim
 
 call plug#begin('~/.vim/bundle')
-let s:plugfile = '~/.files/vim.d/plugs.vim'
+let s:plugfile = '~/.files/vim.d/shared/plugs.vim'
 if filereadable(expand(s:plugfile))
   exec "source " . s:plugfile
 endif
@@ -9,14 +9,14 @@ call plug#end()
 
 
 
-let s:sharedfile = '~/.files/vim.d/settings.vim'
+let s:sharedfile = '~/.files/vim.d/shared/settings.vim'
 if filereadable(expand(s:sharedfile))
   exec "source " . s:sharedfile
 endif
 
 
 
-let s:autocmdfile = '~/.files/vim.d/autocmds.vim'
+let s:autocmdfile = '~/.files/vim.d/shared/autocmds.vim'
 if filereadable(expand(s:autocmdfile))
   exec "source " . s:autocmdfile
 endif

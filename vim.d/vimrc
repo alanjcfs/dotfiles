@@ -6,7 +6,7 @@ syntax off
 
 
 call plug#begin('~/.vim/bundle')
-let s:plugfile = '~/.files/vim.d/plugs.vim'
+let s:plugfile = '~/.files/vim.d/shared/plugs.vim'
 if filereadable(expand(s:plugfile))
   exec "source " . s:plugfile
 endif
@@ -28,7 +28,7 @@ endif
 
 " Global Vim settings
 
-let s:sharedfile = '~/.files/vim.d/settings.vim'
+let s:sharedfile = '~/.files/vim.d/shared/settings.vim'
 if filereadable(expand(s:sharedfile))
   exec "source " . s:sharedfile
 endif
@@ -92,9 +92,9 @@ set expandtab noshiftround shiftwidth=2 smarttab softtabstop=2 tabstop=4
 
 " Vim directories for backup, swap, and undo
 
-set backupdir=~/.vim/tmp/backup//
-set directory=~/.vim/tmp/swap//
-set undodir=~/.vim/tmp/undo//
+set backupdir=~/.files/vim.d/tmp/backup//
+set directory=~/.files/vim.d/tmp/swap//
+set undodir=~/.files/vim.d/tmp/undo//
 
 if !isdirectory(expand(&undodir))
   call mkdir(expand(&undodir), "p")
@@ -137,7 +137,7 @@ endtry
 
 
 
-let s:autocmdfile = '~/.files/vim.d/autocmds.vim'
+let s:autocmdfile = '~/.files/vim.d/shared/autocmds.vim'
 if filereadable(expand(s:autocmdfile))
   exec "source " . s:autocmdfile
 endif
