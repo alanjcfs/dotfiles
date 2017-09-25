@@ -18,7 +18,7 @@ endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Status line with syntastic settings
-" set statusline=%<%f%m\ %h%r%=%-14.(%l,%c%V%)\ %P " What the fuck does this line do??? ಠ_ಠ
+" set statusline=%<%f%m\ %h%r%=%-14.(%l,%c%V%)\ %P " What does this line do‽ ಠ_ಠ
 set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
 set statusline+=%#warningmsg#
 set statusline+=%{SyntasticStatuslineFlag()}
