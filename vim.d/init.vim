@@ -9,9 +9,9 @@ call plug#end()
 
 
 
-let s:sharedfile = '~/.files/vim.d/shared/settings.vim'
-if filereadable(expand(s:sharedfile))
-  exec "source " . s:sharedfile
+let s:settingfile = '~/.files/vim.d/shared/settings.vim'
+if filereadable(expand(s:settingfile))
+  exec "source " . s:settingfile
 endif
 
 
@@ -29,19 +29,4 @@ set confirm
 set list listchars+=tab:»·,trail:·,nbsp:+,extends:>,precedes:<
 set nobackup
 set number
-set scrolloff=3
-set splitright splitbelow
-set ignorecase smartcase
 set expandtab noshiftround shiftwidth=2 smarttab softtabstop=2 tabstop=4
-
-
-
-" Colorscheme
-
-try
-  set background=dark " dark | light "
-  silent! colorscheme badwolf
-endtry
-""""""""""""""""""""""""""""""""""""""""""""""""""
-
-" vim:set ft=vim et sw=2

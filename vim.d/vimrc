@@ -15,8 +15,9 @@ call plug#end()
 
 
 
-filetype plugin indent on
-syntax enable
+" NOTE: Unneeded because plugin manager enables automatically
+" filetype plugin indent on
+" syntax enable
 
 
 
@@ -36,8 +37,11 @@ if exists('$TMUX')
 endif
 
 set autoindent backspace=indent,eol,start
+set autoread
+set background=dark " dark | light "
 set clipboard^=unnamed,unnamedplus
 set colorcolumn=80 nocursorline
+set complete-=i
 set confirm
 set display+=lastline
 set encoding=utf-8
@@ -47,7 +51,7 @@ if &history < 1000
   set history=1000
 endif
 set hlsearch incsearch
-set ignorecase smartcase
+set langnoremap
 set laststatus=2
 set lazyredraw
 set list listchars+=tab:»·,trail:·,nbsp:+,extends:>,precedes:< listchars-=eol:$
@@ -55,21 +59,23 @@ set modelines=0
 set nogdefault
 set noshowmatch
 set nostartofline
+set nrformats-=octal
 set number norelativenumber
 set ruler
-set scrolloff=3
+set sessionoptions-=options
 set shell=$SHELL\ -l
 set showcmd
 set showmode
-set splitright splitbelow
 set synmaxcol=3000
 if &tabpagemax < 50
   set tabpagemax=50
 endif
+set tags-=./tags tags^=./tags; tags+=.git/tags
 set ttyfast
 set undofile
+set viminfo^=!
 set visualbell
-set wildmenu wildignore+=*/tmp/* wildmode=list:longest,full
+set wildmenu wildignore+=*/tmp/* "" wildmode=list:longest,full
 set wrap
 
 
@@ -104,7 +110,7 @@ endif
 
 " Quickly time out on keycodes, but never time out on mappings
 " NOTE: Causes NeoVim to insert special characters when using the ESC key.
-" set notimeout ttimeout ttimeoutlen=200
+set notimeout ttimeout ttimeoutlen=200
 
 
 
@@ -117,16 +123,6 @@ endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Grab bags
-""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-
-" Colorscheme
-
-try
-  set background=dark " dark | light "
-  silent! colorscheme badwolf
-endtry
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
 
@@ -145,13 +141,3 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
       \ | wincmd p | diffthis endif
 endif
-
-
-
-if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
-  runtime! macros/matchit.vim " Vim Built-in Plugins
-endif
-
-
-
-" vim:set ft=vim et sw=2

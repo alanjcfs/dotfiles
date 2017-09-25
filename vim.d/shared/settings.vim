@@ -1,6 +1,21 @@
 " Mouse behaviors
 set mouse=a
 
+
+set ignorecase smartcase
+" NOTE: Practice using H, M, and L to reach top, middle, and bottom of screen
+set scrolloff=1 " sidescrolloff=5
+set sidescroll=1
+set splitright splitbelow
+
+
+
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+  runtime! macros/matchit.vim " Vim Built-in Plugins
+endif
+
+
+
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Status line with syntastic settings
 " set statusline=%<%f%m\ %h%r%=%-14.(%l,%c%V%)\ %P " What the fuck does this line do??? ಠ_ಠ
@@ -57,7 +72,6 @@ let g:gitgutter_eager = 0 " GitGutterCustomisation
 
 " EasyTags
 
-set tags+=.git/tags
 " let g:easytags_auto_highlight = 0
 let g:easytags_async = 1
 
@@ -147,3 +161,13 @@ nnoremap <leader>rc :!rubocop %<cr>
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
 
+
+
+" Colorscheme
+
+try
+  silent! colorscheme badwolf
+endtry
+""""""""""""""""""""""""""""""""""""""""""""""""""
+
+" vim:set ft=vim et sw=2
