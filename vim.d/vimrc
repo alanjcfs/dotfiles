@@ -20,12 +20,6 @@ syntax enable
 
 
 
-if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
-  runtime! macros/matchit.vim " Vim Built-in Plugins
-endif
-
-
-
 " Global Vim settings
 
 let s:sharedfile = '~/.files/vim.d/shared/settings.vim'
@@ -151,5 +145,13 @@ if !exists(":DiffOrig")
   command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
       \ | wincmd p | diffthis endif
 endif
+
+
+
+if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
+  runtime! macros/matchit.vim " Vim Built-in Plugins
+endif
+
+
 
 " vim:set ft=vim et sw=2
