@@ -52,10 +52,13 @@ Plug 'jreybert/vimagit'
 Plug 'sunaku/vim-ruby-minitest'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-rake'
+Plug 'tpope/vim-rails'
 
 " Miscellaneous
 Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
+" Plug 'tpope/sleuth.vim' " File-based indentation
+Plug 'tpope/vim-dispatch'
 
 " VimScripts
 Plug 'vim-scripts/greplace.vim'

@@ -7,6 +7,11 @@ set ignorecase smartcase
 set scrolloff=1 " sidescrolloff=5
 set sidescroll=1
 set splitright splitbelow
+set startofline!
+
+
+" Shells
+set shell=$SHELL\ -l
 
 
 
@@ -28,7 +33,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:elm_syntastic_show_warnings = 1
-let g:syntastic_javascript_checks = ['jshint']
+let g:syntastic_javascript_checks = ['eslint']
 let g:syntastic_filetype_map = { 'handlebars.html': 'handlebars' }
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -133,6 +138,7 @@ nnoremap <leader>a :Ack!<space>
 nnoremap <leader>b :TagbarToggle<cr>
 nnoremap <leader>n :NERDTreeToggle<cr>
 nnoremap <leader>u :GundoToggle<cr>
+nnoremap <leader>d :Dispatch<space>
 
 " Vim customizations
 nnoremap <leader><space> :noh<cr>

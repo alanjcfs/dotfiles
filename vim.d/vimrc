@@ -58,12 +58,10 @@ set list listchars+=tab:»·,trail:·,nbsp:+,extends:>,precedes:< listchars-=eol
 set modelines=0
 set nogdefault
 set noshowmatch
-set nostartofline
 set nrformats-=octal
 set number norelativenumber
 set ruler
 set sessionoptions-=options
-set shell=$SHELL\ -l
 set showcmd
 set showmode
 set synmaxcol=3000
