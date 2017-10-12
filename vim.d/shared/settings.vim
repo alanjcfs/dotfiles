@@ -33,7 +33,7 @@ let g:syntastic_auto_loc_list = 1
 let g:syntastic_check_on_open = 1
 let g:syntastic_check_on_wq = 0
 let g:elm_syntastic_show_warnings = 1
-let g:syntastic_javascript_checks = ['eslint']
+let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_filetype_map = { 'handlebars.html': 'handlebars' }
 """"""""""""""""""""""""""""""""""""""""""""""""""
 

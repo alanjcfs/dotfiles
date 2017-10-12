@@ -9,7 +9,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'JazzCore/ctrlp-cmatcher', { 'do': 'CFLAGS=-Qunused-arguments CPPFLAGS=-Qunused-arguments ./install.sh' }
 Plug 'mileszs/ack.vim'
-Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer --racer-completer' } " <tab> doesn't work
+" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer --racer-completer' } " <tab> doesn't work
 
 " Syntax
 Plug 'avh4/elm-format', { 'for': 'elm'}

@@ -5,6 +5,7 @@ let s:plugfile = '~/.files/vim.d/shared/plugs.vim'
 if filereadable(expand(s:plugfile))
   exec "source " . s:plugfile
 endif
+Plug 'Shougo/deoplete.nvim'
 call plug#end()
 
 
@@ -21,6 +22,7 @@ if filereadable(expand(s:autocmdfile))
   exec "source " . s:autocmdfile
 endif
 
+let g:deoplete#enable_at_startup = 1
 
 
 set clipboard^=unnamed

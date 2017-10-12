@@ -10,14 +10,15 @@ let s:plugfile = '~/.files/vim.d/shared/plugs.vim'
 if filereadable(expand(s:plugfile))
   exec "source " . s:plugfile
 endif
+Plug 'Shougo/neocomplete.vim'
 " TODO: Install local or vim specific plugs
 call plug#end()
 
 
 
-" NOTE: Unneeded because plugin manager enables automatically
-" filetype plugin indent on
-" syntax enable
+" NOTE: Added because source vimrc doesn't turn it back on
+filetype plugin indent on
+syntax enable
 
 
 
@@ -27,6 +28,11 @@ let s:sharedfile = '~/.files/vim.d/shared/settings.vim'
 if filereadable(expand(s:sharedfile))
   exec "source " . s:sharedfile
 endif
+
+
+
+" Neocomplete
+let g:neocomplete#enable_at_startup = 1
 
 
 
@@ -40,7 +46,7 @@ set autoindent backspace=indent,eol,start
 set autoread
 set background=dark " dark | light "
 set clipboard^=unnamed,unnamedplus
-set colorcolumn=80 nocursorline
+set colorcolumn=80 cursorline
 set complete-=i
 set confirm
 set display+=lastline
