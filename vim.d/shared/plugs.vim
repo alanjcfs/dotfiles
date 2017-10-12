@@ -17,6 +17,7 @@ Plug 'elmcast/elm-vim', { 'for': 'elm'}
 Plug 'dagwieers/asciidoc-vim', { 'for': ['asciidoc', 'txt'] }
 Plug 'mattn/emmet-vim'
 Plug 'racer-rust/vim-racer'
+Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/syntastic'
 Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
