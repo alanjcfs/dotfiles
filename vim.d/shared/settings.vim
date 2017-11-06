@@ -2,12 +2,14 @@
 set mouse=a
 
 
+
 set ignorecase smartcase
 " NOTE: Practice using H, M, and L to reach top, middle, and bottom of screen
 set scrolloff=1 " sidescrolloff=5
 set sidescroll=1
-set splitright splitbelow
+" set splitright splitbelow
 set startofline!
+
 
 
 " Shells
@@ -138,7 +140,7 @@ nnoremap <leader>a :Ack!<space>
 nnoremap <leader>b :TagbarToggle<cr>
 nnoremap <leader>n :NERDTreeToggle<cr>
 nnoremap <leader>u :GundoToggle<cr>
-nnoremap <leader>d :Dispatch<space>
+nnoremap <leader>d :Dispatch<space><up>
 
 " Vim customizations
 nnoremap <leader><space> :noh<cr>
