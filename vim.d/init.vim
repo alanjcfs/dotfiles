@@ -23,6 +23,10 @@ if filereadable(expand(s:autocmdfile))
 endif
 
 let g:deoplete#enable_at_startup = 1
+inoremap <silent> <cr> <c-r>=<SID>popup_close_and_newline()<cr>
+function! s:popup_close_and_newline() abort
+  return deoplete#close_popup() . "\<CR>"
+endfunction
 
 
 set clipboard^=unnamed
