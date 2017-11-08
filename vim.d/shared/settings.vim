@@ -110,6 +110,12 @@ let g:ycm_semantic_triggers = {
 
 
 
+"AutoPairs
+" Disable abruptly centering the current line when pressing <cr>
+let g:AutoPairsCenterLine = 0
+
+
+
 " Corrections and expansions
 
 iabbrev @@    alan@atomsign.net
