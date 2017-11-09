@@ -5,14 +5,11 @@ syntax off
 
 
 
-call plug#begin('~/.vim/bundle')
 let s:plugfile = '~/.files/vim.d/shared/plugs.vim'
 if filereadable(expand(s:plugfile))
   exec "source " . s:plugfile
 endif
-Plug 'Shougo/neocomplete.vim'
 " TODO: Install local or vim specific plugs
-call plug#end()
 
 
 
@@ -56,7 +53,6 @@ set confirm
 set display+=lastline
 set encoding=utf-8
 set formatoptions+=j
-set hidden
 if &history < 1000
   set history=1000
 endif
@@ -65,7 +61,6 @@ set langnoremap
 set laststatus=2
 set lazyredraw
 set list listchars+=tab:»·,trail:·,nbsp:+,extends:>,precedes:< listchars-=eol:$
-set modelines=0
 set nogdefault
 set noshowmatch
 set nrformats-=octal
@@ -80,16 +75,9 @@ if &tabpagemax < 50
 endif
 set tags-=./tags tags^=./tags; tags+=.git/tags
 set ttyfast
-set undofile
 set viminfo^=!
-set visualbell
 set wildmenu wildignore+=*/tmp/* "" wildmode=list:longest,full
 set wrap
-
-
-
-" Folding
-set foldenable foldlevelstart=10 foldnestmax=10 foldmethod=indent
 
 
 

@@ -3,12 +3,21 @@ set mouse=a
 
 
 
+set hidden
 set ignorecase smartcase
+set modelines=0
 " NOTE: Practice using H, M, and L to reach top, middle, and bottom of screen
 set scrolloff=1 " sidescrolloff=5
 set sidescroll=1
 " set splitright splitbelow
 set startofline!
+set undofile
+set visualbell
+
+
+
+" Folding
+set foldenable foldlevelstart=10 foldnestmax=10 foldmethod=indent
 
 
 

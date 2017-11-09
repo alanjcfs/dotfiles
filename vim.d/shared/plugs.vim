@@ -1,3 +1,4 @@
+call plug#begin('~/.vim/bundle')
 " Themes & Colorschemes
 Plug 'altercation/vim-colors-solarized'
 Plug 'sjl/badwolf'
@@ -63,3 +64,11 @@ Plug 'tpope/vim-dispatch'
 
 " VimScripts
 Plug 'vim-scripts/greplace.vim'
+
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim'
+else
+  Plug 'Shougo/neocomplete.vim'
+endif
+
+call plug#end()

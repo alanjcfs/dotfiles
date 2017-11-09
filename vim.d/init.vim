@@ -1,12 +1,9 @@
 " For Neovim
 
-call plug#begin('~/.vim/bundle')
 let s:plugfile = '~/.files/vim.d/shared/plugs.vim'
 if filereadable(expand(s:plugfile))
   exec "source " . s:plugfile
 endif
-Plug 'Shougo/deoplete.nvim'
-call plug#end()
 
 
 
@@ -22,11 +19,14 @@ if filereadable(expand(s:autocmdfile))
   exec "source " . s:autocmdfile
 endif
 
+
+
 let g:deoplete#enable_at_startup = 1
 inoremap <silent> <cr> <c-r>=<SID>popup_close_and_newline()<cr>
 function! s:popup_close_and_newline() abort
   return deoplete#close_popup() . "\<CR>"
 endfunction
+
 
 
 set clipboard^=unnamed
