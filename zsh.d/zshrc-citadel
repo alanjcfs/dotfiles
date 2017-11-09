@@ -95,3 +95,5 @@ alias sb='script/boot'
 
 eval "$(rbenv init -)"
 export PATH="/usr/local/opt/elasticsearch@2.4/bin:$PATH"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
