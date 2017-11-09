@@ -1,4 +1,4 @@
-call plug#begin('~/.vim/bundle')
+call plug#begin()
 " Themes & Colorschemes
 Plug 'altercation/vim-colors-solarized'
 Plug 'sjl/badwolf'

@@ -2,9 +2,9 @@
 .netrwhist
 tmp/swap/*
 tmp/undo/*
-bundle/*
+plugged/*
 tmp/backup/*
 !tmp/swap/.gitkeep
 !tmp/undo/.gitkeep
-!bundle/.gitkeep
 !tmp/backup/.gitkeep
+!plugged/.gitkeep
