@@ -24,7 +24,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
 
 " Writing
-Plug 'reedes/vim-pencil', { 'for': 'markdown' }
+Plug 'reedes/vim-pencil', { 'for': ['markdown', 'asciidoc'] }
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'nelstrom/vim-markdown-folding', { 'for': 'markdown' }
 
