@@ -5,26 +5,18 @@ syntax off
 
 
 
-let s:plugfile = '~/.files/vim.d/shared/plugs.vim'
-if filereadable(expand(s:plugfile))
-  exec "source " . s:plugfile
+" Global Vim settings
+
+let s:sharedfile = '~/.files/vim.d/shared.vim'
+if filereadable(expand(s:sharedfile))
+  exec "source " . s:sharedfile
 endif
-" TODO: Install local or vim specific plugs
 
 
 
 " NOTE: Added because source vimrc doesn't turn it back on
 filetype plugin indent on
 syntax enable
-
-
-
-" Global Vim settings
-
-let s:sharedfile = '~/.files/vim.d/shared/settings.vim'
-if filereadable(expand(s:sharedfile))
-  exec "source " . s:sharedfile
-endif
 
 
 
@@ -120,13 +112,6 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Grab bags
 """"""""""""""""""""""""""""""""""""""""""""""""""
-
-
-
-let s:autocmdfile = '~/.files/vim.d/shared/autocmds.vim'
-if filereadable(expand(s:autocmdfile))
-  exec "source " . s:autocmdfile
-endif
 
 
 
