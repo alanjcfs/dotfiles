@@ -17,7 +17,7 @@ Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
 " Syntax
 Plug 'avh4/elm-format', { 'for': 'elm'}
 Plug 'elmcast/elm-vim', { 'for': 'elm'}
-Plug 'dagwieers/asciidoc-vim', { 'for': ['asciidoc', 'txt'] }
+Plug 'asciidoc/vim-asciidoc', { 'for': ['asciidoc'] }
 Plug 'mattn/emmet-vim'
 Plug 'racer-rust/vim-racer'
 Plug 'rust-lang/rust.vim'
@@ -307,8 +307,8 @@ if has("autocmd")
     au BufEnter Makefile setlocal noexpandtab tabstop=8 shiftwidth=8
 
     " Filetype
-    au BufRead,BufNewFile *.md,*.markdown setl filetype=markdown
-    au BufRead,BufNewFile *.adoc,*.asciidoc setl syntax=asciidoc textwidth=80 | Pencil
+    " au BufRead,BufNewFile *.md,*.markdown setl filetype=markdown
+    " au BufRead,BufNewFile *.adoc,*.asciidoc setl syntax=asciidoc textwidth=80 | Pencil
     au BufRead,BufNewFile *.ldgr setl noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
     au BufRead,BufNewFile *.es6 setl filetype=javascript
 
@@ -317,6 +317,7 @@ if has("autocmd")
     au FileType gitconfig setl noexpandtab tabstop=8 shiftwidth=8 textwidth=80
     au FileType markdown setl textwidth=80 omnifunc=htmlcomplete#CompleteTags
     au FileType text setl noexpandtab tabstop=8 shiftwidth=8 textwidth=80
+    au FileType asciidoc setl textwidth=74 | call pencil#init({'autoformat': 0})
 
     " Code
     au FileType css setl omnifunc=csscomplete#CompleteCSS
