@@ -245,7 +245,8 @@ nnoremap <leader>d :Dispatch<space><up>
 " Vim customizations
 nnoremap <leader><space> :noh<cr>
 nnoremap <leader>cd :cd %:p:h<cr>
-nnoremap <leader>ev :split $MYVIMRC<cr>
+nnoremap <leader>ev :split $HOME/.files/vim.d/shared.vim<cr>
+nnoremap <leader>fv :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>l :ls<cr>:b<space>
 
@@ -317,7 +318,7 @@ if has("autocmd")
     au FileType gitconfig setl noexpandtab tabstop=8 shiftwidth=8 textwidth=80
     au FileType markdown setl textwidth=80 omnifunc=htmlcomplete#CompleteTags
     au FileType text setl noexpandtab tabstop=8 shiftwidth=8 textwidth=80
-    au FileType asciidoc setl textwidth=74 | call pencil#init({'autoformat': 0})
+    au FileType asciidoc call pencil#init({'autoformat': 0}) | setl textwidth=80
 
     " Code
     au FileType css setl omnifunc=csscomplete#CompleteCSS
