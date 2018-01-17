@@ -11,8 +11,8 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
 Plug 'JazzCore/ctrlp-cmatcher', { 'do': 'CFLAGS=-Qunused-arguments CPPFLAGS=-Qunused-arguments ./install.sh' }
 Plug 'mileszs/ack.vim'
-" Plug 'Valloric/YouCompleteMe', { 'do': './install.py --tern-completer --racer-completer' } " <tab> doesn't work
-Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': 'yes \| ./install' }
+Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
+Plug 'junegunn/fzf.vim'
 
 " Syntax
 Plug 'avh4/elm-format', { 'for': 'elm'}
@@ -40,8 +40,6 @@ Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree'
 Plug 'sjl/gundo.vim'
 Plug 'tomtom/tcomment_vim'
-Plug 'xolox/vim-easytags'
-Plug 'xolox/vim-misc'
 
 " Git
 Plug 'tpope/vim-fugitive'
@@ -88,9 +86,15 @@ set mouse=a
 
 
 
+set clipboard^=unnamed
+set colorcolumn=80 cursorline
+set confirm
+set expandtab noshiftround shiftwidth=2 smarttab softtabstop=2 tabstop=4
 set hidden
 set ignorecase smartcase
+set list listchars+=tab:»·,trail:·,nbsp:+,extends:>,precedes:<
 set modelines=0
+set number norelativenumber
 " NOTE: Practice using H, M, and L to reach top, middle, and bottom of screen
 set scrolloff=1 " sidescrolloff=5
 set sidescroll=1
@@ -168,13 +172,6 @@ let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 " GitGutter config
 
 let g:gitgutter_eager = 0 " GitGutterCustomisation
-
-
-
-" EasyTags
-
-" let g:easytags_auto_highlight = 0
-let g:easytags_async = 1
 
 
 

@@ -7,20 +7,22 @@ syntax off
 
 " Global Vim settings
 
-let s:sharedfile = '~/.files/vim.d/shared.vim'
-if filereadable(expand(s:sharedfile))
-  exec "source " . s:sharedfile
+let s:mainfile = '~/.files/vim.d/main.vim'
+if filereadable(expand(s:mainfile))
+  exec "source " . s:mainfile
 endif
 
 
 
-" NOTE: Added because source vimrc doesn't turn it back on
+" NOTE: Added because `source vimrc` doesn't turn it back on
+
 filetype plugin indent on
 syntax enable
 
 
 
 " Neocomplete
+
 let g:neocomplete#enable_at_startup = 1
 inoremap <silent> <cr> <c-r>=<SID>popup_close_and_newline()<cr>
 function! s:popup_close_and_newline() abort
@@ -38,10 +40,7 @@ endif
 set autoindent backspace=indent,eol,start
 set autoread
 set background=dark " dark | light "
-set clipboard^=unnamed,unnamedplus
-set colorcolumn=80 cursorline
 set complete-=i
-set confirm
 set display+=lastline
 set encoding=utf-8
 set formatoptions+=j
@@ -52,11 +51,10 @@ set hlsearch incsearch
 set langnoremap
 set laststatus=2
 set lazyredraw
-set list listchars+=tab:»·,trail:·,nbsp:+,extends:>,precedes:< listchars-=eol:$
+set nobackup
 set nogdefault
 set noshowmatch
 set nrformats-=octal
-set number norelativenumber
 set ruler
 set sessionoptions-=options
 set showcmd
@@ -74,7 +72,6 @@ set wrap
 
 
 " Global indentation characters
-set expandtab noshiftround shiftwidth=2 smarttab softtabstop=2 tabstop=4
 
 
 
@@ -98,20 +95,8 @@ endif
 
 " Quickly time out on keycodes, but never time out on mappings
 " NOTE: Causes NeoVim to insert special characters when using the ESC key.
+
 set notimeout ttimeout ttimeoutlen=200
-
-
-
-if has("vms")
-  set nobackup		" do not keep a backup file, use versions instead
-else
-  set backup		" keep a backup file
-endif
-
-
-""""""""""""""""""""""""""""""""""""""""""""""""""
-" Grab bags
-""""""""""""""""""""""""""""""""""""""""""""""""""
 
 
 
