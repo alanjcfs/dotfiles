@@ -51,6 +51,7 @@ set hlsearch incsearch
 set langnoremap
 set laststatus=2
 set lazyredraw
+set listchars-=eol:$
 set nobackup
 set nogdefault
 set noshowmatch
