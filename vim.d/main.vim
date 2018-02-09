@@ -242,7 +242,7 @@ nnoremap <leader>d :Dispatch<space><up>
 " Vim customizations
 nnoremap <leader><space> :noh<cr>
 nnoremap <leader>cd :cd %:p:h<cr>
-nnoremap <leader>ev :split $HOME/.files/vim.d/shared.vim<cr>
+nnoremap <leader>ev :split $HOME/.files/vim.d/main.vim<cr>
 nnoremap <leader>fv :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>l :ls<cr>:b<space>
