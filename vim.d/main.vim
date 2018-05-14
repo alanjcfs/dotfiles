@@ -62,6 +62,7 @@ Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'tpope/vim-rails'
 Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat'
+Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone'
 Plug 'tpope/vim-unimpaired'
@@ -124,15 +125,20 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Status line with syntastic settings
 " set statusline=%<%f%m\ %h%r%=%-14.(%l,%c%V%)\ %P " What does this line do‽ ಠ_ಠ
-set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+if exists('g:loaded_fugitive')
+  set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+else
+  set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+endif
 set statusline+=%#warningmsg#
-set statusline+=%{SyntasticStatuslineFlag()}
+if exists('g:loaded_syntastic_checker')
+  set statusline+=%{SyntasticStatuslineFlag()}
+endif
 set statusline+=%*
 let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 1
-let g:syntastic_check_on_open = 1
+let g:syntastic_auto_loc_list = 2
+let g:syntastic_check_on_open = 0
 let g:syntastic_check_on_wq = 0
-let g:elm_syntastic_show_warnings = 1
 let g:syntastic_javascript_checkers = ['eslint']
 let g:syntastic_filetype_map = { 'handlebars.html': 'handlebars' }
 """"""""""""""""""""""""""""""""""""""""""""""""""
@@ -246,6 +252,7 @@ nnoremap <leader>ev :split $HOME/.files/vim.d/main.vim<cr>
 nnoremap <leader>fv :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>l :ls<cr>:b<space>
+nnoremap <leader>z :FZF<cr>
 
 " Git
 nnoremap <leader>g :Git<space>
