@@ -13,6 +13,7 @@ Plug 'JazzCore/ctrlp-cmatcher', { 'do': 'CFLAGS=-Qunused-arguments CPPFLAGS=-Qun
 Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+Plug 'Shougo/deoplete.nvim'
 
 " Syntax
 Plug 'avh4/elm-format', { 'for': 'elm'}
@@ -71,12 +72,6 @@ Plug 'tpope/vim-vinegar'
 
 " VimScripts
 Plug 'vim-scripts/greplace.vim'
-
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim'
-else
-  Plug 'Shougo/neocomplete.vim'
-endif
 
 call plug#end()
 
