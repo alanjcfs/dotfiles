@@ -5,6 +5,12 @@ syntax off
 
 
 
+" Silence Python3 deprecation warning
+if has('python3')
+  silent! python3 1
+endif
+
+
 " Global Vim settings
 
 let s:mainfile = '~/.files/vim.d/main.vim'
@@ -18,16 +24,6 @@ endif
 
 filetype plugin indent on
 syntax enable
-
-
-
-" Neocomplete
-
-let g:neocomplete#enable_at_startup = 1
-inoremap <silent> <cr> <c-r>=<SID>popup_close_and_newline()<cr>
-function! s:popup_close_and_newline() abort
-  return neocomplete#close_popup() . "\<cr>"
-endfunction
 
 
 

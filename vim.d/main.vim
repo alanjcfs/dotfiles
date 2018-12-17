@@ -13,15 +13,26 @@ Plug 'JazzCore/ctrlp-cmatcher', { 'do': 'CFLAGS=-Qunused-arguments CPPFLAGS=-Qun
 Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
-Plug 'Shougo/deoplete.nvim'
+if has('nvim')
+  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+else
+  Plug 'Shougo/deoplete.nvim'
+  Plug 'roxma/nvim-yarp'
+  Plug 'roxma/vim-hug-neovim-rpc'
+endif
+
+
+
+
 
 " Syntax
-Plug 'avh4/elm-format', { 'for': 'elm'}
-Plug 'elmcast/elm-vim', { 'for': 'elm'}
+" Plug 'avh4/elm-format', { 'for': 'elm'}
+" Plug 'elmcast/elm-vim', { 'for': 'elm'}
 Plug 'asciidoc/vim-asciidoc', { 'for': ['asciidoc'] }
-Plug 'mattn/emmet-vim'
+" Plug 'mattn/emmet-vim'
+" Plug 'posva/vim-vue'
 Plug 'racer-rust/vim-racer'
-Plug 'rust-lang/rust.vim'
+" Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/syntastic'
 Plug 'sheerun/vim-polyglot'
 Plug 'SirVer/ultisnips'
@@ -43,7 +54,6 @@ Plug 'sjl/gundo.vim'
 Plug 'tomtom/tcomment_vim'
 
 " Git
-Plug 'tpope/vim-fugitive'
 Plug 'jreybert/vimagit'
 
 " Ruby
@@ -56,12 +66,12 @@ Plug 'christoomey/vim-tmux-navigator'
 
 
 " The prolific Mr. T. Pope
-" Plug 'tpope/sleuth.vim' " File-based indentation
 Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise'
+Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'tpope/vim-rails'
-Plug 'tpope/vim-rake'
+" Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
 Plug 'tpope/vim-surround'
@@ -107,7 +117,9 @@ set foldenable foldlevelstart=10 foldnestmax=10 foldmethod=indent
 
 
 " Shells
-set shell=$SHELL\ -l
+" NOTE: zsh with login causes slower tmux navigation because a new shell is
+" started, but we need the login shell for startup scripts.
+" set shell=$SHELL\ -l
 
 
 
@@ -193,19 +205,17 @@ let g:UltiSnipsExpandTrigger = "<C-E>"
 
 
 
-" YCM
-
-let g:ycm_collect_identifiers_from_tags_files = 1
-let g:ycm_semantic_triggers = {
-      \ 'elm' : ['.'],
-      \ }
-
-
-
 "AutoPairs
 " Disable abruptly centering the current line when pressing <cr>
 let g:AutoPairsCenterLine = 0
 
+
+" Deoplete
+let g:deoplete#enable_at_startup = 1
+" inoremap <silent> <cr> <c-r>=<SID>popup_close_and_newline()<cr>
+" function! s:popup_close_and_newline() abort
+"   return deoplete#close_popup() . "\<CR>"
+" endfunction
 
 
 " Corrections and expansions
@@ -276,7 +286,7 @@ nmap ga <Plug>(EasyAlign)
 try
   set background=dark
   let g:seoul256_background = 233
-  silent! colorscheme seoul256
+  silent! colorscheme badwolf
 endtry
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -324,7 +334,7 @@ if has("autocmd")
     au FileType elm setl tabstop=4 shiftwidth=4 softtabstop=4
     au FileType html setl noexpandtab softtabstop=4 tabstop=4 shiftwidth=4
           \ omnifunc=htmlcomplete#CompleteTags listchars-=tab:»·
-    au FileType javascript setl omnifunc=javascriptcomplete#CompleteJS
+    au FileType javascript setl omnifunc=javascriptcomplete#CompleteJS tabstop=4 shiftwidth=4
     au FileType python setl omnifunc=pythoncomplete#Complete
     au FileType ruby setl omnifunc=rubycomplete#Complete | set re=1
     au FileType rust setl softtabstop=2 tabstop=4 shiftwidth=4
