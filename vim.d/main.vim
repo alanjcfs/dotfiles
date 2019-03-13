@@ -29,6 +29,7 @@ endif
 " Plug 'avh4/elm-format', { 'for': 'elm'}
 " Plug 'elmcast/elm-vim', { 'for': 'elm'}
 Plug 'asciidoc/vim-asciidoc', { 'for': ['asciidoc'] }
+Plug 'ledger/vim-ledger'
 " Plug 'mattn/emmet-vim'
 " Plug 'posva/vim-vue'
 Plug 'racer-rust/vim-racer'
