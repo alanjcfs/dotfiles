@@ -21,6 +21,7 @@ else
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
 
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 
 
@@ -30,7 +31,7 @@ endif
 " Plug 'elmcast/elm-vim', { 'for': 'elm'}
 Plug 'asciidoc/vim-asciidoc', { 'for': ['asciidoc'] }
 Plug 'ledger/vim-ledger'
-" Plug 'mattn/emmet-vim'
+Plug 'mattn/emmet-vim'
 " Plug 'posva/vim-vue'
 Plug 'racer-rust/vim-racer'
 " Plug 'rust-lang/rust.vim'
@@ -40,7 +41,7 @@ Plug 'SirVer/ultisnips'
 
 " Writing
 Plug 'reedes/vim-pencil', { 'for': ['markdown', 'asciidoc'] }
-Plug 'nelstrom/vim-markdown-folding', { 'for': 'markdown' }
+" Plug 'nelstrom/vim-markdown-folding', { 'for': 'markdown' }
 
 " Plug 'vim-airline/vim-airline'
 
@@ -49,7 +50,6 @@ Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
 Plug 'majutsushi/tagbar'
 " Plug 'Raimondi/delimitMate'
-Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree'
 Plug 'sjl/gundo.vim'
 Plug 'tomtom/tcomment_vim'
@@ -202,7 +202,7 @@ let g:polyglot_disabled = ['elm']
 
 " Ultisnips
 
-let g:UltiSnipsExpandTrigger = "<C-E>"
+let g:UltiSnipsExpandTrigger = "<C-j>"
 
 
 
@@ -213,10 +213,21 @@ let g:AutoPairsCenterLine = 0
 
 " Deoplete
 let g:deoplete#enable_at_startup = 1
+let g:deoplete#sources#ternjs#filetypes = [
+      \ 'jsx',
+      \ 'javascript.jsx',
+      \ 'vue',
+      \ ]
+let g:deoplete#omni#functions = {}
+let g:deoplete#omni#functions.javascript = [
+      \ 'tern#Complete',
+      \ ]
 " inoremap <silent> <cr> <c-r>=<SID>popup_close_and_newline()<cr>
 " function! s:popup_close_and_newline() abort
 "   return deoplete#close_popup() . "\<CR>"
 " endfunction
+" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
 
 
 " Corrections and expansions
