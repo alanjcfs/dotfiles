@@ -37,7 +37,9 @@ Plug 'racer-rust/vim-racer'
 " Plug 'rust-lang/rust.vim'
 Plug 'scrooloose/syntastic'
 Plug 'sheerun/vim-polyglot'
-Plug 'SirVer/ultisnips'
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'w0rp/ale'
 
 " Writing
 Plug 'reedes/vim-pencil', { 'for': ['markdown', 'asciidoc'] }
@@ -202,7 +204,7 @@ let g:polyglot_disabled = ['elm']
 
 " Ultisnips
 
-let g:UltiSnipsExpandTrigger = "<C-j>"
+" let g:UltiSnipsExpandTrigger = "<C-j>"
 
 
 
@@ -331,7 +333,7 @@ if has("autocmd")
     " Filetype
     au BufRead,BufNewFile *.md,*.markdown setl filetype=markdown
     au BufRead,BufNewFile *.adoc,*.asciidoc setl filetype=asciidoc textwidth=80
-    au BufRead,BufNewFile *.ldgr setl noexpandtab tabstop=8 shiftwidth=8 softtabstop=8
+    au BufRead,BufNewFile *.ldgr,*.ledger setl noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
     au BufRead,BufNewFile *.es6 setl filetype=javascript
 
     " Text
