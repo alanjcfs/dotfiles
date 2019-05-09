@@ -1,2 +1,3 @@
 --file accounting.ledger
 --sort date
+--date-format '%Y-%m-%d'
