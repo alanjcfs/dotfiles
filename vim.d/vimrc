@@ -5,12 +5,6 @@ syntax off
 
 
 
-" Silence Python3 deprecation warning
-if has('python3')
-  silent! python3 1
-endif
-
-
 " Global Vim settings
 
 let s:mainfile = '~/.files/vim.d/main.vim'

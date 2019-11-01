@@ -27,19 +27,25 @@ Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 
 " Syntax
+Plug 'scrooloose/syntastic'
 " Plug 'avh4/elm-format', { 'for': 'elm'}
 " Plug 'elmcast/elm-vim', { 'for': 'elm'}
 Plug 'asciidoc/vim-asciidoc', { 'for': ['asciidoc'] }
 Plug 'ledger/vim-ledger'
 Plug 'mattn/emmet-vim'
-" Plug 'posva/vim-vue'
 Plug 'racer-rust/vim-racer'
 " Plug 'rust-lang/rust.vim'
-Plug 'scrooloose/syntastic'
+
+Plug 'dense-analysis/ale'
+" Plug 'skywind3000/asyncrun.vim'
+
+" JS Syntax
+" Plug 'posva/vim-vue'
+Plug 'pangloss/vim-javascript'
+Plug 'MaxMEllon/vim-jsx-pretty' " Already embedded in vim-polyglot
+
+" Polyglot
 Plug 'sheerun/vim-polyglot'
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
-Plug 'w0rp/ale'
 
 " Writing
 Plug 'reedes/vim-pencil', { 'for': ['markdown', 'asciidoc'] }
@@ -55,12 +61,16 @@ Plug 'majutsushi/tagbar'
 Plug 'scrooloose/nerdtree'
 Plug 'sjl/gundo.vim'
 Plug 'tomtom/tcomment_vim'
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
+Plug 'xolox/vim-misc'
+Plug 'xolox/vim-easytags'
 
 " Git
 Plug 'jreybert/vimagit'
 
 " Ruby
-Plug 'sunaku/vim-ruby-minitest'
+" Plug 'sunaku/vim-ruby-minitest'
 
 " Miscellaneous
 Plug 'airblade/vim-gitgutter'
@@ -73,7 +83,7 @@ Plug 'tpope/vim-dispatch'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-fugitive'
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
-Plug 'tpope/vim-rails'
+" Plug 'tpope/vim-rails'
 " Plug 'tpope/vim-rake'
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth'
@@ -88,15 +98,15 @@ Plug 'vim-scripts/greplace.vim'
 
 call plug#end()
 
-
-
 " Mouse behaviors
 set mouse=a
 
 
+" The following can make redrawing slower
+" set colorcolumn=80
+" set cursorline
 
 set clipboard^=unnamed
-set colorcolumn=80 cursorline
 set confirm
 set expandtab noshiftround shiftwidth=2 smarttab softtabstop=2 tabstop=4
 set hidden
@@ -193,12 +203,12 @@ let g:gitgutter_eager = 0 " GitGutterCustomisation
 
 " Elm Format
 
-let g:elm_format_autosave = 1
+" let g:elm_format_autosave = 1
 
 
 
 " Polyglot
-let g:polyglot_disabled = ['elm']
+let g:polyglot_disabled = ['jsx']
 
 
 
@@ -299,8 +309,10 @@ nmap ga <Plug>(EasyAlign)
 
 try
   set background=dark
-  let g:seoul256_background = 233
-  silent! colorscheme badwolf
+  " let g:seoul256_background = 233
+  " silent! colorscheme badwolf
+  " let g:solarized_termcolors=256
+  " silent! colorscheme solarized
 endtry
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
@@ -334,7 +346,6 @@ if has("autocmd")
     au BufRead,BufNewFile *.md,*.markdown setl filetype=markdown
     au BufRead,BufNewFile *.adoc,*.asciidoc setl filetype=asciidoc textwidth=80
     au BufRead,BufNewFile *.ldgr,*.ledger setl noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
-    au BufRead,BufNewFile *.es6 setl filetype=javascript
 
     " Text
     au FileType gitcommit setl textwidth=72
@@ -346,9 +357,9 @@ if has("autocmd")
     " Code
     au FileType css setl omnifunc=csscomplete#CompleteCSS
     au FileType elm setl tabstop=4 shiftwidth=4 softtabstop=4
-    au FileType html setl noexpandtab softtabstop=4 tabstop=4 shiftwidth=4
+    au FileType html setl noexpandtab tabstop=4 shiftwidth=4
           \ omnifunc=htmlcomplete#CompleteTags listchars-=tab:»·
-    au FileType javascript setl omnifunc=javascriptcomplete#CompleteJS tabstop=4 shiftwidth=4
+    au FileType javascript,javascript.jsx setl omnifunc=javascriptcomplete#CompleteJS
     au FileType python setl omnifunc=pythoncomplete#Complete
     au FileType ruby setl omnifunc=rubycomplete#Complete | set re=1
     au FileType rust setl softtabstop=2 tabstop=4 shiftwidth=4
@@ -356,5 +367,14 @@ if has("autocmd")
     au FileType xml setl omnifunc=xmlcomplete#CompleteTags noexpandtab tabstop=8 shiftwidth=8
 
     " au BufRead,BufEnter ~/Tuna/* setl tabstop=2 shiftwidth=2
+
+    " autocmd BufWritePost *.js AsyncRun -post=checktime ./node_modules/.bin/eslint --fix %
   augroup END
 endif " has("autocmd")
+
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
