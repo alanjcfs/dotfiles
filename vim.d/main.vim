@@ -27,47 +27,48 @@ Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
 
 
 " Syntax
-Plug 'scrooloose/syntastic'
-" Plug 'avh4/elm-format', { 'for': 'elm'}
-" Plug 'elmcast/elm-vim', { 'for': 'elm'}
+" Plug 'scrooloose/syntastic'
+Plug 'avh4/elm-format', { 'for': 'elm'}
+Plug 'elmcast/elm-vim', { 'for': 'elm'}
 Plug 'asciidoc/vim-asciidoc', { 'for': ['asciidoc'] }
-Plug 'ledger/vim-ledger'
+Plug 'ledger/vim-ledger', { 'for': 'ledger' }
 Plug 'mattn/emmet-vim'
-Plug 'racer-rust/vim-racer'
-" Plug 'rust-lang/rust.vim'
+Plug 'racer-rust/vim-racer', { 'for': 'rust' }
+Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
 Plug 'dense-analysis/ale'
 " Plug 'skywind3000/asyncrun.vim'
 
 " JS Syntax
-" Plug 'posva/vim-vue'
-Plug 'pangloss/vim-javascript'
-Plug 'MaxMEllon/vim-jsx-pretty' " Already embedded in vim-polyglot
+Plug 'posva/vim-vue', { 'for': 'vue' }
+Plug 'pangloss/vim-javascript', { 'for': 'javascript' } " Unfixed issue with backticks
+" Plug 'othree/yajs.vim'
+Plug 'MaxMEllon/vim-jsx-pretty', { 'for': 'javascriptreact' } " Already embedded in vim-polyglot
 
 " Polyglot
 Plug 'sheerun/vim-polyglot'
 
 " Writing
 Plug 'reedes/vim-pencil', { 'for': ['markdown', 'asciidoc'] }
-" Plug 'nelstrom/vim-markdown-folding', { 'for': 'markdown' }
+Plug 'nelstrom/vim-markdown-folding', { 'for': 'markdown' }
 
-" Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 
 " Code Editing
 Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
 Plug 'majutsushi/tagbar'
 " Plug 'Raimondi/delimitMate'
-Plug 'scrooloose/nerdtree'
-Plug 'sjl/gundo.vim'
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
+Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
 Plug 'tomtom/tcomment_vim'
 Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
-Plug 'xolox/vim-misc'
-Plug 'xolox/vim-easytags'
+" Plug 'xolox/vim-misc'
+" Plug 'xolox/vim-easytags'
 
 " Git
-Plug 'jreybert/vimagit'
+Plug 'jreybert/vimagit', { 'on': 'Magit' }
 
 " Ruby
 " Plug 'sunaku/vim-ruby-minitest'
@@ -79,18 +80,18 @@ Plug 'christoomey/vim-tmux-navigator'
 
 
 " The prolific Mr. T. Pope
-Plug 'tpope/vim-dispatch'
-Plug 'tpope/vim-endwise'
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-dispatch', { 'on': 'Dispatch' }
+Plug 'tpope/vim-endwise' " end structures automatically
+Plug 'tpope/vim-fugitive' " Git wrapper :Gwrite, :Gcommit, :Gblame, etc.
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
-" Plug 'tpope/vim-rails'
-" Plug 'tpope/vim-rake'
+Plug 'tpope/vim-rails', { 'for': 'ruby' }
+Plug 'tpope/vim-rake', { 'for': 'ruby' }
 Plug 'tpope/vim-repeat'
-Plug 'tpope/vim-sleuth'
+Plug 'tpope/vim-sleuth' " adjust shiftwidth/expandtab heuristically
 Plug 'tpope/vim-surround'
-Plug 'tpope/vim-tbone'
-Plug 'tpope/vim-unimpaired'
-Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-tbone' " tmux
+Plug 'tpope/vim-unimpaired' " brackets
+" Plug 'tpope/vim-vinegar' " for netrw toggling
 
 
 " VimScripts
@@ -145,24 +146,32 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""
 " Status line with syntastic settings
 " set statusline=%<%f%m\ %h%r%=%-14.(%l,%c%V%)\ %P " What does this line do‽ ಠ_ಠ
-if exists('g:loaded_fugitive')
-  set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-else
-  set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-endif
-set statusline+=%#warningmsg#
-if exists('g:loaded_syntastic_checker')
-  set statusline+=%{SyntasticStatuslineFlag()}
-endif
-set statusline+=%*
-let g:syntastic_always_populate_loc_list = 1
-let g:syntastic_auto_loc_list = 2
-let g:syntastic_check_on_open = 0
-let g:syntastic_check_on_wq = 0
-let g:syntastic_javascript_checkers = ['eslint']
-let g:syntastic_filetype_map = { 'handlebars.html': 'handlebars' }
+" if exists('g:loaded_fugitive')
+"   set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
+" else
+"   set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
+" endif
+" set statusline+=%#warningmsg#
+" if exists('g:loaded_syntastic_checker')
+"   set statusline+=%{SyntasticStatuslineFlag()}
+" endif
+" set statusline+=%*
+" let g:syntastic_always_populate_loc_list = 1
+" let g:syntastic_auto_loc_list = 2
+" let g:syntastic_check_on_open = 0
+" let g:syntastic_check_on_wq = 0
+" let g:syntastic_javascript_checkers = ['eslint']
+" let g:syntastic_filetype_map = { 'handlebars.html': 'handlebars' }
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
+
+
+" ale linter
+let g:ale_linters = {
+      \ 'javascript': ['eslint'],
+      \ 'javascriptreact': ['eslint'],
+      \ }
+let g:airline#extensions#ale#enabled = 1
 
 
 " Racer completer
