@@ -55,7 +55,7 @@ Plug 'nelstrom/vim-markdown-folding', { 'for': 'markdown' }
 Plug 'vim-airline/vim-airline'
 
 " Code Editing
-Plug 'honza/vim-snippets'
+" Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
 Plug 'majutsushi/tagbar'
 " Plug 'Raimondi/delimitMate'
@@ -71,7 +71,7 @@ Plug 'Shougo/neosnippet-snippets'
 Plug 'jreybert/vimagit', { 'on': 'Magit' }
 
 " Ruby
-" Plug 'sunaku/vim-ruby-minitest'
+Plug 'sunaku/vim-ruby-minitest', { 'for': 'ruby' }
 
 " Miscellaneous
 Plug 'airblade/vim-gitgutter'
@@ -91,6 +91,7 @@ Plug 'tpope/vim-sleuth' " adjust shiftwidth/expandtab heuristically
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone' " tmux
 Plug 'tpope/vim-unimpaired' " brackets
+" Plug 'tpope/vim-speeddating' " increment datetime using <C-A> and <C-X>
 " Plug 'tpope/vim-vinegar' " for netrw toggling
 
 
@@ -172,6 +173,7 @@ let g:ale_linters = {
       \ 'javascriptreact': ['eslint'],
       \ }
 let g:airline#extensions#ale#enabled = 1
+set omnifunc=ale#completion#OmniFunc
 
 
 " Racer completer
@@ -239,15 +241,22 @@ let g:deoplete#sources#ternjs#filetypes = [
       \ 'javascript.jsx',
       \ 'vue',
       \ ]
-let g:deoplete#omni#functions = {}
-let g:deoplete#omni#functions.javascript = [
-      \ 'tern#Complete',
-      \ ]
+" call deoplete#custom#option('sources', {
+"       \ '_': ['ale'],
+"       \ })
 " inoremap <silent> <cr> <c-r>=<SID>popup_close_and_newline()<cr>
 " function! s:popup_close_and_newline() abort
 "   return deoplete#close_popup() . "\<CR>"
 " endfunction
 " inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
+
+
+
+" neosnippet
+let g:neosnippet#enable_completed_snippet = 1
+imap <C-k>     <Plug>(neosnippet_expand_or_jump)
+smap <C-k>     <Plug>(neosnippet_expand_or_jump)
+xmap <C-k>     <Plug>(neosnippet_expand_target)
 
 
 
@@ -359,21 +368,21 @@ if has("autocmd")
     " Text
     au FileType gitcommit setl textwidth=72
     au FileType gitconfig setl noexpandtab tabstop=8 shiftwidth=8 textwidth=80
-    au FileType markdown setl textwidth=80 omnifunc=htmlcomplete#CompleteTags
+    au FileType markdown setl textwidth=80
     au FileType text setl noexpandtab tabstop=8 shiftwidth=8 textwidth=80
     au FileType asciidoc call pencil#init({'autoformat': 0}) | setl textwidth=80
 
     " Code
-    au FileType css setl omnifunc=csscomplete#CompleteCSS
+    " au FileType css setl omnifunc=csscomplete#CompleteCSS
     au FileType elm setl tabstop=4 shiftwidth=4 softtabstop=4
-    au FileType html setl noexpandtab tabstop=4 shiftwidth=4
-          \ omnifunc=htmlcomplete#CompleteTags listchars-=tab:»·
-    au FileType javascript,javascript.jsx setl omnifunc=javascriptcomplete#CompleteJS
-    au FileType python setl omnifunc=pythoncomplete#Complete
-    au FileType ruby setl omnifunc=rubycomplete#Complete | set re=1
+    " au FileType html setl noexpandtab tabstop=4 shiftwidth=4
+    "       \ omnifunc=htmlcomplete#CompleteTags listchars-=tab:»·
+    " au FileType javascript,javascript.jsx setl omnifunc=javascriptcomplete#CompleteJS
+    " au FileType python setl omnifunc=pythoncomplete#Complete
+    " au FileType ruby setl omnifunc=rubycomplete#Complete | set re=1
     au FileType rust setl softtabstop=2 tabstop=4 shiftwidth=4
     au FileType sh setl softtabstop=2 tabstop=4 shiftwidth=4
-    au FileType xml setl omnifunc=xmlcomplete#CompleteTags noexpandtab tabstop=8 shiftwidth=8
+    au FileType xml setl noexpandtab tabstop=8 shiftwidth=8
 
     " au BufRead,BufEnter ~/Tuna/* setl tabstop=2 shiftwidth=2
 
