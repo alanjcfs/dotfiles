@@ -20,14 +20,18 @@ else
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
 endif
+let g:deoplete#enable_at_startup = 1
 
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern' }
+Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
+Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
 
 
 
 
-" Syntax
-" Plug 'scrooloose/syntastic'
+" Syntax checking
+" Plug 'scrooloose/syntastic' " Ale and Syntastic do similar things
+Plug 'dense-analysis/ale'
+
 Plug 'avh4/elm-format', { 'for': 'elm'}
 Plug 'elmcast/elm-vim', { 'for': 'elm'}
 Plug 'asciidoc/vim-asciidoc', { 'for': ['asciidoc'] }
@@ -36,13 +40,12 @@ Plug 'mattn/emmet-vim'
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 
-Plug 'dense-analysis/ale'
-" Plug 'skywind3000/asyncrun.vim'
+Plug 'skywind3000/asyncrun.vim'
 
 " JS Syntax
 Plug 'posva/vim-vue', { 'for': 'vue' }
-Plug 'pangloss/vim-javascript', { 'for': 'javascript' } " Unfixed issue with backticks
-" Plug 'othree/yajs.vim'
+" Plug 'pangloss/vim-javascript', { 'for': 'javascript' } " Unfixed issue with backticks
+Plug 'othree/yajs.vim', { 'for': 'javascript' }
 Plug 'MaxMEllon/vim-jsx-pretty', { 'for': 'javascriptreact' } " Already embedded in vim-polyglot
 
 " Polyglot
@@ -55,17 +58,16 @@ Plug 'nelstrom/vim-markdown-folding', { 'for': 'markdown' }
 Plug 'vim-airline/vim-airline'
 
 " Code Editing
+" Plug 'SirVer/ultisnips'
+Plug 'Shougo/neosnippet.vim'
+Plug 'Shougo/neosnippet-snippets'
 " Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
 Plug 'majutsushi/tagbar'
-" Plug 'Raimondi/delimitMate'
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
-Plug 'sjl/gundo.vim', { 'on': 'GundoToggle' }
+Plug 'Raimondi/delimitMate'     " Auto close parens
+" Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
+" Plug 'sjl/gundo.vim'
 Plug 'tomtom/tcomment_vim'
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
-" Plug 'xolox/vim-misc'
-" Plug 'xolox/vim-easytags'
 
 " Git
 Plug 'jreybert/vimagit', { 'on': 'Magit' }
@@ -90,13 +92,13 @@ Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth' " adjust shiftwidth/expandtab heuristically
 Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone' " tmux
-Plug 'tpope/vim-unimpaired' " brackets
+Plug 'tpope/vim-unimpaired' " brackets navigation
 " Plug 'tpope/vim-speeddating' " increment datetime using <C-A> and <C-X>
 " Plug 'tpope/vim-vinegar' " for netrw toggling
 
 
 " VimScripts
-Plug 'vim-scripts/greplace.vim'
+" Plug 'vim-scripts/greplace.vim'
 
 call plug#end()
 
@@ -116,25 +118,21 @@ set ignorecase smartcase
 set list listchars+=tab:»·,trail:·,nbsp:+,extends:>,precedes:<
 set modelines=0
 set number norelativenumber
-" NOTE: Practice using H, M, and L to reach top, middle, and bottom of screen
 set scrolloff=1 " sidescrolloff=5
 set sidescroll=1
-" set splitright splitbelow
-set startofline!
+set splitright splitbelow
+set nostartofline
 set undofile
 set visualbell
+
+" NOTE: Practice using H, M, and L to reach top, middle, and bottom of screen
+" NOTE: Practice using C-D and C-U to navigate by half pages
 
 
 
 " Folding
 set foldenable foldlevelstart=10 foldnestmax=10 foldmethod=indent
 
-
-
-" Shells
-" NOTE: zsh with login causes slower tmux navigation because a new shell is
-" started, but we need the login shell for startup scripts.
-" set shell=$SHELL\ -l
 
 
 
@@ -144,36 +142,16 @@ endif
 
 
 
-""""""""""""""""""""""""""""""""""""""""""""""""""
-" Status line with syntastic settings
-" set statusline=%<%f%m\ %h%r%=%-14.(%l,%c%V%)\ %P " What does this line do‽ ಠ_ಠ
-" if exists('g:loaded_fugitive')
-"   set statusline=%<%f\ %h%m%r%{fugitive#statusline()}%=%-14.(%l,%c%V%)\ %P
-" else
-"   set statusline=%<%f\ %h%m%r%=%-14.(%l,%c%V%)\ %P
-" endif
-" set statusline+=%#warningmsg#
-" if exists('g:loaded_syntastic_checker')
-"   set statusline+=%{SyntasticStatuslineFlag()}
-" endif
-" set statusline+=%*
-" let g:syntastic_always_populate_loc_list = 1
-" let g:syntastic_auto_loc_list = 2
-" let g:syntastic_check_on_open = 0
-" let g:syntastic_check_on_wq = 0
-" let g:syntastic_javascript_checkers = ['eslint']
-" let g:syntastic_filetype_map = { 'handlebars.html': 'handlebars' }
-""""""""""""""""""""""""""""""""""""""""""""""""""
-
-
-
 " ale linter
-let g:ale_linters = {
-      \ 'javascript': ['eslint'],
-      \ 'javascriptreact': ['eslint'],
-      \ }
+" NOTE: ALE recommends using ftplugin file instead of setting globally. Look
+" into using ~/.vim/ftplugin/javascript.vim and add b:ale_fixers
+" let g:ale_linters = {
+"       \ 'javascript': ['eslint'],
+"       \ 'javascriptreact': ['eslint'],
+"       \ }
 let g:airline#extensions#ale#enabled = 1
 set omnifunc=ale#completion#OmniFunc
+
 
 
 " Racer completer
@@ -225,17 +203,18 @@ let g:polyglot_disabled = ['jsx']
 
 " Ultisnips
 
-" let g:UltiSnipsExpandTrigger = "<C-j>"
+" let g:UltiSnipsExpandTrigger="<Tab>"
+" let g:UltisnipsJumpForwardTrigger="<C-b>"
+" let g:UltisnipsJumpBackwardTrigger="<C-z>"
 
 
 
 "AutoPairs
 " Disable abruptly centering the current line when pressing <cr>
-let g:AutoPairsCenterLine = 0
+" let g:AutoPairsCenterLine = 0
 
 
 " Deoplete
-let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#ternjs#filetypes = [
       \ 'jsx',
       \ 'javascript.jsx',
@@ -253,10 +232,20 @@ let g:deoplete#sources#ternjs#filetypes = [
 
 
 " neosnippet
-let g:neosnippet#enable_completed_snippet = 1
+" A directory named snippets seems to be autoincluded by neosnippets, which I
+" could not find in the documentation. I create a directory called my-snippets
+" Neosnippet uses *.snip file extension, while others may use *.snippets, but
+" both can be compatible.
+let g:neosnippet#enable_snipmate_compatibility = 1
+let g:neosnippet#snippets_directory = [
+      \ '~/.files/vim.d/plugged/vim-snippets/snippets',
+      \ '~/.files/vim.d/my-snippets',
+      \ ]
 imap <C-k>     <Plug>(neosnippet_expand_or_jump)
 smap <C-k>     <Plug>(neosnippet_expand_or_jump)
 xmap <C-k>     <Plug>(neosnippet_expand_target)
+smap <expr><Tab> neosnippet#expandable_or_jumpable() ?
+      \ "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
 
 
 
@@ -287,9 +276,9 @@ inoremap jk <esc>
 
 " Plugins
 nnoremap <leader>a :Ack!<space>
-nnoremap <leader>b :TagbarToggle<cr>
-nnoremap <leader>n :NERDTreeToggle<cr>
-nnoremap <leader>u :GundoToggle<cr>
+nnoremap <leader>bd :bd<cr>
+" nnoremap <leader>nt :NERDTreeToggle<cr>
+" nnoremap <leader>u :GundoToggle<cr>
 nnoremap <leader>d :Dispatch<space><up>
 
 " Vim customizations
@@ -301,7 +290,7 @@ nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>l :ls<cr>:b<space>
 nnoremap <leader>z :FZF<cr>
 
-" Git
+" Git vim-fugitive
 nnoremap <leader>g :Git<space>
 nnoremap <leader>gb :Gblame<space>
 nnoremap <leader>gc :Gcommit -v<space>
@@ -315,7 +304,6 @@ nnoremap <leader>k :m-2<cr>==
 xnoremap <leader>j :m'>+<cr>gv=gv
 xnoremap <leader>k :m-2<cr>gv=gv
 
-nnoremap <leader>rc :!rubocop %<cr>
 " End Leader key mappings """"""""""""""""""""""""
 
 xmap ga <Plug>(EasyAlign)
@@ -377,7 +365,7 @@ if has("autocmd")
     au FileType elm setl tabstop=4 shiftwidth=4 softtabstop=4
     " au FileType html setl noexpandtab tabstop=4 shiftwidth=4
     "       \ omnifunc=htmlcomplete#CompleteTags listchars-=tab:»·
-    " au FileType javascript,javascript.jsx setl omnifunc=javascriptcomplete#CompleteJS
+    au FileType javascript,javascript.jsx,javascriptreact setl tw=80
     " au FileType python setl omnifunc=pythoncomplete#Complete
     " au FileType ruby setl omnifunc=rubycomplete#Complete | set re=1
     au FileType rust setl softtabstop=2 tabstop=4 shiftwidth=4
