@@ -13,6 +13,7 @@ Plug 'JazzCore/ctrlp-cmatcher', { 'do': 'CFLAGS=-Qunused-arguments CPPFLAGS=-Qun
 Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
+
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
@@ -63,7 +64,7 @@ Plug 'Shougo/neosnippet.vim'
 Plug 'Shougo/neosnippet-snippets'
 " Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
-Plug 'majutsushi/tagbar'
+" Plug 'majutsushi/tagbar'
 Plug 'Raimondi/delimitMate'     " Auto close parens
 " Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
 " Plug 'sjl/gundo.vim'
@@ -151,6 +152,11 @@ endif
 "       \ }
 let g:airline#extensions#ale#enabled = 1
 set omnifunc=ale#completion#OmniFunc
+
+
+
+" delimitMate settings
+let delimitMate_expand_cr = 1
 
 
 
