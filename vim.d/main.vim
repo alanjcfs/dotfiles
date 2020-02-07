@@ -67,7 +67,7 @@ Plug 'junegunn/vim-easy-align'
 " Plug 'majutsushi/tagbar'
 Plug 'Raimondi/delimitMate'     " Auto close parens
 " Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
-" Plug 'sjl/gundo.vim'
+Plug 'mbbill/undotree'
 Plug 'tomtom/tcomment_vim'
 
 " Git
@@ -151,12 +151,14 @@ endif
 "       \ 'javascriptreact': ['eslint'],
 "       \ }
 let g:airline#extensions#ale#enabled = 1
+" let g:airline_section_b = '%{airline#util#wrap(airline#extensions#hunks#get_hunks(),100)}%{airline#util#wrap(airline#extensions#branch#get_head(),80)}'
+let g:airline_section_b = ''
 set omnifunc=ale#completion#OmniFunc
 
 
 
 " delimitMate settings
-let delimitMate_expand_cr = 1
+let delimitMate_expand_cr = 2
 
 
 
@@ -283,8 +285,6 @@ inoremap jk <esc>
 " Plugins
 nnoremap <leader>a :Ack!<space>
 nnoremap <leader>bd :bd<cr>
-" nnoremap <leader>nt :NERDTreeToggle<cr>
-" nnoremap <leader>u :GundoToggle<cr>
 nnoremap <leader>d :Dispatch<space><up>
 
 " Vim customizations
