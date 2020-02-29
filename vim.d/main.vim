@@ -17,11 +17,10 @@ Plug 'junegunn/fzf.vim'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
-  Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
+  Plug 'Shougo/deoplete.nvim'
 endif
-let g:deoplete#enable_at_startup = 1
 
 Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
@@ -56,7 +55,7 @@ Plug 'sheerun/vim-polyglot'
 Plug 'reedes/vim-pencil', { 'for': ['markdown', 'asciidoc'] }
 Plug 'nelstrom/vim-markdown-folding', { 'for': 'markdown' }
 
-Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline'
 
 " Code Editing
 " Plug 'SirVer/ultisnips'
@@ -102,6 +101,7 @@ Plug 'tpope/vim-unimpaired' " brackets navigation
 " Plug 'vim-scripts/greplace.vim'
 
 call plug#end()
+
 
 " Mouse behaviors
 set mouse=a
@@ -223,6 +223,7 @@ let g:polyglot_disabled = ['jsx']
 
 
 " Deoplete
+" let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#ternjs#filetypes = [
       \ 'jsx',
       \ 'javascript.jsx',
@@ -357,7 +358,7 @@ if has("autocmd")
     " Filetype
     au BufRead,BufNewFile *.md,*.markdown setl filetype=markdown
     au BufRead,BufNewFile *.adoc,*.asciidoc setl filetype=asciidoc textwidth=80
-    au BufRead,BufNewFile *.ldgr,*.ledger setl noexpandtab tabstop=4 shiftwidth=4 softtabstop=4
+    au BufRead,BufNewFile *.ledger setl tabstop=4 shiftwidth=4 softtabstop=4
 
     " Text
     au FileType gitcommit setl textwidth=72
