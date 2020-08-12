@@ -17,12 +17,18 @@ Plug 'junegunn/fzf.vim'
 if has('nvim')
   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
 else
+  Plug 'Shougo/deoplete.nvim'
   Plug 'roxma/nvim-yarp'
   Plug 'roxma/vim-hug-neovim-rpc'
-  Plug 'Shougo/deoplete.nvim'
 endif
 
-Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
+
+
+""
+" Deoplete plugins:
+"
+" disable because of errors raised:
+" Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
 Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
 
 
@@ -31,6 +37,7 @@ Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascri
 " Syntax checking
 " Plug 'scrooloose/syntastic' " Ale and Syntastic do similar things
 Plug 'dense-analysis/ale'
+Plug 'editorconfig/editorconfig-vim'
 
 Plug 'avh4/elm-format', { 'for': 'elm'}
 Plug 'elmcast/elm-vim', { 'for': 'elm'}
@@ -45,8 +52,10 @@ Plug 'skywind3000/asyncrun.vim'
 " JS Syntax
 Plug 'posva/vim-vue', { 'for': 'vue' }
 " Plug 'pangloss/vim-javascript', { 'for': 'javascript' } " Unfixed issue with backticks
-Plug 'othree/yajs.vim', { 'for': 'javascript' }
-Plug 'MaxMEllon/vim-jsx-pretty', { 'for': 'javascriptreact' } " Already embedded in vim-polyglot
+Plug 'othree/yajs.vim'
+" Plug 'yuezk/vim-js'
+Plug 'HerringtonDarkholme/yats.vim'
+Plug 'MaxMEllon/vim-jsx-pretty' " Already embedded in vim-polyglot
 
 " Polyglot
 Plug 'sheerun/vim-polyglot'
@@ -157,6 +166,11 @@ set omnifunc=ale#completion#OmniFunc
 
 
 
+" EditorConfig exclude patterns
+let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
+
+
+
 " delimitMate settings
 let delimitMate_expand_cr = 2
 
@@ -223,7 +237,7 @@ let g:polyglot_disabled = ['jsx']
 
 
 " Deoplete
-" let g:deoplete#enable_at_startup = 1
+let g:deoplete#enable_at_startup = 1
 let g:deoplete#sources#ternjs#filetypes = [
       \ 'jsx',
       \ 'javascript.jsx',
