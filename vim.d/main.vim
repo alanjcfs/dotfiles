@@ -82,7 +82,7 @@ Plug 'tomtom/tcomment_vim'
 Plug 'jreybert/vimagit', { 'on': 'Magit' }
 
 " Ruby
-Plug 'sunaku/vim-ruby-minitest', { 'for': 'ruby' }
+" Plug 'sunaku/vim-ruby-minitest', { 'for': 'ruby' }
 
 " Miscellaneous
 Plug 'airblade/vim-gitgutter'
@@ -95,8 +95,8 @@ Plug 'tpope/vim-dispatch', { 'on': 'Dispatch' }
 Plug 'tpope/vim-endwise' " end structures automatically
 Plug 'tpope/vim-fugitive' " Git wrapper :Gwrite, :Gcommit, :Gblame, etc.
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
-Plug 'tpope/vim-rails', { 'for': 'ruby' }
-Plug 'tpope/vim-rake', { 'for': 'ruby' }
+" Plug 'tpope/vim-rails', { 'for': 'ruby' }
+" Plug 'tpope/vim-rake', { 'for': 'ruby' } " SNR problem
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth' " adjust shiftwidth/expandtab heuristically
 Plug 'tpope/vim-surround'
