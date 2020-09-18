@@ -299,8 +299,8 @@ inoremap jk <esc>
 
 " Plugins
 nnoremap <leader>a :Ack!<space>
-nnoremap <leader>bd :bd<cr>
 nnoremap <leader>d :Dispatch<space><up>
+nnoremap <leader>ld :ALEDetail<cr>
 
 " Vim customizations
 nnoremap <leader><space> :noh<cr>
