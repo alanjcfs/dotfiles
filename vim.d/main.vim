@@ -1,3 +1,12 @@
+" Variables to set before starting up plugins
+"
+"
+"
+" Polyglot
+let g:polyglot_disabled = ['jsx']
+
+
+
 call plug#begin()
 " Themes & Colorschemes
 Plug 'altercation/vim-colors-solarized'
@@ -159,9 +168,9 @@ endif
 "       \ 'javascript': ['eslint'],
 "       \ 'javascriptreact': ['eslint'],
 "       \ }
-let g:airline#extensions#ale#enabled = 1
+" let g:airline#extensions#ale#enabled = 1
 " let g:airline_section_b = '%{airline#util#wrap(airline#extensions#hunks#get_hunks(),100)}%{airline#util#wrap(airline#extensions#branch#get_head(),80)}'
-let g:airline_section_b = ''
+" let g:airline_section_b = ''
 set omnifunc=ale#completion#OmniFunc
 
 
@@ -215,11 +224,6 @@ let g:gitgutter_eager = 0 " GitGutterCustomisation
 " Elm Format
 
 " let g:elm_format_autosave = 1
-
-
-
-" Polyglot
-let g:polyglot_disabled = ['jsx']
 
 
 
