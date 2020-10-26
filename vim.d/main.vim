@@ -23,14 +23,14 @@ Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
 Plug 'junegunn/fzf.vim'
 
-if has('nvim')
-  Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-else
-  Plug 'Shougo/deoplete.nvim'
-  Plug 'roxma/nvim-yarp'
-  Plug 'roxma/vim-hug-neovim-rpc'
-endif
-
+" if has('nvim')
+"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
+" else
+"   Plug 'Shougo/deoplete.nvim'
+"   Plug 'roxma/nvim-yarp'
+"   Plug 'roxma/vim-hug-neovim-rpc'
+" endif
+Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --all' }
 
 
 ""
@@ -38,7 +38,7 @@ endif
 "
 " disable because of errors raised:
 " Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
-Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
+" Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
 
 
 
@@ -241,12 +241,12 @@ let g:gitgutter_eager = 0 " GitGutterCustomisation
 
 
 " Deoplete
-let g:deoplete#enable_at_startup = 1
-let g:deoplete#sources#ternjs#filetypes = [
-      \ 'jsx',
-      \ 'javascript.jsx',
-      \ 'vue',
-      \ ]
+" let g:deoplete#enable_at_startup = 1
+" let g:deoplete#sources#ternjs#filetypes = [
+"       \ 'jsx',
+"       \ 'javascript.jsx',
+"       \ 'vue',
+"       \ ]
 " call deoplete#custom#option('sources', {
 "       \ '_': ['ale'],
 "       \ })
