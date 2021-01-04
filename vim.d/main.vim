@@ -71,7 +71,7 @@ Plug 'sheerun/vim-polyglot'
 
 " Writing
 Plug 'reedes/vim-pencil', { 'for': ['markdown', 'asciidoc'] }
-Plug 'nelstrom/vim-markdown-folding', { 'for': 'markdown' }
+" Plug 'nelstrom/vim-markdown-folding', { 'for': 'markdown' }
 
 " Plug 'vim-airline/vim-airline'
 
