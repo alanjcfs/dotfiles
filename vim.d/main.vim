@@ -47,9 +47,10 @@ Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --all' }
 " Plug 'scrooloose/syntastic' " Ale and Syntastic do similar things
 Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'Chiel92/vim-autoformat'
 
-Plug 'avh4/elm-format', { 'for': 'elm'}
-Plug 'elmcast/elm-vim', { 'for': 'elm'}
+" Plug 'avh4/elm-format', { 'for': 'elm'}
+" Plug 'elmcast/elm-vim', { 'for': 'elm'}
 Plug 'asciidoc/vim-asciidoc', { 'for': ['asciidoc'] }
 Plug 'ledger/vim-ledger', { 'for': 'ledger' }
 Plug 'mattn/emmet-vim'
@@ -61,7 +62,7 @@ Plug 'skywind3000/asyncrun.vim'
 " JS Syntax
 Plug 'posva/vim-vue', { 'for': 'vue' }
 " Plug 'pangloss/vim-javascript', { 'for': 'javascript' } " Unfixed issue with backticks
-Plug 'othree/yajs.vim'
+" Plug 'othree/yajs.vim'
 " Plug 'yuezk/vim-js'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'MaxMEllon/vim-jsx-pretty' " Already embedded in vim-polyglot
@@ -135,14 +136,12 @@ set expandtab noshiftround shiftwidth=2 smarttab softtabstop=2 tabstop=4
 set hidden
 set ignorecase smartcase
 set list listchars+=tab:»·,trail:·,nbsp:+,extends:>,precedes:<
-set modelines=0
 set number norelativenumber
 set scrolloff=1 " sidescrolloff=5
 set sidescroll=1
 set splitright splitbelow
 set nostartofline
 set undofile
-set visualbell
 
 " NOTE: Practice using H, M, and L to reach top, middle, and bottom of screen
 " NOTE: Practice using C-D and C-U to navigate by half pages
@@ -154,10 +153,10 @@ set foldenable foldlevelstart=10 foldnestmax=10 foldmethod=indent
 
 
 
+" vim-autoformat
+" let g:formatters_javascript = ['eslint_local']
+let g:formatters_javascriptreact = ['eslint_local']
 
-if !exists('g:loaded_matchit') && findfile('plugin/matchit.vim', &rtp) ==# ''
-  runtime! macros/matchit.vim " Vim Built-in Plugins
-endif
 
 
 
@@ -208,7 +207,7 @@ let g:ctrlp_custom_ignore =
 
 if executable('rg')
   let g:ctrlp_user_command = 'rg %s -l --files --color=never --glob ""'
-                          "  'rg %s -l --files ""'
+  "  'rg %s -l --files ""'
 endif
 " let g:ctrlp_match_func = { 'match': 'matcher#cmatch' }
 let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
@@ -232,6 +231,11 @@ let g:gitgutter_eager = 0 " GitGutterCustomisation
 " let g:UltiSnipsExpandTrigger="<Tab>"
 " let g:UltisnipsJumpForwardTrigger="<C-b>"
 " let g:UltisnipsJumpBackwardTrigger="<C-z>"
+
+
+
+" YCM
+let g:ycm_autoclose_preview_window_after_completion = 1
 
 
 
@@ -300,6 +304,8 @@ inoremap <C-U> <C-G>u<C-U>
 
 " Escape using jk
 inoremap jk <esc>
+
+noremap <F3> :Autoformat<CR>
 
 " Plugins
 nnoremap <leader>a :Ack!<space>
@@ -396,6 +402,8 @@ if has("autocmd")
     au FileType rust setl softtabstop=2 tabstop=4 shiftwidth=4
     au FileType sh setl softtabstop=2 tabstop=4 shiftwidth=4
     au FileType xml setl noexpandtab tabstop=8 shiftwidth=8
+
+    " au BufWrite * :Autoformat
 
     " au BufRead,BufEnter ~/Tuna/* setl tabstop=2 shiftwidth=2
 

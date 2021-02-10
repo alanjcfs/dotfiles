@@ -30,34 +30,44 @@ endif
 set autoindent backspace=indent,eol,start
 set autoread
 set background=dark " dark | light "
+set belloff=all
 set complete-=i
+set cscopeverbose
 set display+=lastline
 set encoding=utf-8
-set formatoptions+=j
+set fillchars="vert:|,fold: ,sep:|"
+set formatoptions=tcqj
 if &history < 1000
-  set history=1000
+  set history=10000
 endif
 set hlsearch incsearch
 set langnoremap
+set nolangremap
 set laststatus=2
 set lazyredraw
-set listchars-=eol:$
+set listchars="tab:> ,trail:-,nbsp:+"
 set nobackup
 set nogdefault
 set noshowmatch
-set nrformats-=octal
+set nrformats="bin,hex"
 set ruler
-set sessionoptions-=options
+set shortmess="filnxtToOF"
+set sessionoptions-=options "   unix,slash
 set showcmd
 set showmode
+set smarttab
+set startofline
 set synmaxcol=3000
 if &tabpagemax < 50
   set tabpagemax=50
 endif
-set tags-=./tags tags^=./tags; tags+=.git/tags
+set tags="./tags;,tags"
+set ttimeoutlen=50
 set ttyfast
+set viewoptions+="unix,slash"
 set viminfo^=!
 set wildmenu wildignore+=*/tmp/* "" wildmode=list:longest,full
+set wildoptions="pum,tagfile"
 set wrap
 
 
@@ -84,10 +94,8 @@ endif
 
 
 
-" Quickly time out on keycodes, but never time out on mappings
-" NOTE: Causes NeoVim to insert special characters when using the ESC key.
-
-set notimeout ttimeout ttimeoutlen=200
+runtime ftplugin/matchit.vim " Vim Built-in Plugins
+runtime ftplugin/matchit.vim " Vim Built-in Plugins
 
 
 
