@@ -29,7 +29,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 "   Plug 'roxma/nvim-yarp'
 "   Plug 'roxma/vim-hug-neovim-rpc'
 " endif
-Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --all' }
+" Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --all' }
 
 
 ""
@@ -44,14 +44,16 @@ Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --all' }
 
 " Syntax checking
 " Plug 'scrooloose/syntastic' " Ale and Syntastic do similar things
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'Chiel92/vim-autoformat'
+Plug 'fatih/vim-go'
 
 " Plug 'avh4/elm-format', { 'for': 'elm'}
 " Plug 'elmcast/elm-vim', { 'for': 'elm'}
 Plug 'asciidoc/vim-asciidoc', { 'for': ['asciidoc'] }
-Plug 'ledger/vim-ledger', { 'for': 'ledger' }
+" Plug 'ledger/vim-ledger', { 'for': 'ledger' }
 Plug 'mattn/emmet-vim'
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
@@ -60,7 +62,9 @@ Plug 'skywind3000/asyncrun.vim'
 
 " JS Syntax
 Plug 'posva/vim-vue', { 'for': 'vue' }
-" Plug 'pangloss/vim-javascript', { 'for': 'javascript' } " Unfixed issue with backticks
+Plug 'pangloss/vim-javascript' " Unfixed issue with backticks
+Plug 'leafgarland/typescript-vim'
+Plug 'jparise/vim-graphql'
 " Plug 'othree/yajs.vim'
 " Plug 'yuezk/vim-js'
 Plug 'HerringtonDarkholme/yats.vim'
@@ -70,7 +74,7 @@ Plug 'MaxMEllon/vim-jsx-pretty' " Already embedded in vim-polyglot
 Plug 'sheerun/vim-polyglot'
 
 " Writing
-Plug 'reedes/vim-pencil', { 'for': ['markdown', 'asciidoc'] }
+" Plug 'reedes/vim-pencil', { 'for': ['markdown', 'asciidoc'] }
 " Plug 'nelstrom/vim-markdown-folding', { 'for': 'markdown' }
 
 " Plug 'vim-airline/vim-airline'
@@ -131,7 +135,7 @@ set mouse=a
 
 set clipboard^=unnamed
 set confirm
-set expandtab noshiftround shiftwidth=2 smarttab softtabstop=2 tabstop=4
+" set expandtab noshiftround shiftwidth=2 smarttab softtabstop=2 tabstop=4
 set hidden
 set ignorecase smartcase
 set list listchars+=tab:»·,trail:·,nbsp:+,extends:>,precedes:<
@@ -158,6 +162,9 @@ let g:formatters_javascriptreact = ['eslint_local']
 
 
 
+let g:coc_global_extensions = [ 'coc-tsserver' ]
+
+
 
 " ale linter
 " NOTE: ALE recommends using ftplugin file instead of setting globally. Look
@@ -170,6 +177,7 @@ let g:formatters_javascriptreact = ['eslint_local']
 " let g:airline_section_b = '%{airline#util#wrap(airline#extensions#hunks#get_hunks(),100)}%{airline#util#wrap(airline#extensions#branch#get_head(),80)}'
 " let g:airline_section_b = ''
 set omnifunc=ale#completion#OmniFunc
+let g:ale_fix_on_save = 1
 
 
 
