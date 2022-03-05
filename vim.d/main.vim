@@ -18,7 +18,7 @@ Plug 'junegunn/seoul256.vim'
 " Fuzzysearch & Autocomplete
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
-Plug 'JazzCore/ctrlp-cmatcher', { 'do': 'CFLAGS=-Qunused-arguments CPPFLAGS=-Qunused-arguments ./install.sh' }
+Plug 'JazzCore/ctrlp-cmatcher'
 Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
@@ -330,10 +330,10 @@ nnoremap <leader>z :FZF<cr>
 
 " Git vim-fugitive
 nnoremap <leader>g :Git<space>
-nnoremap <leader>gb :Gblame<space>
+nnoremap <leader>gb :Git blame<space>
 nnoremap <leader>gc :Gcommit -v<space>
 nnoremap <leader>gd :Gdiff<space>
-nnoremap <leader>gl :Glog -p<space>
+nnoremap <leader>gl :Gclog -p<space>
 nnoremap <leader>gw :Gwrite<cr>
 
 " Move lines
@@ -354,9 +354,9 @@ nmap ga <Plug>(EasyAlign)
 try
   set background=dark
   " let g:seoul256_background = 233
-  " silent! colorscheme badwolf
-  let g:solarized_termcolors=256
-  silent! colorscheme solarized
+  silent! colorscheme badwolf
+  " let g:solarized_termcolors=256
+  " silent! colorscheme solarized
 endtry
 """"""""""""""""""""""""""""""""""""""""""""""""""
 
