@@ -7,7 +7,7 @@ syntax off
 
 " Global Vim settings
 
-let s:mainfile = '~/.files/vim.d/main.vim'
+let s:mainfile = '~/.files/vim.d/init.vim'
 if filereadable(expand(s:mainfile))
   exec "source " . s:mainfile
 endif
