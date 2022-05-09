@@ -50,10 +50,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'fatih/vim-go'
 
-" Plug 'avh4/elm-format', { 'for': 'elm'}
-" Plug 'elmcast/elm-vim', { 'for': 'elm'}
 Plug 'asciidoc/vim-asciidoc', { 'for': ['asciidoc'] }
-" Plug 'ledger/vim-ledger', { 'for': 'ledger' }
 Plug 'mattn/emmet-vim'
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
@@ -62,11 +59,8 @@ Plug 'skywind3000/asyncrun.vim'
 
 " JS Syntax
 Plug 'posva/vim-vue', { 'for': 'vue' }
-Plug 'pangloss/vim-javascript' " Unfixed issue with backticks
 Plug 'leafgarland/typescript-vim'
 Plug 'jparise/vim-graphql'
-" Plug 'othree/yajs.vim'
-" Plug 'yuezk/vim-js'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'MaxMEllon/vim-jsx-pretty' " Already embedded in vim-polyglot
 
@@ -80,15 +74,11 @@ Plug 'sheerun/vim-polyglot'
 " Plug 'vim-airline/vim-airline'
 
 " Code Editing
-" Plug 'SirVer/ultisnips'
-Plug 'Shougo/neosnippet.vim'
+Plug 'SirVer/ultisnips'
 Plug 'Shougo/neosnippet-snippets'
-" Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
-" Plug 'majutsushi/tagbar'
-" Plug 'Raimondi/delimitMate'     " Auto close parens
 Plug 'jiangmiao/auto-pairs'
-" Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
 Plug 'mbbill/undotree'
 Plug 'tomtom/tcomment_vim'
 
@@ -117,7 +107,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone' " tmux
 Plug 'tpope/vim-unimpaired' " brackets navigation
 " Plug 'tpope/vim-speeddating' " increment datetime using <C-A> and <C-X>
-" Plug 'tpope/vim-vinegar' " for netrw toggling
 
 
 " VimScripts
