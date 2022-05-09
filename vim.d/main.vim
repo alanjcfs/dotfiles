@@ -75,7 +75,7 @@ Plug 'sheerun/vim-polyglot'
 
 " Code Editing
 Plug 'SirVer/ultisnips'
-Plug 'Shougo/neosnippet-snippets'
+Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
 Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
@@ -225,9 +225,9 @@ let g:gitgutter_eager = 0 " GitGutterCustomisation
 
 " Ultisnips
 
-" let g:UltiSnipsExpandTrigger="<Tab>"
-" let g:UltisnipsJumpForwardTrigger="<C-b>"
-" let g:UltisnipsJumpBackwardTrigger="<C-z>"
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltisnipsJumpForwardTrigger="<C-b>"
+let g:UltisnipsJumpBackwardTrigger="<C-z>"
 
 
 
