@@ -6,11 +6,6 @@
 let g:polyglot_disabled = ['jsx']
 
 
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
 
 call plug#begin()
 " Themes & Colorschemes
@@ -55,10 +50,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'fatih/vim-go'
 
-" Plug 'avh4/elm-format', { 'for': 'elm'}
-" Plug 'elmcast/elm-vim', { 'for': 'elm'}
 Plug 'asciidoc/vim-asciidoc', { 'for': ['asciidoc'] }
-" Plug 'ledger/vim-ledger', { 'for': 'ledger' }
 Plug 'mattn/emmet-vim'
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
@@ -67,11 +59,8 @@ Plug 'skywind3000/asyncrun.vim'
 
 " JS Syntax
 Plug 'posva/vim-vue', { 'for': 'vue' }
-Plug 'pangloss/vim-javascript' " Unfixed issue with backticks
 Plug 'leafgarland/typescript-vim'
 Plug 'jparise/vim-graphql'
-" Plug 'othree/yajs.vim'
-" Plug 'yuezk/vim-js'
 Plug 'HerringtonDarkholme/yats.vim'
 Plug 'MaxMEllon/vim-jsx-pretty' " Already embedded in vim-polyglot
 
@@ -85,14 +74,11 @@ Plug 'sheerun/vim-polyglot'
 " Plug 'vim-airline/vim-airline'
 
 " Code Editing
-" Plug 'SirVer/ultisnips'
-Plug 'Shougo/neosnippet.vim'
-Plug 'Shougo/neosnippet-snippets'
-" Plug 'honza/vim-snippets'
+Plug 'SirVer/ultisnips'
+Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
-" Plug 'majutsushi/tagbar'
-Plug 'Raimondi/delimitMate'     " Auto close parens
-" Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
+Plug 'jiangmiao/auto-pairs'
+Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
 Plug 'mbbill/undotree'
 Plug 'tomtom/tcomment_vim'
 
@@ -121,7 +107,6 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone' " tmux
 Plug 'tpope/vim-unimpaired' " brackets navigation
 " Plug 'tpope/vim-speeddating' " increment datetime using <C-A> and <C-X>
-" Plug 'tpope/vim-vinegar' " for netrw toggling
 
 
 " VimScripts
@@ -240,9 +225,9 @@ let g:gitgutter_eager = 0 " GitGutterCustomisation
 
 " Ultisnips
 
-" let g:UltiSnipsExpandTrigger="<Tab>"
-" let g:UltisnipsJumpForwardTrigger="<C-b>"
-" let g:UltisnipsJumpBackwardTrigger="<C-z>"
+let g:UltiSnipsExpandTrigger="<Tab>"
+let g:UltisnipsJumpForwardTrigger="<C-b>"
+let g:UltisnipsJumpBackwardTrigger="<C-z>"
 
 
 
@@ -393,22 +378,22 @@ if has("autocmd")
 
     " Filetype
     au BufRead,BufNewFile *.md,*.markdown setl filetype=markdown
-    au BufRead,BufNewFile *.adoc,*.asciidoc setl filetype=asciidoc textwidth=80
+    au BufRead,BufNewFile *.adoc,*.asciidoc setl filetype=asciidoc textwidth=120
     au BufRead,BufNewFile *.ledger setl tabstop=4 shiftwidth=4 softtabstop=4
 
     " Text
     au FileType gitcommit setl textwidth=72
     au FileType gitconfig setl noexpandtab tabstop=8 shiftwidth=8 textwidth=80
-    au FileType markdown setl textwidth=80
-    au FileType text setl noexpandtab tabstop=8 shiftwidth=8 textwidth=80
-    au FileType asciidoc call pencil#init({'autoformat': 0}) | setl textwidth=80
+    au FileType markdown setl textwidth=120
+    au FileType text setl noexpandtab tabstop=8 shiftwidth=8 textwidth=120
+    au FileType asciidoc call pencil#init({'autoformat': 0}) | setl textwidth=120
 
     " Code
     " au FileType css setl omnifunc=csscomplete#CompleteCSS
     au FileType elm setl tabstop=4 shiftwidth=4 softtabstop=4
     " au FileType html setl noexpandtab tabstop=4 shiftwidth=4
     "       \ omnifunc=htmlcomplete#CompleteTags listchars-=tab:»·
-    au FileType javascript,javascript.jsx,javascriptreact setl tw=80
+    au FileType javascript,javascript.jsx,javascriptreact setl tw=120
     " au FileType python setl omnifunc=pythoncomplete#Complete
     " au FileType ruby setl omnifunc=rubycomplete#Complete | set re=1
     au FileType rust setl softtabstop=2 tabstop=4 shiftwidth=4
