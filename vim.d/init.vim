@@ -93,6 +93,10 @@ Plug 'airblade/vim-gitgutter'
 Plug 'christoomey/vim-tmux-navigator'
 
 
+" GitHub
+Plug 'tyru/open-browser-github.vim'
+Plug 'tyru/open-browser.vim'
+
 
 " The prolific Mr. T. Pope
 Plug 'tpope/vim-dispatch', { 'on': 'Dispatch' }
