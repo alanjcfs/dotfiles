@@ -1,0 +1,24 @@
+-- local Ack = function (cmd, args)
+-- 	if cmd ~= nil then
+-- 		print(cmd)
+-- 	else
+-- 		print('cmd is nil')
+-- 	end
+--
+-- 	if args == nil then
+-- 		print('args is nil')
+-- 	end
+-- end
+--
+-- local function Init(cmd)
+-- end
+--
+-- vim.api.nvim_create_user_command(
+-- 	'Ack',
+-- 	Ack,
+-- 	{
+-- 		bang = true,
+-- 		nargs = '*',
+-- 		complete = file
+-- 	}
+-- 	)

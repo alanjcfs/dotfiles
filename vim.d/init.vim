@@ -54,6 +54,7 @@ Plug 'asciidoc/vim-asciidoc', { 'for': ['asciidoc'] }
 Plug 'mattn/emmet-vim'
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
+Plug 'chrisbra/csv.vim'
 
 Plug 'skywind3000/asyncrun.vim'
 
@@ -148,8 +149,6 @@ set undofile
 " Folding
 set foldenable foldlevelstart=10 foldnestmax=10 foldmethod=indent
 
-
-
 " vim-autoformat
 " let g:formatters_javascript = ['eslint_local']
 let g:formatters_javascriptreact = ['eslint_local']
@@ -190,10 +189,6 @@ let delimitMate_expand_cr = 2
 let g:racer_cmd = "$HOME/.cargo/bin/racer"
 let g:racer_experimental_completer = 1
 
-let g:ackprg = 'rg --vimgrep --smart-case'
-
-
-
 " CtrlP Config
 
 let g:ctrlp_custom_ignore =
@@ -201,17 +196,6 @@ let g:ctrlp_custom_ignore =
       \ , 'file': '\m\C\.(exe|png|jpg|gif|psd|pdf|map)$'
       \ , 'link': ''
       \ }
-
-
-
-" Ack/RipGrep
-
-if executable('rg')
-  let g:ctrlp_user_command = 'rg %s -l --files --color=never --glob ""'
-  "  'rg %s -l --files ""'
-endif
-" let g:ctrlp_match_func = { 'match': 'matcher#cmatch' }
-let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
 
 
 
@@ -309,9 +293,9 @@ inoremap jk <esc>
 noremap <F3> :Autoformat<CR>
 
 " Plugins
-nnoremap <leader>a :Ack!<space>
+nnoremap <leader>a :Ack<space>
 nnoremap <leader>d :Dispatch<space><up>
-nnoremap <leader>ld :ALEDetail<cr>
+nnoremap <leader>t :ALEDetail<cr>
 
 " Vim customizations
 nnoremap <leader><space> :noh<cr>
@@ -404,7 +388,7 @@ if has("autocmd")
     au FileType sh setl softtabstop=2 tabstop=4 shiftwidth=4
     au FileType xml setl noexpandtab tabstop=8 shiftwidth=8
 
-    " au BufWrite * :Autoformat
+    au BufWrite ruby,javascript,vue :Autoformat
 
     " au BufRead,BufEnter ~/Tuna/* setl tabstop=2 shiftwidth=2
 
@@ -418,3 +402,8 @@ function! ExecuteMacroOverVisualRange()
   echo "@".getcmdline()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
+
+if has('nvim')
+  luafile <sfile>:h/lua/localmodule.lua
+endif
+" command! -nargs=* -complete=file Ack call luaeval("require('lua/ack/init').Ack(_A)", [<q-args>])
