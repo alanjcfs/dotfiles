@@ -5,6 +5,8 @@
 " Polyglot
 let g:polyglot_disabled = ['jsx']
 
+" Python3 host prog for faster startup
+let g:python3_host_prog = '/opt/homebrew/bin/python3'
 
 
 call plug#begin()
@@ -18,7 +20,7 @@ Plug 'junegunn/seoul256.vim'
 " Fuzzysearch & Autocomplete
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
-Plug 'JazzCore/ctrlp-cmatcher'
+" Plug 'JazzCore/ctrlp-cmatcher'"Stillonpython2
 Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
@@ -199,6 +201,14 @@ let g:ctrlp_custom_ignore =
 
 
 
+if executable('rg')
+  let g:ctrlp_user_command = 'rg %s -l --files --color=never --glob ""'
+  "  'rg %s -l --files ""'
+endif
+" let g:ctrlp_match_func = { 'match': 'matcher#cmatch' }
+" let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
+
+
 " GitGutter config
 
 let g:gitgutter_eager = 0 " GitGutterCustomisation
@@ -300,7 +310,7 @@ nnoremap <leader>t :ALEDetail<cr>
 " Vim customizations
 nnoremap <leader><space> :noh<cr>
 nnoremap <leader>cd :cd %:p:h<cr>
-nnoremap <leader>ev :split $MYVIMRC<cr>
+nnoremap <leader>ev :split $HOME/.files/vim.d/init.vim<cr>
 nnoremap <leader>fv :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>l :ls<cr>:b<space>
