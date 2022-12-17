@@ -22,7 +22,7 @@ Plug 'junegunn/seoul256.vim'
 
 " Fuzzysearch & Autocomplete
 Plug 'ctrlpvim/ctrlp.vim'
-Plug 'FelikZ/ctrlp-py-matcher'
+Plug 'FelikZ/ctrlp-py-matcher', { 'do': 'pip3 install neovim' }
 Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
