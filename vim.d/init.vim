@@ -1,12 +1,15 @@
 " Variables to set before starting up plugins
 "
-"
+
 "
 " Polyglot
 let g:polyglot_disabled = ['jsx']
 
 " Python3 host prog for faster startup
 let g:python3_host_prog = '/opt/homebrew/bin/python3'
+
+" Disable Language Server Protocol to avoid conflict with CoC
+let g:ale_disable_lsp = 1
 
 
 call plug#begin()
@@ -20,7 +23,6 @@ Plug 'junegunn/seoul256.vim'
 " Fuzzysearch & Autocomplete
 Plug 'ctrlpvim/ctrlp.vim'
 Plug 'FelikZ/ctrlp-py-matcher'
-" Plug 'JazzCore/ctrlp-cmatcher'"Stillonpython2
 Plug 'mileszs/ack.vim'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 
@@ -77,10 +79,9 @@ Plug 'sheerun/vim-polyglot'
 " Plug 'vim-airline/vim-airline'
 
 " Code Editing
-Plug 'SirVer/ultisnips'
+" Plug 'SirVer/ultisnips'
 Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
-Plug 'jiangmiao/auto-pairs'
 Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
 Plug 'mbbill/undotree'
 Plug 'tomtom/tcomment_vim'
@@ -147,6 +148,9 @@ set undofile
 " NOTE: Practice using C-D and C-U to navigate by half pages
 
 
+" sign column to avoid text shifting left and right
+set signcolumn=yes
+
 
 " Folding
 set foldenable foldlevelstart=10 foldnestmax=10 foldmethod=indent
@@ -155,9 +159,6 @@ set foldenable foldlevelstart=10 foldnestmax=10 foldmethod=indent
 " let g:formatters_javascript = ['eslint_local']
 let g:formatters_javascriptreact = ['eslint_local']
 
-
-
-let g:coc_global_extensions = [ 'coc-tsserver' ]
 
 
 
@@ -200,15 +201,6 @@ let g:ctrlp_custom_ignore =
       \ }
 
 
-
-if executable('rg')
-  let g:ctrlp_user_command = 'rg %s -l --files --color=never --glob ""'
-  "  'rg %s -l --files ""'
-endif
-" let g:ctrlp_match_func = { 'match': 'matcher#cmatch' }
-" let g:ctrlp_match_func = { 'match': 'pymatcher#PyMatch' }
-
-
 " GitGutter config
 
 let g:gitgutter_eager = 0 " GitGutterCustomisation
@@ -219,41 +211,6 @@ let g:gitgutter_eager = 0 " GitGutterCustomisation
 
 " let g:elm_format_autosave = 1
 
-
-
-" Ultisnips
-
-let g:UltiSnipsExpandTrigger="<Tab>"
-let g:UltisnipsJumpForwardTrigger="<C-b>"
-let g:UltisnipsJumpBackwardTrigger="<C-z>"
-
-
-
-" YCM
-let g:ycm_autoclose_preview_window_after_completion = 1
-
-
-
-"AutoPairs
-" Disable abruptly centering the current line when pressing <cr>
-" let g:AutoPairsCenterLine = 0
-
-
-" Deoplete
-" let g:deoplete#enable_at_startup = 1
-" let g:deoplete#sources#ternjs#filetypes = [
-"       \ 'jsx',
-"       \ 'javascript.jsx',
-"       \ 'vue',
-"       \ ]
-" call deoplete#custom#option('sources', {
-"       \ '_': ['ale'],
-"       \ })
-" inoremap <silent> <cr> <c-r>=<SID>popup_close_and_newline()<cr>
-" function! s:popup_close_and_newline() abort
-"   return deoplete#close_popup() . "\<CR>"
-" endfunction
-" inoremap <expr><tab> pumvisible() ? "\<c-n>" : "\<tab>"
 
 
 
@@ -303,7 +260,6 @@ inoremap jk <esc>
 noremap <F3> :Autoformat<CR>
 
 " Plugins
-nnoremap <leader>a :Ack<space>
 nnoremap <leader>d :Dispatch<space><up>
 nnoremap <leader>t :ALEDetail<cr>
 
@@ -311,7 +267,6 @@ nnoremap <leader>t :ALEDetail<cr>
 nnoremap <leader><space> :noh<cr>
 nnoremap <leader>cd :cd %:p:h<cr>
 nnoremap <leader>ev :split $HOME/.files/vim.d/init.vim<cr>
-nnoremap <leader>fv :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>l :ls<cr>:b<space>
 nnoremap <leader>z :FZF<cr>
