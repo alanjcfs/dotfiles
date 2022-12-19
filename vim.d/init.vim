@@ -49,6 +49,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 " Syntax checking
 " Plug 'scrooloose/syntastic' " Ale and Syntastic do similar things
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'neoclide/coc-snippets'
 Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'Chiel92/vim-autoformat'
@@ -210,25 +211,6 @@ let g:gitgutter_eager = 0 " GitGutterCustomisation
 " Elm Format
 
 " let g:elm_format_autosave = 1
-
-
-
-
-" neosnippet
-" A directory named snippets seems to be autoincluded by neosnippets, which I
-" could not find in the documentation. I create a directory called my-snippets
-" Neosnippet uses *.snip file extension, while others may use *.snippets, but
-" both can be compatible.
-let g:neosnippet#enable_snipmate_compatibility = 1
-let g:neosnippet#snippets_directory = [
-      \ '~/.files/vim.d/plugged/vim-snippets/snippets',
-      \ '~/.files/vim.d/my-snippets',
-      \ ]
-imap <C-k>     <Plug>(neosnippet_expand_or_jump)
-smap <C-k>     <Plug>(neosnippet_expand_or_jump)
-xmap <C-k>     <Plug>(neosnippet_expand_target)
-smap <expr><Tab> neosnippet#expandable_or_jumpable() ?
-      \ "\<Plug>(neosnippet_expand_or_jump)" : "\<Tab>"
 
 
 
