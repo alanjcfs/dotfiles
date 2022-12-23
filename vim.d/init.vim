@@ -131,7 +131,7 @@ set mouse=a
 
 set clipboard^=unnamed
 set confirm
-" set expandtab noshiftround shiftwidth=2 smarttab softtabstop=2 tabstop=4
+set expandtab noshiftround shiftwidth=2 smarttab softtabstop=2 tabstop=4
 set hidden
 set ignorecase smartcase
 set list listchars+=tab:»·,trail:·,nbsp:+,extends:>,precedes:<
