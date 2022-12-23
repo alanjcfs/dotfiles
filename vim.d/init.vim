@@ -8,9 +8,6 @@ let g:polyglot_disabled = ['jsx']
 " Python3 host prog for faster startup
 let g:python3_host_prog = '/opt/homebrew/bin/python3'
 
-" Disable Language Server Protocol to avoid conflict with CoC
-let g:ale_disable_lsp = 1
-
 
 call plug#begin()
 " Themes & Colorschemes
@@ -166,15 +163,15 @@ let g:formatters_javascriptreact = ['eslint_local']
 " ale linter
 " NOTE: ALE recommends using ftplugin file instead of setting globally. Look
 " into using ~/.vim/ftplugin/javascript.vim and add b:ale_fixers
-" let g:ale_linters = {
-"       \ 'javascript': ['eslint'],
-"       \ 'javascriptreact': ['eslint'],
-"       \ }
 " let g:airline#extensions#ale#enabled = 1
 " let g:airline_section_b = '%{airline#util#wrap(airline#extensions#hunks#get_hunks(),100)}%{airline#util#wrap(airline#extensions#branch#get_head(),80)}'
 " let g:airline_section_b = ''
 set omnifunc=ale#completion#OmniFunc
 let g:ale_fix_on_save = 1
+
+" Disable Language Server Protocol to avoid conflict with CoC
+let g:ale_disable_lsp = 1
+
 
 
 

@@ -1,5 +1,17 @@
 {
-	"diagnostic": {
-		"displayByAle": true
+	"diagnostic.displayByAle": true,
+
+	// solar graph
+	"solargraph.trace.server": "verbose",
+	"solargraph.commandPath": "~/.rvm/gems/ruby-2.7.4/bin/solargraph",
+	"solargraph.formatting": true,
+	"solargraph.diagnostics": true,
+
+	// lua
+	"languageserver": {
+		"lua": {
+			"command": "lua-lsp",
+			"filetypes": ["lua"]
+		}
 	}
 }

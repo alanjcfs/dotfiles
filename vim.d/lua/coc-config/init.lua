@@ -26,7 +26,7 @@ end
 -- keyset("i", "<TAB>", 'coc#pum#visible() ? coc#_select_confirm() :
 --     coc#expandableOrJumcoc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
 local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
-keyset("i", "<TAB>", [[pumvisible() ? coc#_select_confirm() : coc#expandableOrJumpable() ? "<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump', ''])<CR>" : v:lua.check_back_space() ? "\<TAB>" : "coc#refresh()"]], opts)
+keyset("i", "<TAB>", [[coc#pum#visible() ? coc#_select_confirm() : coc#expandableOrJumpable() ? "<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump', ''])<CR>" : v:lua.check_back_space() ? "\<TAB>" : coc#refresh()]], opts)
 
 
 keyset("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
@@ -75,13 +75,13 @@ vim.api.nvim_create_autocmd("CursorHold", {
 })
 
 
--- -- Symbol renaming
--- keyset("n", "<leader>rn", "<Plug>(coc-rename)", {silent = true})
---
---
--- -- Formatting selected code
--- keyset("x", "<leader>f", "<Plug>(coc-format-selected)", {silent = true})
--- keyset("n", "<leader>f", "<Plug>(coc-format-selected)", {silent = true})
+-- Symbol renaming
+keyset("n", "<leader>rn", "<Plug>(coc-rename)", {silent = true})
+
+
+-- Formatting selected code
+keyset("x", "<leader>f", "<Plug>(coc-format-selected)", {silent = true})
+keyset("n", "<leader>f", "<Plug>(coc-format-selected)", {silent = true})
 --
 --
 -- -- Setup formatexpr specified filetype(s)
@@ -153,14 +153,14 @@ vim.api.nvim_create_autocmd("CursorHold", {
 -- -- Requires 'textDocument/selectionRange' support of language server
 -- keyset("n", "<C-s>", "<Plug>(coc-range-select)", {silent = true})
 -- keyset("x", "<C-s>", "<Plug>(coc-range-select)", {silent = true})
---
---
--- -- Add `:Format` command to format current buffer
--- vim.api.nvim_create_user_command("Format", "call CocAction('format')", {})
---
--- -- " Add `:Fold` command to fold current buffer
--- vim.api.nvim_create_user_command("Fold", "call CocAction('fold', <f-args>)", {nargs = '?'})
---
+
+
+-- Add `:Format` command to format current buffer
+vim.api.nvim_create_user_command("Format", "call CocAction('format')", {})
+
+-- " Add `:Fold` command to fold current buffer
+vim.api.nvim_create_user_command("Fold", "call CocAction('fold', <f-args>)", {nargs = '?'})
+
 -- -- Add `:OR` command for organize imports of the current buffer
 -- vim.api.nvim_create_user_command("OR", "call CocActionAsync('runCommand', 'editor.action.organizeImport')", {})
 --
