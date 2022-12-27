@@ -3,7 +3,7 @@
 
 	// solar graph
 	"solargraph.trace.server": "verbose",
-	"solargraph.commandPath": "~/.rvm/gems/ruby-2.7.4/bin/solargraph",
+	"solargraph.commandPath": "solargraph",
 	"solargraph.formatting": true,
 	"solargraph.diagnostics": true,
 
