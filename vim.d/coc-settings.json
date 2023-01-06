@@ -12,6 +12,33 @@
 		"lua": {
 			"command": "lua-lsp",
 			"filetypes": ["lua"]
+		},
+		"sorbet": {
+			"command": "srb",
+			"args": ["tc", "--typed", "true", "--enable-all-experimental-lsp-features", "--lsp", "--disable-watchman", "--dir", "."],
+			"filetypes": ["ruby"],
+			"rootPatterns": [],
+			"initializationOptions": {},
+			"settings": {},
+		},
+		"ruby-lsp": {
+			"command": "ruby-lsp",
+			"initializationOptions": {
+				"enabledFeatures": [
+					"codeActions",
+					"diagnostics",
+					"documentHighlights",
+					"documentLink",
+					"documentSymbols",
+					"foldingRanges",
+					"formatting",
+					"hover",
+					"inlayHint",
+					"onTypeFormatting",
+					"selectionRanges"
+				]
+			},
+			"filetypes": ["ruby"],
 		}
 	}
 }

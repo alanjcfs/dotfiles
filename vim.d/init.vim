@@ -8,6 +8,25 @@ let g:polyglot_disabled = ['jsx']
 " Python3 host prog for faster startup
 let g:python3_host_prog = '/opt/homebrew/bin/python3'
 
+" NOTE: ALE recommends using ftplugin file instead of setting globally. Look
+" into using ~/.vim/ftplugin/javascript.vim and add b:ale_fixers
+" let g:airline#extensions#ale#enabled = 1
+" let g:airline_section_b = '%{airline#util#wrap(airline#extensions#hunks#get_hunks(),100)}%{airline#util#wrap(airline#extensions#branch#get_head(),80)}'
+" let g:airline_section_b = ''
+set ofu=ale#completion#OmniFunc
+let g:ale_fix_on_save = 1
+
+let g:ale_fixers = {
+      \ '*': [
+      \    'remove_trailing_lines',
+      \    'trim_whitespace',
+      \  ]
+      \}
+
+" Disable Language Server Protocol to avoid conflict with CoC
+let g:ale_disable_lsp = 1
+
+let g:ale_exclude_highlights = ['indentation detected']
 
 call plug#begin()
 " Themes & Colorschemes
@@ -159,22 +178,6 @@ let g:formatters_javascriptreact = ['eslint_local']
 
 
 
-
-" ale linter
-" NOTE: ALE recommends using ftplugin file instead of setting globally. Look
-" into using ~/.vim/ftplugin/javascript.vim and add b:ale_fixers
-" let g:airline#extensions#ale#enabled = 1
-" let g:airline_section_b = '%{airline#util#wrap(airline#extensions#hunks#get_hunks(),100)}%{airline#util#wrap(airline#extensions#branch#get_head(),80)}'
-" let g:airline_section_b = ''
-set omnifunc=ale#completion#OmniFunc
-let g:ale_fix_on_save = 1
-
-" Disable Language Server Protocol to avoid conflict with CoC
-let g:ale_disable_lsp = 1
-
-
-
-
 " EditorConfig exclude patterns
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
@@ -244,7 +247,6 @@ nnoremap <leader>t :ALEDetail<cr>
 
 " Vim customizations
 nnoremap <leader><space> :noh<cr>
-nnoremap <leader>cd :cd %:p:h<cr>
 nnoremap <leader>ev :split $HOME/.files/vim.d/init.vim<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>l :ls<cr>:b<space>
