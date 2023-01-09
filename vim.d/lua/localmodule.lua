@@ -12,3 +12,4 @@ end
 vim.g.ctrlp_match_func = { match = 'pymatcher#PyMatch' }
 
 require('coc-config')
+require('rg-adapter')

@@ -8,11 +8,10 @@
 	"solargraph.diagnostics": true,
 
 	// lua
+	"sumneko-lua.enable": true,
+	"Lua.diagnostics.globals": ["vim"],
+
 	"languageserver": {
-		"lua": {
-			"command": "lua-lsp",
-			"filetypes": ["lua"]
-		},
 		"sorbet": {
 			"command": "srb",
 			"args": ["tc", "--typed", "true", "--enable-all-experimental-lsp-features", "--lsp", "--disable-watchman", "--dir", "."],
@@ -40,5 +39,6 @@
 			},
 			"filetypes": ["ruby"],
 		}
-	}
+  },
+  "Lua.telemetry.enable": true
 }
