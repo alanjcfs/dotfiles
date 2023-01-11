@@ -1,6 +1,6 @@
 -- Ack/RipGrep
 vim.g.ackprg = 'rg --vimgrep --smart-case'
-vim.keymap.set("n", "<leader>a", ":Ack!<space>")
+vim.keymap.set("n", "<leader>a", ":Rg<space>")
 vim.keymap.set("n", "<leader>el", ":split $HOME/.files/vim.d/lua/localmodule.lua<cr>")
 vim.keymap.set("n", "<leader>c", ":b#|bd#<cr>")
 -- vim.cmd("unlet g:ack_mappings.q")
