@@ -2,25 +2,24 @@
 	"diagnostic.displayByAle": true,
 
 	// solar graph
-	"solargraph.trace.server": "verbose",
+	"solargraph.trace.server": "verbose", // off,messages,verbose
 	"solargraph.commandPath": "solargraph",
 	"solargraph.formatting": true,
 	"solargraph.diagnostics": true,
 
-	// lua
-	"sumneko-lua.enable": true,
-	"Lua.diagnostics.globals": ["vim"],
-
 	"languageserver": {
-		"sorbet": {
-			"command": "srb",
-			"args": ["tc", "--typed", "true", "--enable-all-experimental-lsp-features", "--lsp", "--disable-watchman", "--dir", "."],
-			"filetypes": ["ruby"],
-			"rootPatterns": [],
-			"initializationOptions": {},
-			"settings": {},
-		},
+		// "sorbet": {
+		// 	"trace.server": "verbose",
+		// 	"enable": true,
+		// 	"command": "srb",
+		// 	"args": ["tc", "--typed", "true", "--enable-all-experimental-lsp-features", "--lsp", "--disable-watchman", "--dir", "."],
+		// 	"filetypes": ["ruby"],
+		// 	"rootPatterns": [],
+		// 	"initializationOptions": {},
+		// 	"settings": {},
+		// },
 		"ruby-lsp": {
+
 			"command": "ruby-lsp",
 			"initializationOptions": {
 				"enabledFeatures": [
@@ -39,6 +38,9 @@
 			},
 			"filetypes": ["ruby"],
 		}
-  },
-  "Lua.telemetry.enable": true
+	},
+	// lua
+	"sumneko-lua.enable": false,
+	"Lua.diagnostics.globals": ["vim"],
+	"Lua.telemetry.enable": true
 }

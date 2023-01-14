@@ -10,7 +10,7 @@ let g:python3_host_prog = '/opt/homebrew/bin/python3'
 
 " NOTE: ALE recommends using ftplugin file instead of setting globally. Look
 " into using ~/.vim/ftplugin/javascript.vim and add b:ale_fixers
-" let g:airline#extensions#ale#enabled = 1
+let g:airline#extensions#ale#enabled = 1
 " let g:airline_section_b = '%{airline#util#wrap(airline#extensions#hunks#get_hunks(),100)}%{airline#util#wrap(airline#extensions#branch#get_head(),80)}'
 " let g:airline_section_b = ''
 set ofu=ale#completion#OmniFunc
@@ -93,7 +93,7 @@ Plug 'sheerun/vim-polyglot'
 " Plug 'reedes/vim-pencil', { 'for': ['markdown', 'asciidoc'] }
 " Plug 'nelstrom/vim-markdown-folding', { 'for': 'markdown' }
 
-" Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline'
 
 " Code Editing
 " Plug 'SirVer/ultisnips'
