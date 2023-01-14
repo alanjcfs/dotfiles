@@ -348,8 +348,3 @@ function! ExecuteMacroOverVisualRange()
   echo "@".getcmdline()
   execute ":'<,'>normal @".nr2char(getchar())
 endfunction
-
-if has('nvim')
-  luafile <sfile>:h/lua/localmodule.lua
-endif
-" command! -nargs=* -complete=file Ack call luaeval("require('lua/ack/init').Ack(_A)", [<q-args>])
