@@ -1,2 +1,9 @@
-*~
 .DS_Store
+.netrwhist
+!tmp/swap/.gitkeep
+!tmp/undo/.gitkeep
+!tmp/backup/.gitkeep
+tmp/swap/
+tmp/undo/
+tmp/backup/
+vim/unplugged/
