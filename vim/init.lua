@@ -8,6 +8,7 @@ vim.cmd [[runtime! prelim.vim]]
 --]]
 
 -- vim.cmd("unlet g:ack_mappings.q")
+vim.keymap.set("i", "jk", "<ESC>")
 
 vim.o.number = true
 vim.o.ignorecase = true
