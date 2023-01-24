@@ -1,25 +1,9 @@
+" Global Vim settings"
+
 set nocompatible
-
-filetype off
-syntax off
-
-
-
-" Global Vim settings
-
-let s:mainfile = '~/.files/vim.d/init.vim'
-if filereadable(expand(s:mainfile))
-  exec "source " . s:mainfile
-endif
-
-
-
-" NOTE: Added because `source vimrc` doesn't turn it back on
+source $VIMRUNTIME/defaults.vim
 
 filetype plugin indent on
-syntax enable
-
-
 
 " Vim distribution-specific settings
 
@@ -27,42 +11,62 @@ if exists('$TMUX')
   set ttymouse=xterm2
 endif
 
+" Mouse behaviors
+set mouse=a
+set clipboard^=unnamed
+set confirm
+set expandtab noshiftround shiftwidth=2 smarttab softtabstop=2 tabstop=4
+set hidden
+set ignorecase smartcase
+set list listchars+=tab:»·,trail:·,nbsp:+,extends:>,precedes:<
+set number norelativenumber
+set scrolloff=1 " sidescrolloff=5
+set sidescroll=1
+set splitright splitbelow
+set nostartofline
+set undofile
+
+" NOTE: Practice using H, M, and L to reach top, middle, and bottom of screen
+" NOTE: Practice using C-D and C-U to navigate by half pages
+
+
+" sign column to avoid text shifting left and right
+set signcolumn=yes
+
+
+" Folding
+set foldenable foldlevelstart=10 foldnestmax=10 foldmethod=indent
+
 set autoindent backspace=indent,eol,start
 set autoread
 set background=dark " dark | light "
 set belloff=all
 set complete-=i
 set cscopeverbose
-set display+=lastline
 set encoding=utf-8
 set fillchars="vert:|,fold: ,sep:|"
 set formatoptions=tcqj
-if &history < 1000
-  set history=10000
-endif
+set history=1000
 set hlsearch incsearch
 set langnoremap
 set nolangremap
 set laststatus=2
 set lazyredraw
-set listchars="tab:> ,trail:-,nbsp:+"
 set nobackup
 set nogdefault
 set noshowmatch
-set nrformats="bin,hex"
+set nrformats=bin,hex
 set ruler
 set shortmess="filnxtToOF"
 set sessionoptions-=options "   unix,slash
 set showcmd
 set showmode
-set smarttab
 set startofline
 set synmaxcol=3000
 if &tabpagemax < 50
   set tabpagemax=50
 endif
 set tags="./tags;,tags"
-set ttimeoutlen=50
 set ttyfast
 set viewoptions+="unix,slash"
 set viminfo^=!
@@ -74,6 +78,18 @@ set wrap
 
 " Global indentation characters
 
+
+" CtrlP Config
+
+let g:ctrlp_custom_ignore =
+      \ { 'dir': '\m\C/(node_modules|target|dist)'
+      \ , 'file': '\m\C\.(exe|png|jpg|gif|psd|pdf|map)$'
+      \ , 'link': ''
+      \ }
+
+" GitGutter config
+
+let g:gitgutter_eager = 0 " GitGutterCustomisation
 
 
 " Vim directories for backup, swap, and undo
@@ -93,16 +109,135 @@ if !isdirectory(expand(&directory))
 endif
 
 
-
-runtime ftplugin/matchit.vim " Vim Built-in Plugins
-runtime ftplugin/matchit.vim " Vim Built-in Plugins
-
-
-
-" Convenient command to see the difference between the current buffer and the
-" file it was loaded from, thus the changes you made.
-" Only define it when not defined already.
-if !exists(":DiffOrig")
-  command DiffOrig vert new | set bt=nofile | r ++edit # | 0d_ | diffthis
-      \ | wincmd p | diffthis endif
+if has('syntax') && has('eval')
+  packadd! matchit
 endif
+
+call plug#begin()
+Plug 'altercation/vim-colors-solarized'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'dense-analysis/ale'
+Plug 'sheerun/vim-polyglot'
+Plug 'tomtom/tcomment_vim'
+
+Plug 'christoomey/vim-tmux-navigator'
+call plug#end()
+
+" Only do this part when compiled with support for autocommands.
+if has("autocmd")
+
+  " Enable file type detection.
+  " Use the default filetype settings, so that mail gets 'tw' set to 72,
+  " 'cindent' is on in C files, etc.
+  " Also load indent files, to automatically do language-dependent indenting.
+  " Put these in an autocmd group, so that we can delete them easily.
+  augroup vimrcEx
+    au!
+
+    " When editing a file, always jump to the last known cursor position.
+    " Don't do it when the position is invalid or when inside an event handler
+    " (happens when dropping a file on gvim).
+    " Also don't do it when the mark is in the first line, that is the default
+    " position when opening a file.
+    autocmd BufReadPost *
+          \ if line("'\"") > 1 && line("'\"") <= line("$") |
+          \   exe "normal! g`\"" |
+          \ endif
+
+    au BufEnter Makefile setlocal noexpandtab tabstop=8 shiftwidth=8
+
+    " Filetype
+    au BufRead,BufNewFile *.md,*.markdown setl filetype=markdown
+    au BufRead,BufNewFile *.adoc,*.asciidoc setl filetype=asciidoc textwidth=120
+    au BufRead,BufNewFile *.ledger setl tabstop=4 shiftwidth=4 softtabstop=4
+
+    " Text
+    au FileType gitcommit setl textwidth=72
+    au FileType gitconfig setl noexpandtab tabstop=8 shiftwidth=8
+    au FileType markdown setl textwidth=120
+    au FileType text setl noexpandtab tabstop=8 shiftwidth=8 textwidth=120
+    au FileType asciidoc call pencil#init({'autoformat': 0}) | setl textwidth=120
+
+    " Code
+    " au FileType css setl omnifunc=csscomplete#CompleteCSS
+    au FileType elm setl tabstop=4 shiftwidth=4 softtabstop=4
+    " au FileType html setl noexpandtab tabstop=4 shiftwidth=4
+    "       \ omnifunc=htmlcomplete#CompleteTags listchars-=tab:»·
+    au FileType javascript,javascript.jsx,javascriptreact setl tw=120
+    " au FileType python setl omnifunc=pythoncomplete#Complete
+    " au FileType ruby setl omnifunc=rubycomplete#Complete | set re=1
+    au FileType rust setl softtabstop=2 tabstop=4 shiftwidth=4
+    au FileType sh setl softtabstop=2 tabstop=4 shiftwidth=4
+    au FileType xml setl noexpandtab tabstop=8 shiftwidth=8
+
+    au BufWrite ruby,javascript,vue :Autoformat
+
+    " au BufRead,BufEnter ~/Tuna/* setl tabstop=2 shiftwidth=2
+
+    " autocmd BufWritePost *.js AsyncRun -post=checktime ./node_modules/.bin/eslint --fix %
+  augroup END
+endif " has("autocmd")
+
+function! ExecuteMacroOverVisualRange()
+  echo "@".getcmdline()
+  execute ":'<,'>normal @".nr2char(getchar())
+endfunction
+
+" Corrections and expansions
+
+iabbrev @@    alan@atomsign.net
+iabbrev adn and
+iabbrev teh the
+abbrev ccopy  Copyright 2013 Alan Fung-Schwarz, all rights reserved.
+
+" ------------------------------------------------
+" Mappings
+
+xnoremap @ :<C-u>call ExecuteMacroOverVisualRange()<CR>
+
+" Map Y to act like D and C, to yank from cursor to EOL rather than yy.
+map Y y$
+
+" Don't use Ex mode, use Q for formatting
+" map Q gq
+
+" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
+" so that you can undo CTRL-U after inserting a line break.
+inoremap <C-U> <C-G>u<C-U>
+
+" Escape using jk
+inoremap jk <esc>
+
+noremap <F3> :Autoformat<CR>
+
+" Plugins
+nnoremap <leader>d :Dispatch<space><up>
+nnoremap <leader>t :ALEDetail<cr>
+
+" Vim customizations
+nnoremap <leader><space> :noh<cr>
+nnoremap <leader>ev :split $HOME/.files/vim.d/init.vim<cr>
+nnoremap <leader>sv :source $MYVIMRC<cr>
+nnoremap <leader>l :ls<cr>:b<space>
+nnoremap <leader>z :FZF<cr>
+
+" Git vim-fugitive
+nnoremap <leader>g :Git<space>
+nnoremap <leader>gb :Git blame<space>
+nnoremap <leader>gc :Gcommit -v<space>
+nnoremap <leader>gd :Gdiff<space>
+nnoremap <leader>gl :Gclog -p<space>
+nnoremap <leader>gw :Gwrite<cr>
+
+" Move lines
+nnoremap <leader>j :m+<cr>==
+nnoremap <leader>k :m-2<cr>==
+xnoremap <leader>j :m'>+<cr>gv=gv
+xnoremap <leader>k :m-2<cr>gv=gv
+
+" End Leader key mappings """"""""""""""""""""""""
+
+xmap ga <Plug>(EasyAlign)
+nmap ga <Plug>(EasyAlign)
+
+colorscheme solarized
