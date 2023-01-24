@@ -7,6 +7,7 @@ vim.cmd [[runtime! prelim.vim]]
 
   vim.o is equivalent to :set (:h options.txt)
   vim.g.ctrlp_user_command is equivalent to :let g:ctrlp_user_command
+  vim.keymap.set("n", "", "") is equivalent to nnoremap
 
 --]]
 
@@ -22,5 +23,7 @@ vim.keymap.set("n", "<leader>c", ":b#|bd#<cr>")
 -- vim.cmd("unlet g:ack_mappings.q")
 
 vim.g.ctrlp_match_func = { match = 'pymatcher#PyMatch' }
+
+vim.cmd.set('background=dark')
 
 require'coc-setup'

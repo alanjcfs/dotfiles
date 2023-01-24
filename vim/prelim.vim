@@ -278,7 +278,7 @@ nmap ga <Plug>(EasyAlign)
 try
   set background=dark
   " let g:seoul256_background = 233
-  silent! colorscheme badwolf
+  silent! colorscheme solarized
   " let g:solarized_termcolors=256
   " silent! colorscheme solarized
 endtry

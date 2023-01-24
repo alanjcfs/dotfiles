@@ -42,5 +42,8 @@
 	// lua
 	"sumneko-lua.enable": false,
 	"Lua.diagnostics.globals": ["vim"],
-	"Lua.telemetry.enable": true
+	"Lua.telemetry.enable": true,
+
+	// coc-sql
+	"sql.lintOnOpen": false
 }
