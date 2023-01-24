@@ -1,7 +1,5 @@
 -- Load old prelim.vim
 vim.cmd [[runtime! prelim.vim]]
-require'rg'
-require'maps'
 
 --[[
   vim.o is equivalent to :set (:h options.txt)
