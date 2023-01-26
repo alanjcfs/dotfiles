@@ -37,9 +37,10 @@ Plug 'ajh17/Spacegray.vim'
 Plug 'junegunn/seoul256.vim'
 
 " Fuzzysearch & Autocomplete
-Plug 'ctrlpvim/ctrlp.vim'
-Plug 'FelikZ/ctrlp-py-matcher', { 'do': 'pip3 install neovim' }
+" Plug 'ctrlpvim/ctrlp.vim'
+" Plug 'FelikZ/ctrlp-py-matcher', { 'do': 'pip3 install neovim' }
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
+Plug 'junegunn/fzf.vim'
 
 " if has('nvim')
 "   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
@@ -66,7 +67,7 @@ Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'neoclide/coc-snippets'
 Plug 'dense-analysis/ale'
-Plug 'alanjcfs/rg.nvim'
+" Plug 'alanjcfs/rg.nvim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'fatih/vim-go'
