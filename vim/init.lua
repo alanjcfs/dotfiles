@@ -1,3 +1,5 @@
+vim.g.rg_command_name = "Ripgrep"
+
 -- Load old prelim.vim
 vim.cmd [[runtime! prelim.vim]]
 
@@ -23,7 +25,7 @@ keyset("n", "<c-p>", ":FZF<CR>", opts)
 
 opts = { silent = false, noremap = true, expr = false, replace_keycodes = false }
 keyset("i", "<c-x><c-f>", "fzf#vim#complete#path('rg --files')", opts)
-keyset("n", "<leader>a", ":Rg<space>", opts)
+keyset("n", "<leader>a", ":Ripgrep<space>", opts)
 keyset("n", "<leader>ev", ":sp $MYVIMRC<CR>", opts)
 keyset("n", "<leader>l", ":buffers<CR>:b", opts)
 

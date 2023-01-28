@@ -20,8 +20,9 @@ let g:ale_fixers = {
       \ '*': [
       \    'remove_trailing_lines',
       \    'trim_whitespace',
-      \  ]
-      \}
+      \  ],
+      \ 'javascript': ['eslint'],
+      \ }
 
 " Disable Language Server Protocol to avoid conflict with CoC
 let g:ale_disable_lsp = 1
