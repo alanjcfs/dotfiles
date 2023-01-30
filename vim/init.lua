@@ -29,6 +29,13 @@ keyset("n", "<leader>a", ":Ripgrep<space>", opts)
 keyset("n", "<leader>ev", ":sp $MYVIMRC<CR>", opts)
 keyset("n", "<leader>l", ":buffers<CR>:b", opts)
 
+-- vim-fugitive
+keyset("n", "<leader>g", ":Git<SPACE>", opts)
+keyset("n", "<leader>gb", ":Git blame<SPACE>", opts)
+keyset("n", "<leader>g", ":Gcommit -v<SPACE>", opts)
+keyset("n", "<leader>gd", ":Gdiff<SPACE>", opts)
+keyset("n", "<leader>gw", ":Gwrite<CR>", opts)
+
 -- vim.cmd("unlet g:ack_mappings.q")
 vim.o.clipboard = "unnamed,unnamedplus"
 vim.o.confirm = true
