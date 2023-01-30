@@ -1,21 +1,22 @@
 " Global Vim settings"
 
-set nocompatible
 source $VIMRUNTIME/defaults.vim
+set nocompatible
 
 filetype plugin indent on
 
-" Vim distribution-specific settings
-
-if exists('$TMUX')
-  set ttymouse=xterm2
+" Classic Vim settings
+if !has('nvim')
+  if exists('$TMUX')
+    set ttymouse=xterm2
+  endif
 endif
 
 " Mouse behaviors
 set mouse=a
 set clipboard^=unnamed
 set confirm
-set expandtab noshiftround shiftwidth=2 smarttab softtabstop=2 tabstop=4
+set expandtab noshiftround shiftwidth=2 smarttab softtabstop=2
 set hidden
 set ignorecase smartcase
 set list listchars+=tab:»·,trail:·,nbsp:+,extends:>,precedes:<
@@ -35,7 +36,7 @@ set signcolumn=yes
 
 
 " Folding
-set foldenable foldlevelstart=10 foldnestmax=10 foldmethod=indent
+set foldenable " foldlevelstart=10 foldnestmax=10 foldmethod=indent
 
 set autoindent backspace=indent,eol,start
 set autoread
@@ -46,7 +47,7 @@ set cscopeverbose
 set encoding=utf-8
 set fillchars="vert:|,fold: ,sep:|"
 set formatoptions=tcqj
-set history=1000
+set history=10000
 set hlsearch incsearch
 set langnoremap
 set nolangremap
@@ -94,9 +95,9 @@ let g:gitgutter_eager = 0 " GitGutterCustomisation
 
 " Vim directories for backup, swap, and undo
 
-set backupdir=~/.files/vim.d/tmp/backup//
-set directory=~/.files/vim.d/tmp/swap//
-set undodir=~/.files/vim.d/tmp/undo//
+set backupdir=~/.files/vim/tmp/backup//
+set directory=~/.files/vim/tmp/swap//
+set undodir=~/.files/vim/tmp/undo//
 
 if !isdirectory(expand(&undodir))
   call mkdir(expand(&undodir), "p")
@@ -115,12 +116,14 @@ endif
 
 call plug#begin()
 Plug 'altercation/vim-colors-solarized'
-Plug 'ctrlpvim/ctrlp.vim'
 Plug 'dense-analysis/ale'
 Plug 'sheerun/vim-polyglot'
 Plug 'tomtom/tcomment_vim'
 
 Plug 'christoomey/vim-tmux-navigator'
+
+Plug 'timpope/vim-endwise'
+Plug 'rstacruz/vim-closer'
 call plug#end()
 
 " Only do this part when compiled with support for autocommands.
@@ -216,7 +219,7 @@ nnoremap <leader>t :ALEDetail<cr>
 
 " Vim customizations
 nnoremap <leader><space> :noh<cr>
-nnoremap <leader>ev :split $HOME/.files/vim.d/init.vim<cr>
+nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>l :ls<cr>:b<space>
 nnoremap <leader>z :FZF<cr>

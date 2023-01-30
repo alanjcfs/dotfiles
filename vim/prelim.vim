@@ -67,7 +67,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
 Plug 'neoclide/coc-snippets'
 Plug 'dense-analysis/ale'
-" Plug 'alanjcfs/rg.nvim'
+Plug 'alanjcfs/rg.nvim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'Chiel92/vim-autoformat'
 Plug 'fatih/vim-go'
@@ -123,6 +123,7 @@ Plug 'tyru/open-browser.vim'
 " The prolific Mr. T. Pope
 Plug 'tpope/vim-dispatch', { 'on': 'Dispatch' }
 Plug 'tpope/vim-endwise' " end structures automatically
+Plug 'rstacruz/vim-closer'
 Plug 'tpope/vim-fugitive' " Git wrapper :Gwrite, :Gcommit, :Gblame, etc.
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 " Plug 'tpope/vim-rails', { 'for': 'ruby' }

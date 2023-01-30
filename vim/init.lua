@@ -29,8 +29,9 @@ keyset("n", "<leader>l", ":buffers<CR>:b", opts)
 
 -- vim.cmd("unlet g:ack_mappings.q")
 vim.o.clipboard = "unnamed,unnamedplus"
-vim.o.ignorecase = true
+vim.o.confirm = true
 vim.o.hidden = true
+vim.o.ignorecase = true
 vim.o.number = true
 vim.o.undofile = true
 -- vim.g.ctrlp_match_func = { match = 'pymatcher#PyMatch' }
