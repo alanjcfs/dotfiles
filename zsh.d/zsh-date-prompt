@@ -1,0 +1,1 @@
+echo `date +%G-W%V-%u`
