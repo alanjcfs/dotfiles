@@ -15,25 +15,36 @@ vim.cmd [[runtime! prelim.vim]]
 --   \   'rg --column --line-number --no-heading --color=always --smart-case -- '.shellescape(<q-args>), 1,
 --   \   fzf#vim#with_preview(), <bang>0)-
 
+-- Lookup `:h vim.keymap.set()`
+-- set({mode}, {lhs}, {rhs}, {opts})
+-- See also:
+-- * nvim_set_keymap()
+-- * nvim_buf_set_keymap()
 local keyset = vim.keymap.set
-
 keyset("n", "<leader>d", ":Dispatch<space><up>")
 
-local opts = { silent = true, noremap = true, expr = false }
+local opts = {
+  silent = true,
+  noremap = true,
+  desc = "Avoid echoing when using message"
+}
 keyset("i", "jk", "<ESC>", opts)
 keyset("n", "<c-p>", ":FZF<CR>", opts)
 
-opts = { silent = false, noremap = true, expr = false, replace_keycodes = false }
+opts = {
+  silent = false,
+  noremap = true,
+}
 keyset("i", "<c-x><c-f>", "fzf#vim#complete#path('rg --files')", opts)
 keyset("n", "<leader>a", ":Ripgrep<space>", opts)
 keyset("n", "<leader>ev", ":sp $MYVIMRC<CR>", opts)
 keyset("n", "<leader>l", ":buffers<CR>:b", opts)
 
 -- vim-fugitive
-keyset("n", "<leader>g", ":Git<SPACE>", opts)
-keyset("n", "<leader>gb", ":Git blame<SPACE>", opts)
-keyset("n", "<leader>g", ":Gcommit -v<SPACE>", opts)
-keyset("n", "<leader>gd", ":Gdiff<SPACE>", opts)
+keyset("n", "<leader>g", ":Git ", opts)
+keyset("n", "<leader>gb", ":Git blame ", opts)
+keyset("n", "<leader>g", ":Gcommit -v ", opts)
+keyset("n", "<leader>gd", ":Gdiff ", opts)
 keyset("n", "<leader>gw", ":Gwrite<CR>", opts)
 
 -- vim.cmd("unlet g:ack_mappings.q")
