@@ -14,7 +14,7 @@ tmux send-keys -t 2 'elasticsearch' Enter
 # Switch to right/asi side to horizontal split and run sidekiq
 tmux select-pane -t 3
 tmux split-window
-tmux send-keys -t 4 'asi' 'be rails sidekiq -c1' Enter
+tmux send-keys -t 4 'asi' Enter 'be rails sidekiq -c1' Enter
 
 # Create new windows and select asi as the landing screen
 tmux new-window -n api
