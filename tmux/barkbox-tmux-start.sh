@@ -1,25 +1,25 @@
 #!/usr/bin/env zsh
-tmux new -d -s barkbox
+tmux new -d -s box
 tmux split-window -h # creates two vertical panes, and run the servers
-tmux send-keys -t 0 'cd ~/Projects/barkbox-rails' Enter 'rails server -p 5000' Enter
-tmux send-keys -t 1 'cd ~/Projects/barkbox-assignment' Enter 'rails server -p 5001' Enter
+tmux send-keys -t 0 'api' Enter 'rails server -p 5000' Enter
+tmux send-keys -t 1 'asi' Enter 'rails server -p 5001' Enter
 
+# Horizontal Split left/api side to run sidekiq and elastic search
 tmux select-pane -t 0
 tmux split-window
+tmux send-keys -t 1 'api' Enter 'be sidekiq' Enter
 tmux split-window
-tmux send-keys -t 1 'elasticsearch'
-tmux send-keys -t 2 'be sidekiq'
-tmux send-keys -t 3 'be sidekiq -C config/sidekiq_fulfillment.yml'
+tmux send-keys -t 2 'elasticsearch' Enter
 
-tmux select-pane -t 4
+# Switch to right/asi side to horizontal split and run sidekiq
+tmux select-pane -t 3
 tmux split-window
-tmux split-window
-tmux send-keys -t 5 'be rails sidekiq -c1'
-tmux send-keys -t 6 'be rails sidekiq -c1'
+tmux send-keys -t 4 'asi' 'be rails sidekiq -c1' Enter
 
-tmux new-window -n assign
-tmux send-keys -t 0 'cd ~/Projects/barkbox-assignment' Enter
-tmux new-window -n rails
-tmux send-keys -t 0 'cd ~/Projects/barkbox-rails' Enter
-tmux select-window -t 1
+# Create new windows and select asi as the landing screen
+tmux new-window -n api
+tmux send-keys -t 0 'api' Enter
+tmux new-window -n asi
+tmux send-keys -t 0 'asi' Enter
+tmux select-window -t 2
 tmux attach
