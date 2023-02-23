@@ -22,7 +22,7 @@ vim.cmd [[runtime! prelim.vim]]
 -- * nvim_buf_set_keymap()
 local keyset = vim.keymap.set
 keyset("n", "<leader>d", ":Dispatch<space><up>")
-keyset("n", "<leader> ", ":noh")
+keyset("n", "<leader> ", ":noh<cr>")
 
 local opts = {
   silent = true,

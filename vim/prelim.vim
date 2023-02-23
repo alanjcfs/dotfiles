@@ -17,12 +17,12 @@ set ofu=ale#completion#OmniFunc
 let g:ale_fix_on_save = 1
 
 let g:ale_fixers = {
-      \ '*': [
-      \    'remove_trailing_lines',
-      \    'trim_whitespace',
-      \  ],
-      \ 'javascript': ['eslint'],
-      \ }
+      \ 'javascript': [
+      \   'remove_trailing_lines',
+      \   'trim_whitespace',
+      \   'eslint',
+      \ ],
+      \}
 
 " Disable Language Server Protocol to avoid conflict with CoC
 let g:ale_disable_lsp = 1

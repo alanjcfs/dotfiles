@@ -45,5 +45,5 @@
 	"Lua.telemetry.enable": true,
 
 	// coc-sql
-	"sql.lintOnOpen": false
+	// "sql.lintOnOpen": false
 }
