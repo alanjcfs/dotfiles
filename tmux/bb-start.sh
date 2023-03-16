@@ -16,4 +16,5 @@ tmux split-window -t 2 \; send-keys -t 3 'elasticsearch' Enter
 # Create new windows and select asi as the landing screen
 tmux new-window -n api \; send-keys 'api' Enter
 tmux new-window -n asi \; send-keys 'asi' Enter
+tmux new-window -n tai \; send-keys 'tai' Enter
 tmux select-window -t 2 \; attach
