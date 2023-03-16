@@ -19,7 +19,7 @@
 		// 	"settings": {},
 		// },
 		"ruby-lsp": {
-
+			"trace.server": "verbose",
 			"command": "ruby-lsp",
 			"initializationOptions": {
 				"enabledFeatures": [

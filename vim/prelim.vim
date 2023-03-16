@@ -6,14 +6,14 @@
 let g:polyglot_disabled = ['jsx']
 
 " Python3 host prog for faster startup
-let g:python3_host_prog = '/opt/homebrew/bin/python3'
+let g:python3_host_prog = '/opt/homebrew/bin/python3.10'
 
 " NOTE: ALE recommends using ftplugin file instead of setting globally. Look
 " into using ~/.vim/ftplugin/javascript.vim and add b:ale_fixers
 let g:airline#extensions#ale#enabled = 1
 " let g:airline_section_b = '%{airline#util#wrap(airline#extensions#hunks#get_hunks(),100)}%{airline#util#wrap(airline#extensions#branch#get_head(),80)}'
 " let g:airline_section_b = ''
-set ofu=ale#completion#OmniFunc
+" set ofu=ale#completion#OmniFunc
 let g:ale_fix_on_save = 1
 
 let g:ale_fixers = {
@@ -26,6 +26,7 @@ let g:ale_fixers = {
 
 " Disable Language Server Protocol to avoid conflict with CoC
 let g:ale_disable_lsp = 1
+let g:ale_sign_column_always = 1
 
 let g:ale_exclude_highlights = ['indentation detected']
 
@@ -34,39 +35,19 @@ call plug#begin()
 Plug 'altercation/vim-colors-solarized'
 Plug 'sjl/badwolf'
 Plug 'quanganhdo/grb256'
-Plug 'ajh17/Spacegray.vim'
 Plug 'junegunn/seoul256.vim'
 
-" Fuzzysearch & Autocomplete
-" Plug 'ctrlpvim/ctrlp.vim'
-" Plug 'FelikZ/ctrlp-py-matcher', { 'do': 'pip3 install neovim' }
+" Code Editing
+Plug 'honza/vim-snippets'
+Plug 'junegunn/vim-easy-align'
+Plug 'mbbill/undotree'
+Plug 'tomtom/tcomment_vim'
+
+Plug 'rcarriga/nvim-notify'
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
-
-" if has('nvim')
-"   Plug 'Shougo/deoplete.nvim', { 'do': ':UpdateRemotePlugins' }
-" else
-"   Plug 'Shougo/deoplete.nvim'
-"   Plug 'roxma/nvim-yarp'
-"   Plug 'roxma/vim-hug-neovim-rpc'
-" endif
-" Plug 'ycm-core/YouCompleteMe', { 'do': './install.py --all' }
-
-
-""
-" Deoplete plugins:
-"
-" disable because of errors raised:
-" Plug 'deoplete-plugins/deoplete-jedi', { 'for': 'python' }
-" Plug 'carlitux/deoplete-ternjs', { 'do': 'npm install -g tern', 'for': 'javascript' }
-
-
-
-
-" Syntax checking
-" Plug 'scrooloose/syntastic' " Ale and Syntastic do similar things
+Plug 'neovim/nvim-lspconfig'
 Plug 'neoclide/coc.nvim', { 'branch': 'release' }
-Plug 'neoclide/coc-snippets'
 Plug 'dense-analysis/ale'
 Plug 'alanjcfs/rg.nvim'
 Plug 'editorconfig/editorconfig-vim'
@@ -89,21 +70,13 @@ Plug 'HerringtonDarkholme/yats.vim'
 Plug 'MaxMEllon/vim-jsx-pretty' " Already embedded in vim-polyglot
 
 " Polyglot
-Plug 'sheerun/vim-polyglot'
+" Plug 'sheerun/vim-polyglot'
 
 " Writing
 " Plug 'reedes/vim-pencil', { 'for': ['markdown', 'asciidoc'] }
 " Plug 'nelstrom/vim-markdown-folding', { 'for': 'markdown' }
 
 Plug 'vim-airline/vim-airline'
-
-" Code Editing
-" Plug 'SirVer/ultisnips'
-" Plug 'honza/vim-snippets'
-Plug 'junegunn/vim-easy-align'
-Plug 'scrooloose/nerdtree', { 'on': ['NERDTreeToggle', 'NERDTree'] }
-Plug 'mbbill/undotree'
-Plug 'tomtom/tcomment_vim'
 
 " Git
 Plug 'jreybert/vimagit', { 'on': 'Magit' }
