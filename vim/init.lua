@@ -89,7 +89,16 @@ vim.o.splitright = true
 vim.o.undofile = true
 -- vim.g.ctrlp_match_func = { match = 'pymatcher#PyMatch' }
 
-vim.cmd.set('background=dark')
+-- os.date('%H')
+local hour = tonumber(vim.call('strftime', '%H'))
+if hour >= 6 or hour < 18 then
+  vim.o.background = 'light'
+  os.execute("tmux source $HOME/.files/tmux/colours/tmuxcolors-light.conf")
+else
+  vim.o.background = 'dark'
+  os.execute("tmux source $HOME/.files/tmux/colours/tmuxcolors-dark.conf")
+end
+vim.cmd.colorscheme("solarized")
 
 local bg = "#002b36"
 local bgw = "fdf6e3"

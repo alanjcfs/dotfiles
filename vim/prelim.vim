@@ -10,6 +10,7 @@ let g:python3_host_prog = '/opt/homebrew/bin/python3.10'
 
 " NOTE: ALE recommends using ftplugin file instead of setting globally. Look
 " into using ~/.vim/ftplugin/javascript.vim and add b:ale_fixers
+let g:airline_disable_statusline = 0
 let g:airline#extensions#ale#enabled = 1
 " let g:airline_section_b = '%{airline#util#wrap(airline#extensions#hunks#get_hunks(),100)}%{airline#util#wrap(airline#extensions#branch#get_head(),80)}'
 " let g:airline_section_b = ''
@@ -18,6 +19,11 @@ let g:ale_fix_on_save = 1
 
 let g:ale_fixers = {
       \ 'javascript': [
+      \   'remove_trailing_lines',
+      \   'trim_whitespace',
+      \   'eslint',
+      \ ],
+      \ 'vue': [
       \   'remove_trailing_lines',
       \   'trim_whitespace',
       \   'eslint',
@@ -126,21 +132,6 @@ let g:formatters_javascriptreact = ['eslint_local']
 " EditorConfig exclude patterns
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']
 
-
-" delimitMate settings
-let delimitMate_expand_cr = 2
-
-
-
-
-
-try
-  set background=dark
-  " let g:seoul256_background = 233
-  " let g:solarized_termcolors=256
-  " silent! colorscheme solarized
-  silent! colorscheme solarized
-endtry
 
 function! RipgrepFzf(query, fullscreen)
   let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
