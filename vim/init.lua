@@ -91,7 +91,7 @@ vim.o.undofile = true
 
 -- os.date('%H')
 local hour = tonumber(vim.call('strftime', '%H'))
-if hour >= 6 or hour < 18 then
+if hour >= 6 and hour < 18 then
   vim.o.background = 'light'
   os.execute("tmux source $HOME/.files/tmux/colours/tmuxcolors-light.conf")
 else
