@@ -2,11 +2,11 @@
 	"diagnostic.displayByAle": true,
 
 	// solar graph
-	"solargraph.trace.server": "verbose", // off,messages,verbose
+	"solargraph.trace.server": "messages", // off,messages,verbose
 	"solargraph.commandPath": "solargraph",
 	"solargraph.formatting": true,
 	"solargraph.diagnostics": true,
-
+	"solargraph.hover": true,
 	"languageserver": {
 		// "sorbet": {
 		// 	"trace.server": "verbose",
@@ -21,22 +21,23 @@
 		"ruby-lsp": {
 			"trace.server": "verbose",
 			"command": "ruby-lsp",
-			"initializationOptions": {
-				"enabledFeatures": [
-					"codeActions",
-					"diagnostics",
-					"documentHighlights",
-					"documentLink",
-					"documentSymbols",
-					"foldingRanges",
-					"formatting",
-					"hover",
-					"inlayHint",
-					"onTypeFormatting",
-					"selectionRanges"
-				]
-			},
 			"filetypes": ["ruby"],
+			"initializationOptions": {
+				"enabledFeatures": {
+					"codeActions": true,
+					"diagnostics": true,
+					"documentHighlights": true,
+					"documentLink": true,
+					"documentSymbols": true,
+					"foldingRanges": true,
+					"formatting": true,
+					"hover": true,
+					"inlayHint": true,
+					"onTypeFormatting": true,
+					"selectionRanges": true
+				},
+				"formatter": "auto"
+			}
 		}
 	},
 	// lua

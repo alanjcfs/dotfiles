@@ -1,7 +1,7 @@
-vim.g.rg_command_name = "Ripgrep"
-
 -- Load old prelim.vim
 vim.cmd [[runtime! prelim.vim]]
+
+vim.g.rg_command_name = "Ripgrep"
 
 --[[
   vim.o is equivalent to :set (:h options.txt)
@@ -25,14 +25,6 @@ keyset("n", "<leader>d", ":Dispatch<space><up>")
 keyset("n", "<leader> ", ":noh<cr>")
 
 local opts = {
-  silent = true,
-  noremap = true,
-  desc = "Avoid echoing when using message"
-}
-keyset("i", "jk", "<ESC>", opts)
-keyset("n", "<c-p>", ":FZF<CR>", opts)
-
-opts = {
   silent = false,
   noremap = true,
 }
@@ -49,7 +41,14 @@ keyset("n", "<leader>gd", ":Gdiff ", opts)
 keyset("n", "<leader>gw", ":Gwrite<CR>", opts)
 keyset("n", "<leader>rg", ":Ripgrep ", opts)
 
-local opts = { noremap=true, silent=true }
+opts = {
+  silent = true,
+  noremap = true,
+  desc = "Avoid echoing when using message"
+}
+
+keyset("i", "jk", "<ESC>", opts)
+keyset("n", "<c-p>", ":GFiles<CR>", opts)
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
