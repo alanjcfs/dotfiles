@@ -18,27 +18,27 @@
 		// 	"initializationOptions": {},
 		// 	"settings": {},
 		// },
-		"ruby-lsp": {
-			"trace.server": "verbose",
-			"command": "ruby-lsp",
-			"filetypes": ["ruby"],
-			"initializationOptions": {
-				"enabledFeatures": {
-					"codeActions": true,
-					"diagnostics": true,
-					"documentHighlights": true,
-					"documentLink": true,
-					"documentSymbols": true,
-					"foldingRanges": true,
-					"formatting": true,
-					"hover": true,
-					"inlayHint": true,
-					"onTypeFormatting": true,
-					"selectionRanges": true
-				},
-				"formatter": "auto"
-			}
-		}
+		// "ruby-lsp": {
+		// 	"trace.server": "verbose",
+		// 	"command": "ruby-lsp",
+		// 	"filetypes": ["ruby"],
+		// 	"initializationOptions": {
+		// 		"enabledFeatures": {
+		// 			"codeActions": true,
+		// 			"diagnostics": true,
+		// 			"documentHighlights": true,
+		// 			"documentLink": true,
+		// 			"documentSymbols": true,
+		// 			"foldingRanges": true,
+		// 			"formatting": true,
+		// 			"hover": true,
+		// 			"inlayHint": true,
+		// 			"onTypeFormatting": true,
+		// 			"selectionRanges": true
+		// 		},
+		// 		"formatter": "auto"
+		// 	}
+		// }
 	},
 	// lua
 	"sumneko-lua.enable": false,
