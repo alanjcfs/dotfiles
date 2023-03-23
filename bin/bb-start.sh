@@ -1,5 +1,7 @@
-#!/usr/bin/env zsh
-tmux new -d -s box
+#!/bin/sh
+if ! tmux new -d -s box; then
+  exit 1
+fi
 tmux rename-window -t 0 servers
 tmux split-window -h # creates two vertical panes, and run the servers
 tmux send-keys -t 0 'api' Enter 'rails server -p 5000' Enter
