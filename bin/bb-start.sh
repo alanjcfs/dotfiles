@@ -19,4 +19,6 @@ tmux split-window -t 2 \; send-keys -t 3 'elasticsearch' Enter
 tmux new-window -n api \; send-keys 'api' Enter
 tmux new-window -n asi \; send-keys 'asi' Enter
 tmux new-window -n tai \; send-keys 'tai' Enter
+tmux set-option -wg automatic-rename on
+# tmux set-option -wg automatic-rename-format on
 tmux select-window -t 2 \; attach
