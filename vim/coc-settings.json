@@ -1,23 +1,22 @@
 {
 	"diagnostic.displayByAle": true,
 
+	// configuration of extensions installed via :CocInstall
 	// solar graph
 	"solargraph.trace.server": "messages", // off,messages,verbose
 	"solargraph.commandPath": "solargraph",
 	"solargraph.formatting": true,
 	"solargraph.diagnostics": true,
 	"solargraph.hover": true,
+
+	// lua
+	"sumneko-lua.enable": true,
+	"sumneko-lua.enableNvimLuaDev": true,
+	"Lua.workspace.checkThirdParty": false,
+
+	// configuration of languageservers installed outside of :CocInstall
 	"languageserver": {
-		// "sorbet": {
-		// 	"trace.server": "verbose",
-		// 	"enable": true,
-		// 	"command": "srb",
-		// 	"args": ["tc", "--typed", "true", "--enable-all-experimental-lsp-features", "--lsp", "--disable-watchman", "--dir", "."],
-		// 	"filetypes": ["ruby"],
-		// 	"rootPatterns": [],
-		// 	"initializationOptions": {},
-		// 	"settings": {},
-		},
+		// ruby
 		"ruby-lsp": {
 			"trace.server": "verbose",
 			"command": "ruby-lsp",
@@ -38,13 +37,19 @@
 				},
 				"formatter": "auto"
 			}
-		}
-	},
-	// lua
-	"sumneko-lua.enable": false,
-	"Lua.diagnostics.globals": ["vim"],
-	"Lua.telemetry.enable": true,
-
-	// coc-sql
-	// "sql.lintOnOpen": false
+		},
+		// lua
+	}
 }
+// coc-sql
+// "sql.lintOnOpen": false
+// "sorbet": {
+	// 	"trace.server": "verbose",
+	// 	"enable": true,
+	// 	"command": "srb",
+	// 	"args": ["tc", "--typed", "true", "--enable-all-experimental-lsp-features", "--lsp", "--disable-watchman", "--dir", "."],
+	// 	"filetypes": ["ruby"],
+	// 	"rootPatterns": [],
+	// 	"initializationOptions": {},
+	// 	"settings": {},
+	// },
