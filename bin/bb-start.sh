@@ -13,7 +13,7 @@ tmux split-window -h
 tmux send-keys -t 0 'api' Enter 'bundle exec sidekiq -c 5' Enter
 tmux split-window -t 0 \; send-keys -t 1 'api' Enter 'bundle exec sidekiq -C $SKQ -c 5' Enter
 tmux send-keys -t 2 'asi' Enter 'bundle exec sidekiq -c 5' Enter
-tmux split-window -t 2 \; send-keys -t 3 'elasticsearch' Enter
+tmux split-window -t 2 \; send-keys -t 3 'NODE_OPTIONS=--openssl-legacy-provider elasticsearch' Enter
 
 # Create new windows and select asi as the landing screen
 tmux new-window -n api \; send-keys 'api' Enter

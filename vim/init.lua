@@ -48,7 +48,7 @@ opts = {
 }
 
 keyset("i", "jk", "<ESC>", opts)
-keyset("n", "<c-p>", ":GFiles<CR>", opts)
+keyset("n", "<c-p>", ":FZF<CR>", opts)
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
@@ -98,5 +98,9 @@ vim.cmd.highlight({ args = { "CocListBgGreen	guibg=" .. bgw } })
 vim.cmd.highlight({ args = { "CocListBgCyan	guibg=" .. bgw } })
 vim.cmd.highlight({ args = { "CocListBgYellow	guibg=" .. bgw } })
 vim.cmd.highlight({ args = { "CocListBgMagenta	guibg=" .. bgw } })
+
+if vim.g.neovide then
+  vim.cmd.cd("$HOME")
+end
 
 require'coc-setup'
