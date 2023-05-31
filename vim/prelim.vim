@@ -91,18 +91,16 @@ let g:ale_fixers = {
       \ 'javascript': [
       \   'remove_trailing_lines',
       \   'trim_whitespace',
-      \   'eslint',
       \ ],
       \ 'vue': [
       \   'remove_trailing_lines',
       \   'trim_whitespace',
-      \   'eslint',
       \ ],
       \}
 
 " Disable Language Server Protocol to avoid conflict with CoC
 let g:ale_disable_lsp = 1
-let g:ale_sign_column_always = 1
+" let g:ale_sign_column_always = 1
 
 let g:ale_exclude_highlights = ['indentation detected']
 

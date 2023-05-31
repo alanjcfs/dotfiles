@@ -39,7 +39,7 @@ keyset("n", "<leader>gb", ":Git blame ", opts)
 keyset("n", "<leader>g", ":Gcommit -v ", opts)
 keyset("n", "<leader>gd", ":Gdiff ", opts)
 keyset("n", "<leader>gw", ":Gwrite<CR>", opts)
-keyset("n", "<leader>rg", ":Ripgrep ", opts)
+keyset("n", "<leader>rg", ":Rg<CR>", opts)
 
 opts = {
   silent = true,
@@ -48,7 +48,7 @@ opts = {
 }
 
 keyset("i", "jk", "<ESC>", opts)
-keyset("n", "<c-p>", ":FZF<CR>", opts)
+keyset("n", "<c-p>", ":Files<CR>", opts)
 vim.keymap.set('n', '<space>e', vim.diagnostic.open_float, opts)
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, opts)
 vim.keymap.set('n', ']d', vim.diagnostic.goto_next, opts)
@@ -70,7 +70,7 @@ vim.o.undofile = true
 
 -- os.date('%H')
 local hour = tonumber(vim.call('strftime', '%H'))
-if hour >= 0 and hour < 12 then
+if hour >= 4 and hour < 12 then
   vim.o.background = 'light'
   os.execute("tmux source $HOME/.files/tmux/colours/tmuxcolors-light.conf")
 else
@@ -99,8 +99,10 @@ vim.cmd.highlight({ args = { "CocListBgCyan	guibg=" .. bgw } })
 vim.cmd.highlight({ args = { "CocListBgYellow	guibg=" .. bgw } })
 vim.cmd.highlight({ args = { "CocListBgMagenta	guibg=" .. bgw } })
 
+vim.opt.smartcase = true
+
 if vim.g.neovide then
-  vim.cmd.cd("$HOME")
+  vim.cmd.cd('$HOME')
 end
 
 vim.opt.list = true
