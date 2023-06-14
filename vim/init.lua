@@ -103,4 +103,6 @@ if vim.g.neovide then
   vim.cmd.cd("$HOME")
 end
 
+vim.opt.list = true
+
 require'coc-setup'
