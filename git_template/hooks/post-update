@@ -6,4 +6,3 @@ unless File.directory?(File.expand_path("../rebase-merge", __dir__))
   puts "Taking capture into #{file}"
   system "imagesnap -q -w 3 #{file} &"
 end
-exit 0
