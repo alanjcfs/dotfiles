@@ -2,6 +2,7 @@
 # frozen_string_literal: true
 
 file = "~/.gitshots/#{Time.now.to_i}.jpg"
+puts "Testing if this triggered"
 unless File.directory?(File.expand_path("../rebase-merge", __dir__))
   puts "Taking capture into #{file}"
   system "imagesnap -q -w 3 #{file} &"
