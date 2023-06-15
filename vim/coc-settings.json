@@ -39,7 +39,8 @@
 			}
 		},
 		// lua
-	}
+  },
+  "snippets.ultisnips.pythonPrompt": false
 }
 // coc-sql
 // "sql.lintOnOpen": false
