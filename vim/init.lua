@@ -1,4 +1,5 @@
 -- Load old prelim.vim
+vim.cmd [[runtime! plugged.vim]]
 vim.cmd [[runtime! prelim.vim]]
 
 vim.g.rg_command_name = "Ripgrep"

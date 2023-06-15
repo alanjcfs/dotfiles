@@ -1,16 +1,13 @@
 " Global Vim settings"
 
-source $VIMRUNTIME/defaults.vim
-set nocompatible
+" source $VIMRUNTIME/defaults.vim
+" set nocompatible
 
-filetype plugin indent on
+" filetype plugin indent on
 
-" Classic Vim settings
-if !has('nvim')
-  if exists('$TMUX')
-    set ttymouse=xterm2
-  endif
-endif
+
+
+runtime! plugged.vim
 
 " Mouse behaviors
 set mouse=a
@@ -75,8 +72,6 @@ set wildmenu wildignore+=*/tmp/* "" wildmode=list:longest,full
 set wildoptions="pum,tagfile"
 set wrap
 
-
-
 " Global indentation characters
 
 
@@ -113,18 +108,6 @@ endif
 if has('syntax') && has('eval')
   packadd! matchit
 endif
-
-call plug#begin()
-Plug 'altercation/vim-colors-solarized'
-Plug 'dense-analysis/ale'
-Plug 'sheerun/vim-polyglot'
-Plug 'tomtom/tcomment_vim'
-
-Plug 'christoomey/vim-tmux-navigator'
-
-Plug 'timpope/vim-endwise'
-Plug 'rstacruz/vim-closer'
-call plug#end()
 
 " Only do this part when compiled with support for autocommands.
 if has("autocmd")
