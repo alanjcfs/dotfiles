@@ -1,2 +1,8 @@
 Style/StringLiterals:
   Enabled: false
+
+Style/CommandLiteral:
+  Enabled: false
+
+Style/PercentLiteralDelimiters:
+  Enabled: false
