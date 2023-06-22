@@ -1,5 +1,6 @@
 call plug#begin()
 Plug 'tpope/vim-sensible'
+Plug 'github/copilot.vim'
 
 " Themes & Colorschemes
 Plug 'altercation/vim-colors-solarized'
