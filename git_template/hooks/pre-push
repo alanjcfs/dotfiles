@@ -2,15 +2,19 @@
 # frozen_string_literal: true
 
 file = "~/.gitshots/#{Time.now.to_i}.jpg"
-_local_ref, local_oid, _remote_ref, remote_oid = %x{
-while read local_ref local_oid remote_ref remote_oid
+read = %x{
+while read line;
 do
-   echo $local_ref
-   echo $local_oid
-   echo $remote_ref
-   echo $remote_oid
+  if [[ -z $line ]]
+  then
+    exit
+  fi
+  echo $line
 done
-}.split
+}
+exit if read.empty?
+
+_local_ref, local_oid, _remote_ref, remote_oid = read.split
 
 zero = %x(git hash-object --stdin </dev/null | tr '[0-9a-f]' '0'`)
 unless local_oid == zero && remote_oid == local_oid
