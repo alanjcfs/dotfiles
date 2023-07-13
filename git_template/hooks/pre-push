@@ -16,7 +16,7 @@ exit if read.empty?
 
 _local_ref, local_oid, _remote_ref, remote_oid = read.split
 
-zero = %x(git hash-object --stdin </dev/null | tr '[0-9a-f]' '0'`)
+zero = %x(git hash-object --stdin </dev/null | tr '[0-9a-f]' '0')
 unless local_oid == zero && remote_oid == local_oid
   puts "Taking capture into #{file}"
   system "imagesnap -q -w 3 #{file} &"
