@@ -3,8 +3,7 @@
 
 file = "~/.gitshots/#{Time.now.to_i}.jpg"
 read = %x{
-while read line;
-do
+while read line; do
   if [[ -z $line ]]
   then
     exit
@@ -13,11 +12,13 @@ do
 done
 }
 exit if read.empty?
+values = read.split("\n")
+puts "readlines: #{values}"
 
-_local_ref, local_oid, _remote_ref, remote_oid = read.split
+_local_ref, local_sha, _remote_ref, remote_sha = read.split
 
 zero = %x(git hash-object --stdin </dev/null | tr '[0-9a-f]' '0')
-unless local_oid == zero && remote_oid == local_oid
+unless local_sha == zero && remote_sha == local_sha
   puts "Taking capture into #{file}"
   system "imagesnap -q -w 3 #{file} &"
 end
