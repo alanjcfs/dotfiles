@@ -3,11 +3,17 @@
 
 # This script saves a snapshot of the user's webcam to ~/.gitshots every time
 # they push to a remote repository.
+unless File.exist?(`which imagesnap`)
+  puts "Please install imagesnap: brew install imagesnap"
+  exit 1
+end
+
 gitshot_dir = File.join(Dir.home, ".gitshots")
 unless Dir.exist?(gitshot_dir)
   puts "Creating ~/.gitshots"
   Dir.mkdir(gitshot_dir)
 end
+
 file = File.join(gitshot_dir, "#{Time.now.to_i}.jpg")
 read = %x{
 while read line; do
