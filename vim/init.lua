@@ -107,5 +107,8 @@ if vim.g.neovide then
 end
 
 vim.opt.list = true
+-- whether to show -- INSERT --, -- VISUAL --, etc at the bottom,
+-- superseded by lightline
+vim.opt.showmode = false
 
 require'coc-setup'

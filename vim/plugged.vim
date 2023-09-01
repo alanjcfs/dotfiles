@@ -46,7 +46,7 @@ Plug 'HerringtonDarkholme/yats.vim'
 " Plug 'reedes/vim-pencil', { 'for': ['markdown', 'asciidoc'] }
 " Plug 'nelstrom/vim-markdown-folding', { 'for': 'markdown' }
 
-Plug 'vim-airline/vim-airline'
+Plug 'itchyny/lightline.vim'
 
 " Git
 Plug 'jreybert/vimagit', { 'on': 'Magit' }
