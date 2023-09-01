@@ -3,7 +3,7 @@
 
 # This script saves a snapshot of the user's webcam to ~/.gitshots every time
 # they push to a remote repository.
-unless File.exist?(`which imagesnap`)
+unless File.exist?(`which imagesnap`.strip)
   puts "Please install imagesnap: brew install imagesnap"
   exit 1
 end
