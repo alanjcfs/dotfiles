@@ -1,37 +1,57 @@
-#!/usr/bin/env ruby
-# frozen_string_literal: true
+#!/bin/sh
 
-# This script saves a snapshot of the user's webcam to ~/.gitshots every time
-# they push to a remote repository.
-unless File.exist?(`which imagesnap`.strip)
-  puts "Please install imagesnap: brew install imagesnap"
-  exit 1
-end
+# An example hook script to verify what is about to be pushed.  Called by "git
+# push" after it has checked the remote status, but before anything has been
+# pushed.  If this script exits with a non-zero status nothing will be pushed.
+#
+# This hook is called with the following parameters:
+#
+# $1 -- Name of the remote to which the push is being done
+# $2 -- URL to which the push is being done
+#
+# If pushing without using a named remote those arguments will be equal.
+#
+# Information about the commits which are being pushed is supplied as lines to
+# the standard input in the form:
+#
+#   <local ref> <local oid> <remote ref> <remote oid>
+#
+# This sample shows how to prevent push of commits where the log message starts
+# with "WIP" (work in progress).
 
-gitshot_dir = File.join(Dir.home, ".gitshots")
-unless Dir.exist?(gitshot_dir)
-  puts "Creating ~/.gitshots"
-  Dir.mkdir(gitshot_dir)
-end
+remote="$1"
+url="$2"
 
-file = File.join(gitshot_dir, "#{Time.now.to_i}.jpg")
-read = %x{
-while read line; do
-  if [[ -z $line ]]
-  then
-    exit
-  fi
-  echo $line
+zero=$(git hash-object --stdin </dev/null | tr '[0-9a-f]' '0')
+imagefile="images/$(date +%s).png"
+
+while read local_ref local_oid remote_ref remote_oid
+do
+	if test "$local_oid" = "$zero"
+	then
+		# Handle delete
+		:
+	else
+		if test "$remote_oid" = "$zero"
+		then
+			# New branch, examine all commits
+			range="$local_oid"
+		else
+			# Update to existing branch, examine new commits
+			range="$remote_oid..$local_oid"
+		fi
+
+		# Check for WIP commit
+		commit=$(git rev-list -n 1 --grep '^WIP' "$range")
+		if test -n "$commit"
+		then
+			echo >&2 "Found WIP commit in $local_ref, not pushing"
+			exit 1
+		fi
+
+		echo "Taking capture into $imagefile"
+		imagesnap -q -w 3 $imagefile &
+	fi
 done
-}
-exit if read.empty?
-values = read.split("\n")
-puts "readlines: #{values}"
 
-_local_ref, local_sha, _remote_ref, remote_sha = read.split
-
-zero = %x(git hash-object --stdin </dev/null | tr '[0-9a-f]' '0')
-unless local_sha == zero && remote_sha == local_sha
-  puts "Taking capture into #{file}"
-  system "imagesnap -q -w 3 #{file} &"
-end
+exit 0
