@@ -19,6 +19,8 @@ if has('nvim')
   Plug 'neovim/nvim-lspconfig'
   Plug 'neoclide/coc.nvim', { 'branch': 'release' }
   Plug 'alanjcfs/rg.nvim'
+  Plug 'nvim-tree/nvim-tree.lua'
+  Plug 'nvim-tree/nvim-web-devicons'
 endif " has('nvim')
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
@@ -52,7 +54,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'jreybert/vimagit', { 'on': 'Magit' }
 
 " Ruby
-" Plug 'sunaku/vim-ruby-minitest', { 'for': 'ruby' }
+Plug 'sunaku/vim-ruby-minitest', { 'for': 'ruby' }
 
 " Miscellaneous
 Plug 'airblade/vim-gitgutter'
@@ -70,8 +72,8 @@ Plug 'tpope/vim-endwise' " end structures automatically
 Plug 'rstacruz/vim-closer'
 Plug 'tpope/vim-fugitive' " Git wrapper :Gwrite, :Gcommit, :Gblame, etc.
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
-" Plug 'tpope/vim-rails', { 'for': 'ruby' }
-" Plug 'tpope/vim-rake', { 'for': 'ruby' } " SNR problem
+Plug 'tpope/vim-rails', { 'for': 'ruby' }
+Plug 'tpope/vim-rake', { 'for': 'ruby' } " SNR problem
 Plug 'tpope/vim-repeat'
 Plug 'tpope/vim-sleuth' " adjust shiftwidth/expandtab heuristically
 Plug 'tpope/vim-surround'
