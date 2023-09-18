@@ -28,7 +28,8 @@ Plug 'junegunn/fzf.vim'
 Plug 'dense-analysis/ale'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'Chiel92/vim-autoformat'
-Plug 'fatih/vim-go'
+Plug 'fatih/vim-go', { 'for': 'go' }
+Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
 
 Plug 'asciidoc/vim-asciidoc', { 'for': ['asciidoc'] }
 Plug 'mattn/emmet-vim'
