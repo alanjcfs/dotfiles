@@ -6,6 +6,8 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 ZSHDIR="$HOME/.files/zsh.d"
+source $ZSHDIR/git-functions.sh
+source $ZSHDIR/aliases.sh
 
 ## To Renable oh-my-zsh
 # 1. Export ZSH
@@ -142,5 +144,3 @@ setopt pushdminus
 # Allow smallcase to match capital letters
 autoload -Uz compinit && compinit
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Z}'
-
-source $ZSHDIR/git-functions.sh
