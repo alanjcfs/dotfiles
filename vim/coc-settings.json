@@ -3,7 +3,7 @@
 
 	// configuration of extensions installed via :CocInstall
 	// solar graph
-	"solargraph.trace.server": "messages", // off,messages,verbose
+	"solargraph.trace.server": "verbose", // off,messages,verbose
 	"solargraph.commandPath": "solargraph",
 	"solargraph.formatting": true,
 	"solargraph.diagnostics": true,
