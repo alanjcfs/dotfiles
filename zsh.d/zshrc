@@ -6,8 +6,12 @@ if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]
 fi
 
 ZSHDIR="$HOME/.files/zsh.d"
-source $ZSHDIR/git-functions.sh
+source $ZSHDIR/git-aliases.sh
 source $ZSHDIR/aliases.sh
+[[ -r $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] &&
+  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+[[ -r $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] &&
+  source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ## To Renable oh-my-zsh
 # 1. Export ZSH
@@ -118,9 +122,11 @@ fi
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+
 export HISTSIZE=10000
 
-# Documentation: https://zsh.sourceforge.io/Doc/Release/Options.html#index-ALWAYS_005fTO_005fEND
+# Documentation for zsh options:
+# https://zsh.sourceforge.io/Doc/Release/Options.html#index-ALWAYS_005fTO_005fEND
 
 # No
 setopt nosharehistory
