@@ -148,8 +148,17 @@ setopt pushdignoredups
 setopt pushdminus
 
 # Allow smallcase to match capital letters
+# lower upper upper lower allow either lowercase or uppercase to match
+# ':+l:|=* r:|=*' allow matching on both sides of the current word
 zstyle ':completion:*' completer _complete
 zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
 autoload -Uz compinit && compinit
+
+autoload -U up-line-or-beginning-search
+autoload -U down-line-or-beginning-search
+zle -N up-line-or-beginning-search
+zle -N down-line-or-beginning-search
+bindkey "^[[A" up-line-or-beginning-search # Up
+bindkey "^[[B" down-line-or-beginning-search # Down
 
 export LESS=eFRX
