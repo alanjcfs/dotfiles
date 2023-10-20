@@ -1,56 +1,29 @@
 {
-	"diagnostic.displayByAle": true,
+  "diagnostic.displayByAle": true,
 
-	// configuration of extensions installed via :CocInstall
-	// solar graph
-	"solargraph.trace.server": "verbose", // off,messages,verbose
-	"solargraph.commandPath": "solargraph",
-	"solargraph.formatting": true,
-	"solargraph.diagnostics": true,
-	"solargraph.hover": true,
+  // configuration of extensions installed via :CocInstall
+  // coc-solargraph
+  "solargraph.trace.server": "verbose", // off,messages,verbose
+  "solargraph.commandPath": "solargraph",
+  "solargraph.formatting": true,
+  "solargraph.diagnostics": true,
+  "solargraph.hover": true,
 
-	// lua
-	"sumneko-lua.enable": true,
-	"sumneko-lua.enableNvimLuaDev": true,
-	"Lua.workspace.checkThirdParty": false,
+  // coc-sumneko-lua
+  "sumneko-lua.enable": true,
+  "sumneko-lua.enableNvimLuaDev": true,
+  "Lua.workspace.checkThirdParty": false,
 
-	// configuration of languageservers installed outside of :CocInstall
-	"languageserver": {
-		// ruby
-		"ruby-lsp": {
-			"trace.server": "verbose",
-			"command": "ruby-lsp",
-			"filetypes": ["ruby"],
-			"initializationOptions": {
-				"enabledFeatures": {
-					"codeActions": true,
-					"diagnostics": true,
-					"documentHighlights": true,
-					"documentLink": true,
-					"documentSymbols": true,
-					"foldingRanges": true,
-					"formatting": true,
-					"hover": true,
-					"inlayHint": true,
-					"onTypeFormatting": true,
-					"selectionRanges": true
-				},
-				"formatter": "auto"
-			}
-		},
-		// lua
+  // sql
+  "sql.lintOnOpen": false,
+
+  // configuration of languageservers installed outside of :CocInstall
+  "languageserver": {
+    "typeprof": {
+      "command": "typeprof",
+      "args": ["--lsp", "--stdio"],
+      "filetypes": ["ruby"]
+    }
   },
   "snippets.ultisnips.pythonPrompt": false
 }
-// coc-sql
-// "sql.lintOnOpen": false
-// "sorbet": {
-	// 	"trace.server": "verbose",
-	// 	"enable": true,
-	// 	"command": "srb",
-	// 	"args": ["tc", "--typed", "true", "--enable-all-experimental-lsp-features", "--lsp", "--disable-watchman", "--dir", "."],
-	// 	"filetypes": ["ruby"],
-	// 	"rootPatterns": [],
-	// 	"initializationOptions": {},
-	// 	"settings": {},
-	// },
