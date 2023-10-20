@@ -121,4 +121,18 @@ vim.opt.list = true
 -- superseded by lightline
 vim.opt.showmode = false
 
-require'coc-setup'
+vim.g.coc_global_extensions = {
+  'coc-json',
+  'coc-tsserver',
+  'coc-eslint',
+  'coc-prettier',
+  'coc-css',
+  'coc-html',
+  'coc-yaml',
+  'coc-python',
+  'coc-rls',
+  'coc-sql',
+  'coc-sumneko-lua',
+}
+
+      require'coc-setup'
