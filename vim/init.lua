@@ -135,4 +135,4 @@ vim.g.coc_global_extensions = {
   'coc-sumneko-lua',
 }
 
-      require'coc-setup'
+require'coc-setup'
