@@ -6,9 +6,11 @@ if [[ -z $DOTFILES ]] then
 fi
 
 git clone https://github.com/alanjcfs/dotfiles.git $DOTFILES
-ln -s $DOTFILES/bin ~/.local/bin
+ln -s $DOTFILES/bin $HOME/.local/bin
 mkdir -p ~/.config # create XDG_CONFIG_HOME=~/.config directory if it doesn't exist
-ln -s $DOTFILES/tmux ~/.config/tmux
+ln -s $DOTFILES/tmux $HOME/.config/tmux
+ln -s $DOTFILES/coc $HOME/.config/coc
+ln -s $DOTFILES/nvim $HOME/.config/nvim
 
 touch $HOME/.zshrc
 awk 'BEGIN{print "source $HOME/.files/zsh.d/zshrc"} 1' $HOME/.zshrc > tmp && mv tmp $HOME/.zshrc
