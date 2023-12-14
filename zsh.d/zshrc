@@ -8,10 +8,11 @@ fi
 ZSHDIR="$HOME/.files/zsh.d"
 source $ZSHDIR/git-aliases.sh
 source $ZSHDIR/aliases.sh
-[[ -r $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] &&
-  source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-[[ -r $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] &&
-  source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+# TODO: I shouldn't be so Mac specific
+# [[ -r $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] &&
+#   source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+# [[ -r $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] &&
+#   source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 
 ## To Renable oh-my-zsh
 # 1. Export ZSH
