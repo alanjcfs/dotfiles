@@ -32,5 +32,5 @@ wget --no-clobber --directory-prefix=$HOME/Library/Fonts/ https://github.com/rom
 wget --no-clobber --directory-prefix=$HOME/Library/Fonts/ https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Italic.ttf
 wget --no-clobber --directory-prefix=$HOME/Library/Fonts/ https://github.com/romkatv/powerlevel10k-media/raw/master/MesloLGS%20NF%20Bold%20Italic.ttf
 
-echo "# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh." >> $HOME/.zshrc
+echo "# To customize prompt, run \`p10k configure\` or edit ~/.p10k.zsh." >> $HOME/.zshrc
 echo "[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh" >> $HOME/.zshrc
