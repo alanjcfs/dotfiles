@@ -18,12 +18,14 @@
   "sql.lintOnOpen": false,
 
   // configuration of languageservers installed outside of :CocInstall
-  "languageserver": {
-    "typeprof": {
-      "command": "typeprof",
-      "args": ["--lsp", "--stdio"],
-      "filetypes": ["ruby"]
-    }
-  },
+  // "languageserver": {
+  //   "typeprof": {
+  //     "command": "typeprof",
+  //     "args": ["--lsp", "--stdio"],
+  //     "filetypes": ["ruby"]
+  //   }
+  // },
+
+  // coc-snippets
   "snippets.ultisnips.pythonPrompt": false
 }
