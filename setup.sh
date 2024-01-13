@@ -34,3 +34,12 @@ wget --no-clobber --directory-prefix=$HOME/Library/Fonts/ https://github.com/rom
 
 echo "# To customize prompt, run \`p10k configure\` or edit ~/.p10k.zsh." >> $HOME/.zshrc
 echo "[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh" >> $HOME/.zshrc
+
+# Mac OS specific
+defaults write com.microsoft.VSCode ApplePressAndHoldEnabled -bool false              # For VS Code
+defaults write com.microsoft.VSCodeInsiders ApplePressAndHoldEnabled -bool false      # For VS Code Insider
+defaults write com.vscodium ApplePressAndHoldEnabled -bool false                      # For VS Codium
+defaults write com.microsoft.VSCodeExploration ApplePressAndHoldEnabled -bool false   # For VS Codium Exploration users
+defaults delete -g ApplePressAndHoldEnabled                                           # If necessary, reset global default
+
+defaults write com.googlecode.iterm2 ApplePressAndHoldEnabled -bool false             # For iTerm2

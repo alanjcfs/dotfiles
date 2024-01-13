@@ -41,9 +41,9 @@ Plug 'skywind3000/asyncrun.vim'
 
 " JS Syntax
 Plug 'posva/vim-vue', { 'for': 'vue' }
-Plug 'leafgarland/typescript-vim'
+Plug 'leafgarland/typescript-vim', { 'for': 'typescript' }
 Plug 'jparise/vim-graphql'
-Plug 'HerringtonDarkholme/yats.vim'
+Plug 'HerringtonDarkholme/yats.vim', { 'for': 'typescript' }
 
 " Writing
 " Plug 'reedes/vim-pencil', { 'for': ['markdown', 'asciidoc'] }
@@ -69,8 +69,8 @@ Plug 'tyru/open-browser.vim'
 
 " The prolific Mr. T. Pope
 Plug 'tpope/vim-dispatch', { 'on': 'Dispatch' }
-Plug 'tpope/vim-endwise' " end structures automatically
-Plug 'rstacruz/vim-closer'
+" Plug 'tpope/vim-endwise' " end structures automatically
+" Plug 'rstacruz/vim-closer'
 Plug 'tpope/vim-fugitive' " Git wrapper :Gwrite, :Gcommit, :Gblame, etc.
 Plug 'tpope/vim-markdown', { 'for': 'markdown' }
 Plug 'tpope/vim-rails', { 'for': 'ruby' }
