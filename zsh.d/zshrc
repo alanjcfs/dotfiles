@@ -8,11 +8,28 @@ fi
 ZSHDIR="$HOME/.files/zsh.d"
 source $ZSHDIR/git-aliases.sh
 source $ZSHDIR/aliases.sh
-# TODO: I shouldn't be so Mac specific
-# [[ -r $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]] &&
-#   source $(brew --prefix)/share/zsh-autosuggestions/zsh-autosuggestions.zsh
-# [[ -r $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]] &&
-#   source $(brew --prefix)/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+
+# Check if homebrew is installed and load zsh-autocomplete, zsh-autosuggestions, and zsh-syntax-highlighting
+if command -v brew &> /dev/null;
+then
+  prefix=$(brew --prefix)
+  # Load zsh-autocomplete
+  if [[ -f $prefix/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh ]]; then
+    source $prefix/share/zsh-autocomplete/zsh-autocomplete.plugin.zsh
+  fi
+
+  # Load zsh-autosuggestions
+  if [[ -r $prefix/share/zsh-autosuggestions/zsh-autosuggestions.zsh ]]; then
+    source $prefix/share/zsh-autosuggestions/zsh-autosuggestions.zsh
+  fi
+
+  # Load zsh-syntax-highlighting
+  if [[ -r $prefix/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh ]]; then
+    source $prefix/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+  fi
+else
+  echo "Homebrew not installed. Skipping zsh-autocomplete, zsh-autosuggestions, and zsh-syntax-highlighting"
+fi
 
 
 # Preferred editor for local and remote sessions
@@ -64,9 +81,9 @@ unsetopt extendedglob
 # Allow smallcase to match capital letters
 # lower upper upper lower allow either lowercase or uppercase to match
 # ':+l:|=* r:|=*' allow matching on both sides of the current word
-zstyle ':completion:*' completer _complete
-zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
-autoload -Uz compinit && compinit
+# zstyle ':completion:*' completer _complete
+# zstyle ':completion:*' matcher-list 'm:{[:lower:][:upper:]}={[:upper:][:lower:]}' '+l:|=* r:|=*'
+# autoload -Uz compinit && compinit
 
 autoload -Uz up-line-or-beginning-search
 autoload -Uz down-line-or-beginning-search
