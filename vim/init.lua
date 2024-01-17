@@ -6,7 +6,7 @@ vim.g.loaded_netrwPlugin = 1
 -- vim.opt.termguicolors = true
 
 -- Load plugins and unmoved vim setup
-vim.cmd [[runtime! plugged.vim]]
+vim.cmd [[runtime! neoplugged.vim]]
 vim.cmd [[runtime! prelim.vim]]
 
 -- empty setup using defaults

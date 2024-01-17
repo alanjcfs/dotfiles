@@ -14,6 +14,15 @@ Plug 'junegunn/vim-easy-align'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-commentary'
 
+" Neovim-specific plugins
+Plug 'rcarriga/nvim-notify'
+Plug 'neovim/nvim-lspconfig'
+Plug 'neoclide/coc.nvim', { 'branch': 'release' }
+Plug 'alanjcfs/rg.nvim'
+Plug 'nvim-tree/nvim-tree.lua'
+Plug 'nvim-tree/nvim-web-devicons'
+" End Neovim-specific plugins
+
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
 Plug 'dense-analysis/ale'
@@ -67,10 +76,10 @@ Plug 'tpope/vim-surround'
 Plug 'tpope/vim-tbone' " tmux
 Plug 'tpope/vim-unimpaired' " brackets navigation
 
-Plug 'junegunn/gv.vim', { 'on': 'GV' }
-Plug 'junegunn/vim-peekaboo', { 'on': 'Peekaboo' }
-Plug 'junegunn/goyo.vim', { 'on': 'Goyo' }
-Plug 'junegunn/limelight.vim', { 'on': 'Limelight' }
+Plug 'junegunn/gv.vim' " Git commit browser
+Plug 'junegunn/vim-peekaboo' " show register contents
+Plug 'junegunn/goyo.vim'
+Plug 'junegunn/limelight.vim'
 call plug#end()
 
 " Plug 'editorconfig/editorconfig-vim'
