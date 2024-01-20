@@ -52,6 +52,8 @@ fi
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
 export HISTSIZE=10000
+export SAVEHIST=50000
+export HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
 
 # Documentation for zsh options:
 # https://zsh.sourceforge.io/Doc/Release/Options.html#index-ALWAYS_005fTO_005fEND
