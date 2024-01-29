@@ -54,6 +54,7 @@ fi
 export HISTSIZE=10000
 export SAVEHIST=50000
 export HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
+export WORDCHARS=""
 
 # Documentation for zsh options:
 # https://zsh.sourceforge.io/Doc/Release/Options.html#index-ALWAYS_005fTO_005fEND
