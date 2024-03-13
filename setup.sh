@@ -9,7 +9,6 @@ git clone https://github.com/alanjcfs/dotfiles.git $DOTFILES
 ln -s $DOTFILES/bin $HOME/.local/bin
 mkdir -p ~/.config # create XDG_CONFIG_HOME=~/.config directory if it doesn't exist
 ln -s $DOTFILES/tmux $HOME/.config/tmux
-ln -s $DOTFILES/coc $HOME/.config/coc
 ln -s $DOTFILES/nvim $HOME/.config/nvim
 
 touch $HOME/.zshrc
