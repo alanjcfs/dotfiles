@@ -97,18 +97,6 @@ vim.cmd.highlight({ args = { "GitGutterAdd guibg=" .. bg } })
 vim.cmd.highlight({ args = { "GitGutterChange guibg=" .. bg } })
 vim.cmd.highlight({ args = { "GitGutterDelete guibg=" .. bg } })
 vim.cmd.highlight({ args = { "GitGutterChangeDelete guibg=" .. bg } })
-vim.cmd.highlight({ args = { "CocMenuSel guibg=" .. bg } })
-vim.cmd.highlight({ args = { "CocFloatThumb guibg=" .. bg } })
-vim.cmd.highlight({ args = { "CocFloating guibg=" .. bg } })
-vim.cmd.highlight({ args = { "CocListBgBlue	guibg=" .. bg } })
-vim.cmd.highlight({ args = { "CocListBgGrey	guibg=" .. bg } })
-vim.cmd.highlight({ args = { "CocListFgBlack	guibg=" .. bg } })
-vim.cmd.highlight({ args = { "CocListBgBlue	guibg=" .. bg } })
-vim.cmd.highlight({ args = { "CocListFgBlack	guibg=" .. bgw } })
-vim.cmd.highlight({ args = { "CocListBgGreen	guibg=" .. bgw } })
-vim.cmd.highlight({ args = { "CocListBgCyan	guibg=" .. bgw } })
-vim.cmd.highlight({ args = { "CocListBgYellow	guibg=" .. bgw } })
-vim.cmd.highlight({ args = { "CocListBgMagenta	guibg=" .. bgw } })
 
 vim.opt.smartcase = true
 
@@ -121,6 +109,20 @@ vim.opt.list = true
 -- superseded by lightline
 vim.opt.showmode = false
 
+
+-- coc configuration
+vim.cmd.highlight({ args = { "CocMenuSel guibg=" .. bg } })
+vim.cmd.highlight({ args = { "CocFloatThumb guibg=" .. bg } })
+vim.cmd.highlight({ args = { "CocFloating guibg=" .. bg } })
+vim.cmd.highlight({ args = { "CocListBgBlue	guibg=" .. bg } })
+vim.cmd.highlight({ args = { "CocListBgGrey	guibg=" .. bg } })
+vim.cmd.highlight({ args = { "CocListFgBlack	guibg=" .. bg } })
+vim.cmd.highlight({ args = { "CocListBgBlue	guibg=" .. bg } })
+vim.cmd.highlight({ args = { "CocListFgBlack	guibg=" .. bgw } })
+vim.cmd.highlight({ args = { "CocListBgGreen	guibg=" .. bgw } })
+vim.cmd.highlight({ args = { "CocListBgCyan	guibg=" .. bgw } })
+vim.cmd.highlight({ args = { "CocListBgYellow	guibg=" .. bgw } })
+vim.cmd.highlight({ args = { "CocListBgMagenta	guibg=" .. bgw } })
 vim.g.coc_global_extensions = {
   'coc-json',
   'coc-tsserver',

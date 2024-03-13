@@ -24,7 +24,7 @@ Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
 Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'javascript'] }
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
-Plug 'chrisbra/csv.vim', { 'for': 'csv' }
+Plug 'chrisbra/csv.vim'
 
 Plug 'skywind3000/asyncrun.vim', { 'on': ['AsyncRun'] }
 
