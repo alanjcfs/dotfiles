@@ -24,16 +24,14 @@ end
 -- other plugins before putting this into your config
 
 local opts = {silent = true, noremap = true, expr = true, replace_keycodes = false}
-keyset("i", "<TAB>", 'coc#pum#visible() ? coc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
 keyset("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
--- keyset("i", "<TAB>", 'coc#pum#visible() ? coc#_select_confirm() :
---     coc#expandableOrJumcoc#pum#next(1) : v:lua.check_back_space() ? "<TAB>" : coc#refresh()', opts)
+keyset("i", "<TAB>", [[coc#pum#visible() ? coc#pum#insert() : v:lua.check_back_space() ? "<TAB>" : coc#refresh()]], opts)
 -- keyset("i", "<TAB>", [[coc#pum#visible() ? coc#_select_confirm() : coc#expandableOrJumpable() ? "<C-r>=coc#rpc#request('doKeymap', ['snippets-expand-jump', ''])<CR>" : v:lua.check_back_space() ? "\<TAB>" : coc#refresh()]], opts)
 -- keyset("i", "<S-TAB>", [[coc#pum#visible() ? coc#pum#prev(1) : "\<C-h>"]], opts)
 
 -- Make <CR> to accept selected completion item or notify coc.nvim to format
 -- <C-g>u breaks current undo, please make your own choice
-keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
+-- keyset("i", "<cr>", [[coc#pum#visible() ? coc#pum#confirm() : "\<C-g>u\<CR>\<c-r>=coc#on_enter()\<CR>"]], opts)
 
 -- disabled because absent from config
 -- keyset("i", "<c-l>", "<Plug>(coc-snippets-expand)")
