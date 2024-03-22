@@ -53,10 +53,10 @@ ZSHDIR="$HOME/.files/zsh.d"
 source $ZSHDIR/git-aliases.sh
 source $ZSHDIR/aliases.sh
 
-[[ -r $HOME/.files/zsh.d/Repos/znap/znap.zsh ]] ||
+[[ -r $HOME/Repos/znap/znap.zsh ]] ||
   git clone --depth 1 -- \
-    https://github.com/marlonrichert/zsh-snap.git $HOME/.files/zsh.d/Repos/znap
-source $HOME/.files/zsh.d/Repos/znap/znap.zsh
+    https://github.com/marlonrichert/zsh-snap.git $HOME/Repos/znap
+source $HOME/Repos/znap/znap.zsh
 
 # znap source marlonrichert/zsh-autocomplete
 znap source zsh-users/zsh-autosuggestions
