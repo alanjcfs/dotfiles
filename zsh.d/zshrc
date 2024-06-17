@@ -28,6 +28,7 @@ export WORDCHARS=""
 # No
 setopt nosharehistory
 setopt no_nomatch
+setopt noautomenu
 
 # Yes
 setopt always_to_end
@@ -58,6 +59,6 @@ source $ZSHDIR/aliases.sh
     https://github.com/marlonrichert/zsh-snap.git $HOME/Repos/znap
 source $HOME/Repos/znap/znap.zsh
 
-# znap source marlonrichert/zsh-autocomplete
+znap source marlonrichert/zsh-autocomplete
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
