@@ -30,7 +30,7 @@ Plug 'Chiel92/vim-autoformat'
 Plug 'fatih/vim-go', { 'for': 'go' }
 Plug 'elixir-editors/vim-elixir', { 'for': 'elixir' }
 
-Plug 'mattn/emmet-vim', { 'for': ['html', 'css', 'javascript'] }
+Plug 'mattn/emmet-vim'
 Plug 'racer-rust/vim-racer', { 'for': 'rust' }
 Plug 'rust-lang/rust.vim', { 'for': 'rust' }
 Plug 'chrisbra/csv.vim'
