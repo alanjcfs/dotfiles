@@ -17,8 +17,8 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export HISTSIZE=10000
-export SAVEHIST=50000
+export HISTSIZE=20000 # Number of commands to remember in memory
+export SAVEHIST=20000 # Number of commands to save to disk
 export HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
 export WORDCHARS=""
 
@@ -28,7 +28,7 @@ export WORDCHARS=""
 # No
 setopt nosharehistory
 setopt no_nomatch
-setopt noautomenu
+setopt automenu # Pressing tab key repeatedly cycles through completions
 
 # Yes
 setopt always_to_end
@@ -59,6 +59,6 @@ source $ZSHDIR/aliases.sh
     https://github.com/marlonrichert/zsh-snap.git $HOME/Repos/znap
 source $HOME/Repos/znap/znap.zsh
 
-znap source marlonrichert/zsh-autocomplete
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
+znap source marlonrichert/zsh-autocomplete
