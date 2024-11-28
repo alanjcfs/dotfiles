@@ -8,4 +8,5 @@ tmp/undo/
 tmp/backup/
 node_modules/
 coc/
+coc/list_history.dat
 zsh.d/Repos/
