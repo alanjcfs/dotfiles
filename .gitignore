@@ -7,3 +7,5 @@ tmp/swap/
 tmp/undo/
 tmp/backup/
 node_modules/
+coc/
+zsh.d/Repos/
