@@ -28,16 +28,17 @@ source $HOME/Repos/znap/znap.zsh
 
 # variables
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
-WORDCHARS=${${WORDCHARS:s#/#}:s,#,}
+WORDCHARS=${${${WORDCHARS:s#/#}:s,#,}:s,_,} # allow /, #, and _ in words
 
 # options
-setopt emacs
-setopt no_nomatch
-setopt longlistjobs
-setopt pushdignoredups
-setopt pushdminus
-setopt interactive_comments
-setopt extendedglob
+setopt emacs # use emacs keybindings
+setopt no_nomatch # avoid zsh: no matches found: foo
+setopt longlistjobs # list jobs with PIDs
+setopt pushdignoredups # don't push duplicates to the directory stack
+setopt pushdminus # flip the meaning of + and - when using pushd/popd
+setopt interactive_comments # Allow comments even in interactive shells
+setopt extendedglob # enable extended globbing, which means we can use things like **/*.txt
+setopt nocaseglob # case-insensitive globbing
 
 # history
 source $ZSHDIR/history.zsh
