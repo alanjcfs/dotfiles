@@ -1,8 +1,6 @@
 # Copied from https://github.com/ohmyzsh/ohmyzsh/blob/d82669199b5d900b50fd06dd3518c277f0def869/lib/completion.zsh
 zmodload -i zsh/complist # Load the completion system required for menuselect
 
-export WORDCHARS=""
-
 unsetopt menucomplete # Do not autoselect the first completion entry
 unsetopt flowcontrol # Do not start a new command after pressing ^S
 setopt automenu # Pressing tab key repeatedly cycles through completions

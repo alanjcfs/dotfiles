@@ -26,14 +26,18 @@ source $HOME/Repos/znap/znap.zsh
 # Documentation for zsh options:
 # https://zsh.sourceforge.io/Doc/Release/Options.html#index-ALWAYS_005fTO_005fEND
 
+# variables
+ZSH_AUTOSUGGEST_STRATEGY=(history completion)
+WORDCHARS=${${WORDCHARS:s#/#}:s,#,}
+
 # options
+setopt emacs
 setopt no_nomatch
-setopt noflowcontrol
 setopt longlistjobs
 setopt pushdignoredups
 setopt pushdminus
 setopt interactive_comments
-unsetopt extendedglob
+setopt extendedglob
 
 # history
 source $ZSHDIR/history.zsh
