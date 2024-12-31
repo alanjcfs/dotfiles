@@ -17,8 +17,8 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export HISTSIZE=20000 # Number of commands to remember in memory
-export SAVEHIST=20000 # Number of commands to save to disk
+export HISTSIZE=1000000 # Number of commands to remember in memory
+export SAVEHIST=1000000 # Number of commands to save to disk
 export HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
 export WORDCHARS=""
 
