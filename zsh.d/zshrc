@@ -57,3 +57,5 @@ export LESS=eFRX
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
 znap source marlonrichert/zsh-autocomplete
+
+zstyle ':completion:*' completer _complete _expand _complete:-fuzzy _correct _approximate _ignored
