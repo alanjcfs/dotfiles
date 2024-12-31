@@ -5,6 +5,12 @@ else
   export EDITOR='nvim'
 fi
 
+ZSHDIR="$HOME/.files/zsh.d"
+[[ -r $HOME/Repos/znap/znap.zsh ]] ||
+  git clone --depth 1 -- \
+    https://github.com/marlonrichert/zsh-snap.git $HOME/Repos/znap
+source $HOME/Repos/znap/znap.zsh
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -17,47 +23,31 @@ fi
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 
-export HISTSIZE=1000000 # Number of commands to remember in memory
-export SAVEHIST=1000000 # Number of commands to save to disk
-export HISTFILE=${ZDOTDIR:-$HOME}/.zsh_history
-export WORDCHARS=""
-
 # Documentation for zsh options:
 # https://zsh.sourceforge.io/Doc/Release/Options.html#index-ALWAYS_005fTO_005fEND
 
-# No
-setopt nosharehistory
+# options
 setopt no_nomatch
-setopt automenu # Pressing tab key repeatedly cycles through completions
-
-# Yes
-setopt always_to_end
-setopt auto_cd
-setopt auto_pushd
-setopt emacs
-setopt extended_history
 setopt noflowcontrol
-setopt histexpiredupsfirst
-setopt histignoredups
-setopt histignorespace
-setopt histverify
-setopt inc_append_history # Use fc -RI if you want to manually import commands from history
 setopt longlistjobs
 setopt pushdignoredups
 setopt pushdminus
 setopt interactive_comments
 unsetopt extendedglob
 
-export LESS=eFRX
+# history
+source $ZSHDIR/history.zsh
 
-ZSHDIR="$HOME/.files/zsh.d"
+# completion
+source $ZSHDIR/completion.zsh
+
+# directories
+source $ZSHDIR/directories.zsh
+
+# git
 source $ZSHDIR/git-aliases.sh
-source $ZSHDIR/aliases.sh
 
-[[ -r $HOME/Repos/znap/znap.zsh ]] ||
-  git clone --depth 1 -- \
-    https://github.com/marlonrichert/zsh-snap.git $HOME/Repos/znap
-source $HOME/Repos/znap/znap.zsh
+export LESS=eFRX
 
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
