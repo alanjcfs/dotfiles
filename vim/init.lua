@@ -88,7 +88,7 @@ else
   vim.o.background = 'dark'
   os.execute("tmux source $HOME/.files/tmux/colours/tmuxcolors-dark.conf")
 end
-vim.cmd.colorscheme("solarized")
+vim.cmd.colorscheme("nightfox")
 
 local bg = "#002b36"
 local bgw = "fdf6e3"

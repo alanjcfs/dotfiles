@@ -7,6 +7,7 @@ Plug 'altercation/vim-colors-solarized'
 Plug 'sjl/badwolf'
 Plug 'quanganhdo/grb256'
 Plug 'junegunn/seoul256.vim'
+Plug 'EdenEast/nightfox.nvim'
 
 " Code Editing
 Plug 'honza/vim-snippets'
