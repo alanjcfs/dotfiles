@@ -3,10 +3,9 @@
 !tmp/swap/.gitkeep
 !tmp/undo/.gitkeep
 !tmp/backup/.gitkeep
-tmp/swap/
-tmp/undo/
-tmp/backup/
+tmp/
 node_modules/
 coc/
 coc/list_history.dat
 zsh.d/Repos/
+plugged

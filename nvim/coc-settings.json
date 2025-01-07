@@ -1,0 +1,31 @@
+{
+  "diagnostic.displayByAle": true,
+
+  // configuration of extensions installed via :CocInstall
+  // coc-solargraph
+  "solargraph.trace.server": "verbose", // off,messages,verbose
+  "solargraph.commandPath": "solargraph",
+  "solargraph.formatting": true,
+  "solargraph.diagnostics": true,
+  "solargraph.hover": true,
+
+  // coc-sumneko-lua
+  "sumneko-lua.enable": true,
+  "sumneko-lua.enableNvimLuaDev": true,
+  "Lua.workspace.checkThirdParty": false,
+
+  // sql
+  "sql.lintOnOpen": false,
+
+  // configuration of languageservers installed outside of :CocInstall
+  // "languageserver": {
+  //   "typeprof": {
+  //     "command": "typeprof",
+  //     "args": ["--lsp", "--stdio"],
+  //     "filetypes": ["ruby"]
+  //   }
+  // },
+
+  // coc-snippets
+  "snippets.ultisnips.pythonPrompt": false
+}
