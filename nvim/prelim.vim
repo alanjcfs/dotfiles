@@ -86,8 +86,9 @@ if has("autocmd")
     au FileType rust setl softtabstop=2 tabstop=4 shiftwidth=4
     au FileType sh setl softtabstop=2 tabstop=4 shiftwidth=4
     au FileType xml setl noexpandtab tabstop=8 shiftwidth=8
+    au FileType lua setl noexpandtab tabstop=4 shiftwidth=4
 
-    au BufWrite ruby,javascript,vue :Autoformat
+    au BufWrite ruby,javascript,vue,lua :Autoformat
 
     " au BufRead,BufEnter ~/Tuna/* setl tabstop=2 shiftwidth=2
 
