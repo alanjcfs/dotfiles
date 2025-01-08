@@ -2,12 +2,6 @@ return {
 	"tpope/vim-sensible",
 	"github/copilot.vim",
 
-	-- Themes & Colorschemes
-	-- "altercation/vim-colors-solarized",
-	-- "sjl/badwolf",
-	-- "quanganhdo/grb256",
-	-- "junegunn/seoul256.vim",
-
 	-- Code Editing
 	"honza/vim-snippets",
 	"junegunn/vim-easy-align",
@@ -82,7 +76,6 @@ return {
 	"tpope/vim-dispatch", -- :Dispatch to run commands asynchronously
 	-- "tpope/vim-endwise" -- end structures automatically
 	-- "rstacruz/vim-closer",
-	"tpope/vim-fugitive", -- Git wrapper :Gwrite, :Gcommit, :Gblame, etc.
 	"tpope/vim-markdown", -- Markdown support
 	"vim-ruby/vim-ruby", -- Ruby support
 	"tpope/vim-rails", -- Rails support

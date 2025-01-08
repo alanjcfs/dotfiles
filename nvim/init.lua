@@ -40,7 +40,6 @@ local opts = {
 	silent = false,
 	noremap = true,
 }
-keyset("i", "<c-x><c-f>", "fzf#vim#complete#path('rg --files')", opts)
 -- keyset("n", "<leader>a", ":Ripgrep<space>", opts)
 keyset("n", "<leader>ev", ":sp $MYVIMRC<CR>", opts)
 keyset("n", "<leader>sv", ":so $MYVIMRC<CR>", opts)
@@ -86,6 +85,11 @@ vim.o.splitbelow = true
 vim.o.splitright = true
 vim.o.undofile = true
 
+require('nightfox').setup({
+	options = {
+		transparent = true,
+	}
+})
 local status, err = pcall(vim.cmd.colorscheme, "nightfox")
 if not status then
 	print("Error loading nightfox: " .. err)
