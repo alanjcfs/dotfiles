@@ -1,6 +1,6 @@
 "
 " Python3 host prog for faster startup
-let g:python3_host_prog = '/opt/homebrew/bin/python3.10'
+" let g:python3_host_prog = '/opt/homebrew/bin/python3.10'
 
 " NOTE: ALE recommends using ftplugin file instead of setting globally. Look
 " into using ~/.vim/ftplugin/javascript.vim and add b:ale_fixers
