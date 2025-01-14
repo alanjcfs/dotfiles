@@ -50,7 +50,7 @@ source $ZSHDIR/completion.zsh
 source $ZSHDIR/directories.zsh
 
 # git
-source $ZSHDIR/git-aliases.sh
+source "$ZSHDIR/git-aliases.sh"
 
 export LESS=eFRX
 
