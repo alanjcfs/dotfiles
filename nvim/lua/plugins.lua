@@ -10,20 +10,84 @@ return {
 
 	'rcarriga/nvim-notify',
 	'neovim/nvim-lspconfig',
-	{
-		'neoclide/coc.nvim',
-		build = 'npm ci'
-	},
-	'alanjcfs/rg.nvim',
-	{
-		'nvim-tree/nvim-tree.lua',
-		dependencies = {
-			'nvim-tree/nvim-web-devicons',
-		}
-	},
+	'hrsh7th/cmp-nvim-lsp',
+	'hrsh7th/cmp-buffer',
+	'hrsh7th/cmp-path',
+	'hrsh7th/cmp-cmdline',
 
-{
-	"junegunn/fzf.vim",
+	'nvimtools/none-ls.nvim', -- linting and formatting
+	'williamboman/mason.nvim', -- maintain lsp packages
+	'williamboman/mason-lspconfig.nvim', -- integration with lspconfig
+
+	--  completion
+	'hrsh7th/nvim-cmp',
+	'hrsh7th/cmp-vsnip',
+	'hrsh7th/vim-vsnip',
+	'rafamadriz/friendly-snippets', -- collection of pre-made snippets
+	{
+		'petertriho/cmp-git',
+		dependencies = { 'hrsh7th/nvim-cmp' },
+		opts = {},
+		init = function()
+			table.insert(require('cmp').get_config().sources, { name = "git" })
+		end,
+	},
+	{
+		"nvim-neo-tree/neo-tree.nvim",
+		branch = "v3.x",
+		dependencies = {
+			"nvim-lua/plenary.nvim",
+			"nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+			"MunifTanjim/nui.nvim",
+			-- "3rd/image.nvim", -- Optional image support in preview window: See `# Preview Mode` for more information
+		},
+		keys = {
+			{ "<leader>ft", "<cmd>Neotree toggle<CR>", desc = "NeoTree" },
+		},
+		opts = {},
+	},
+	-- {
+	-- 	'neoclide/coc.nvim',
+	-- 	build = 'npm ci'
+	-- 	init = function()
+	-- 		vim.g.coc_global_extensions = {
+	-- 			'coc-json',
+	-- 			'coc-tsserver',
+	-- 			'coc-eslint',
+	-- 			'coc-prettier',
+	-- 			'coc-css',
+	-- 			'coc-html',
+	-- 			'coc-yaml',
+	-- 			'coc-python',
+	-- 			'coc-rls',
+	-- 			'coc-sql',
+	-- 			'coc-sumneko-lua',
+	-- 		}
+	--
+	-- 		require'coc-setup'
+	-- 	end
+	-- },
+	-- {
+		-- 'alanjcfs/rg.nvim',
+		-- init = function()
+		--		vim.g.rg_command_name = "Ripgrep"
+		--	end
+
+	 -- {
+			-- 'nvim-tree/nvim-tree.lua',
+			-- dependencies = {
+				-- 'nvim-tree/nvim-web-devicons',
+			-- },
+			-- init = function()
+				-- vim.g.loaded_netrw = 1
+				-- vim.g.loaded_netrwPlugin = 1
+
+				-- require'nvim-tree'.setup()
+			-- end
+	 -- },
+
+	{
+		"junegunn/fzf.vim",
 		build = function()
 			vim.cmd("call fzf#install()")
 		end,
@@ -31,8 +95,39 @@ return {
 			"junegunn/fzf",
 		}
 	},
-	"dense-analysis/ale",
-	"Chiel92/vim-autoformat",
+	{
+		"dense-analysis/ale",
+		init = function()
+			-- NOTE: ALE recommends using ftplugin file instead of setting globally. Look
+			-- into using ~/.vim/ftplugin/javascript.vim and add b:ale_fixers
+			-- set ofu=ale#completion#OmniFunc
+			vim.g.ale_fix_on_save = 1
+
+			vim.g.ale_fixers = {
+				javascript = {
+				'remove_trailing_lines',
+				'trim_whitespace',
+				},
+				vue = {
+				'remove_trailing_lines',
+				'trim_whitespace',
+				},
+			}
+
+			-- Disable Language Server Protocol to avoid conflict with CoC
+			vim.g.ale_disable_lsp = 1
+			-- let g:ale_sign_column_always = 1
+
+			vim.g.ale_exclude_highlights = { 'indentation detected' }
+		end
+	},
+	{
+		"Chiel92/vim-autoformat",
+		init = function()
+			vim.g.formatters_javascriptreact = { 'eslint_local' }
+			-- let g:formatters_javascript = ['eslint_local']
+		end
+	},
 
 	"fatih/vim-go",
 	"elixir-editors/vim-elixir",

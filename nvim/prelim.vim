@@ -2,37 +2,6 @@
 " Python3 host prog for faster startup
 " let g:python3_host_prog = '/opt/homebrew/bin/python3.10'
 
-" NOTE: ALE recommends using ftplugin file instead of setting globally. Look
-" into using ~/.vim/ftplugin/javascript.vim and add b:ale_fixers
-let g:airline_disable_statusline = 0
-let g:airline#extensions#ale#enabled = 1
-" let g:airline_section_b = '%{airline#util#wrap(airline#extensions#hunks#get_hunks(),100)}%{airline#util#wrap(airline#extensions#branch#get_head(),80)}'
-" let g:airline_section_b = ''
-" set ofu=ale#completion#OmniFunc
-let g:ale_fix_on_save = 1
-
-let g:ale_fixers = {
-      \ 'javascript': [
-      \   'remove_trailing_lines',
-      \   'trim_whitespace',
-      \ ],
-      \ 'vue': [
-      \   'remove_trailing_lines',
-      \   'trim_whitespace',
-      \ ],
-      \}
-
-" Disable Language Server Protocol to avoid conflict with CoC
-let g:ale_disable_lsp = 1
-" let g:ale_sign_column_always = 1
-
-let g:ale_exclude_highlights = ['indentation detected']
-
-
-" vim-autoformat
-" let g:formatters_javascript = ['eslint_local']
-let g:formatters_javascriptreact = ['eslint_local']
-
 
 " EditorConfig exclude patterns
 let g:EditorConfig_exclude_patterns = ['fugitive://.*', 'scp://.*']

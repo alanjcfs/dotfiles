@@ -1,0 +1,30 @@
+-- local bg = "#002b36"
+-- local bgw = "fdf6e3"
+-- vim.cmd.highlight({ args = { "clear SignColumn" } })
+-- vim.cmd.highlight({ args = { "GitGutterAdd guibg=" .. bg } })
+-- vim.cmd.highlight({ args = { "GitGutterChange guibg=" .. bg } })
+-- vim.cmd.highlight({ args = { "GitGutterDelete guibg=" .. bg } })
+-- vim.cmd.highlight({ args = { "GitGutterChangeDelete guibg=" .. bg } })
+-- vim.cmd.highlight({ args = { "CocMenuSel guibg=" .. bg } })
+-- vim.cmd.highlight({ args = { "CocFloatThumb guibg=" .. bg } })
+-- vim.cmd.highlight({ args = { "CocFloating guibg=" .. bg } })
+-- vim.cmd.highlight({ args = { "CocListBgBlue	guibg=" .. bg } })
+-- vim.cmd.highlight({ args = { "CocListBgGrey	guibg=" .. bg } })
+-- vim.cmd.highlight({ args = { "CocListFgBlack	guibg=" .. bg } })
+-- vim.cmd.highlight({ args = { "CocListBgBlue	guibg=" .. bg } })
+-- vim.cmd.highlight({ args = { "CocListFgBlack	guibg=" .. bgw } })
+-- vim.cmd.highlight({ args = { "CocListBgGreen	guibg=" .. bgw } })
+-- vim.cmd.highlight({ args = { "CocListBgCyan	guibg=" .. bgw } })
+-- vim.cmd.highlight({ args = { "CocListBgYellow	guibg=" .. bgw } })
+-- vim.cmd.highlight({ args = { "CocListBgMagenta	guibg=" .. bgw } })
+
+-- vim.g.ctrlp_match_func = { match = 'pymatcher#PyMatch' }
+
+-- os.date('%H')
+-- local hour = tonumber(vim.call('strftime', '%H'))
+-- if hour >= 6 and hour < 9 then
+--   vim.o.background = 'light'
+--   os.execute("tmux source $HOME/.files/tmux/colours/tmuxcolors-light.conf")
+-- else
+--   vim.o.background = 'dark' os.execute("tmux source $HOME/.files/tmux/colours/tmuxcolors-dark.conf")
+-- end

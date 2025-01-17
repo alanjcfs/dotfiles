@@ -1,6 +1,4 @@
--- disable netrw at the very start of your init.lua
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- disabled for nvimtree netrw at the very start of your init.lua
 local plugin_directory = os.getenv("HOME") .. "/.local/share/nvim/lazy"
 
 -- set termguicolors to enable highlight groups
@@ -9,11 +7,6 @@ local plugin_directory = os.getenv("HOME") .. "/.local/share/nvim/lazy"
 -- Load plugins and unmoved vim setup
 require("config.lazy")
 vim.cmd [[runtime! prelim.vim]]
-
--- empty setup using defaults
-require("nvim-tree").setup()
-
-vim.g.rg_command_name = "Ripgrep"
 
 --[[
   vim.o is equivalent to :set (:h options.txt)
@@ -88,6 +81,9 @@ vim.o.undofile = true
 require('nightfox').setup({
 	options = {
 		transparent = true,
+		styles = {
+			types = "italic,bold",
+		}
 	}
 })
 local status, err = pcall(vim.cmd.colorscheme, "nightfox")
@@ -100,40 +96,10 @@ vim.opt.smartcase = true
 vim.opt.list = true -- show whitespace
 vim.opt.showmode = false -- show mode, e.g. -- INSERT --, -- VISUAL --, not needed because of lightline
 
--- coc configuration
-vim.g.coc_global_extensions = {
-	'coc-json',
-	'coc-tsserver',
-	'coc-eslint',
-	'coc-prettier',
-	'coc-css',
-	'coc-html',
-	'coc-yaml',
-	'coc-python',
-	'coc-rls',
-	'coc-sql',
-	'coc-sumneko-lua',
-}
-
-local function exists(file)
-	local ok, _, code = os.rename(file, file)
-	if not ok then
-		if code == 13 then
-			-- Permission denied, but it exists
-			return true
-		end
-	else
-		return false
-	end
-	return ok
-end
-
-local coc = exists(plugin_directory .. "/coc.nvim")
-if coc ~= nil then
-	require'coc-setup'
-else
-	print("cannot find coc-setup. not loading")
-end
+-- nvim-cmp configuration
+-- if utils.exists(plugin_directory .. "/nvim-cmp") then
+	require'config.nvim-cmp'
+-- end
 
 if vim.g.neovide then
 	vim.cmd.cd(os.getenv("HOME"))
