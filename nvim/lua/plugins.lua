@@ -1,9 +1,8 @@
 return {
 	"tpope/vim-sensible",
-	"github/copilot.vim",
 
 	-- Code Editing
-	"honza/vim-snippets",
+	-- "honza/vim-snippets",
 	"junegunn/vim-easy-align",
 	"mbbill/undotree",
 	"tpope/vim-commentary",
@@ -16,7 +15,10 @@ return {
 	'hrsh7th/cmp-cmdline',
 
 	'nvimtools/none-ls.nvim', -- linting and formatting
-	'williamboman/mason.nvim', -- maintain lsp packages
+	{
+		'williamboman/mason.nvim', -- maintain lsp packages
+		opts = {},
+	},
 	'williamboman/mason-lspconfig.nvim', -- integration with lspconfig
 
 	--  completion

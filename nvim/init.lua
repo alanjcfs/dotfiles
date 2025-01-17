@@ -81,9 +81,6 @@ vim.o.undofile = true
 require('nightfox').setup({
 	options = {
 		transparent = true,
-		styles = {
-			types = "italic,bold",
-		}
 	}
 })
 local status, err = pcall(vim.cmd.colorscheme, "nightfox")
