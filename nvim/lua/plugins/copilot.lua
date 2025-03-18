@@ -4,6 +4,8 @@ return {
 
 		vim.g.copilot_filetypes = {
 			xml = false,
+			md = false,
+			typst = false,
 		}
 	end
 }
