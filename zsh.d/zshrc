@@ -6,10 +6,11 @@ else
 fi
 
 ZSHDIR="$HOME/.files/zsh.d"
-[[ -r $HOME/Repos/znap/znap.zsh ]] ||
+[[ -r $ZSHDIR/Repos/znap/znap.zsh ]] ||
   git clone --depth 1 -- \
-    https://github.com/marlonrichert/zsh-snap.git $HOME/Repos/znap
-source $HOME/Repos/znap/znap.zsh
+    https://github.com/marlonrichert/zsh-snap.git $ZSHDIR/Repos/znap
+source $ZSHDIR/Repos/znap/znap.zsh
+zstyle ':znap:*' repos-dir $ZSHDIR/Repos
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
