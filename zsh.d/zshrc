@@ -26,6 +26,11 @@ zstyle ':znap:*' repos-dir $ZSHDIR/Repos
 
 # Documentation for zsh options:
 # https://zsh.sourceforge.io/Doc/Release/Options.html#index-ALWAYS_005fTO_005fEND
+# Also see `man zshoptions`
+
+export HISTFILE="$HOME/.zsh_history"
+export HISTSIZE=500000
+export HISTFILESIZE=1000000
 
 # variables
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)

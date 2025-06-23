@@ -12,4 +12,5 @@ setopt histignorespace # Do not record an entry starting with a space
 setopt histreduceblanks # Remove superfluous blanks from each command line being added to the history list
 setopt histverify # Do not execute immediately upon history expansion
 setopt append_history # Append history to the history file at the end of the session
+setopt incappendhistory # Append history to the history file immediately after each command
 setopt extended_history # Save timestamp of command in history file
