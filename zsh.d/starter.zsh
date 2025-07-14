@@ -8,7 +8,11 @@ fi
 # Configurations
 source $HOME/.files/zsh.d/zshrc
 
+export PATH="$HOME/.local/bin:$PATH"
 
 
 # Load Powerlevel10k
-source /opt/homebrew/share/powerlevel10k/powerlevel10k.zsh-theme
+source ~/powerlevel10k/powerlevel10k.zsh-theme
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

@@ -2,7 +2,11 @@
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  export EDITOR='nvim'
+  if [[ -f /usr/bin/nvim ]]; then
+    export EDITOR='nvim'
+  else
+    export EDITOR='vim'
+  fi
 fi
 
 ZSHDIR="$HOME/.files/zsh.d"
