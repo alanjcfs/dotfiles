@@ -142,7 +142,7 @@ if has("autocmd")
     au FileType gitconfig setl noexpandtab tabstop=8 shiftwidth=8
     au FileType markdown setl textwidth=120
     au FileType text setl noexpandtab tabstop=8 shiftwidth=8 textwidth=120
-    au FileType asciidoc call pencil#init({'autoformat': 0}) | setl textwidth=120
+    " au FileType asciidoc call pencil#init({'autoformat': 0}) | setl textwidth=120
 
     " Code
     " au FileType css setl omnifunc=csscomplete#CompleteCSS
