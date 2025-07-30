@@ -101,3 +101,16 @@ vim.opt.showmode = false -- show mode, e.g. -- INSERT --, -- VISUAL --, not need
 if vim.g.neovide then
 	vim.cmd.cd(os.getenv("HOME"))
 end
+
+vim.g.clipboard = {
+	name = "unnamedplus",
+	copy = {
+		["+"] = "xsel --clipboard --input",
+		["*"] = "xsel --primary --input",
+	},
+	paste = {
+		["+"] = "xsel --clipboard --output",
+		["*"] = "xsel --primary --output",
+	},
+	cache_enabled = 1,
+}
