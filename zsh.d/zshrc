@@ -16,6 +16,10 @@ ZSHDIR="$HOME/.files/zsh.d"
 source $ZSHDIR/Repos/znap/znap.zsh
 zstyle ':znap:*' repos-dir $ZSHDIR/Repos
 
+znap source zsh-users/zsh-autosuggestions
+znap source zsh-users/zsh-syntax-highlighting
+znap source marlonrichert/zsh-autocomplete
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
@@ -63,9 +67,5 @@ source $ZSHDIR/directories.zsh
 source "$ZSHDIR/git-aliases.sh"
 
 export LESS=eFRX
-
-znap source zsh-users/zsh-autosuggestions
-znap source zsh-users/zsh-syntax-highlighting
-znap source marlonrichert/zsh-autocomplete
 
 zstyle ':completion:*' completer _complete _expand _complete:-fuzzy _correct _approximate _ignored
