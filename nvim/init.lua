@@ -102,7 +102,9 @@ if vim.g.neovide then
 	vim.cmd.cd(os.getenv("HOME"))
 end
 
-if vim.fn.has('linux')
+-- Platform-specific clipboard configuration
+if vim.fn.executable('xsel') == 1 then
+	-- Linux/Unix clipboard using xsel
 	vim.g.clipboard = {
 		name = "unnamedplus",
 		copy = {
@@ -112,6 +114,20 @@ if vim.fn.has('linux')
 		paste = {
 			["+"] = "xsel --clipboard --output",
 			["*"] = "xsel --primary --output",
+		},
+		cache_enabled = 1,
+	}
+elseif vim.fn.executable('pbcopy') == 1 then
+	-- macOS clipboard using pbcopy/pbpaste
+	vim.g.clipboard = {
+		name = "unnamed",
+		copy = {
+			["+"] = "pbcopy",
+			["*"] = "pbcopy",
+		},
+		paste = {
+			["+"] = "pbpaste",
+			["*"] = "pbpaste",
 		},
 		cache_enabled = 1,
 	}
