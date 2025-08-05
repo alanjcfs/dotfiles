@@ -102,15 +102,17 @@ if vim.g.neovide then
 	vim.cmd.cd(os.getenv("HOME"))
 end
 
-vim.g.clipboard = {
-	name = "unnamedplus",
-	copy = {
-		["+"] = "xsel --clipboard --input",
-		["*"] = "xsel --primary --input",
-	},
-	paste = {
-		["+"] = "xsel --clipboard --output",
-		["*"] = "xsel --primary --output",
-	},
-	cache_enabled = 1,
-}
+if vim.fn.has('linux')
+	vim.g.clipboard = {
+		name = "unnamedplus",
+		copy = {
+			["+"] = "xsel --clipboard --input",
+			["*"] = "xsel --primary --input",
+		},
+		paste = {
+			["+"] = "xsel --clipboard --output",
+			["*"] = "xsel --primary --output",
+		},
+		cache_enabled = 1,
+	}
+end
