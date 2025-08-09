@@ -20,6 +20,9 @@ znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
 znap source marlonrichert/zsh-autocomplete
 
+# Enter should always accept the current line
+bindkey -M menuselect '\r' .accept-line
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
