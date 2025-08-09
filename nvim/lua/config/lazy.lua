@@ -30,5 +30,6 @@ require("lazy").setup({
   checker = {
     enabled = true, -- enable periodic checking for updates
     notify = false, -- disable notifications for updates
+    frequency = 86400, -- check for updates every 24 hours
   },
 })
