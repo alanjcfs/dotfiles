@@ -90,9 +90,7 @@ return {
 
 	{
 		"junegunn/fzf.vim",
-		build = function()
-			vim.cmd("call fzf#install()")
-		end,
+		build = ":call fzf#install()",
 		dependencies = {
 			"junegunn/fzf",
 		}
