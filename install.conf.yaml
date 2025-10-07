@@ -1,0 +1,14 @@
+# https://github.com/anishathalye/dotbot
+- defaults:
+    link:
+      relink: true
+
+- clean: ['~']
+
+- link:
+    ~/.tmux.conf: tmux/tmux.conf
+    ~/.config/nvim: nvim
+    ~/.zshrc: zsh.d/zshrc
+
+- shell:
+  - [git submodule update --init --recursive, Installing submodules]
