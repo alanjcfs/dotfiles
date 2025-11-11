@@ -21,9 +21,6 @@
     ~/.vim: vim
     ~/.vimrc: vim/vimrc
 
-    # Alacritty
-    ~/.config/alacritty: alacritty
-
 - create:
     - ~/.local/bin
 
