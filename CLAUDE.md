@@ -2,6 +2,9 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
+Avoid using exclamation points. I don't like you responding, "Perfect!" or "Great question!" Keep your tone neutral and
+professional.
+
 ## Repository Overview
 
 This is a personal dotfiles repository containing configuration files for various development tools and shell environments. The repository is structured as a central configuration hub that can be symlinked to appropriate locations on different systems.
@@ -21,7 +24,12 @@ This is a personal dotfiles repository containing configuration files for variou
   - Uses TPM (Tmux Plugin Manager) with plugins like tmux-sensible, tmux-resurrect
 - **zsh.d/**: Zsh shell configuration and plugins
   - Uses znap for plugin management
-  - Contains various zsh plugins and custom configurations
+  - Main file: `zsh.d/zshrc` (sourced by machine-specific `~/.zshrc`)
+  - Loads zsh-autosuggestions, zsh-syntax-highlighting, zsh-autocomplete
+  - **Important:** Shell options (like `setopt emacs`) must be set BEFORE loading plugins
+  - Contains `p10k.zsh` as portable default prompt configuration
+- **powerlevel10k/**: Git submodule for powerlevel10k theme
+  - Loaded from `~/.files/powerlevel10k/` instead of homebrew for portability
 
 ### Supporting Tools
 
@@ -30,17 +38,38 @@ This is a personal dotfiles repository containing configuration files for variou
 - **alacritty/**, **iTerm/**: Terminal emulator configurations
 - **coc/**: CoC (Conquer of Completion) configurations for Vim
 
-## Setup Commands
+## Installation
 
-Based on the README.md, the repository uses symbolic links for deployment:
+This repository uses **Dotbot** for automated installation and setup:
 
 ```bash
-# Neovim setup
-ln -s ~/.files/nvim ~/.config/nvim
+# Clone the repository
+git clone https://github.com/your-username/.files.git ~/.files
+cd ~/.files
 
-# Tmux setup  
-ln -s ~/.files/tmux/tmux.conf ~/.tmux.conf
+# Run the installer - creates all symlinks and initializes submodules
+./install
 ```
+
+### What Gets Installed
+
+The `install.conf.yaml` configuration:
+- Creates symlinks for nvim, vim, tmux, alacritty configs
+- Initializes git submodules (powerlevel10k, tpm, dotbot)
+- Creates machine-specific `~/.zshrc` if it doesn't exist
+- Checks for Neovim installation
+- Provides guidance for p10k customization
+
+### Machine-Specific vs Portable Config
+
+**Portable (tracked in repo):**
+- `~/.files/zsh.d/zshrc` - Core zsh configuration loaded on all machines
+- `~/.files/zsh.d/p10k.zsh` - Default powerlevel10k prompt theme
+
+**Machine-Specific (local only):**
+- `~/.zshrc` - Sources portable config + machine-specific customizations (paths, aliases)
+- `~/.p10k.zsh` - Optional override for machine-specific prompt theme
+- `~/.local/bin/` - Machine-specific binaries (not managed by dotfiles)
 
 ## Development Workflow
 
@@ -60,12 +89,14 @@ ln -s ~/.files/tmux/tmux.conf ~/.tmux.conf
 - Uses C-a as prefix key
 - TPM plugins are managed in `tmux/tmux.conf`
 - Custom pane navigation with vim-awareness
-- Plugin installation requires TPM to be cloned to `~/.files/tmux/plugins/tpm/`
+- TPM is a git submodule at `tmux/plugins/tpm/`
+- **Note:** TPM-managed plugins (tmux-sensible, etc.) are downloaded to `tmux/plugins/` and should be gitignored
 
 ### Git Integration
 
 - Custom git statistics script available as `bin/git-quick-stats`
 - Git templates and hooks in `git_template/`
+- Use conventional commit with scope
 
 ## Key Configuration Files
 
@@ -78,9 +109,20 @@ ln -s ~/.files/tmux/tmux.conf ~/.tmux.conf
 
 - **Neovim**: Uses Lazy.nvim (modern, declarative)
 - **Vim**: Uses vim-plug (legacy setup)
-- **Tmux**: Uses TPM (Tmux Plugin Manager)
+- **Tmux**: Uses TPM (Tmux Plugin Manager) - plugins downloaded on first run
 - **Zsh**: Uses znap plugin manager
+- **Dotfiles**: Uses Dotbot for installation and symlink management
 
+## Important Notes
 
-You are an experienced, pragmatic software engineer. You don't over-engineer a solution when a simple one is possible.
-Rule #1: If you want exception to ANY rule, YOU MUST STOP and get explicit permission from Alan first.
+### Zsh Plugin Loading Order
+
+Shell options MUST be set before loading plugins to prevent keybinding conflicts:
+
+```zsh
+# Correct order in zsh.d/zshrc:
+setopt emacs               # Set shell options FIRST
+znap source <plugins>      # Then load plugins
+```
+
+If shell options are set after plugins load, they will reset plugin keybindings (e.g., zsh-autocomplete's `up-line-or-search` gets reset to `up-line-or-history`).
