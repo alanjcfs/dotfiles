@@ -45,7 +45,7 @@ cd ~/.files
 ```
 
 The installer will:
-- Create all symlinks (nvim, vim, tmux, alacritty)
+- Create all symlinks (nvim, vim, tmux)
 - Initialize git submodules (powerlevel10k, tpm, dotbot)
 - Create machine-specific `~/.zshrc` if it doesn't exist
 - Check for Neovim installation
@@ -89,9 +89,7 @@ Personal dotfiles repository for development tools and shell environments. Desig
 ### Supporting Tools
 
 - **bin/**: Custom scripts (e.g., `git-quick-stats`)
-- **git_template/**: Git hooks and templates
-- **alacritty/**: Terminal emulator config
-- **coc/**: CoC (Conquer of Completion) for Vim
+- **iTerm/**: iTerm2 terminal emulator configuration
 
 ## Common Tasks
 
