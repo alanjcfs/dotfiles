@@ -1,10 +1,15 @@
-#!/usr/bin/env zsh
-
+#!/usr/bin/env bash
+# Compatible with both bash and zsh
+#
+# Pre-commit hook to prevent committing sensitive files
+# Usage: Copy to .git/hooks/pre-commit or use as git template hook
+#
 # NOTE: Export MUST_NOT_CHANGE to provide your own list of files
-if [ ! -v MUST_NOT_CHANGE ]
-then
+if [ -z "${MUST_NOT_CHANGE+x}" ]; then
 read -r -d '' MUST_NOT_CHANGE << EOM
 	config/database.yml
+	.env
+	credentials.json
 EOM
 fi
 
