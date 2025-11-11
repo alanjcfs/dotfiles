@@ -2,8 +2,8 @@
 
 This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
 
-Avoid using exclamation points. I don't like you responding, "Perfect!" or "Great question!" Keep your tone neutral and
-professional.
+Avoid using exclamation points. I don't like you responding, "Perfect!" or "Great question!" It's too bubbly. Keep your
+tone neutral.
 
 ## Repository Overview
 

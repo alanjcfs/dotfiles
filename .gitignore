@@ -9,3 +9,8 @@ coc/
 coc/list_history.dat
 zsh.d/Repos/
 plugged
+
+# TPM-managed plugins (downloaded at runtime)
+# Keep tpm itself (it's a submodule)
+tmux/plugins/*
+!tmux/plugins/tpm/
