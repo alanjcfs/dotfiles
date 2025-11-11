@@ -25,6 +25,16 @@ ZSHDIR="$HOME/.files/zsh.d"
 source $ZSHDIR/Repos/znap/znap.zsh
 zstyle ':znap:*' repos-dir $ZSHDIR/Repos
 
+# Set all shell options BEFORE loading plugins
+setopt emacs                    # use emacs keybindings
+setopt no_nomatch               # avoid zsh: no matches found: foo
+setopt longlistjobs             # list jobs with PIDs
+setopt pushdignoredups          # don't push duplicates to the directory stack
+setopt pushdminus               # flip the meaning of + and - when using pushd/popd
+setopt interactive_comments     # Allow comments even in interactive shells
+setopt extendedglob             # enable extended globbing, which means we can use things like **/*.txt
+setopt nocaseglob               # case-insensitive globbing
+
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
 znap source marlonrichert/zsh-autocomplete
@@ -55,16 +65,6 @@ export HISTFILESIZE=1000000
 # variables
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 WORDCHARS=${${${WORDCHARS:s#/#}:s,#,}:s,_,} # allow /, #, and _ in words
-
-# options
-setopt emacs # use emacs keybindings
-setopt no_nomatch # avoid zsh: no matches found: foo
-setopt longlistjobs # list jobs with PIDs
-setopt pushdignoredups # don't push duplicates to the directory stack
-setopt pushdminus # flip the meaning of + and - when using pushd/popd
-setopt interactive_comments # Allow comments even in interactive shells
-setopt extendedglob # enable extended globbing, which means we can use things like **/*.txt
-setopt nocaseglob # case-insensitive globbing
 
 # history
 source $ZSHDIR/history.zsh
