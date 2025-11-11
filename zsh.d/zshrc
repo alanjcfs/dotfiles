@@ -86,4 +86,13 @@ export LESS=eFRX
 
 zstyle ':completion:*' completer _complete _expand _complete:-fuzzy _correct _approximate _ignored
 
+# Load powerlevel10k theme
 source ~/.files/powerlevel10k/powerlevel10k.zsh-theme
+
+# Load p10k configuration with fallback
+# Use local machine-specific config if it exists, otherwise use portable default
+if [[ -f ~/.p10k.zsh ]]; then
+  source ~/.p10k.zsh
+elif [[ -f ~/.files/zsh.d/p10k.zsh ]]; then
+  source ~/.files/zsh.d/p10k.zsh
+fi
