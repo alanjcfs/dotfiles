@@ -39,8 +39,12 @@ znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
 znap source marlonrichert/zsh-autocomplete
 
-# Enter should always accept the current line
+# Customize zsh-autocomplete keybindings
+# Enter accepts without executing
 bindkey -M menuselect '\r' .accept-line
+# Make left/right arrows exit menu and allow line editing
+bindkey -M menuselect '^[[D' .accept-line  # Left arrow
+bindkey -M menuselect '^[[C' .accept-line  # Right arrow
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
