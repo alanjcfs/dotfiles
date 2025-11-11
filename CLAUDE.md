@@ -1,128 +1,198 @@
 # CLAUDE.md
 
-This file provides guidance to Claude Code (claude.ai/code) when working with code in this repository.
+<!-- Last reviewed: 2025-11-11 -->
 
-Avoid using exclamation points. I don't like you responding, "Perfect!" or "Great question!" It's too bubbly. Keep your
-tone neutral.
+This file provides guidance to Claude Code when working with this dotfiles repository.
 
-## Repository Overview
+## Critical Rules
 
-This is a personal dotfiles repository containing configuration files for various development tools and shell environments. The repository is structured as a central configuration hub that can be symlinked to appropriate locations on different systems.
+### Communication Style
+- **Tone**: Neutral and professional
+- **Avoid**: Exclamation points, superlatives like "Perfect!", "Great!", "Excellent!"
+- **Prefer**: Direct, factual responses
 
-## Architecture and Structure
+### Zsh Configuration
+- ⚠️ **ALWAYS edit** `~/.files/zsh.d/zshrc`, **NEVER** `~/.zshrc`
+  - `~/.zshrc` is machine-specific and sources the portable config
+  - Changes to `~/.zshrc` won't be tracked in the repository
+- **Shell options MUST be set BEFORE loading plugins**
+  - Incorrect order causes keybinding conflicts (e.g., `setopt emacs` after plugins resets zsh-autocomplete)
+  ```zsh
+  # Correct order in zsh.d/zshrc:
+  setopt emacs               # Set shell options FIRST
+  znap source <plugins>      # Then load plugins
+  ```
 
-### Core Components
+### Git Commits
+- **Always use conventional commits** with scope
+- Examples: `feat(nvim):`, `fix(zsh):`, `docs(claude):`, `chore(gitignore):`
 
-- **nvim/**: Modern Neovim configuration using Lazy.nvim plugin manager
-  - Uses Lua-based configuration with modular plugin setup
-  - Key files: `init.lua` (entry point), `lua/config/lazy.lua` (plugin manager bootstrap)
-  - Plugin definitions in `lua/plugins/` directory
-- **vim/**: Legacy Vim configuration with vim-plug
-  - Contains extensive plugin configurations and custom settings
-- **tmux/**: Terminal multiplexer configuration
-  - Main config: `tmux/tmux.conf`
-  - Uses TPM (Tmux Plugin Manager) with plugins like tmux-sensible, tmux-resurrect
-- **zsh.d/**: Zsh shell configuration and plugins
-  - Uses znap for plugin management
-  - Main file: `zsh.d/zshrc` (sourced by machine-specific `~/.zshrc`)
-  - Loads zsh-autosuggestions, zsh-syntax-highlighting, zsh-autocomplete
-  - **Important:** Shell options (like `setopt emacs`) must be set BEFORE loading plugins
-  - Contains `p10k.zsh` as portable default prompt configuration
-- **powerlevel10k/**: Git submodule for powerlevel10k theme
-  - Loaded from `~/.files/powerlevel10k/` instead of homebrew for portability
+### File Editing
+- **Read files before editing** - Required by the Edit tool
+- **Prefer editing** over creating new files when possible
 
-### Supporting Tools
+## Quick Start
 
-- **bin/**: Custom utility scripts including `git-quick-stats`
-- **git_template/**: Git hooks and templates
-- **alacritty/**, **iTerm/**: Terminal emulator configurations
-- **coc/**: CoC (Conquer of Completion) configurations for Vim
-
-## Installation
-
-This repository uses **Dotbot** for automated installation and setup:
+### Setting Up on a New Machine
 
 ```bash
-# Clone the repository
-git clone https://github.com/your-username/.files.git ~/.files
+# 1. Clone the repository
+git clone <your-repo-url> ~/.files
 cd ~/.files
 
-# Run the installer - creates all symlinks and initializes submodules
+# 2. Run the installer
 ./install
 ```
 
-### What Gets Installed
+The installer will:
+- Create all symlinks (nvim, vim, tmux, alacritty)
+- Initialize git submodules (powerlevel10k, tpm, dotbot)
+- Create machine-specific `~/.zshrc` if it doesn't exist
+- Check for Neovim installation
 
-The `install.conf.yaml` configuration:
-- Creates symlinks for nvim, vim, tmux, alacritty configs
-- Initializes git submodules (powerlevel10k, tpm, dotbot)
-- Creates machine-specific `~/.zshrc` if it doesn't exist
-- Checks for Neovim installation
-- Provides guidance for p10k customization
+## Repository Overview
 
-### Machine-Specific vs Portable Config
+Personal dotfiles repository for development tools and shell environments. Designed for portability across machines using Dotbot for installation and symlink management.
 
-**Portable (tracked in repo):**
-- `~/.files/zsh.d/zshrc` - Core zsh configuration loaded on all machines
-- `~/.files/zsh.d/p10k.zsh` - Default powerlevel10k prompt theme
+**Philosophy**: Portable configs in `~/.files/`, machine-specific overrides in `~/` (like `~/.zshrc`, `~/.p10k.zsh`).
 
-**Machine-Specific (local only):**
-- `~/.zshrc` - Sources portable config + machine-specific customizations (paths, aliases)
-- `~/.p10k.zsh` - Optional override for machine-specific prompt theme
-- `~/.local/bin/` - Machine-specific binaries (not managed by dotfiles)
+## Architecture
 
-## Development Workflow
+### Core Components
 
-### Neovim Configuration
+**nvim/** - Modern Neovim configuration
+- Plugin manager: Lazy.nvim (auto-installs on first run)
+- Entry point: `nvim/init.lua`
+- Plugins: `lua/plugins/` directory
+- Keybindings: `<leader>ev` (edit vimrc), `<c-p>` (FZF), `<leader>rg` (ripgrep)
 
-- Plugin management handled by Lazy.nvim (auto-installs on first run)
-- Configuration entry point: `nvim/init.lua`
-- Plugin specifications in `lua/plugins/` directory
-- Custom keybindings include:
-  - `<leader>ev`: Edit vimrc
-  - `<leader>sv`: Source vimrc
-  - `<c-p>`: FZF file finder
-  - `<leader>rg`: Ripgrep search
+**vim/** - Legacy Vim configuration
+- Plugin manager: vim-plug
+- For systems without Neovim
 
-### Tmux Configuration
+**tmux/** - Terminal multiplexer
+- Prefix key: `C-a`
+- Config: `tmux/tmux.conf`
+- Plugin manager: TPM (git submodule at `tmux/plugins/tpm/`)
+- TPM-managed plugins downloaded to `tmux/plugins/` (gitignored)
 
-- Uses C-a as prefix key
-- TPM plugins are managed in `tmux/tmux.conf`
-- Custom pane navigation with vim-awareness
-- TPM is a git submodule at `tmux/plugins/tpm/`
-- **Note:** TPM-managed plugins (tmux-sensible, etc.) are downloaded to `tmux/plugins/` and should be gitignored
+**zsh.d/** - Zsh shell configuration
+- Plugin manager: znap
+- Main file: `zsh.d/zshrc` (sourced by `~/.zshrc`)
+- Plugins: zsh-autosuggestions, zsh-syntax-highlighting, zsh-autocomplete
+- Default prompt: `zsh.d/p10k.zsh`
 
-### Git Integration
+**powerlevel10k/** - Git submodule
+- Prompt theme loaded from `~/.files/powerlevel10k/`
+- Portable (not from homebrew)
 
-- Custom git statistics script available as `bin/git-quick-stats`
-- Git templates and hooks in `git_template/`
-- Use conventional commit with scope
+### Supporting Tools
 
-## Key Configuration Files
+- **bin/**: Custom scripts (e.g., `git-quick-stats`)
+- **git_template/**: Git hooks and templates
+- **alacritty/**: Terminal emulator config
+- **coc/**: CoC (Conquer of Completion) for Vim
 
-- `nvim/init.lua`: Main Neovim configuration
-- `tmux/tmux.conf`: Tmux configuration with plugin management
-- `vim/coc-settings.json`: CoC language server configurations
-- Various shell configurations in `zsh.d/`
+## Common Tasks
 
-## Plugin Management
+### Adding a Neovim Plugin
 
-- **Neovim**: Uses Lazy.nvim (modern, declarative)
-- **Vim**: Uses vim-plug (legacy setup)
-- **Tmux**: Uses TPM (Tmux Plugin Manager) - plugins downloaded on first run
-- **Zsh**: Uses znap plugin manager
-- **Dotfiles**: Uses Dotbot for installation and symlink management
+1. Create file in `lua/plugins/<plugin-name>.lua`
+2. Add plugin spec:
+   ```lua
+   return {
+     "author/plugin-name",
+     config = function()
+       -- configuration
+     end
+   }
+   ```
+3. Restart Neovim or run `:Lazy sync`
 
-## Important Notes
+### Modifying Zsh Configuration
 
-### Zsh Plugin Loading Order
+⚠️ **Edit `~/.files/zsh.d/zshrc`**, not `~/.zshrc`
 
-Shell options MUST be set before loading plugins to prevent keybinding conflicts:
+```bash
+# 1. Edit the portable config
+nvim ~/.files/zsh.d/zshrc
 
-```zsh
-# Correct order in zsh.d/zshrc:
-setopt emacs               # Set shell options FIRST
-znap source <plugins>      # Then load plugins
+# 2. Reload
+exec zsh
+
+# 3. Commit
+git add zsh.d/zshrc
+git commit -m "feat(zsh): add new configuration"
 ```
 
-If shell options are set after plugins load, they will reset plugin keybindings (e.g., zsh-autocomplete's `up-line-or-search` gets reset to `up-line-or-history`).
+### Adding Tmux Plugins
+
+1. Edit `tmux/tmux.conf`, add plugin:
+   ```tmux
+   set -g @plugin 'author/plugin-name'
+   ```
+2. Reload: `tmux source ~/.tmux.conf`
+3. Install: `prefix + I` (Ctrl-a + Shift-i)
+
+### Machine-Specific Customizations
+
+Create or edit `~/.zshrc` (not tracked in repo):
+```zsh
+# Machine-specific zsh configuration
+# Load portable config from dotfiles
+source $HOME/.files/zsh.d/zshrc
+
+# Add machine-specific customizations below:
+export PATH="/custom/path:$PATH"
+alias custom-alias="some-command"
+```
+
+## Configuration Reference
+
+### Machine-Specific vs Portable
+
+**Portable (tracked in repo):**
+- `zsh.d/zshrc` - Core zsh config for all machines
+- `zsh.d/p10k.zsh` - Default prompt theme
+- All configs in `~/.files/`
+
+**Machine-Specific (local only):**
+- `~/.zshrc` - Sources portable + machine customizations
+- `~/.p10k.zsh` - Optional prompt theme override
+- `~/.local/bin/` - Machine-specific binaries
+
+### Plugin Managers
+
+- **Neovim**: Lazy.nvim (declarative, auto-install)
+- **Vim**: vim-plug (legacy)
+- **Tmux**: TPM (downloads to `tmux/plugins/`, gitignored except `tpm/`)
+- **Zsh**: znap (repos in `zsh.d/Repos/`, gitignored)
+- **Dotfiles**: Dotbot (`install.conf.yaml`)
+
+### Key Files
+
+- `nvim/init.lua` - Neovim entry point
+- `tmux/tmux.conf` - Tmux config with TPM plugins
+- `zsh.d/zshrc` - Portable zsh configuration
+- `install.conf.yaml` - Dotbot installation config
+- `.gitmodules` - Git submodules (powerlevel10k, tpm, dotbot)
+
+## Troubleshooting
+
+### Zsh autocomplete not working in tmux
+
+**Cause**: Shell options set after plugins load
+
+**Fix**: Verify in `zsh.d/zshrc` that all `setopt` commands appear BEFORE `znap source` commands
+
+### TPM plugins not installing
+
+**Cause**: TPM submodule not initialized
+
+**Fix**: Run `git submodule update --init --recursive` or `./install`
+
+### Neovim plugins not loading
+
+**Cause**: Lazy.nvim not bootstrapped
+
+**Fix**: Remove `~/.local/share/nvim/` and restart Neovim to trigger fresh install
