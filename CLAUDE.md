@@ -89,7 +89,6 @@ Personal dotfiles repository for development tools and shell environments. Desig
 ### Supporting Tools
 
 - **bin/**: Custom scripts (e.g., `git-quick-stats`)
-- **iTerm/**: iTerm2 terminal emulator configuration
 
 ## Common Tasks
 
