@@ -2,13 +2,81 @@
 - defaults:
     link:
       relink: true
+      create: true
 
-- clean: ['~']
+- clean:
+    ~/:
+      force: true
+    ~/.config:
+      recursive: true
 
 - link:
+    # Tmux
     ~/.tmux.conf: tmux/tmux.conf
+
+    # Neovim
     ~/.config/nvim: nvim
-    ~/.zshrc: zsh.d/zshrc
+
+    # Vim
+    ~/.vim: vim
+    ~/.vimrc: vim/vimrc
+
+    # Alacritty
+    ~/.config/alacritty: alacritty
+
+- create:
+    - ~/.local/bin
 
 - shell:
+  # Initialize git submodules (powerlevel10k, tpm, etc.)
   - [git submodule update --init --recursive, Installing submodules]
+
+  # Check for Neovim installation
+  - description: Checking for Neovim
+    command: |
+      if command -v nvim >/dev/null 2>&1; then
+        echo "✓ Neovim found: $(nvim --version | head -1)"
+      else
+        echo "⚠️  Neovim not found. Install it for full functionality:"
+        echo "   macOS: brew install neovim"
+        echo "   Ubuntu: sudo apt install neovim"
+        echo "   Arch: sudo pacman -S neovim"
+      fi
+    stdout: true
+    stderr: true
+    quiet: true
+
+  # Create machine-specific ~/.zshrc if it doesn't exist
+  - description: Creating machine-specific ~/.zshrc
+    command: |
+      if [ ! -f ~/.zshrc ]; then
+        cat > ~/.zshrc << 'EOF'
+      # Machine-specific zsh configuration
+      # Load portable config from dotfiles
+      source $HOME/.files/zsh.d/zshrc
+
+      # Add machine-specific customizations below:
+      # export PATH=...
+      # alias foo=bar
+      EOF
+        echo "✓ Created ~/.zshrc (sources portable config)"
+      else
+        echo "  ~/.zshrc already exists"
+      fi
+    stdout: true
+    stderr: true
+    quiet: true
+
+  # Create machine-specific ~/.p10k.zsh if desired (optional)
+  - description: Checking for p10k config
+    command: |
+      if [ ! -f ~/.p10k.zsh ]; then
+        echo "💡 No machine-specific ~/.p10k.zsh found"
+        echo "   Using portable config from ~/.files/zsh.d/p10k.zsh"
+        echo "   Run 'p10k configure' to customize for this machine"
+      else
+        echo "  Using machine-specific ~/.p10k.zsh"
+      fi
+    stdout: true
+    stderr: true
+    quiet: true
