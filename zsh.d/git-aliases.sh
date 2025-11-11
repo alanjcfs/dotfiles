@@ -25,3 +25,12 @@ alias grbi="git rebase --interactive"
 alias grbs="git rebase --skip"
 alias grbv="git rebase --verbose"
 alias gst="git status"
+
+# Git helper functions (from sh/git-scripts.sh)
+slog() {
+    git shortlog -sn --author=$1 --after=$2 --before=$3
+}
+
+gpatch() {
+    git log --patch --author=$1 --after=$2 --before=$3
+}
