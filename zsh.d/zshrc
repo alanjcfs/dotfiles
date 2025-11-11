@@ -37,10 +37,19 @@ setopt nocaseglob               # case-insensitive globbing
 
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
+
+# Configure zsh-autocomplete behavior (before loading plugin)
+zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
+zstyle ':autocomplete:*history*:*' insert-unambiguous yes
+zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
+
 znap source marlonrichert/zsh-autocomplete
 
-# Customize zsh-autocomplete keybindings
-# Enter accepts without executing
+# Configure tab to cycle through completions instead of auto-inserting
+bindkey '\t' menu-complete
+bindkey "$terminfo[kcbt]" reverse-menu-complete
+bindkey -M menuselect '\t' menu-complete
+bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
 bindkey -M menuselect '\r' .accept-line
 # Make left/right arrows exit menu and allow line editing
 bindkey -M menuselect '^[[D' .accept-line  # Left arrow
