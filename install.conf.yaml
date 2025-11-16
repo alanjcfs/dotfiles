@@ -21,6 +21,9 @@
     ~/.vim: vim
     ~/.vimrc: vim/vimrc
 
+    # Claude Code
+    ~/.config/claude/instructions.md: config/claude/instructions.md
+
 - create:
     - ~/.local/bin
 
