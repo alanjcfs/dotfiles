@@ -34,6 +34,7 @@ setopt pushdminus               # flip the meaning of + and - when using pushd/p
 setopt interactive_comments     # Allow comments even in interactive shells
 setopt extendedglob             # enable extended globbing, which means we can use things like **/*.txt
 setopt nocaseglob               # case-insensitive globbing
+setopt autoparamslash           # add trailing slash to completed directory names
 
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
@@ -42,13 +43,25 @@ znap source zsh-users/zsh-syntax-highlighting
 zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
 zstyle ':autocomplete:*history*:*' insert-unambiguous yes
 zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
+zstyle ':completion:*' accept-exact-dirs true
 
 znap source marlonrichert/zsh-autocomplete
 
-# Configure tab to cycle through completions instead of auto-inserting
-bindkey '\t' menu-complete
-bindkey "$terminfo[kcbt]" reverse-menu-complete
-bindkey -M menuselect '\t' menu-complete
+# Configure tab behavior
+# Custom widget that cycles through completions and auto-continues into directories
+menu-complete-and-infer() {
+  # First do menu-complete to cycle through options
+  zle menu-complete
+
+  # Check if the completion ended with a / (directory)
+  # If so, automatically trigger completion again to show directory contents
+  if [[ $BUFFER[-1] == "/" ]]; then
+    zle list-choices
+  fi
+}
+zle -N menu-complete-and-infer
+
+bindkey -M menuselect '\t' menu-complete-and-infer
 bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
 bindkey -M menuselect '\r' .accept-line
 # Make left/right arrows exit menu and allow line editing
