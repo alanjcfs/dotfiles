@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-<!-- Last reviewed: 2025-11-11 -->
+<!-- Last reviewed: 2025-11-25 -->
 
 This file provides guidance to Claude Code when working with this dotfiles repository.
 
@@ -10,6 +10,11 @@ This file provides guidance to Claude Code when working with this dotfiles repos
 - **Tone**: Neutral and professional
 - **Avoid**: Exclamation points, superlatives like "Perfect!", "Great!", "Excellent!"
 - **Prefer**: Direct, factual responses
+
+### Claude Code Configuration
+- Instructions are stored in `~/.files/CLAUDE.md` (this file)
+- Symlinked to `~/.claude/CLAUDE.md` (Claude Code reads from `~/.claude/`, not `~/.config/claude/`)
+- Edit the repo file, not the symlink
 
 ### Zsh Configuration
 - ⚠️ **ALWAYS edit** `~/.files/zsh.d/zshrc`, **NEVER** `~/.zshrc`
@@ -45,7 +50,7 @@ cd ~/.files
 ```
 
 The installer will:
-- Create all symlinks (nvim, vim, tmux)
+- Create all symlinks (nvim, vim, tmux, Claude Code)
 - Initialize git submodules (powerlevel10k, tpm, dotbot)
 - Create machine-specific `~/.zshrc` if it doesn't exist
 - Check for Neovim installation
@@ -168,6 +173,7 @@ alias custom-alias="some-command"
 
 ### Key Files
 
+- `CLAUDE.md` - Claude Code instructions (symlinked to `~/.claude/CLAUDE.md`)
 - `nvim/init.lua` - Neovim entry point
 - `tmux/tmux.conf` - Tmux config with TPM plugins
 - `zsh.d/zshrc` - Portable zsh configuration
