@@ -23,6 +23,18 @@ vim.opt.smartcase = true
 vim.opt.list = true
 vim.opt.showmode = false
 
+-- Disable bracketed paste to prevent control character issues
+-- This prevents the terminal from using special escape sequences for paste detection
+vim.opt.paste = false
+if vim.fn.has('nvim-0.10') == 1 then
+  -- For Neovim 0.10+, disable the internal bracketed paste handler
+  vim.api.nvim_create_autocmd('VimEnter', {
+    callback = function()
+      vim.cmd([[set t_BE=]])
+    end
+  })
+end
+
 -- -----------------------------------------------------------------------------
 -- Keymappings
 -- -----------------------------------------------------------------------------
