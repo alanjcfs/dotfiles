@@ -22,7 +22,7 @@
     ~/.vimrc: vim/vimrc
 
     # Claude Code
-    ~/.claude/CLAUDE.md: CLAUDE.md
+    ~/.claude/CLAUDE.md: claude/CLAUDE.md
 
 - create:
     - ~/.local/bin
