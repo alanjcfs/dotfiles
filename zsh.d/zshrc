@@ -67,8 +67,10 @@ zle -N accept-and-slash
 bindkey -M menuselect '/' accept-and-slash
 
 # Make left/right arrows exit menu and allow line editing
-bindkey -M menuselect '^[[D' .accept-line  # Left arrow
-bindkey -M menuselect '^[[C' .accept-line  # Right arrow
+# Use terminfo for portability between macOS and Linux
+bindkey -M menuselect "$terminfo[kcub1]" .accept-line  # Left arrow
+bindkey -M menuselect "$terminfo[kcuf1]" .accept-line  # Right arrow
+
 
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
@@ -120,3 +122,15 @@ if [[ -f ~/.p10k.zsh ]]; then
 elif [[ -f ~/.files/zsh.d/p10k.zsh ]]; then
   source ~/.files/zsh.d/p10k.zsh
 fi
+
+# IMPORTANT: Configure zsh-autocomplete history menu behavior
+# Keep the history list, but make left/right arrows move cursor instead of navigating
+# Must use dot-prefixed widgets and bind in menuselect keymap
+bindkey -M menuselect '^[[D' .backward-char '^[OD' .backward-char  # Left arrow
+bindkey -M menuselect '^[[C' .forward-char '^[OC' .forward-char    # Right arrow
+
+# Also ensure these work in the main keymap during history search
+bindkey '^[[D' .backward-char          # Left arrow
+bindkey '^[[C' .forward-char           # Right arrow
+bindkey '^[OD' .backward-char          # Left arrow (alt)
+bindkey '^[OC' .forward-char           # Right arrow (alt)
