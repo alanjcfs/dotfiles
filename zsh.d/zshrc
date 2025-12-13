@@ -40,30 +40,32 @@ znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
 
 # Configure zsh-autocomplete behavior (before loading plugin)
-zstyle ':autocomplete:*complete*:*' insert-unambiguous yes
-zstyle ':autocomplete:*history*:*' insert-unambiguous yes
-zstyle ':autocomplete:menu-search:*' insert-unambiguous yes
+# Disable auto-insert so tab cycles through options instead
+zstyle ':autocomplete:*complete*:*' insert-unambiguous no
+zstyle ':autocomplete:*history*:*' insert-unambiguous no
+zstyle ':autocomplete:menu-search:*' insert-unambiguous no
+zstyle ':autocomplete:tab:*' insert-unambiguous no
+zstyle ':autocomplete:tab:*' widget-style menu-complete
 zstyle ':completion:*' accept-exact-dirs true
 
 znap source marlonrichert/zsh-autocomplete
 
 # Configure tab behavior
-# Custom widget that cycles through completions and auto-continues into directories
-menu-complete-and-infer() {
-  # First do menu-complete to cycle through options
-  zle menu-complete
-
-  # Check if the completion ended with a / (directory)
-  # If so, automatically trigger completion again to show directory contents
-  if [[ $BUFFER[-1] == "/" ]]; then
-    zle list-choices
-  fi
-}
-zle -N menu-complete-and-infer
-
-bindkey -M menuselect '\t' menu-complete-and-infer
+# Override zsh-autocomplete's tab binding to use standard menu completion
+bindkey '\t' menu-complete  # Tab cycles through options without auto-accepting
+bindkey -M menuselect '\t' menu-complete  # Continue cycling in menu mode
 bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
 bindkey -M menuselect '\r' .accept-line
+
+# Accept current selection and add "/" when slash is pressed in menu
+accept-and-slash() {
+  zle .accept-line
+  LBUFFER+='/'
+  zle list-choices
+}
+zle -N accept-and-slash
+bindkey -M menuselect '/' accept-and-slash
+
 # Make left/right arrows exit menu and allow line editing
 bindkey -M menuselect '^[[D' .accept-line  # Left arrow
 bindkey -M menuselect '^[[C' .accept-line  # Right arrow
