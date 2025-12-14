@@ -224,5 +224,3 @@ xnoremap <leader>k :m-2<cr>gv=gv
 
 xmap ga <Plug>(EasyAlign)
 nmap ga <Plug>(EasyAlign)
-
-colorscheme solarized
