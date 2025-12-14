@@ -15,7 +15,6 @@ vim.o.clipboard = "unnamed,unnamedplus"
 vim.o.confirm = true
 vim.o.hidden = true
 vim.o.ignorecase = true
-vim.o.number = true
 vim.o.splitbelow = true
 vim.o.splitright = true
 vim.o.undofile = true

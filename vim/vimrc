@@ -17,7 +17,6 @@ set expandtab noshiftround shiftwidth=2 smarttab softtabstop=2
 set hidden
 set ignorecase smartcase
 set list listchars+=tab:»·,trail:·,nbsp:+,extends:>,precedes:<
-set number norelativenumber
 set scrolloff=1 " sidescrolloff=5
 set sidescroll=1
 set splitright splitbelow
