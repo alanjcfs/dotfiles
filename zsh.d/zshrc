@@ -129,8 +129,3 @@ fi
 bindkey -M menuselect '^[[D' .backward-char '^[OD' .backward-char  # Left arrow
 bindkey -M menuselect '^[[C' .forward-char '^[OC' .forward-char    # Right arrow
 
-# Also ensure these work in the main keymap during history search
-bindkey '^[[D' .backward-char          # Left arrow
-bindkey '^[[C' .forward-char           # Right arrow
-bindkey '^[OD' .backward-char          # Left arrow (alt)
-bindkey '^[OC' .forward-char           # Right arrow (alt)
