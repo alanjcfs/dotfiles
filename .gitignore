@@ -5,8 +5,6 @@
 !tmp/backup/.gitkeep
 tmp/
 node_modules/
-zsh.d/Repos/
-plugged
 
 # Compiled Zsh scripts (bytecode cache)
 *.zwc
@@ -15,3 +13,9 @@ plugged
 # Keep tpm itself (it's a submodule)
 tmux/plugins/*
 !tmux/plugins/tpm/
+
+# ZSH plugins managed by powerlevel10k
+zsh.d/Repos/
+
+# vim-plug managed plugins (downloaded at runtime)
+vim/plugged/
