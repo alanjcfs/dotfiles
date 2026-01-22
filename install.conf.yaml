@@ -26,6 +26,7 @@
 
 - create:
     - ~/.local/bin
+    - ~/.config/tmuxinator
 
 - shell:
   # Initialize git submodules (powerlevel10k, tpm, etc.)
@@ -41,6 +42,19 @@
         echo "   macOS: brew install neovim"
         echo "   Ubuntu: sudo apt install neovim"
         echo "   Arch: sudo pacman -S neovim"
+      fi
+    stdout: true
+    stderr: true
+    quiet: true
+
+  # Check for tmuxinator installation
+  - description: Checking for tmuxinator
+    command: |
+      if command -v tmuxinator >/dev/null 2>&1; then
+        echo "✓ tmuxinator found: $(tmuxinator version)"
+      else
+        echo "⚠️  tmuxinator not found. Install it for tmux session management:"
+        echo "   gem install tmuxinator"
       fi
     stdout: true
     stderr: true

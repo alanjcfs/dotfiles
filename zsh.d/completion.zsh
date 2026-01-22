@@ -46,3 +46,10 @@ fi
 
 # automatically load bash completion functions
 autoload -U +X bashcompinit && bashcompinit
+
+# tmuxinator completion (find dynamically since gem path includes Ruby version)
+if command -v tmuxinator &>/dev/null; then
+  _tmuxinator_completion=$(gem contents tmuxinator 2>/dev/null | grep 'tmuxinator\.zsh$')
+  [[ -r "$_tmuxinator_completion" ]] && source "$_tmuxinator_completion"
+  unset _tmuxinator_completion
+fi
