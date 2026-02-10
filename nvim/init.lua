@@ -46,7 +46,8 @@ keyset("n", "<leader> ", ":noh<cr>")
 keyset("n", "<leader>ev", ":sp $MYVIMRC<CR>", general_opts)
 keyset("n", "<leader>sv", ":so $MYVIMRC<CR>", general_opts)
 keyset("n", "<leader>l", ":buffers<CR>:b", general_opts)
-keyset("n", "<leader>g", ":Git ", general_opts)
+keyset("n", "<leader>g ", ":Git ", general_opts)
+keyset("n", "<leader>gb", ":Git blame", general_opts)
 
 -- Silent keymaps
 local silent_opts = { silent = true, noremap = true }
