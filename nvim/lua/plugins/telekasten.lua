@@ -4,7 +4,7 @@ return {
 		dependencies = { "nvim-telescope/telescope.nvim" },
 		config = function()
 			require("telekasten").setup({
-				home = vim.fn.expand("~/Documents/worklog"),
+				home = vim.fn.expand("~/Zettelkasten"),
 			})
 
 			local map = vim.keymap.set
