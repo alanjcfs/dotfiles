@@ -4,13 +4,12 @@ return {
 		dependencies = { "nvim-telescope/telescope.nvim" },
 		config = function()
 			require("telekasten").setup({
-				home = vim.fn.expand("~/Zettelkasten"),
+				home = vim.fn.expand("~/Notes"),
 			})
 
 			local map = vim.keymap.set
 			local opts = { noremap = true, silent = true }
 
-			-- Use <leader>wp to discover all commands via the panel
 			map("n", "<leader>wp", "<cmd>Telekasten panel<CR>", opts)
 			map("n", "<leader>wt", "<cmd>Telekasten goto_today<CR>", opts)
 			map("n", "<leader>wn", "<cmd>Telekasten new_note<CR>", opts)
