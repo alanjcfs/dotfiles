@@ -3,8 +3,12 @@ return {
 		"renerocksai/telekasten.nvim",
 		dependencies = { "nvim-telescope/telescope.nvim" },
 		config = function()
+			local home = vim.fn.expand("~/Notes")
 			require("telekasten").setup({
-				home = vim.fn.expand("~/Notes"),
+				home = home,
+				dailies = home .. "/daily",
+				templates = home .. "/templates",
+				template_new_daily = home .. "/templates/daily.md",
 			})
 
 			local map = vim.keymap.set
