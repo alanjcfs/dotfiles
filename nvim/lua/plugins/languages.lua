@@ -1,0 +1,16 @@
+return {
+	"fatih/vim-go",
+	"elixir-editors/vim-elixir",
+	"mattn/emmet-vim",
+	"racer-rust/vim-racer",
+	"rust-lang/rust.vim",
+	"chrisbra/csv.vim",
+	"posva/vim-vue",
+	"leafgarland/typescript-vim",
+	"HerringtonDarkholme/yats.vim",
+	"vim-ruby/vim-ruby",
+	"sunaku/vim-ruby-minitest",
+	"tpope/vim-rails",
+	"tpope/vim-rake",
+	"tpope/vim-markdown",
+}
