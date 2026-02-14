@@ -169,7 +169,7 @@ return {
 
 	-- The prolific Mr. T. Pope
 	"tpope/vim-dispatch", -- :Dispatch to run commands asynchronously
-	-- "tpope/vim-endwise" -- end structures automatically
+	"tpope/vim-endwise", -- end structures automatically
 	-- "rstacruz/vim-closer",
 	"tpope/vim-markdown", -- Markdown support
 	"vim-ruby/vim-ruby", -- Ruby support
