@@ -32,6 +32,10 @@ This file provides guidance to Claude Code when working with this dotfiles repos
 - **Always use conventional commits** with scope
 - Examples: `feat(nvim):`, `fix(zsh):`, `docs(claude):`, `chore(gitignore):`
 
+### Dotfiles Structure
+- Dotfiles are managed with git submodules (powerlevel10k, tpm, dotbot)
+- Check existing config structure before suggesting changes to nvim or tmux configs
+
 ### File Editing
 - **Read files before editing** - Required by the Edit tool
 - **Prefer editing** over creating new files when possible
