@@ -11,6 +11,8 @@ return {
 			},
 		},
 	},
+	{ "catppuccin/nvim", name = "catppuccin" },
+	{ "sainnhe/gruvbox-material" },
 	-- { "altercation/vim-colors-solarized" },
 	-- { "sjl/badwolf" },
 	-- { "quanganhdo/grb256" },

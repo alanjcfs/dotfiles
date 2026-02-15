@@ -7,8 +7,14 @@ return {
 			require("telekasten").setup({
 				home = home,
 				dailies = home .. "/daily",
+				notes = home .. "/notes",
+
 				templates = home .. "/templates",
 				template_new_daily = home .. "/templates/daily.md",
+				template_new_note = home .. "/templates/note.md",
+
+				filename_space_subst = "-",
+				filename_small_case = true,
 			})
 
 			local map = vim.keymap.set
