@@ -12,7 +12,7 @@
 
 - link:
     # Tmux
-    ~/.tmux.conf: tmux/tmux.conf
+    ~/.config/tmux: tmux
 
     # Neovim
     ~/.config/nvim: nvim

@@ -64,7 +64,7 @@ require('nightfox').setup({
 	}
 })
 
-local status, err = pcall(vim.cmd.colorscheme, "catppuccin")
+local status, err = pcall(vim.cmd.colorscheme, "catppuccin-mocha")
 if not status then
 	print("Error loading nightfox: " .. err)
 end
