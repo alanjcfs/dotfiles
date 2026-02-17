@@ -83,6 +83,7 @@ bindkey -M menuselect "$terminfo[kcuf1]" .accept-line  # Right arrow
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+alias mux=tmuxinator
 
 # Documentation for zsh options:
 # https://zsh.sourceforge.io/Doc/Release/Options.html#index-ALWAYS_005fTO_005fEND
