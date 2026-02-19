@@ -1,5 +1,5 @@
 {
-  "ale": { "branch": "master", "commit": "cb8c4662aaa5c4ce91357932dab71992763ae8be" },
+  "ale": { "branch": "master", "commit": "69c945d5daecadf8e4c4c499d0a7babda748d603" },
   "asyncrun.vim": { "branch": "master", "commit": "98d3c0fdeb983f0ef62fe3a49da440f6d2c045ce" },
   "calendar-vim": { "branch": "master", "commit": "2083a41e2d310f9bbbbf644517f30e901f1fb04d" },
   "catppuccin": { "branch": "main", "commit": "0a5de4da015a175f416d6ef1eda84661623e0500" },
@@ -13,7 +13,7 @@
   "csv.vim": { "branch": "master", "commit": "ab776a6266593e9e0d8643cdb7e577f81c0eab7d" },
   "emmet-vim": { "branch": "master", "commit": "e98397144982d1e75b20d94d55a82de3ec8f648d" },
   "friendly-snippets": { "branch": "main", "commit": "6cd7280adead7f586db6fccbd15d2cac7e2188b9" },
-  "fzf": { "branch": "master", "commit": "b56d614ba2f901c64eed454f181badec0b1cedff" },
+  "fzf": { "branch": "master", "commit": "385cccd36290c03ffd49981e8cf3b02184833af7" },
   "fzf.vim": { "branch": "master", "commit": "34a564c81f36047f50e593c1656f4580ff75ccca" },
   "goyo.vim": { "branch": "master", "commit": "9c72fdf2d202914318581f9f0dd09fd102f8504d" },
   "gruvbox-material": { "branch": "master", "commit": "790afe9dd085aa04eccd1da3626c5fa05c620e53" },
@@ -35,6 +35,7 @@
   "open-browser-github.vim": { "branch": "master", "commit": "ac7c034e300f36d591ef234dcd5eb5cd5c07c74f" },
   "open-browser.vim": { "branch": "master", "commit": "7d4c1d8198e889d513a030b5a83faa07606bac27" },
   "plenary.nvim": { "branch": "master", "commit": "b9fd5226c2f76c951fc8ed5923d85e4de065e509" },
+  "rg.nvim": { "branch": "main", "commit": "c5e99b82159f86adc9badaaf66ce22d2a7249dac" },
   "rust.vim": { "branch": "master", "commit": "889b9a7515db477f4cb6808bef1769e53493c578" },
   "telekasten.nvim": { "branch": "main", "commit": "74b8644d1a9a4e63d033b1248cdcd11be0efb952" },
   "telescope.nvim": { "branch": "master", "commit": "5255aa27c422de944791318024167ad5d40aad20" },
