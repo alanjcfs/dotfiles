@@ -43,6 +43,7 @@ local keyset = vim.keymap.set
 local general_opts = { silent = false, noremap = true }
 keyset("n", "<leader>d", ":Dispatch<space><up>")
 keyset("n", "<leader> ", ":noh<cr>")
+keyset("n", "<leader>a", ":Ripgrep ", general_opts)
 keyset("n", "<leader>ev", ":sp $MYVIMRC<CR>", general_opts)
 keyset("n", "<leader>sv", ":so $MYVIMRC<CR>", general_opts)
 keyset("n", "<leader>l", ":buffers<CR>:b", general_opts)
