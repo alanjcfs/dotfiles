@@ -186,10 +186,6 @@ map Y y$
 " Don't use Ex mode, use Q for formatting
 " map Q gq
 
-" CTRL-U in insert mode deletes a lot.  Use CTRL-G u to first break undo,
-" so that you can undo CTRL-U after inserting a line break.
-inoremap <C-U> <C-G>u<C-U>
-
 " Escape using jk
 inoremap jk <esc>
 
@@ -204,13 +200,11 @@ nnoremap <leader><space> :noh<cr>
 nnoremap <leader>ev :split $MYVIMRC<cr>
 nnoremap <leader>sv :source $MYVIMRC<cr>
 nnoremap <leader>l :ls<cr>:b<space>
-nnoremap <leader>z :FZF<cr>
+nnoremap <c-p> :Files<cr>
 
 " Git vim-fugitive
 nnoremap <leader>g :Git<space>
 nnoremap <leader>gb :Git blame<space>
-nnoremap <leader>gc :Gcommit -v<space>
-nnoremap <leader>gd :Gdiff<space>
 nnoremap <leader>gl :Gclog -p<space>
 nnoremap <leader>gw :Gwrite<cr>
 

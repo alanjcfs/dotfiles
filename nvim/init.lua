@@ -49,12 +49,24 @@ keyset("n", "<leader>sv", ":so $MYVIMRC<CR>", general_opts)
 keyset("n", "<leader>l", ":buffers<CR>:b", general_opts)
 keyset("n", "<leader>g ", ":Git ", general_opts)
 keyset("n", "<leader>gb", ":Git blame", general_opts)
+keyset("n", "<leader>gl", ":Gclog -p<space>", general_opts)
+keyset("n", "<leader>gw", ":Gwrite<CR>", general_opts)
 
 -- Silent keymaps
 local silent_opts = { silent = true, noremap = true }
 keyset("i", "jk", "<ESC>", silent_opts)
 keyset("n", "<c-p>", ":Files<CR>", silent_opts)
 keyset("n", "<leader>rg", ":Rg<CR>", silent_opts)
+
+-- Move lines
+keyset("n", "<leader>j", ":m+<cr>==", silent_opts)
+keyset("n", "<leader>k", ":m-2<cr>==", silent_opts)
+keyset("x", "<leader>j", ":m'>+<cr>gv=gv", silent_opts)
+keyset("x", "<leader>k", ":m-2<cr>gv=gv", silent_opts)
+
+-- EasyAlign (remap=true required for <Plug> mappings)
+keyset("n", "ga", "<Plug>(EasyAlign)", { silent = true })
+keyset("x", "ga", "<Plug>(EasyAlign)", { silent = true })
 
 -- -----------------------------------------------------------------------------
 -- Color Scheme

@@ -2,17 +2,13 @@ call plug#begin()
 Plug 'tpope/vim-sensible'
 Plug 'github/copilot.vim'
 
-" Themes & Colorschemes
-Plug 'altercation/vim-colors-solarized'
-Plug 'sjl/badwolf'
-Plug 'quanganhdo/grb256'
-Plug 'junegunn/seoul256.vim'
-
 " Code Editing
 Plug 'honza/vim-snippets'
 Plug 'junegunn/vim-easy-align'
 Plug 'mbbill/undotree'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-endwise'
+Plug 'mattn/calendar-vim'
 
 Plug 'junegunn/fzf', { 'do': { -> fzf#install() } }
 Plug 'junegunn/fzf.vim'
