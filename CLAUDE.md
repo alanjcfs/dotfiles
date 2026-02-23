@@ -6,11 +6,6 @@ This file provides guidance to Claude Code when working with this dotfiles repos
 
 ## Critical Rules
 
-### Communication Style
-- **Tone**: Neutral and professional
-- **Avoid**: Exclamation points, superlatives like "Perfect!", "Great!", "Excellent!"
-- **Prefer**: Direct, factual responses
-
 ### Claude Code Configuration
 - Instructions are stored in `~/.files/CLAUDE.md` (this file)
 - Symlinked to `~/.claude/CLAUDE.md` (Claude Code reads from `~/.claude/`, not `~/.config/claude/`)
