@@ -21,6 +21,9 @@
     ~/.vim: vim
     ~/.vimrc: vim/vimrc
 
+    # bat
+    ~/.config/bat: bat
+
     # Claude Code
     ~/.claude/CLAUDE.md: claude/CLAUDE.md
 
