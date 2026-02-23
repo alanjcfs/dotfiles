@@ -9,5 +9,4 @@ return {
 	"tpope/vim-endwise",
 	"tpope/vim-unimpaired",
 	"junegunn/vim-peekaboo",
-	"mattn/calendar-vim",
 }
