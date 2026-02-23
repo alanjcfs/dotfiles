@@ -1,6 +1,6 @@
 "
 " Python3 host prog for faster startup
-" let g:python3_host_prog = '/opt/homebrew/bin/python3.10'
+let g:python3_host_prog = '/usr/bin/python3'
 
 
 " EditorConfig exclude patterns
