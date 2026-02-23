@@ -6,9 +6,7 @@ return {
 			"junegunn/fzf",
 		}
 	},
-	{
-		"alanjcfs/rg.nvim"
-	},
+	"alanjcfs/rg.nvim",
 	{
 		"nvim-neo-tree/neo-tree.nvim",
 		branch = "v3.x",
