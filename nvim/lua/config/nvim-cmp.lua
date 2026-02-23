@@ -45,6 +45,14 @@ cmp.setup.filetype('gitcommit', {
 })
 require("cmp_git").setup()
 
+-- In markdown: wikilink completion only, no buffer word completion
+cmp.setup.filetype('markdown', {
+  sources = cmp.config.sources({
+    { name = 'obsidian' },
+    { name = 'vsnip' },
+  })
+})
+
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ '/', '?' }, {
   mapping = cmp.mapping.preset.cmdline(),

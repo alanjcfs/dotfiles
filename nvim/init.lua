@@ -56,7 +56,7 @@ keyset("n", "<leader>gw", ":Gwrite<CR>", general_opts)
 local silent_opts = { silent = true, noremap = true }
 keyset("i", "jk", "<ESC>", silent_opts)
 keyset("n", "<c-p>", ":Files<CR>", silent_opts)
-keyset("n", "<leader>rg", ":Rg<CR>", silent_opts)
+keyset("n", "<leader>r", ":Rg<CR>", silent_opts)
 
 -- Move lines
 keyset("n", "<leader>j", ":m+<cr>==", silent_opts)
