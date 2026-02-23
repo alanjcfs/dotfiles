@@ -118,6 +118,12 @@ source "$ZSHDIR/git-aliases.sh"
 
 export LESS=eFRX
 
+# bat — use as fzf previewer and man pager
+if command -v bat &>/dev/null; then
+  export MANPAGER="sh -c 'col -bx | bat -l man -p'"
+  export FZF_DEFAULT_OPTS="--preview 'bat --color=always --style=numbers --line-range=:50 {}' --preview-window=right:50%:wrap"
+fi
+
 zstyle ':completion:*' completer _complete _expand _complete:-fuzzy _correct _approximate _ignored
 
 # Load powerlevel10k theme
