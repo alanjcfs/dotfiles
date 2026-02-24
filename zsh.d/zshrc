@@ -37,6 +37,9 @@ setopt extendedglob             # enable extended globbing, which means we can u
 setopt nocaseglob               # case-insensitive globbing
 setopt autoparamslash           # add trailing slash to completed directory names
 
+# Disable XON/XOFF flow control to free up Ctrl-S for forward search
+[[ -t 0 ]] && stty -ixon
+
 znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
 
