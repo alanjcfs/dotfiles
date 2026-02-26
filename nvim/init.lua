@@ -6,6 +6,7 @@
 -- Plugin Management
 -- -----------------------------------------------------------------------------
 require("config.lazy")
+require("config.autocommands")
 
 -- -----------------------------------------------------------------------------
 -- Core Settings
@@ -22,6 +23,7 @@ vim.o.hidden = true
 vim.o.ignorecase = true
 vim.o.splitbelow = true
 vim.o.splitright = true
+vim.o.textwidth = 120
 vim.o.undofile = true
 
 vim.opt.smartcase = true
@@ -39,120 +41,6 @@ if vim.fn.has('nvim-0.10') == 1 then
     end
   })
 end
-
--- -----------------------------------------------------------------------------
--- Autocommands
--- -----------------------------------------------------------------------------
-local augroup = vim.api.nvim_create_augroup('vimrcEx', { clear = true })
-
--- Jump to last known cursor position
-vim.api.nvim_create_autocmd('BufReadPost', {
-  group = augroup,
-  callback = function()
-    local mark = vim.api.nvim_buf_get_mark(0, '"')
-    local lcount = vim.api.nvim_buf_line_count(0)
-    if mark[1] > 1 and mark[1] <= lcount then
-      vim.api.nvim_win_set_cursor(0, mark)
-    end
-  end,
-})
-
-vim.api.nvim_create_autocmd('BufEnter', {
-  group = augroup,
-  pattern = 'Makefile',
-  callback = function()
-    vim.opt_local.expandtab = false
-    vim.opt_local.tabstop = 8
-    vim.opt_local.shiftwidth = 8
-  end,
-})
-
-vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
-  group = augroup,
-  pattern = { '*.md', '*.markdown' },
-  callback = function() vim.bo.filetype = 'markdown' end,
-})
-
-vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
-  group = augroup,
-  pattern = '*.ledger',
-  callback = function()
-    vim.opt_local.tabstop = 4
-    vim.opt_local.shiftwidth = 4
-    vim.opt_local.softtabstop = 4
-  end,
-})
-
-vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
-  group = augroup,
-  pattern = '*.jbuilder',
-  callback = function() vim.bo.filetype = 'ruby' end,
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-  group = augroup,
-  pattern = 'gitcommit',
-  callback = function() vim.opt_local.textwidth = 72 end,
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-  group = augroup,
-  pattern = 'gitconfig',
-  callback = function()
-    vim.opt_local.expandtab = false
-    vim.opt_local.tabstop = 8
-    vim.opt_local.shiftwidth = 8
-  end,
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-  group = augroup,
-  pattern = 'markdown',
-  callback = function() vim.opt_local.textwidth = 80 end,
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-  group = augroup,
-  pattern = 'text',
-  callback = function()
-    vim.opt_local.expandtab = false
-    vim.opt_local.tabstop = 8
-    vim.opt_local.shiftwidth = 8
-    vim.opt_local.textwidth = 80
-  end,
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-  group = augroup,
-  pattern = 'elm',
-  callback = function()
-    vim.opt_local.expandtab = true
-    vim.opt_local.tabstop = 4
-    vim.opt_local.shiftwidth = 4
-    vim.opt_local.softtabstop = 4
-  end,
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-  group = augroup,
-  pattern = 'lua',
-  callback = function()
-    vim.opt_local.expandtab = true
-    vim.opt_local.tabstop = 2
-    vim.opt_local.shiftwidth = 2
-    vim.opt_local.softtabstop = 2
-  end,
-})
-
-vim.api.nvim_create_autocmd('FileType', {
-  group = augroup,
-  pattern = 'rust',
-  callback = function()
-    vim.opt_local.tabstop = 4
-    vim.opt_local.shiftwidth = 4
-    vim.opt_local.softtabstop = 4
-  end,
-})
 
 -- -----------------------------------------------------------------------------
 -- Keymappings
