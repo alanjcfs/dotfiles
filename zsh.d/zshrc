@@ -45,7 +45,6 @@ znap source zsh-users/zsh-syntax-highlighting
 
 # Configure zsh-autocomplete behavior (before loading plugin)
 # Disable auto-insert so tab cycles through options instead
-zstyle ':autocomplete:*' list-lines 8
 zstyle ':autocomplete:*complete*:*' insert-unambiguous no
 zstyle ':autocomplete:*history*:*' insert-unambiguous no
 zstyle ':autocomplete:menu-search:*' insert-unambiguous no
@@ -54,10 +53,6 @@ zstyle ':autocomplete:tab:*' widget-style menu-complete
 zstyle ':completion:*' accept-exact-dirs true
 
 znap source marlonrichert/zsh-autocomplete
-
-# Disable auto-listing — completions only on explicit Tab
-# Override the async complete widget with a no-op (zsh resolves widget functions by name at call time)
-.autocomplete:async:complete() {}
 
 # Configure tab behavior
 # Override zsh-autocomplete's tab binding to use standard menu completion
@@ -103,7 +98,6 @@ export HISTSIZE=500000
 export HISTFILESIZE=1000000
 
 # variables
-LISTMAX=0
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 WORDCHARS=${${${WORDCHARS:s#/#}:s,#,}:s,_,} # allow /, #, and _ in words
 

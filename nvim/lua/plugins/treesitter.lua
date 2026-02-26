@@ -10,20 +10,16 @@ return {
 				"tsx", "typescript", "vim", "vimdoc", "yaml",
 			}
 
-			require("nvim-treesitter").install(langs)
+			local missing = vim.tbl_filter(function(lang)
+			return #vim.api.nvim_get_runtime_file("parser/" .. lang .. ".so", false) == 0
+		end, langs)
+		if #missing > 0 then
+			require("nvim-treesitter").install(missing)
+		end
 
 			-- Highlighting delegated to Neovim built-in
 			vim.api.nvim_create_autocmd("FileType", {
 				callback = function() pcall(vim.treesitter.start) end,
-			})
-
-			-- Indentation (experimental)
-			vim.api.nvim_create_autocmd("FileType", {
-				callback = function()
-					if pcall(vim.treesitter.get_parser, 0) then
-						vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
-					end
-				end,
 			})
 		end,
 	},

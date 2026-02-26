@@ -43,34 +43,42 @@ cmp.setup.filetype('gitcommit', {
     { name = 'buffer' },
   })
 })
-require("cmp_git").setup()
 
 -- In markdown: wikilink completion only, no buffer word completion
 cmp.setup.filetype('markdown', {
   sources = cmp.config.sources({
     { name = 'obsidian' },
-    { name = 'vsnip' },
   })
 })
+
+require("cmp_git").setup()
 
 -- Use buffer source for `/` and `?` (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline({ '/', '?' }, {
   mapping = cmp.mapping.preset.cmdline(),
-  sources = cmp.config.sources({
+  sources = {
     { name = 'buffer' }
-  }, {
-    {
-      name = 'cmdline',
-      options = {
-	ignore_cmds = { 'Man', '!' }
-      }
-    }
-  })
+  }
 })
 
 -- Use cmdline & path source for ':' (if you enabled `native_menu`, this won't work anymore).
 cmp.setup.cmdline(':', {
-  mapping = cmp.mapping.preset.cmdline(),
+  mapping = cmp.mapping(cmp.mapping.preset.cmdline(), {
+    ['<Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_next_item()
+      else
+        fallback()
+      end
+    end, { 'c' }),
+    ['<S-Tab>'] = cmp.mapping(function(fallback)
+      if cmp.visible() then
+        cmp.select_prev_item()
+      else
+        fallback()
+      end
+    end, { 'c' }),
+  }),
   sources = cmp.config.sources({
     { name = 'path' }
   }, {
@@ -82,7 +90,18 @@ cmp.setup.cmdline(':', {
 -- Set up lspconfig.
 local capabilities = require('cmp_nvim_lsp').default_capabilities()
 -- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-vim.lsp.config.ruby_lsp = {
-  cmd = { 'ruby-lsp' },
+vim.lsp.config('ruby_lsp', {
   capabilities = capabilities
-}
+})
+vim.lsp.enable('ruby_lsp')
+
+vim.lsp.config('lua_ls', {
+  capabilities = capabilities,
+  settings = {
+    Lua = {
+      diagnostics = { globals = { 'vim' } },
+      workspace = { library = vim.api.nvim_get_runtime_file('', true) },
+    },
+  },
+})
+vim.lsp.enable('lua_ls')

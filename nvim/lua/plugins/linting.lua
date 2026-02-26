@@ -1,29 +1,35 @@
 return {
-	{
-		"dense-analysis/ale",
-		init = function()
-			vim.g.ale_fix_on_save = 1
-
-			vim.g.ale_fixers = {
-				javascript = {
-				'remove_trailing_lines',
-				'trim_whitespace',
-				},
-				vue = {
-				'remove_trailing_lines',
-				'trim_whitespace',
-				},
-			}
-
-			vim.g.ale_disable_lsp = 1
-
-			vim.g.ale_exclude_highlights = { 'indentation detected' }
-		end
-	},
-	{
-		"Chiel92/vim-autoformat",
-		init = function()
-			vim.g.formatters_javascriptreact = { 'eslint_local' }
-		end
-	},
+  {
+    "stevearc/conform.nvim",
+    event = "BufWritePre",
+    opts = {
+      formatters_by_ft = {
+        javascript = { "prettier" },
+        javascriptreact = { "prettier" },
+        typescript = { "prettier" },
+        typescriptreact = { "prettier" },
+        vue = { "prettier" },
+        ruby = { "rubocop" },
+      },
+      format_on_save = {
+        timeout_ms = 500,
+        lsp_format = "never",
+      },
+    },
+  },
+  {
+    "mfussenegger/nvim-lint",
+    event = { "BufReadPost", "BufWritePost" },
+    config = function()
+      local lint = require("lint")
+      lint.linters_by_ft = {
+        javascript = { "eslint_d" },
+        typescript = { "eslint_d" },
+        ruby = { "rubocop" },
+      }
+      vim.api.nvim_create_autocmd({ "BufWritePost", "BufReadPost" }, {
+        callback = function() lint.try_lint() end,
+      })
+    end,
+  },
 }

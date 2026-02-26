@@ -6,11 +6,16 @@
 -- Plugin Management
 -- -----------------------------------------------------------------------------
 require("config.lazy")
-vim.cmd [[runtime! prelim.vim]]
 
 -- -----------------------------------------------------------------------------
 -- Core Settings
 -- -----------------------------------------------------------------------------
+-- Indentation defaults (overridden per filetype below)
+vim.o.expandtab = true
+vim.o.tabstop = 2
+vim.o.shiftwidth = 2
+vim.o.softtabstop = 2
+
 vim.o.clipboard = "unnamed,unnamedplus"
 vim.o.confirm = true
 vim.o.hidden = true
@@ -18,6 +23,7 @@ vim.o.ignorecase = true
 vim.o.splitbelow = true
 vim.o.splitright = true
 vim.o.undofile = true
+
 vim.opt.smartcase = true
 vim.opt.list = true
 vim.opt.showmode = false
@@ -33,6 +39,120 @@ if vim.fn.has('nvim-0.10') == 1 then
     end
   })
 end
+
+-- -----------------------------------------------------------------------------
+-- Autocommands
+-- -----------------------------------------------------------------------------
+local augroup = vim.api.nvim_create_augroup('vimrcEx', { clear = true })
+
+-- Jump to last known cursor position
+vim.api.nvim_create_autocmd('BufReadPost', {
+  group = augroup,
+  callback = function()
+    local mark = vim.api.nvim_buf_get_mark(0, '"')
+    local lcount = vim.api.nvim_buf_line_count(0)
+    if mark[1] > 1 and mark[1] <= lcount then
+      vim.api.nvim_win_set_cursor(0, mark)
+    end
+  end,
+})
+
+vim.api.nvim_create_autocmd('BufEnter', {
+  group = augroup,
+  pattern = 'Makefile',
+  callback = function()
+    vim.opt_local.expandtab = false
+    vim.opt_local.tabstop = 8
+    vim.opt_local.shiftwidth = 8
+  end,
+})
+
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  group = augroup,
+  pattern = { '*.md', '*.markdown' },
+  callback = function() vim.bo.filetype = 'markdown' end,
+})
+
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  group = augroup,
+  pattern = '*.ledger',
+  callback = function()
+    vim.opt_local.tabstop = 4
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.softtabstop = 4
+  end,
+})
+
+vim.api.nvim_create_autocmd({ 'BufRead', 'BufNewFile' }, {
+  group = augroup,
+  pattern = '*.jbuilder',
+  callback = function() vim.bo.filetype = 'ruby' end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  group = augroup,
+  pattern = 'gitcommit',
+  callback = function() vim.opt_local.textwidth = 72 end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  group = augroup,
+  pattern = 'gitconfig',
+  callback = function()
+    vim.opt_local.expandtab = false
+    vim.opt_local.tabstop = 8
+    vim.opt_local.shiftwidth = 8
+  end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  group = augroup,
+  pattern = 'markdown',
+  callback = function() vim.opt_local.textwidth = 80 end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  group = augroup,
+  pattern = 'text',
+  callback = function()
+    vim.opt_local.expandtab = false
+    vim.opt_local.tabstop = 8
+    vim.opt_local.shiftwidth = 8
+    vim.opt_local.textwidth = 80
+  end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  group = augroup,
+  pattern = 'elm',
+  callback = function()
+    vim.opt_local.expandtab = true
+    vim.opt_local.tabstop = 4
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.softtabstop = 4
+  end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  group = augroup,
+  pattern = 'lua',
+  callback = function()
+    vim.opt_local.expandtab = true
+    vim.opt_local.tabstop = 2
+    vim.opt_local.shiftwidth = 2
+    vim.opt_local.softtabstop = 2
+  end,
+})
+
+vim.api.nvim_create_autocmd('FileType', {
+  group = augroup,
+  pattern = 'rust',
+  callback = function()
+    vim.opt_local.tabstop = 4
+    vim.opt_local.shiftwidth = 4
+    vim.opt_local.softtabstop = 4
+  end,
+})
 
 -- -----------------------------------------------------------------------------
 -- Keymappings
@@ -57,6 +177,7 @@ local silent_opts = { silent = true, noremap = true }
 keyset("i", "jk", "<ESC>", silent_opts)
 keyset("n", "<c-p>", ":Files<CR>", silent_opts)
 keyset("n", "<leader>r", ":Rg<CR>", silent_opts)
+keyset("n", "<leader>e", vim.diagnostic.open_float, silent_opts)
 
 -- Move lines
 keyset("n", "<leader>j", ":m+<cr>==", silent_opts)
@@ -68,58 +189,25 @@ keyset("x", "<leader>k", ":m-2<cr>gv=gv", silent_opts)
 keyset("n", "ga", "<Plug>(EasyAlign)", { silent = true })
 keyset("x", "ga", "<Plug>(EasyAlign)", { silent = true })
 
+-- Expand %% to current file's directory in command mode
+keyset("c", "%%", function()
+  if vim.fn.getcmdtype() == ':' then
+    return vim.fn.expand('%:h') .. '/'
+  else
+    return '%%'
+  end
+end, { expr = true, noremap = true })
+
 -- -----------------------------------------------------------------------------
 -- Color Scheme
 -- -----------------------------------------------------------------------------
-require('nightfox').setup({
-	options = {
-		transparent = true,
-	}
-})
 
 local status, err = pcall(vim.cmd.colorscheme, "catppuccin-mocha")
-if not status then
-	print("Error loading nightfox: " .. err)
-end
-
--- -----------------------------------------------------------------------------
--- Plugin Configuration
--- -----------------------------------------------------------------------------
-require'config.nvim-cmp'
 
 -- -----------------------------------------------------------------------------
 -- Platform-Specific Configuration
 -- -----------------------------------------------------------------------------
 -- Neovide settings
 if vim.g.neovide then
-	vim.cmd.cd(os.getenv("HOME"))
-end
-
--- Platform-specific clipboard configuration
-if vim.fn.executable('xsel') == 1 then
-	vim.g.clipboard = {
-		name = "unnamedplus",
-		copy = {
-			["+"] = "xsel --clipboard --input",
-			["*"] = "xsel --primary --input",
-		},
-		paste = {
-			["+"] = "xsel --clipboard --output",
-			["*"] = "xsel --primary --output",
-		},
-		cache_enabled = 1,
-	}
-elseif vim.fn.executable('pbcopy') == 1 then
-	vim.g.clipboard = {
-		name = "unnamed",
-		copy = {
-			["+"] = "pbcopy",
-			["*"] = "pbcopy",
-		},
-		paste = {
-			["+"] = "pbpaste",
-			["*"] = "pbpaste",
-		},
-		cache_enabled = 1,
-	}
+  vim.cmd.cd(os.getenv("HOME"))
 end
