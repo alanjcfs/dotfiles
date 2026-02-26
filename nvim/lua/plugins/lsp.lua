@@ -13,14 +13,6 @@ return {
   "hrsh7th/nvim-cmp",
   "hrsh7th/cmp-vsnip",
   "hrsh7th/vim-vsnip",
-  {
-    "adam12/ruby-lsp.nvim",
-    dependencies = {
-      'nvim-lua/plenary.nvim',
-      'neovim/nvim-lspconfig',
-    },
-    config = true,
-  },
   "rafamadriz/friendly-snippets",
   {
     "williamboman/mason.nvim",

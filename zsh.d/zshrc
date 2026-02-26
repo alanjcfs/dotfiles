@@ -100,6 +100,7 @@ export HISTFILESIZE=1000000
 # variables
 ZSH_AUTOSUGGEST_STRATEGY=(history completion)
 WORDCHARS=${${${WORDCHARS:s#/#}:s,#,}:s,_,} # allow /, #, and _ in words
+LISTMAX=-1 # Don't ask if I want to see numerous possibilities autocompleting.
 
 # history
 source $ZSHDIR/history.zsh
