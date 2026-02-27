@@ -118,6 +118,7 @@ export LESS=eFRX
 
 # bat — use as fzf previewer and man pager
 if command -v bat &>/dev/null; then
+  export MANROFFOPT="-c"  # force groff backspace formatting so col -bx works correctly
   export MANPAGER="sh -c 'col -bx | bat -l man -p'"
   export FZF_DEFAULT_OPTS="--preview 'bat --color=always --style=numbers --line-range=:50 {}' --preview-window=right:50%:wrap"
 fi
