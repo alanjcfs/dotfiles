@@ -66,6 +66,7 @@ keyset("i", "jk", "<ESC>", silent_opts)
 keyset("n", "<c-p>", ":Files<CR>", silent_opts)
 keyset("n", "<leader>r", ":Rg<CR>", silent_opts)
 keyset("n", "<leader>e", vim.diagnostic.open_float, silent_opts)
+keyset("n", "<leader>t", ":Twrite ", silent_opts)
 
 -- Move lines
 keyset("n", "<leader>j", ":m+<cr>==", silent_opts)
@@ -90,7 +91,7 @@ end, { expr = true, noremap = true })
 -- Color Scheme
 -- -----------------------------------------------------------------------------
 
-local status, err = pcall(vim.cmd.colorscheme, "catppuccin-mocha")
+local status, err = pcall(vim.cmd.colorscheme, "nightfox")
 
 -- -----------------------------------------------------------------------------
 -- Platform-Specific Configuration

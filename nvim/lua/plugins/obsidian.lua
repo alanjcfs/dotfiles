@@ -35,7 +35,11 @@ return {
 				date_format = "%Y-%m-%d",
 				time_format = "%H:%M",
 			},
-			preferred_link_style = "wiki",
+			disable_frontmatter = function(fname)
+			local exclude = { ["CLAUDE.md"] = true }
+			return exclude[vim.fs.basename(fname)] or false
+		end,
+		preferred_link_style = "wiki",
 			completion = {
 				nvim_cmp = true,
 				min_chars = 2,

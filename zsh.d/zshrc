@@ -11,7 +11,7 @@ source ~/.files/zsh.d/p10k.zsh
 if [[ -n $SSH_CONNECTION ]]; then
   export EDITOR='vim'
 else
-  if [[ -f /usr/bin/nvim ]]; then
+  if [[ -f /usr/bin/nvim ]] || [[ -f /opt/homebrew/bin/nvim ]]; then
     export EDITOR='nvim'
   else
     export EDITOR='vim'
