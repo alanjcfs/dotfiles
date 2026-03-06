@@ -16,5 +16,5 @@ return {
 			})
 		end,
 	},
-	"tpope/vim-tbone",
+	"tpope/vim-tbone", -- tmux integration for :make and :grep
 }

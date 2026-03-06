@@ -5,8 +5,8 @@ return {
 		build = ":TSUpdate",
 		config = function()
 			local langs = {
-				"bash", "css", "html", "javascript", "json",
-				"lua", "markdown", "markdown_inline", "ruby",
+        "bash", "css", "elixir", "html", "javascript", "json",
+        "lua", "markdown", "markdown_inline", "ruby",
 				"tsx", "typescript", "vim", "vimdoc", "yaml",
 			}
 

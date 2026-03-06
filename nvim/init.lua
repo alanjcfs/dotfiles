@@ -63,20 +63,8 @@ keyset("n", "<leader>gw", ":Gwrite<CR>", general_opts)
 -- Silent keymaps
 local silent_opts = { silent = true, noremap = true }
 keyset("i", "jk", "<ESC>", silent_opts)
-keyset("n", "<c-p>", ":Files<CR>", silent_opts)
-keyset("n", "<leader>r", ":Rg<CR>", silent_opts)
 keyset("n", "<leader>e", vim.diagnostic.open_float, silent_opts)
 keyset("n", "<leader>t", ":Twrite ", silent_opts)
-
--- Move lines
-keyset("n", "<leader>j", ":m+<cr>==", silent_opts)
-keyset("n", "<leader>k", ":m-2<cr>==", silent_opts)
-keyset("x", "<leader>j", ":m'>+<cr>gv=gv", silent_opts)
-keyset("x", "<leader>k", ":m-2<cr>gv=gv", silent_opts)
-
--- EasyAlign (remap=true required for <Plug> mappings)
-keyset("n", "ga", "<Plug>(EasyAlign)", { silent = true })
-keyset("x", "ga", "<Plug>(EasyAlign)", { silent = true })
 
 -- Expand %% to current file's directory in command mode
 keyset("c", "%%", function()

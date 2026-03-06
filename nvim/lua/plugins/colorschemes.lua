@@ -1,13 +1,11 @@
 return {
 	{
 		"EdenEast/nightfox.nvim",
-		config = function()
-			require('nightfox').setup({
-				options = {
-					transparent = true,
-				}
-			})
-		end
+		opts = {
+			options = {
+				transparent = true,
+			}
+		},
 	},
 	{ "ellisonleao/gruvbox.nvim", },
 	{
