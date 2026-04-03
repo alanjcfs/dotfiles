@@ -62,6 +62,17 @@ vim.api.nvim_create_autocmd('FileType', {
   pattern = { "markdown" },
   callback = function()
     vim.opt_local.textwidth = 80
+    vim.cmd([[iabbrev <buffer> dc@ <C-R>=strftime('%c')<CR>]])
+    vim.cmd([[iabbrev <buffer> dt@ <C-R>=strftime('%F %T')<CR>]])
+    vim.cmd([[iabbrev <buffer> dd@ <C-R>=strftime('%A, %B %d, %Y at %H:%M%z')<CR>]])
+    vim.cmd([[iabbrev <buffer> dw@ <C-R>=strftime('%Y-W%W-%u')<CR>]])
+    vim.cmd([[iabbrev <buffer> dy@ <C-R>=strftime('%Y-%j')<CR>]])
+
+    -- vim.cmd([[iabbrev <buffer> di@ <C-R>=strftime('%s')<CR>]])
+    vim.keymap.set('ia', 'di@', function()
+      local sec, microsec = vim.uv.gettimeofday()
+      return tostring(sec * 1000 + math.floor((microsec / 1000 / 2 + 0.5) * 2))
+    end, { buffer = true, expr = true })
   end,
 })
 

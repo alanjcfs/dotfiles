@@ -22,6 +22,10 @@ return {
       { "<leader>r", "<cmd>lua require('fzf-lua').live_grep()<CR>", silent = true },
       { "<leader>fb", "<cmd>lua require('fzf-lua').buffers()<CR>", silent = true },
     },
+    config = function(_, opts)
+      require("fzf-lua").setup(opts)
+      require("fzf-lua.config").globals.actions.files["ctrl-x"] = require("fzf-lua.actions").file_split
+    end,
   },
   {
     "nvim-telescope/telescope.nvim",
