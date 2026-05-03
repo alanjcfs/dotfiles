@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-<!-- Last reviewed: 2025-11-25 -->
+<!-- Last reviewed: 2026-05-02 -->
 
 This file provides guidance to Claude Code when working with this dotfiles repository.
 
@@ -23,10 +23,6 @@ This file provides guidance to Claude Code when working with this dotfiles repos
   znap source <plugins>      # Then load plugins
   ```
 
-### Git Commits
-- **Always use conventional commits** with scope
-- Examples: `feat(nvim):`, `fix(zsh):`, `docs(claude):`, `chore(gitignore):`
-
 ### Dotfiles Structure
 - Dotfiles are managed with git submodules (powerlevel10k, tpm, dotbot)
 - Check existing config structure before suggesting changes to nvim or tmux configs
@@ -34,25 +30,6 @@ This file provides guidance to Claude Code when working with this dotfiles repos
 ### File Editing
 - **Read files before editing** - Required by the Edit tool
 - **Prefer editing** over creating new files when possible
-
-## Quick Start
-
-### Setting Up on a New Machine
-
-```bash
-# 1. Clone the repository
-git clone <your-repo-url> ~/.files
-cd ~/.files
-
-# 2. Run the installer
-./install
-```
-
-The installer will:
-- Create all symlinks (nvim, vim, tmux, Claude Code)
-- Initialize git submodules (powerlevel10k, tpm, dotbot)
-- Create machine-specific `~/.zshrc` if it doesn't exist
-- Check for Neovim installation
 
 ## Repository Overview
 
