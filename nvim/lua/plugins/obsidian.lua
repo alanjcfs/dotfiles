@@ -3,6 +3,9 @@ return {
 		"epwalsh/obsidian.nvim",
 		version = "*",
 		lazy = true,
+		cond = function()
+			return vim.fn.isdirectory(vim.fn.expand("~/Notes")) == 1
+		end,
 		ft = "markdown",
 		keys = {
 			{ "<leader>zf", "<cmd>ObsidianQuickSwitch<CR>" },
