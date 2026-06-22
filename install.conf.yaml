@@ -32,7 +32,7 @@
     - ~/.config/tmuxinator
 
 - shell:
-  # Initialize git submodules (powerlevel10k, tpm, etc.)
+  # Initialize git submodules (powerlevel10k, dotbot, etc.)
   - [git submodule update --init --recursive, Installing submodules]
 
   # Check for Neovim installation

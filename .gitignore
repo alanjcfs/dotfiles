@@ -9,10 +9,8 @@ node_modules/
 # Compiled Zsh scripts (bytecode cache)
 *.zwc
 
-# TPM-managed plugins (downloaded at runtime)
-# Keep tpm itself (it's a submodule)
-tmux/plugins/*
-!tmux/plugins/tpm/
+# tpack-managed plugins (downloaded at runtime)
+tmux/plugins/
 
 # ZSH plugins managed by powerlevel10k
 zsh.d/Repos/
