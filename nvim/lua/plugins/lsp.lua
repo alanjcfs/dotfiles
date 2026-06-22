@@ -21,17 +21,21 @@ return {
   {
     "williamboman/mason-lspconfig.nvim",
     config = function()
-      require("mason-lspconfig").setup({
-        ensure_installed = {
-          "ts_ls",
-          "elixirls",
-          "eslint",
-          "lua_ls",
-          "ruby_lsp",
-          "rust_analyzer",
-          "vuels",
-        },
-      })
+      local servers = {
+        "ts_ls",
+        "elixirls",
+        "eslint",
+        "lua_ls",
+        "rust_analyzer",
+        "vuels",
+      }
+      if vim.fn.executable("gem") == 1 then
+        table.insert(servers, "ruby_lsp")
+      end
+      require("mason-lspconfig").setup({})
+      vim.api.nvim_create_user_command("MasonInstallAll", function()
+        require("mason-lspconfig").setup({ ensure_installed = servers })
+      end, { desc = "Install all configured LSP servers via Mason" })
     end,
   },
 }

@@ -44,6 +44,8 @@ znap source zsh-users/zsh-autosuggestions
 znap source zsh-users/zsh-syntax-highlighting
 
 # Configure zsh-autocomplete behavior (before loading plugin)
+# Wait 0.4s after last keystroke before showing completions
+zstyle ':autocomplete:*' min-delay 0.4
 # Disable auto-insert so tab cycles through options instead
 zstyle ':autocomplete:*complete*:*' insert-unambiguous no
 zstyle ':autocomplete:*history*:*' insert-unambiguous no
