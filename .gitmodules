@@ -1,9 +1,6 @@
 [submodule "tmux.d/tmux-colors-solarized"]
 	path = tmux.d/tmux-colors-solarized
 	url = https://github.com/seebi/tmux-colors-solarized.git
-[submodule "tmux/plugins/tpm"]
-	path = tmux/plugins/tpm
-	url = https://github.com/tmux-plugins/tpm
 [submodule "dotbot"]
 	path = dotbot
 	url = https://github.com/anishathalye/dotbot

@@ -1,6 +1,7 @@
 return {
 	{
 		"nvim-treesitter/nvim-treesitter",
+		cond = function() return vim.fn.executable("tree-sitter") == 1 end,
 		lazy = false,
 		build = ":TSUpdate",
 		config = function()
