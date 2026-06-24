@@ -60,7 +60,7 @@ znap source marlonrichert/zsh-autocomplete
 # Override zsh-autocomplete's tab binding to use standard menu completion
 bindkey '\t' menu-complete  # Tab cycles through options without auto-accepting
 bindkey -M menuselect '\t' menu-complete  # Continue cycling in menu mode
-bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
+[[ -n "$terminfo[kcbt]" ]] && bindkey -M menuselect "$terminfo[kcbt]" reverse-menu-complete
 bindkey -M menuselect '\r' .accept-line
 
 # Accept current selection and add "/" when slash is pressed in menu
@@ -74,8 +74,8 @@ bindkey -M menuselect '/' accept-and-slash
 
 # Make left/right arrows exit menu and allow line editing
 # Use terminfo for portability between macOS and Linux
-bindkey -M menuselect "$terminfo[kcub1]" .accept-line  # Left arrow
-bindkey -M menuselect "$terminfo[kcuf1]" .accept-line  # Right arrow
+[[ -n "$terminfo[kcub1]" ]] && bindkey -M menuselect "$terminfo[kcub1]" .accept-line  # Left arrow
+[[ -n "$terminfo[kcuf1]" ]] && bindkey -M menuselect "$terminfo[kcuf1]" .accept-line  # Right arrow
 
 
 # Compilation flags
