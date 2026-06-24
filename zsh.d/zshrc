@@ -54,6 +54,9 @@ zstyle ':autocomplete:tab:*' insert-unambiguous no
 zstyle ':autocomplete:tab:*' widget-style menu-complete
 zstyle ':completion:*' accept-exact-dirs true
 
+# Ensure kcbt (Shift-Tab) is defined; some terminals/SSH sessions don't populate it
+(( ${+terminfo[kcbt]} )) || terminfo[kcbt]=$'\e[Z'
+
 znap source marlonrichert/zsh-autocomplete
 
 # Configure tab behavior
