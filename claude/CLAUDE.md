@@ -126,8 +126,9 @@ Conventional Commits format (used for first branch commit and merges to main):
 - `build`: Build system or external dependency changes
 - `revert`: Revert a previous commit
 
-### Examples
-- `feat(auth): add user login endpoint`
-- `fix(api): resolve race condition in cache invalidation`
-- `docs: update README with installation instructions`
-- `refactor(utils): simplify date formatting logic`
+All subsequent commits on the same branch use plain imperative sentences:
+
+```
+Move axe check to confirmation page
+Fix apostrophe in test assertion
+```

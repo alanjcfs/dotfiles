@@ -4,6 +4,7 @@ return {
     event = "BufWritePre",
     opts = {
       formatters_by_ft = {
+        markdown = { "trim_whitespace" },
         javascript = { "prettier" },
         javascriptreact = { "prettier" },
         typescript = { "prettier" },
