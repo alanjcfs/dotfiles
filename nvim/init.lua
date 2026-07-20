@@ -87,4 +87,5 @@ local status, err = pcall(vim.cmd.colorscheme, "nightfox")
 -- Neovide settings
 if vim.g.neovide then
   vim.cmd.cd(os.getenv("HOME"))
+  vim.o.guifont = "Triplicate B Code" .. "," .. vim.o.guifont .. ":h14"
 end
