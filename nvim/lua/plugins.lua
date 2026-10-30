@@ -6,5 +6,4 @@ return {
 		end,
 	},
 	"tpope/vim-dispatch",
-	"skywind3000/asyncrun.vim",
 }

@@ -91,15 +91,12 @@ cmp.setup.cmdline(':', {
 })
 
 -- Set up lspconfig.
-local capabilities = require('cmp_nvim_lsp').default_capabilities()
--- Replace <YOUR_LSP_SERVER> with each lsp server you've enabled.
-vim.lsp.config('ruby_lsp', {
-  capabilities = capabilities
-})
+-- Applies to every server, including those enabled by mason-lspconfig
+vim.lsp.config('*', { capabilities = require('cmp_nvim_lsp').default_capabilities() })
+
 vim.lsp.enable('ruby_lsp')
 
 vim.lsp.config('lua_ls', {
-  capabilities = capabilities,
   settings = {
     Lua = {
       diagnostics = { globals = { 'vim' } },
@@ -109,8 +106,4 @@ vim.lsp.config('lua_ls', {
 })
 vim.lsp.enable('lua_ls')
 
-vim.lsp.config('ts_ls', { capabilities = capabilities })
-vim.lsp.enable('ts_ls')
-
-vim.lsp.config('eslint', { capabilities = capabilities })
 vim.lsp.enable('eslint')

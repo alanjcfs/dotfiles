@@ -30,6 +30,9 @@ vim.opt.smartcase = true
 vim.opt.list = true
 vim.opt.showmode = false
 
+-- Show the full diagnostic message below the cursor line only
+vim.diagnostic.config({ virtual_lines = { current_line = true } })
+
 -- Disable bracketed paste to prevent control character issues
 -- This prevents the terminal from using special escape sequences for paste detection
 vim.opt.paste = false
@@ -49,7 +52,6 @@ local keyset = vim.keymap.set
 
 -- General keymaps
 local general_opts = { silent = false, noremap = true }
-keyset("n", "<leader>d", ":Dispatch<space><up>")
 keyset("n", "<leader> ", ":noh<cr>")
 keyset("n", "<leader>a", ":Ripgrep ", general_opts)
 keyset("n", "<leader>ev", ":sp $MYVIMRC<CR>", general_opts)
@@ -63,7 +65,7 @@ keyset("n", "<leader>gw", ":Gwrite<CR>", general_opts)
 -- Silent keymaps
 local silent_opts = { silent = true, noremap = true }
 keyset("i", "jk", "<ESC>", silent_opts)
-keyset("n", "<leader>e", vim.diagnostic.open_float, silent_opts)
+keyset("n", "<leader>d", vim.diagnostic.open_float, silent_opts)
 keyset("n", "<leader>t", ":Twrite ", silent_opts)
 
 -- Expand %% to current file's directory in command mode

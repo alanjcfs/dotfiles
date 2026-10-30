@@ -1,5 +1,4 @@
 return {
-  "tpope/vim-sensible",
   "junegunn/vim-easy-align",
   "mbbill/undotree",
   "tpope/vim-surround",
