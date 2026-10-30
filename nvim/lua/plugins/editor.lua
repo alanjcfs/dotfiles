@@ -15,7 +15,7 @@ return {
         function()
           require("which-key").show({ global = false })
         end,
-        desc = "Bugfger local Keymaps (which-key)",
+        desc = "Buffer local Keymaps (which-key)",
       },
     }
   },
