@@ -1,7 +1,7 @@
 return {
 	"github/copilot.vim",
 	cond = function()
-		return vim.fn.filereadable(vim.fn.expand("~/.config/github-copilot/hosts.json")) == 1
+		return vim.fn.filereadable(vim.fn.expand("~/.config/github-copilot/apps.json")) == 1
 	end,
 	init = function()
 		vim.g.copilot_filetypes = {
@@ -9,6 +9,9 @@ return {
 			markdown = false,
 			typst = false,
 		}
+
+		-- GitHub Enterprise host, set per machine in ~/.zshrc
+		vim.g.copilot_enterprise_uri = vim.env.COPILOT_ENTERPRISE_URI
 
 		-- Prefer nvm's node over system node
 		local nvm_dir = vim.env.NVM_DIR

@@ -19,9 +19,10 @@ return {
 		},
 		dependencies = {
 			"nvim-lua/plenary.nvim",
-			"nvim-telescope/telescope.nvim",
+			"ibhagwan/fzf-lua",
 		},
 		opts = {
+			picker = { name = "fzf-lua" },
 			workspaces = {
 				{
 					name = "notes",
@@ -47,7 +48,7 @@ return {
 				nvim_cmp = true,
 				min_chars = 2,
 			},
-			mappings = {}, -- disable defaults, define our own below
+			mappings = {}, -- disable defaults; ours are in `keys` above
 		},
 		config = function(_, opts)
 			require("obsidian").setup(opts)
@@ -58,18 +59,6 @@ return {
 					vim.opt_local.conceallevel = 1
 				end,
 			})
-
-			local map = vim.keymap.set
-			local o = { noremap = true, silent = true }
-
-			map("n", "<leader>zf", "<cmd>ObsidianQuickSwitch<CR>",    o)
-			map("n", "<leader>zg", "<cmd>ObsidianSearch<CR>",         o)
-			map("n", "<leader>zd", "<cmd>ObsidianToday<CR>",          o)
-			map("n", "<leader>zz", "<cmd>ObsidianFollowLink<CR>",     o)
-			map("n", "<leader>zn", "<cmd>ObsidianNew<CR>",            o)
-			map("n", "<leader>zb", "<cmd>ObsidianBacklinks<CR>",      o)
-			map("n", "<leader>zt", "<cmd>ObsidianTags<CR>",           o)
-			map("n", "<leader>zT", "<cmd>ObsidianToggleCheckbox<CR>", o)
 		end,
 	},
 }

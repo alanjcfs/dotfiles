@@ -1,19 +1,5 @@
 return {
 	"alanjcfs/rg.nvim",
-	{
-		"nvim-neo-tree/neo-tree.nvim",
-		branch = "v3.x",
-		dependencies = {
-			"nvim-lua/plenary.nvim",
-			"nvim-tree/nvim-web-devicons",
-			"MunifTanjim/nui.nvim",
-		},
-		lazy = false,
-		keys = {
-			{ "<leader>ft", "<cmd>Neotree toggle<CR>", desc = "NeoTree" },
-		},
-		opts = {},
-	},
   {
     "ibhagwan/fzf-lua",
     dependencies = { "nvim-tree/nvim-web-devicons" },
@@ -22,19 +8,34 @@ return {
       { "<leader>r", "<cmd>lua require('fzf-lua').live_grep()<CR>", silent = true },
       { "<leader>fb", "<cmd>lua require('fzf-lua').buffers()<CR>", silent = true },
     },
-    config = function(_, opts)
-      require("fzf-lua").setup(opts)
-      require("fzf-lua.config").globals.actions.files["ctrl-x"] = require("fzf-lua.actions").file_split
+    opts = function()
+      local actions = require("fzf-lua.actions")
+      return {
+        actions = {
+          files = {
+            true, -- keep fzf-lua's default file actions
+            ["ctrl-x"] = actions.file_split,
+            -- Send every result to the quickfix list, like :Ripgrep
+            ["ctrl-q"] = { fn = actions.file_sel_to_qf, prefix = "select-all" },
+          },
+        },
+      }
     end,
   },
   {
-    "nvim-telescope/telescope.nvim",
-    dependencies = { "nvim-lua/plenary.nvim" },
-    keys = {
-      { "<leader>fg", "<cmd>Telescope live_grep<CR>", silent = true, desc = "Telescope Live Grep" },
+    "stevearc/oil.nvim",
+    ---@module 'oil'
+    ---@type oil.SetupOpts
+    opts = {
+      keymaps = {
+        ["<C-h>"] = false,
+        ["<C-l>"] = false,
+      }
     },
-  },
-  {
-    "nvim-telescope/telescope-fzf-native.nvim",
-  },
+    keys = {
+      { "-", "<cmd>Oil<CR>", desc = "Open parent directory" },
+    },
+    dependencies = { "nvim-tree/nvim-web-devicons" },
+    lazy = false,
+  }
 }

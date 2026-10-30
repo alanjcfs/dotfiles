@@ -32,8 +32,8 @@ require("lazy").setup({
   },
   -- automatically check for plugin updates
   checker = {
-    enabled = true, -- enable periodic checking for updates
-    notify = false, -- disable notifications for updates
-    frequency = 86400, -- check for updates every 24 hours
+    enabled = true, -- periodic checking for updates
+    notify = true, -- notifications for updates
+    frequency = 60*60*24*7, -- frequency of checking for updates in seconds (default: 86400)
   },
 })
