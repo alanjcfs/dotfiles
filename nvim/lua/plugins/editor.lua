@@ -4,7 +4,6 @@ return {
   "tpope/vim-surround",
   "tpope/vim-repeat",
   "tpope/vim-endwise",
-  "tpope/vim-unimpaired",
   "junegunn/vim-peekaboo",
   {
     "folke/which-key.nvim",
