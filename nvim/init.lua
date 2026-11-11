@@ -57,10 +57,7 @@ keyset("n", "<leader>a", ":Ripgrep ", general_opts)
 keyset("n", "<leader>ev", ":sp $MYVIMRC<CR>", general_opts)
 keyset("n", "<leader>sv", ":so $MYVIMRC<CR>", general_opts)
 keyset("n", "<leader>l", ":buffers<CR>:b", general_opts)
-keyset("n", "<leader>g ", ":Git ", general_opts)
-keyset("n", "<leader>gb", ":Git blame", general_opts)
-keyset("n", "<leader>gl", ":Gclog -p<space>", general_opts)
-keyset("n", "<leader>gw", ":Gwrite<CR>", general_opts)
+-- Git keymaps live with vim-fugitive in lua/plugins/git.lua
 
 -- Silent keymaps
 local silent_opts = { silent = true, noremap = true }
