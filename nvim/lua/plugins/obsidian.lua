@@ -7,6 +7,17 @@ return {
 			return vim.fn.isdirectory(vim.fn.expand("~/Notes")) == 1
 		end,
 		ft = "markdown",
+		cmd = {
+			"ObsidianOpen",
+			"ObsidianQuickSwitch",
+			"ObsidianSearch",
+			"ObsidianToday",
+			"ObsidianFollowLink",
+			"ObsidianNew",
+			"ObsidianBacklinks",
+			"ObsidianTags",
+			"ObsidianToggleCheckbox"
+		},
 		keys = {
 			{ "<leader>zf", "<cmd>ObsidianQuickSwitch<CR>" },
 			{ "<leader>zg", "<cmd>ObsidianSearch<CR>" },
