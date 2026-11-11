@@ -1,8 +1,8 @@
 return {
-  "junegunn/vim-easy-align",
   "mbbill/undotree",
   "tpope/vim-surround",
   "tpope/vim-repeat",
+  "tpope/vim-sleuth",
   "tpope/vim-endwise",
   "junegunn/vim-peekaboo",
   {
